@@ -1,0 +1,16 @@
+.Cutline button.ToggleExplainer {
+	margin-left: var(--space-2);
+	color: var(--color-primary-light);
+	font-size: var(--text-xs);
+	font-weight: var(--font-weight-bold);
+	cursor: pointer;
+	&:hover {
+		color: var(--color-quaternary);
+	}
+	.App_active & {
+		color: var(--color-secondary-light);
+		&:hover {
+			color: var(--color-quaternary-light);
+		}
+	}
+}

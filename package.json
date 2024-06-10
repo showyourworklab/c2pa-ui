@@ -1,0 +1,29 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "react:lerna": "lerna run --scope @c2pa-ui/react",
+    "react:dev": "npm run react:lerna dev",
+    "react:build": "npm run react:lerna build",
+    "react:package": "npm run react:lerna package",
+    "react:preview": "npm run react:lerna preview",
+    "svelte:lerna": "lerna run --scope @c2pa-ui/svelte",
+    "svelte:dev": "npm run svelte:lerna dev",
+    "svelte:build": "npm run svelte:lerna build",
+    "svelte:package": "npm run svelte:lerna package",
+    "svelte:preview": "npm run svelte:lerna preview",
+    "svelte:deploy": "npm run svelte:lerna deploy",
+    "docs:lerna": "lerna run --scope @c2pa-ui/docs",
+    "docs:dev": "npm run docs:lerna dev",
+    "docs:build": " npm run svelte:build && npm run docs:lerna build",
+    "docs:deploy": "npm run docs:lerna deploy",
+    "deploy": "npx gh-pages -d public -t true",
+    "readme": "scripts/readme.js"
+  },
+  "devDependencies": {
+    "lerna": "^8.1.3"
+  }
+}

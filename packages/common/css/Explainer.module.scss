@@ -1,0 +1,43 @@
+.Explainer {
+	.CollapseInner {
+		padding-top: var(--space-4);
+		padding-bottom: var(--space-3);
+	}
+}
+.ExplainerInner {
+	padding: var(--space-4);
+	font-size: var(--text-sm);
+	line-height: 1.5em;
+	color: var(--color-primary);
+	background-color: var(--color-secondary-light);
+	border-radius: var(--radius-lg);
+	border-color: var(--color-primary-light);
+	border-style: dotted;
+	border-width: 1px;
+	pointer-events: all;
+	p {
+		margin: 0 0 var(--space-2) 0;
+	}
+	a {
+		color: var(--color-quaternary);
+	}
+	// p:first-of-type {
+	// 	margin-top: 0;
+	// }
+	strong {
+		font-size: var(--text-xs);
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+	}
+	p:last-of-type {
+		margin-bottom: 0;
+	}
+}
+
+.ExplainerMore {
+	margin-top: var(--space-4);
+	font-weight: var(--font-weight-bold);
+	a {
+		text-decoration: underline;
+	}
+}

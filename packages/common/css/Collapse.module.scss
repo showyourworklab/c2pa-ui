@@ -1,0 +1,13 @@
+.Collapse {
+	opacity: 0;
+	transition-property: opacity, height;
+	transition-duration: 200ms;
+	transition-timing-function: ease;
+	overflow: hidden;
+	&.Collapse_open {
+		opacity: 1;
+	}
+}
+.CollapseInner {
+	transform: translate(0, 0);
+}

@@ -1,0 +1,49 @@
+.App {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	margin: 0 calc(-1 * var(--space-5));
+	padding: var(--space-5);
+	// color: var(--color-primary-darker);
+	background-color: var(--color-secondary);
+	border-radius: var(--radius-lg);
+	font-family: var(--font-primary);
+	font-weight: var(--font-weight-normal);
+	font-size: var(--text-base);
+	font-optical-sizing: auto;
+	font-style: normal;
+	transition: all 200ms ease;
+	* {
+		box-sizing: border-box;
+	}
+	a {
+		color: var(--color-primary);
+	}
+	button {
+		border: none;
+		margin: 0;
+		padding: 0;
+		width: auto;
+		overflow: visible;
+		background: transparent;
+		color: inherit;
+		font: inherit;
+		line-height: normal;
+		-webkit-font-smoothing: inherit;
+		-moz-osx-font-smoothing: inherit;
+		-webkit-appearance: none;
+		appearance: none;
+	}
+	&.App_hovered {
+		transform: translate(0, 0);
+	}
+	&.App_active {
+		background-color: var(--color-primary);
+	}
+}
+.App_hovered {
+	transform: translate(0, 0);
+}
+.App_hovered {
+	transform: translate(0, 0);
+}

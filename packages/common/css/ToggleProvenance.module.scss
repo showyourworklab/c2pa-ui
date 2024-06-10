@@ -1,0 +1,57 @@
+.Cutline button.ToggleProvenance {
+	display: flex;
+	align-items: center;
+	position: relative;
+	cursor: pointer;
+	padding: var(--space-1) var(--space-2) var(--space-1) var(--space-6);
+	color: var(--color-tertiary-light);
+	background-color: var(--color-primary);
+	border-radius: var(--radius-lg);
+	// border-color: var(--color-tertiary);
+	// border-style: solid;
+	// border-width: 1px;
+	border: 1px solid transparent;
+	font-size: var(--text-sm);
+	font-weight: var(--font-weight-bold);
+	transition: all 200ms ease;
+	&::before {
+		content: '';
+		display: block;
+		width: 8px;
+		height: 8px;
+		position: absolute;
+		top: calc(50% - 4px);
+		left: calc(var(--space-3) - 5px);
+		margin-right: var(--space-2);
+		z-index: 3;
+		background-color: var(--color-secondary);
+		border-color: var(--color-primary);
+		border-width: 1px;
+		border-style: solid;
+		border-radius: 100%;
+		transition: all 200ms ease;
+	}
+	&:hover, .App_hovered & {
+		background-color: var(--color-quaternary);
+		&::before {
+			border-color: var(--color-quaternary);
+		}
+	}
+	.App_active & {
+		color: var(--color-primary);
+		background-color: var(--color-secondary);
+		&::before {
+			border-color: var(--color-primary);
+			// background-color: var(--color-secondary);
+			// border-color: var(--color-primary);
+		}
+	}
+	.App_active &:hover, .App_active.App_hovered & {
+		color: var(--color-quaternary);
+		background-color: var(--color-secondary);
+		&::before {
+			background-color: var(--color-quaternary);
+			border-color: var(--color-quaternary);
+		}
+	}
+}

@@ -1,0 +1,59 @@
+{
+	"name": "@c2pa-ui/svelte",
+	"version": "0.0.1",
+	"description": "",
+	"author": "",
+	"license": "ISC",
+	"homepage": "https://github.com/coreytegeler/c2pa-ui#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/coreytegeler/c2pa-ui.git"
+	},
+	"bugs": {
+		"url": "https://github.com/coreytegeler/c2pa-ui/issues"
+	},
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build && npm run package --test",
+		"build:demo": "vite build && npm run package",
+		"package": "svelte-package && publint",
+		"preview": "vite preview",
+		"lint": "eslint ."
+	},
+	"dependencies": {
+		"@sveltejs/adapter-static": "^3.0.1",
+		"c2pa": "^0.21.0"
+	},
+	"devDependencies": {
+		"@playwright/test": "^1.28.1",
+		"@sveltejs/adapter-auto": "^3.0.0",
+		"@sveltejs/kit": "^2.0.0",
+		"@sveltejs/package": "^2.0.0",
+		"@sveltejs/vite-plugin-svelte": "^3.0.0",
+		"@types/eslint": "^8.56.7",
+		"eslint": "^9.0.0",
+		"eslint-plugin-svelte": "^2.36.0",
+		"globals": "^15.0.0",
+		"publint": "^0.1.9",
+		"svelte": "^4.2.7",
+		"svelte-check": "^3.6.0",
+		"tslib": "^2.4.1",
+		"typescript": "^5.0.0",
+		"vite": "^5.0.11"
+	},
+	"exports": {
+		".": {
+			"svelte": "./dist/index.svelte",
+			"default": "./dist/index.js"
+		}
+	},
+	"files": [
+		"dist"
+	],
+	"peerDependencies": {
+		"svelte": "^4.0.0"
+	},
+	"svelte": "./dist/index.js",
+	"type": "module",
+	"sideEffects": false
+}
