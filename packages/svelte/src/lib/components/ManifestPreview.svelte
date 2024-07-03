@@ -35,6 +35,11 @@
 	<div
 		class={`${styles.ManifestPreviewCell} ${styles.ManifestPreviewCell_issuer}`}
 	>
+		<span
+			class={styles.ManifestPreviewIndex}
+		>
+			{index + 1}
+		</span>
 		<span>{manifest?.signator ?? ''}</span>
 	</div>
 	<div

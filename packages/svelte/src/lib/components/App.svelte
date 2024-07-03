@@ -7,9 +7,9 @@
 	import '$common/css/globals.scss'
 	import styles from '$common/css/App.module.scss'
 	import { joinClassNames } from '$common/helpers'
-	import { prepareManifest } from '$common/helpers/c2pa'
+	import { prepareManifest, getSummary } from '$common/helpers/c2pa'
 	import { lang, setLocale } from '$lib/store/i18n.js'
-	import { setSrc, setAlt, setCaption, setByline, setManifests } from '$lib/store/data.js'
+	import { setSrc, setAlt, setCaption, setByline, setOrigin, setManifests } from '$lib/store/data.js'
 	import { isHoverImage, isShowProvenance } from '$lib/store/ui.js'
 	import Figure from './Figure.svelte'
 	import Image from './Image.svelte'
@@ -22,12 +22,14 @@
 	export let alt = ''
 	export let caption = ''
 	export let byline = ''
+	export let origin = ''
 	export let locale = ''
 
 	$: setSrc(src)
 	$: setAlt(alt)
 	$: setCaption(caption)
 	$: setByline(byline)
+	$: setOrigin(origin)
 	$: setLocale(locale)
 
 	onMount(async () => {
@@ -37,7 +39,9 @@
 		})
 		try {
 			// Read in the image and get a manifest store
-			const { manifestStore } = await c2pa.read(src);
+			const c2paData = await c2pa.read(src);
+			const { manifestStore } = c2paData
+			getSummary(manifestStore)
 			// Get the active manifest
 			const newManifests = Object.values(manifestStore?.manifests ?? {})
 				.map(manifest => prepareManifest(locale, manifest))

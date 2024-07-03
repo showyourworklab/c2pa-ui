@@ -2,6 +2,7 @@
 	import '$common/css/globals.scss'
 	import { LOCALE_DEFAULT, DICTIONARIES } from '$common/constants/i18n'
 	import ImageLeica1 from '$common/images/leica-1.jpg'
+	import ImageInvalid from '$common/images/invalid.jpg'
 	import App from '$lib/components/App.svelte'
 
 	const locales = Object.keys(DICTIONARIES)
@@ -38,11 +39,15 @@
 		<h2>Image with C2PA data from Leica camera</h2>
 		<App
 			locale={locale}
-			src={ImageLeica1}
+			src={ImageInvalid}
 			caption='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis est ut enim imperdiet lacinia. Etiam vitae volutpat eros. Cras sagittis condimentum lacus, sit amet mattis mauris convallis id.'
 			byline='Lectus Vitae / Tristique Imperdiet'
+			origin='camera'
 		/>
 	</section>
+	<footer>
+		This page is built with Svelte
+	</footer>
 </main>
 
 <style>
