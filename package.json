@@ -1,5 +1,5 @@
 {
-  "name": "c2pa-ui",
+  "name": "root",
   "private": true,
   "workspaces": [
     "packages/*"
@@ -18,7 +18,7 @@
     "svelte:deploy": "npm run svelte:lerna deploy",
     "docs:lerna": "lerna run --scope @c2pa-ui/docs",
     "docs:dev": "npm run docs:lerna dev",
-    "docs:build": "npm run svelte:build && npm run docs:lerna build",
+    "docs:build": " npm run svelte:build && npm run docs:lerna build",
     "docs:deploy": "npm run docs:lerna deploy",
     "deploy": "npx gh-pages -d public -t true",
     "readme": "scripts/readme.js"

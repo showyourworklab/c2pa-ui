@@ -8,7 +8,7 @@ export const LOCALE_DEFAULTS = {
 export const DICTIONARY_EN_US = {
 	producer: 'Producer',
 	generator: 'Generator',
-	signator: 'Signed by',
+	signator: 'Signator',
 	timestamp: 'Timestamp',
 	ingredients: 'Ingredients',
 	toggle_explain: 'What is this?',
@@ -16,10 +16,6 @@ export const DICTIONARY_EN_US = {
 	explainer_methods_pre: 'Read about',
 	explainer_methods_link: 'our methods',
 	explainer_methods_url: '#',
-	origin_camera: 'Captured by a camera',
-	origin_camera_edit: 'Captured by a camera, with edits',
-	origin_camera_edit_ai: 'Captured by a camera, with AI edits',
-	origin_ai: 'Generated with AI (not by a camera)',
 }
 
 export const DICTIONARY_NB_NO = {
@@ -33,10 +29,6 @@ export const DICTIONARY_NB_NO = {
 	explainer_methods_pre: 'Les om',
 	explainer_methods_link: 'våre metoder',
 	explainer_methods_url: '#',
-	origin_camera: 'Captured by a camera',
-	origin_camera_edit: 'Captured by a camera, with edits',
-	origin_camera_edit_ai: 'Captured by a camera, with AI edits',
-	origin_ai: 'Generated with AI (not by a camera)',
 }
 
 export const DICTIONARY_DEFAULT = DICTIONARY_EN_US

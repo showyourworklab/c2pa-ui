@@ -17,7 +17,7 @@
 		width: 1px;
 		z-index: 2;
 		position: absolute;
-		left: calc(var(--indent-timeline) - 1.5px);
+		left: calc(var(--space-3) - 1.5px);
 		top: calc(var(--space-4) * -1);
 		height: 0;
 		background-color: var(--color-secondary-dark);

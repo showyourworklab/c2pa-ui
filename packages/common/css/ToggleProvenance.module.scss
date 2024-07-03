@@ -21,7 +21,7 @@
 		height: 8px;
 		position: absolute;
 		top: calc(50% - 4px);
-		left: calc(var(--indent-timeline) - 5px);
+		left: calc(var(--space-3) - 5px);
 		margin-right: var(--space-2);
 		z-index: 3;
 		background-color: var(--color-secondary);

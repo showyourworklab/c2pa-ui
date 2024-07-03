@@ -43,9 +43,6 @@
 			byline='Lectus Vitae / Tristique Imperdiet'
 		/>
 	</section>
-	<footer>
-		This page is built with Svelte
-	</footer>
 </main>
 
 <style>

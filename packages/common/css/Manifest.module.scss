@@ -23,10 +23,10 @@
 		// margin-right: var(--space-2);
 	}
 	&::before {
-		left: calc(var(--indent-timeline) - 1.5px);
+		left: calc(var(--space-3) - 1.5px);
 	}
 	&::after {
-		right: calc(var(--indent-timeline) - 1.5px);
+		right: calc(var(--space-3) - 1.5px);
 		display: none;
 	}
 	&:first-of-type {
@@ -66,7 +66,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	min-height: var(--space-9);
+	min-height: var(--space-10);
 	cursor: pointer;
 	user-select: none;
 	transition: all 200ms ease;
@@ -88,10 +88,10 @@
 		transition: all 200ms ease;
 	}
 	&::before {
-		left: calc(var(--indent-timeline) - 5px);
+		left: calc(var(--space-3) - 5px);
 	}
 	&::after {
-		right: calc(var(--indent-timeline) - 5px);
+		right: calc(var(--space-3) - 5px);
 		display: none;
 	}
 	.Manifest_open & {
@@ -107,25 +107,12 @@
 		}
 	}
 }
-.ManifestPreviewIndex {
-	padding-right: var(--space-3);
-    display: inline-block;
-	line-height: 1em;
-	font-size: 18px;
-	font-weight: var(--font-weight-bold);
-}
 .ManifestPreviewCell {
 	width: auto;
 	font-weight: var(--font-weight-bold);
-	line-height: 1em;
-	display: flex;
-    align-items: center;
 	span {
 		user-select: text;
 	}
-}
-.ManifestPreviewCell span {
-	position: relative;
 }
 .ManifestPreviewCell_name {
 	// width: 30%;
@@ -133,7 +120,6 @@
 .ManifestPreviewCell_issuer {
 	// width: 30%;
 	flex: 1;
-	position: relative;
 }
 .ManifestPreviewCell_time {
 	// margin-left: auto;

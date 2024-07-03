@@ -23,6 +23,3 @@ export const prepareManifest = (locale, data) => {
 		// verifyUrl: https://verify.contentauthenticity.org/inspect?source=
 	}
 }
-export const getSummary = data => {
-	console.log(data)
-}
