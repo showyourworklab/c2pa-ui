@@ -1,4 +1,4 @@
-import{s as X,n as I}from"../chunks/scheduler.BvLojk_z.js";import{S as Y,i as Z,e as n,s as i,b as J,c as l,d as b,m as d,h as p,f as K,g as H,n as T,j as ee,k as e}from"../chunks/index.CaLM_tdh.js";import{b as Q}from"../chunks/paths.86nBzS-R.js";function te(W){let t,h,N="c2pa-ui/docs",E,a,u,A="c2pa-ui/svelte",M,v,D=`<script>
+import{s as X,n as I}from"../chunks/scheduler.BvLojk_z.js";import{S as Y,i as Z,e as n,s as i,b as J,c as l,d as b,m as d,h as p,f as K,g as H,n as T,j as ee,k as e}from"../chunks/index.CaLM_tdh.js";import{b as Q}from"../chunks/paths.CbV1aC4L.js";function te(W){let t,h,N="c2pa-ui/docs",E,a,u,A="c2pa-ui/svelte",M,v,D=`<script>
 	import { C2paUiSvelte } from "c2pa-ui/svelte";
 <\/script>
 
