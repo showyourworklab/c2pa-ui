@@ -49,7 +49,7 @@
 	main {
 		max-width: 700px;
 		margin: auto;
-		padding: 0 4rem;
+		padding: 0 2em;
 		font-family: monospace;
 	}
 	section {

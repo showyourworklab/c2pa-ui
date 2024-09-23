@@ -20,10 +20,10 @@
 	byline=""
 />`}
 		</code>
-		<p>View the code and documenation on <a href="https://github.com/coreytegeler/c2pa-ui/tree/development/packages/svelte">GitHub</a></p>
+		<p>View the code and documenation on <a href="https://github.com/showyourworklab/c2pa-ui/tree/development/packages/svelte">GitHub</a></p>
 		<p>Check out the <a href="{base}/../svelte">demo</a></p>
 	</section>
-
+	
 	<section>
 		<h2>c2pa-ui/react</h2>
 		<code>
@@ -39,7 +39,7 @@ return (
 	/>
 )`}
 		</code>
-		<p>View the code and documenation on <a href="https://github.com/coreytegeler/c2pa-ui/tree/development/packages/react">GitHub</a></p>
+		<p>View the code and documenation on <a href="https://github.com/showyourworklab/c2pa-ui/tree/development/packages/react">GitHub</a></p>
 		<p>Check out the <a href="{base}/../react">demo</a></p>
 	</section>
 </main>
@@ -48,7 +48,7 @@ return (
 	main {
 		max-width: 700px;
 		margin: auto;
-		padding: 0 4rem;
+		padding: 0 2rem;
 		font-family: monospace;
 	}
 	section {
