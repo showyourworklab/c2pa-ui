@@ -14,10 +14,21 @@ main {
 	margin: 0 auto;
 	padding: 0 2rem;
 }
+#logo {
+	width: 10rem;
+	margin: 1rem 0 0 0;
+}
 section {
 	margin: 4rem auto;
 }
-select {
+section header {
+	display: flex;
+	margin: 0 0 1rem 0;
+}
+section header h2 {
+	margin: 0 1rem 0 0;
+}
+select#locale {
 	position: fixed;
 	top: 1rem;
 	right: 1rem;

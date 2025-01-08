@@ -30,7 +30,8 @@
 	$: setByline(byline)
 	$: setLocale(locale)
 
-	onMount(async () => {
+	const update = async () => {
+		console.log(src)
 		const c2pa = await createC2pa({
 			wasmSrc,
 			workerSrc,
@@ -46,7 +47,9 @@
 		} catch (err) {
 			console.error('Error reading image:', err);
 		}
-	})
+	}
+
+	$: update(), [src]
 
 	$: classes = joinClassNames(
 		styles.App,

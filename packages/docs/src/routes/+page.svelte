@@ -21,7 +21,7 @@
 />`}
 		</code>
 		<p>View the code and documenation on <a href="https://github.com/showyourworklab/c2pa-ui/tree/development/packages/svelte">GitHub</a></p>
-		<p>Check out the <a href="{base}/../svelte">demo</a></p>
+		<p>Check out the <a href="{base}/svelte">demo</a></p>
 	</section>
 	
 	<section>
@@ -40,7 +40,7 @@ return (
 )`}
 		</code>
 		<p>View the code and documenation on <a href="https://github.com/showyourworklab/c2pa-ui/tree/development/packages/react">GitHub</a></p>
-		<p>Check out the <a href="{base}/../react">demo</a></p>
+		<p>Check out the <a href="{base}/react">demo</a></p>
 	</section>
 </main>
 

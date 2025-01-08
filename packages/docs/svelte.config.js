@@ -10,7 +10,7 @@ const config = {
 			$common: '../common',
 		},
 		adapter: adapter({
-			pages: '../../public/docs',
+			pages: '../../public',
 			// assets: 'build',
 			fallback: undefined,
 			precompress: false,
@@ -18,7 +18,7 @@ const config = {
 			fallback: 'index.html'
 		}),
 		paths: {
-			base: process.env.NODE_ENV === 'production' ? '/c2pa-ui/docs' : '',
+			base: process.env.NODE_ENV === 'production' ? '/c2pa-ui' : '',
 		},
 	}
 };

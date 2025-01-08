@@ -1,1 +1,13 @@
 # Show Your Work Lab – C2PA UI
+
+## Packages
+
+### React
+
+### Svelte
+
+### Common
+The `common` package contains shared assets to be used by the `react` and `svelte` packages to remain continuity between them and improve the ease of updating each. These assets include constant variables and i18n strings, helper functions, and CSS styles.
+
+### Docs
+The `docs` package is currently just a landing page displaying simple install instructions for both the `react` and `svelte` packages. The `docs` package also contains demo subpages from the `react` and `svelte` packages, displaying examples of the components.

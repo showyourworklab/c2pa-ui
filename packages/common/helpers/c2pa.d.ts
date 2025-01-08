@@ -1,5 +1,5 @@
 export function getProducer(data: any): string;
-export function getProducerSocials(data: any): import("@contentauth/toolkit").Author[];
+export function getProducerSocials(data: any): import("c2pa/node_modules/@contentauth/toolkit").Author[];
 export function getGenerator(data: any): any;
 export function getSignator(data: any): any;
 export function getTimestamp(locale: any, data: any): string;
