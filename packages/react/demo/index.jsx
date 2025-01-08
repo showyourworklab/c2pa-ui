@@ -23,12 +23,19 @@ const Demo = () => {
 
 	return (
 		<main>
-			<img
-				src={SywLogo}
-				alt="Show Your Work Lab logo"
-				id="logo"
-			/>
-			<h1>c2pa-ui/react</h1>
+			<a
+				href="https://showyourworklab.org"
+				target="_blank"
+			>
+				<img
+					src={SywLogo}
+					alt="Show Your Work Lab logo"
+					id="logo"
+				/>
+			</a>
+			<h1>
+				<a href="/">c2pa-ui</a>/react
+			</h1>
 			<p>
 				A React component that wraps a C2PA-compliant image in a UI to expose its provenance.
 			</p>

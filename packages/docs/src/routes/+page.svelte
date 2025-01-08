@@ -1,15 +1,28 @@
 <script>
 	import '$common/css/globals.scss'
+	import SywLogo from '$common/images/logo-dark.svg'
 	import { base } from '$app/paths'
 </script>
 
 <main class="c2paUi-App">
-	<h1>c2pa-ui/docs</h1>
+	<a
+		href="https://showyourworklab.org"
+		target="_blank"
+	>
+		<img
+			src={SywLogo}
+			alt="Show Your Work Lab logo"
+			id="logo"
+		/>
+	</a>
+
+	<h1>c2pa-ui</h1>
 
 	<section>
 		<h2>c2pa-ui/svelte</h2>
 		<code>
-{`<script>
+{`
+<script>
 	import { C2paUiSvelte } from "c2pa-ui/svelte";
 </script>
 
@@ -51,6 +64,10 @@ return (
 		padding: 0 2rem;
 		font-family: monospace;
 	}
+	#logo {
+		width: 10rem;
+		margin: 1rem 0 0 0;
+	}
 	section {
 		margin: 4rem auto;
 	}
@@ -62,9 +79,4 @@ return (
 		color: var(--color-secondary-dark);
 		background-color: var(--color-secondary-light);
 	}
-	/*select {
-		position: fixed;
-		top: 1rem;
-		right: 1rem;
-	}*/
 </style>

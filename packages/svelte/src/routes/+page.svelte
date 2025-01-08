@@ -22,16 +22,19 @@
 		demoImageIndex = value
 		demoImage = DEMO_IMAGES[value]
 	}
-
 </script>
 
-
 <main>
-	<img
-		src={SywLogo}
-		alt="Show Your Work Lab logo"
-		id="logo"
-	/>
+	<a
+		href="https://showyourworklab.org"
+		target="_blank"
+	>
+		<img
+			src={SywLogo}
+			alt="Show Your Work Lab logo"
+			id="logo"
+		/>
+	</a>
 	<h1>c2pa-ui/svelte</h1>
 	<p>
 		A Svelte component that wraps a C2PA-compliant image in a UI to expose its provenance.
