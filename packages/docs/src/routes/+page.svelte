@@ -1,6 +1,6 @@
 <script>
 	import '$common/css/globals.scss'
-	import SywLogo from '$common/images/logo-dark.svg'
+	import SywLogo from '$common/assets/logo-dark.svg'
 	import { base } from '$app/paths'
 </script>
 
@@ -31,7 +31,8 @@
 	src=""
 	caption=""
 	byline=""
-/>`}
+/>
+`}
 		</code>
 		<p>View the code and documenation on <a href="https://github.com/showyourworklab/c2pa-ui/tree/development/packages/svelte">GitHub</a></p>
 		<p>Check out the <a href="{base}/svelte">demo</a></p>
@@ -50,7 +51,8 @@ return (
 		caption=""
 		byline=""
 	/>
-)`}
+)
+`}
 		</code>
 		<p>View the code and documenation on <a href="https://github.com/showyourworklab/c2pa-ui/tree/development/packages/react">GitHub</a></p>
 		<p>Check out the <a href="{base}/react">demo</a></p>

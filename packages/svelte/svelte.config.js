@@ -18,8 +18,12 @@ const config = {
 			fallback: 'index.html'
 		}),
 		paths: {
-			base: process.env.NODE_ENV === 'production' ? '/c2pa-ui/svelte' : '',
-		},
+			base: process.env.NODE_ENV === 'production'
+				? process.env.NETLIFY
+					? '/svelte' // If build for Netlify
+					: '/c2pa-ui/svelte' // If build for GitHub
+				: '', // If local development
+		}
 	}
 };
 

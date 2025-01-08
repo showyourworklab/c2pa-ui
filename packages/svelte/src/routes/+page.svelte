@@ -1,8 +1,8 @@
 <script>
 	import '$common/css/globals.scss'
 	import { LOCALE_DEFAULT, DICTIONARIES } from '$common/constants/i18n'
-	import { DEMO_IMAGES, DEMO_IMAGE_DEFAULT } from '$common/images/demo'
-	import SywLogo from '$common/images/logo-dark.svg'
+	import { DEMO_IMAGES, DEMO_IMAGE_DEFAULT } from '$common/images'
+	import SywLogo from '$common/assets/logo-dark.svg'
 	import App from '$lib/components/App.svelte'
 
 	const locales = Object.keys(DICTIONARIES)
@@ -35,7 +35,9 @@
 			id="logo"
 		/>
 	</a>
-	<h1>c2pa-ui/svelte</h1>
+	<h1>
+		<a href="../">c2pa-ui</a>/svelte
+	</h1>
 	<p>
 		A Svelte component that wraps a C2PA-compliant image in a UI to expose its provenance.
 	</p>
@@ -90,6 +92,9 @@
 	#logo {
 		width: 10rem;
 		margin: 1rem 0 0 0;
+	}
+	h1 a {
+		color: currentColor;
 	}
 	section {
 		margin: 4rem auto;

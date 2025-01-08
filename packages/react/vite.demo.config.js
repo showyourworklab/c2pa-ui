@@ -4,8 +4,11 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
 	publicDir: 'static',
-	// base: '/c2pa-ui/',
-	base: process.env.NODE_ENV === 'production' ? '/c2pa-ui/react/' : '',
+	base: process.env.NODE_ENV === 'production'
+		? process.env.NETLIFY
+			? '/react/' // If build for Netlify
+			: '/c2pa-ui/react/' // If build for GH Pages
+		: '', // If local development
 	resolve: {
 		alias: {
 			'$src': resolve(__dirname, 'src'),

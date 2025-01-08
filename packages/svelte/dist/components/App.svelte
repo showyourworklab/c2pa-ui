@@ -31,12 +31,11 @@
 	$: setLocale(locale)
 
 	const update = async () => {
-		console.log(src)
-		const c2pa = await createC2pa({
-			wasmSrc,
-			workerSrc,
-		})
 		try {
+			const c2pa = await createC2pa({
+				wasmSrc,
+				workerSrc,
+			})
 			// Read in the image and get a manifest store
 			const { manifestStore } = await c2pa.read(src);
 			// Get the active manifest
@@ -49,7 +48,7 @@
 		}
 	}
 
-	$: update(), [src]
+	$: typeof window !== "undefined" && update(), [src]
 
 	$: classes = joinClassNames(
 		styles.App,
