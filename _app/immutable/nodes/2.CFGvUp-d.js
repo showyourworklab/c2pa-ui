@@ -1,4 +1,4 @@
-import{s as ee,n as D}from"../chunks/scheduler.BvLojk_z.js";import{S as te,i as ae,e as a,s as r,b as K,c as s,d as T,y as u,h as c,f as Q,g as w,o as m,j as se,k as e}from"../chunks/index.BdIsLCb0.js";import{b as X}from"../chunks/paths.K_a90U6G.js";const le=""+new URL("../assets/logo-dark.DJIbkTgj.svg",import.meta.url).href;function ne(Z){let t,i,N=`<img src="${le}" alt="Show Your Work Lab logo" id="logo" class="svelte-m0nlxs"/>`,k,d,R="c2pa-ui",y,l,v,$="c2pa-ui/svelte",M,f,q=`
+import{s as ee,n as D}from"../chunks/scheduler.BvLojk_z.js";import{S as te,i as ae,e as a,s as r,b as K,c as s,d as T,y as u,h as c,f as Q,g as w,o as m,j as se,k as e}from"../chunks/index.BdIsLCb0.js";import{b as X}from"../chunks/paths.DLxlQlP-.js";const le=""+new URL("../assets/logo-dark.DJIbkTgj.svg",import.meta.url).href;function ne(Z){let t,i,N=`<img src="${le}" alt="Show Your Work Lab logo" id="logo" class="svelte-m0nlxs"/>`,k,d,R="c2pa-ui",y,l,v,$="c2pa-ui/svelte",M,f,q=`
 <script>
 	import { C2paUiSvelte } from "c2pa-ui/svelte";
 <\/script>
