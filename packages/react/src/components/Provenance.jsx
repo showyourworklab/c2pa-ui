@@ -1,8 +1,8 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
 import styles from '$common/css/Provenance.module.scss'
 import { useDataContext } from '$src/context/data'
-import { useI18nContext } from '$src/context/i18n'
+// import { useI18nContext } from '$src/context/i18n'
 import { useUiContext } from '$src/context/ui'
 import Manifest from './Manifest'
 
@@ -11,7 +11,7 @@ function Provenance() {
 	const firstPreviewRef = useRef(null)
 	const { manifests } = useDataContext()
 	const { isShowProvenance } = useUiContext()
-	const { locale } = useI18nContext()
+	// const { locale } = useI18nContext()
 
 	useEffect(() => {
 		if(isShowProvenance && firstPreviewRef.current) {

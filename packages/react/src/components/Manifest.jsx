@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useUiContext } from '$src/context/ui'
 
 import styles from '$common/css/Manifest.module.scss'
-import { useUiContext } from '$src/context/ui'
 import Collapse from './Collapse'
 import ManifestPreview from './ManifestPreview'
 import ManifestTable from './ManifestTable'

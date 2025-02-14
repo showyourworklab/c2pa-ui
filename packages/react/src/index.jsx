@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import wasmSrc from 'c2pa/dist/assets/wasm/toolkit_bg.wasm?url'
 import workerSrc from 'c2pa/dist/c2pa.worker.min.js?url'
 import { C2paProvider } from '@contentauth/react'

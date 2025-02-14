@@ -7,7 +7,12 @@ import Collapse from './Collapse'
 
 const Explainer = () => {
 	const { getText } = useI18nContext()
-	const { isShowExplainer } = useUiContext()
+	const {
+		isShowExplainer,
+		toggleExplainer
+	} = useUiContext()
+
+	const onCloseClick = toggleExplainer
 
 	return (
 		<div
@@ -19,6 +24,13 @@ const Explainer = () => {
 				<div
 					className={styles.ExplainerInner}
 				>
+					<button
+						className={styles.ExplainerClose}
+						aria-pressed={isShowExplainer}
+						onClick={onCloseClick}
+					>
+						{getText('toggle', 'explain', 'close')}
+					</button>
 					<div>
 						<strong>
 							Consectetur adipiscing elit

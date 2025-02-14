@@ -1,6 +1,5 @@
-import React, { useCallback, useState } from 'react'
+import React, { useState } from 'react'
 
-import { getLocaleText } from '$common/helpers/i18n'
 import { DataContext } from '/src/context/data'
 
 const DataProvider = ({

@@ -7,6 +7,10 @@
 	&:hover {
 		color: var(--color-quaternary);
 	}
+	&[aria-pressed="true"] {
+		opacity: 0;
+		pointer-events: none;
+	}
 	.App_active & {
 		color: var(--color-secondary-light);
 		&:hover {

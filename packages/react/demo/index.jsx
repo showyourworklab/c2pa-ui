@@ -34,7 +34,7 @@ const Demo = () => {
 				/>
 			</a>
 			<h1>
-				<a href="/">c2pa-ui</a>/react
+				<a href="../">c2pa-ui</a>/react
 			</h1>
 			<p>
 				A React component that wraps a C2PA-compliant image in a UI to expose its provenance.

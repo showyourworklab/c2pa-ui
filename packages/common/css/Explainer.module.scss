@@ -5,6 +5,7 @@
 	}
 }
 .ExplainerInner {
+	position: relative;
 	padding: var(--space-4);
 	font-size: var(--text-sm);
 	line-height: 1.5em;
@@ -21,10 +22,9 @@
 	a {
 		color: var(--color-quaternary);
 	}
-	// p:first-of-type {
-	// 	margin-top: 0;
-	// }
 	strong {
+		display: block;
+		padding-bottom: var(--space-1);
 		font-size: var(--text-xs);
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
@@ -40,4 +40,18 @@
 	a {
 		text-decoration: underline;
 	}
+}
+
+button.ExplainerClose {
+	position: absolute;
+	right: var(--space-2);
+	top: var(--space-2);
+	padding: var(--space-1) var(--space-2);
+	// background-color: var(--color-tertiary);
+	border-radius: var(--radius-lg);
+	border-color: var(--color-primary-light);
+	border-style: dotted;
+	border-width: 1px;
+	font-size: var(--text-xs);
+	cursor: pointer;
 }

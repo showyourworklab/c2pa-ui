@@ -1,7 +1,3 @@
-import { useEffect, useRef, useState } from 'react'
-import { selectProducer, generateVerifyUrl } from 'c2pa'
-import { useThumbnailUrl } from '@contentauth/react'
-
 import styles from '$common/css/Manifest.module.scss'
 import { useI18nContext } from '$src/context/i18n'
 

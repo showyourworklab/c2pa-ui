@@ -1,6 +1,5 @@
-import { useContext, useCallback, useEffect, useMemo, useRef, useState, createContext } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import { useC2pa } from '@contentauth/react'
-import { selectEditsAndActivity } from 'c2pa'
 
 import '$src/globals.scss'
 import styles from '$common/css/App.module.scss'

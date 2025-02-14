@@ -31,7 +31,6 @@
 	$: setLocale(locale)
 
 	const update = async () => {
-		console.log(src)
 		const c2pa = await createC2pa({
 			wasmSrc,
 			workerSrc,
@@ -49,7 +48,10 @@
 		}
 	}
 
-	$: update(), [src]
+	onMount(() => {
+		update(src)
+	});
+	// $: update(), [src]
 
 	$: classes = joinClassNames(
 		styles.App,

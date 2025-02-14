@@ -47,6 +47,7 @@
 	>
 		<img
 			src={thumbnailUrl}
+			alt=''
 		/>
 	</div>
 </div>

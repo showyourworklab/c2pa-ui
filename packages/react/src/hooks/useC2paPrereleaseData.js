@@ -1,4 +1,3 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { ContentAuth } from '@contentauth/sdk'
 import wasmSrc from '@contentauth/sdk/dist/assets/wasm/toolkit_bg.wasm?url'
 import workerSrc from '@contentauth/sdk/dist/cai-sdk.worker.js?url'

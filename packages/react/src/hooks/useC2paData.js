@@ -1,10 +1,7 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
-import {
-	generateVerifyUrl,
-	selectProducer,
-	createL2ManifestStore,
-} from 'c2pa'
+import { useMemo } from 'react'
+import { generateVerifyUrl, selectProducer } from 'c2pa'
 import { useC2pa } from '@contentauth/react'
+
 import useC2paPrereleaseData from './useC2paPrereleaseData'
 
 const useC2paData = src => {

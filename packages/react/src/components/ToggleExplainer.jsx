@@ -14,8 +14,8 @@ const ToggleExplainer = () => {
 
 	return (
 		<button
-			aria-pressed={isShowExplainer}
 			className={styles.ToggleExplainer}
+			aria-pressed={isShowExplainer}
 			onClick={onClick}
 		>
 			{getText('toggle', 'explain')}

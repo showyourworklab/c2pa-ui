@@ -25,7 +25,6 @@
     "@contentauth/react": "0.2.49",
     "c2pa": "^0.21.0",
     "c2pa-wc": "0.12.5",
-    "npm": "^10.8.1",
     "react": "^16.14.0",
     "react-collapse": "^5.1.1",
     "react-collapsed": "^4.1.2",
