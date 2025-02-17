@@ -1,17 +1,18 @@
 import { useEffect, useRef } from 'react'
 
 import styles from '$common/css/Provenance.module.scss'
+import { getVerifyUrl } from '$common/helpers'
 import { useDataContext } from '$src/context/data'
-// import { useI18nContext } from '$src/context/i18n'
 import { useUiContext } from '$src/context/ui'
 import Manifest from './Manifest'
 
 function Provenance() {
 	const ref = useRef(null)
 	const firstPreviewRef = useRef(null)
-	const { manifests } = useDataContext()
+	const { src, manifests } = useDataContext()
 	const { isShowProvenance } = useUiContext()
-	// const { locale } = useI18nContext()
+	
+	const verifyUrl = getVerifyUrl(src)
 
 	useEffect(() => {
 		if(isShowProvenance && firstPreviewRef.current) {
@@ -36,7 +37,7 @@ function Provenance() {
 					/>
 				) : null}
 			</ul>
-			{/*<div className={styles.ProvenanceVerify}>
+			<div className={styles.ProvenanceVerify}>
 				Verify with&nbsp;
 				<a
 					href={verifyUrl}
@@ -45,7 +46,7 @@ function Provenance() {
 				>
 					Content Credentials
 				</a>
-			</div>*/}
+			</div>
 		</div>
 	)
 }

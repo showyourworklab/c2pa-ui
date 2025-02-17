@@ -18,21 +18,15 @@ import Collapse from './Collapse'
 
 function App() {
 	const ref = useRef(null)
-	const { src, manifests, setManifests } = useDataContext()
+	const { src, setManifests } = useDataContext()
 	const { locale } = useI18nContext()
 	const { isHoverImage, isShowProvenance } = useUiContext()
 
 	const provenance = useC2pa(src)
 
-	const verifyUrl = useMemo(() => {
-		const lastManifest = manifests.at(-1)
-		const imageUrl = `${window.location.origin}${src}`
-		return `https://verify.contentauthenticity.org/inspect?source=${imageUrl}`
-	}, [src, manifests])
-
-	const hasManifests = useMemo(() =>
-		manifests && manifests.length
-	, [manifests])
+	// const hasManifests = useMemo(() =>
+	// 	manifests && manifests.length
+	// , [manifests])
 	
 	useEffect(() => {
 		const manifestStore = provenance?.manifestStore

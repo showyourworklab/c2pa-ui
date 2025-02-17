@@ -46,12 +46,12 @@ const Demo = () => {
 				// defaultValue={LOCALE_DEFAULT}
 				onChange={onLocaleChange}
 			>
-				{Object.keys(DICTIONARIES).map(i =>
+				{Object.keys(DICTIONARIES).map(key =>
 					<option
-						key={i}
-						value={i}
+						key={key}
+						value={key}
 					>
-						{i}
+						{key}
 					</option>
 				)}
 			</select>
@@ -64,12 +64,12 @@ const Demo = () => {
 						value={image}
 						onChange={onImageChange}
 					>
-						{Object.keys(DEMO_IMAGES).map(l =>
+						{Object.keys(DEMO_IMAGES).map(key =>
 							<option
-								key={l}
-								value={l}
+								key={key}
+								value={key}
 							>
-								{l}
+								{key}
 							</option>
 						)}
 					</select>
