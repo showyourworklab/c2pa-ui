@@ -1,16 +1,14 @@
 <script>
 	import '$common/css/globals.scss'
 	import { LOCALE_DEFAULT, DICTIONARIES } from '$common/constants/i18n'
-	import { DEMO_IMAGES, DEMO_IMAGE_DEFAULT } from '$common/images/demo'
+	import { DEMO_IMAGE_URLS, DEMO_IMAGE_URL_DEFAULT, DEMO_IMAGE_URL_BASE } from '$common/constants'
 	import SywLogo from '$common/images/logo-dark.svg'
 	import App from '$lib/components/App.svelte'
 
 	const locales = Object.keys(DICTIONARIES)
 	let locale = LOCALE_DEFAULT
 
-	const demoImages = Object.keys(DEMO_IMAGES)
-	let demoImageIndex = DEMO_IMAGE_DEFAULT;
-	let demoImage = DEMO_IMAGES[demoImageIndex];
+	let demoImage = DEMO_IMAGE_URL_DEFAULT;
 
 	const onLocaleChange = e => {
 		const { value } = e.target
@@ -19,8 +17,7 @@
 
 	const onImageChange = e => {
 		const { value } = e.target
-		demoImageIndex = value
-		demoImage = DEMO_IMAGES[value]
+		demoImage = value
 	}
 </script>
 
@@ -61,10 +58,10 @@
 			<h2>Select image to demo:</h2>
 			<select
 				id="image"
-				value={demoImageIndex}
+				value={demoImage}
 				on:change={onImageChange}
 			>
-				{#each demoImages as value}
+				{#each DEMO_IMAGE_URLS as value}
 					<option
 						value={value}
 					>
@@ -75,7 +72,7 @@
 		</header>
 		<App
 			locale={locale}
-			src={demoImage}
+			src={`${DEMO_IMAGE_URL_BASE}/${demoImage}`}
 			caption='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis est ut enim imperdiet lacinia. Etiam vitae volutpat eros. Cras sagittis condimentum lacus, sit amet mattis mauris convallis id.'
 			byline='Lectus Vitae / Tristique Imperdiet'
 		/>

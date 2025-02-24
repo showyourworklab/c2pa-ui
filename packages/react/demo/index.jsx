@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom'
 import SywLogo from '$common/images/logo-dark.svg'
 
 import './style.css'
-import { DEMO_IMAGES, DEMO_IMAGE_DEFAULT } from '$common/images/demo'
+import { DEMO_IMAGE_URLS, DEMO_IMAGE_URL_DEFAULT, DEMO_IMAGE_URL_BASE } from '$common/constants'
 import { LOCALE_DEFAULT, DICTIONARIES } from '$common/constants/i18n'
 import SywReact from '$src/index'
 
 const Demo = () => {
 	const [locale, setLocale] = useState(LOCALE_DEFAULT)
-	const [image, setImage] = useState(DEMO_IMAGE_DEFAULT)
+	const [demoImage, setDemoImage] = useState(DEMO_IMAGE_URL_DEFAULT)
 
 	const onLocaleChange = e => {
 		const { value } = e.target
@@ -18,7 +18,7 @@ const Demo = () => {
 
 	const onImageChange = e => {
 		const { value } = e.target
-		setImage(value)
+		setDemoImage(value)
 	}
 
 	return (
@@ -61,10 +61,10 @@ const Demo = () => {
 					<h2>Select image to demo:</h2>
 					<select
 						id="image"
-						value={image}
+						value={demoImage}
 						onChange={onImageChange}
 					>
-						{Object.keys(DEMO_IMAGES).map(key =>
+						{DEMO_IMAGE_URLS.map(key =>
 							<option
 								key={key}
 								value={key}
@@ -76,7 +76,7 @@ const Demo = () => {
 				</header>
 				<SywReact
 					locale={locale}
-					src={DEMO_IMAGES[image]}
+					src={`${DEMO_IMAGE_URL_BASE}/${demoImage}`}
 					caption='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis est ut enim imperdiet lacinia. Etiam vitae volutpat eros. Cras sagittis condimentum lacus, sit amet mattis mauris convallis id.'
 					byline='Lectus Vitae / Tristique Imperdiet'
 				/>
