@@ -8,6 +8,6 @@ export const handleA11yClick = (e, callback) => {
 }
 
 export const getVerifyUrl = (src) => {
-	const imageUrl = `${window.location.origin}${src}`
-	return `https://verify.contentauthenticity.org/inspect?source=${imageUrl}`
+	// const imageUrl = `${window.location.origin}${src}`
+	return `https://verify.contentauthenticity.org/inspect?source=${src}`
 }

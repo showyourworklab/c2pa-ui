@@ -9436,7 +9436,7 @@ const $j = "Syw-App", AZ = "Syw-App_hovered", gZ = "Syw-App_active", bR = {
   App_active: gZ
 }, wH = (...I) => I.filter((Q) => Q).join(" "), oH = (I, Q) => {
   (I.key === "Enter" || I.key === " ") && (I.preventDefault(), Q && Q());
-}, IZ = (I) => `https://verify.contentauthenticity.org/inspect?source=${`${window.location.origin}${I}`}`;
+}, IZ = (I) => `https://verify.contentauthenticity.org/inspect?source=${I}`;
 /*!*************************************************************************
  * Copyright 2021 Adobe
  * All Rights Reserved.

@@ -14,7 +14,7 @@ export default defineConfig({
 		outDir: 'dist',
 		copyPublicDir: false,
 		lib: {
-			name: 'C2paUiReact',
+			name: 'SywReact',
 			entry: resolve(__dirname, 'src/index.jsx'),
 			formats: ['es'],
 			fileName: (format) => {

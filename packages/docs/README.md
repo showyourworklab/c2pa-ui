@@ -1,1 +1,1 @@
-# Docs `@c2pa-ui/docs`
+# Docs `@syw/docs`

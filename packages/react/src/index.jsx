@@ -6,7 +6,7 @@ import { C2paProvider } from '@contentauth/react'
 import { I18nProvider, DataProvider, UiProvider } from './providers'
 import App from './components/App'
 
-function C2paUiReact({
+function SywReact({
 	locale,
 	src,
 	alt,
@@ -39,4 +39,4 @@ function C2paUiReact({
 	)
 }
 
-export default C2paUiReact
+export default SywReact

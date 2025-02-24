@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
-import SywLogo from '$common/images/logo-dark.svg'
 
-import './style.css'
-import { DEMO_IMAGE_URLS, DEMO_IMAGE_URL_DEFAULT, DEMO_IMAGE_URL_BASE } from '$common/constants'
-import { LOCALE_DEFAULT, DICTIONARIES } from '$common/constants/i18n'
 import SywReact from '$src/index'
+import { LOCALE_DEFAULT, DICTIONARIES } from '$common/constants/i18n'
+import { DEMO_IMAGE_URLS, DEMO_IMAGE_URL_DEFAULT, DEMO_IMAGE_URL_BASE } from '$common/constants'
+import SywLogo from '$common/images/logo-dark.svg'
+import './style.css'
 
 const Demo = () => {
 	const [locale, setLocale] = useState(LOCALE_DEFAULT)
