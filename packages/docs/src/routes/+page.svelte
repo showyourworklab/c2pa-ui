@@ -4,7 +4,7 @@
 	import { base } from '$app/paths'
 </script>
 
-<main class="c2paUi-App">
+<main class="Syw-App">
 	<a
 		href="https://showyourworklab.org"
 		target="_blank"
@@ -16,35 +16,35 @@
 		/>
 	</a>
 
-	<h1>c2pa-ui</h1>
+	<h1>syw</h1>
 
 	<section>
-		<h2>c2pa-ui/svelte</h2>
+		<h2>syw/svelte</h2>
 		<code>
 {`
 <script>
-	import { C2paUiSvelte } from "c2pa-ui/svelte";
+	import { SywSvelte } from "syw/svelte";
 </script>
 
-<C2paUiSvelte
+<SywSvelte
 	locale=""
 	src=""
 	caption=""
 	byline=""
 />`}
 		</code>
-		<p>View the code and documenation on <a href="https://github.com/showyourworklab/c2pa-ui/tree/development/packages/svelte">GitHub</a></p>
+		<p>View the code and documenation on <a href="https://github.com/showyourworklab/syw/tree/development/packages/svelte">GitHub</a></p>
 		<p>Check out the <a href="{base}/svelte">demo</a></p>
 	</section>
 	
 	<section>
-		<h2>c2pa-ui/react</h2>
+		<h2>syw/react</h2>
 		<code>
 {`
-import { C2paUiReact } from "c2pa-ui/react";
+import { SywReact } from "syw/react";
 
 return (
-	<C2paUiReact
+	<SywReact
 		locale=""
 		src=""
 		caption=""
@@ -52,7 +52,7 @@ return (
 	/>
 )`}
 		</code>
-		<p>View the code and documenation on <a href="https://github.com/showyourworklab/c2pa-ui/tree/development/packages/react">GitHub</a></p>
+		<p>View the code and documenation on <a href="https://github.com/showyourworklab/syw/tree/development/packages/react">GitHub</a></p>
 		<p>Check out the <a href="{base}/react">demo</a></p>
 	</section>
 </main>

@@ -1,0 +1,21 @@
+export function getProducer(data: any): {
+    name: string;
+    socials: import("c2pa/node_modules/@contentauth/toolkit").Author[];
+};
+export function getGenerator(data: object): string;
+export function getSignator(data: any): any;
+export function getTimestamp(locale: string, data: object): string;
+export function getIngredients(data: any): any;
+export function getThumbnail(data: any): any;
+export function getVerifyUrl(data: any): string;
+export function prepareManifest(locale: any, data: any): {
+    producer: {
+        name: string;
+        socials: import("c2pa/node_modules/@contentauth/toolkit").Author[];
+    };
+    generator: string;
+    signator: any;
+    timestamp: string;
+    ingredients: any;
+    thumbnail: any;
+};

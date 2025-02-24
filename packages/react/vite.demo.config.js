@@ -4,8 +4,8 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
 	publicDir: 'static',
-	// base: '/c2pa-ui/',
-	base: process.env.NODE_ENV === 'production' ? '/c2pa-ui/react/' : '',
+	// base: '/syw/',
+	base: process.env.NODE_ENV === 'production' ? '/syw/react/' : '',
 	resolve: {
 		alias: {
 			'$src': resolve(__dirname, 'src'),

@@ -36,7 +36,7 @@
 		/>
 	</a>
 	<h1>
-		<a href="../">c2pa-ui</a>/svelte
+		<a href="../">syw</a>/svelte
 	</h1>
 	<p>
 		A Svelte component that wraps a C2PA-compliant image in a UI to expose its provenance.

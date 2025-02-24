@@ -5,7 +5,7 @@ import SywLogo from '$common/images/logo-dark.svg'
 import './style.css'
 import { DEMO_IMAGES, DEMO_IMAGE_DEFAULT } from '$common/images/demo'
 import { LOCALE_DEFAULT, DICTIONARIES } from '$common/constants/i18n'
-import C2paUiReact from '$src/index'
+import SywReact from '$src/index'
 
 const Demo = () => {
 	const [locale, setLocale] = useState(LOCALE_DEFAULT)
@@ -34,7 +34,7 @@ const Demo = () => {
 				/>
 			</a>
 			<h1>
-				<a href="../">c2pa-ui</a>/react
+				<a href="../">syw</a>/react
 			</h1>
 			<p>
 				A React component that wraps a C2PA-compliant image in a UI to expose its provenance.
@@ -74,7 +74,7 @@ const Demo = () => {
 						)}
 					</select>
 				</header>
-				<C2paUiReact
+				<SywReact
 					locale={locale}
 					src={DEMO_IMAGES[image]}
 					caption='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis est ut enim imperdiet lacinia. Etiam vitae volutpat eros. Cras sagittis condimentum lacus, sit amet mattis mauris convallis id.'

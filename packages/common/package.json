@@ -1,7 +1,6 @@
 {
-  "name": "@c2pa-ui/common",
+  "name": "@syw/common",
   "version": "0.0.1",
-  "private": true,
   "dependencies": {
     "c2pa": "^0.21.0"
   }

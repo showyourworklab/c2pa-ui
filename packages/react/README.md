@@ -1,1 +1,1 @@
-# React `@c2pa-ui/react`
+# React `@syw/react`

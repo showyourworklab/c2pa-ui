@@ -1,8 +1,7 @@
 {
-  "name": "@c2pa-ui/react",
-  "version": "0.1.0",
+  "name": "@syw/react",
+  "version": "0.0.1",
   "description": "",
-  "private": "true",
   "author": "",
   "license": "ISC",
   "main": "src/index.js",

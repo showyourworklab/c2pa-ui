@@ -1,4 +1,5 @@
-# Show Your Work Lab – C2PA UI
+# Show Your Work
+*An embeddable component created by Show Your Work Lab to display an image's C2PA data in a user-friendly interface*
 
 ## Packages
 

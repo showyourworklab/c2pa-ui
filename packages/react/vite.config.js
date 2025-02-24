@@ -43,7 +43,7 @@ export default defineConfig({
 	css: {
 		modules: {
 			localsConvention: 'dashes', // dashes camelCase
-			generateScopedName: 'c2paUi-[local]',
+			generateScopedName: 'Syw-[local]',
 		},
 	},
 	plugins: [

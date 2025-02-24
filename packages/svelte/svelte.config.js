@@ -18,7 +18,7 @@ const config = {
 			fallback: 'index.html'
 		}),
 		paths: {
-			base: process.env.NODE_ENV === 'production' ? '/c2pa-ui/svelte' : '',
+			base: process.env.NODE_ENV === 'production' ? '/syw/svelte' : '',
 		},
 	}
 };

@@ -1,3 +1,3 @@
-export const C2paUi: typeof App;
-export default C2paUi;
+export const Syw: typeof App;
+export default Syw;
 import App from './components/App.svelte';

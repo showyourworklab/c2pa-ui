@@ -7,7 +7,7 @@ export default defineConfig({
 	css: {
 		modules: {
 			localsConvention: 'dashes',
-			generateScopedName: 'c2paUi-[local]',
+			generateScopedName: 'Syw-[local]',
 		},
 	},
 	server: {

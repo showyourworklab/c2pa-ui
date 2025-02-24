@@ -1,16 +1,16 @@
 {
-	"name": "@c2pa-ui/svelte",
+	"name": "@syw/svelte",
 	"version": "0.0.1",
 	"description": "",
 	"author": "",
 	"license": "ISC",
-	"homepage": "https://github.com/coreytegeler/c2pa-ui#readme",
+	"homepage": "https://github.com/coreytegeler/syw#readme",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/coreytegeler/c2pa-ui.git"
+		"url": "git+https://github.com/coreytegeler/syw.git"
 	},
 	"bugs": {
-		"url": "https://github.com/coreytegeler/c2pa-ui/issues"
+		"url": "https://github.com/coreytegeler/syw/issues"
 	},
 	"scripts": {
 		"dev": "vite dev",
