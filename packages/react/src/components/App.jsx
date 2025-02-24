@@ -21,13 +21,8 @@ function App() {
 	const { src, setManifests } = useDataContext()
 	const { locale } = useI18nContext()
 	const { isHoverImage, isShowProvenance } = useUiContext()
-
 	const provenance = useC2pa(src)
 
-	// const hasManifests = useMemo(() =>
-	// 	manifests && manifests.length
-	// , [manifests])
-	
 	useEffect(() => {
 		const manifestStore = provenance?.manifestStore
 		const newManifests = Object.values(manifestStore?.manifests ?? {})
@@ -57,9 +52,7 @@ function App() {
 			<Collapse
 				open={isShowProvenance}
 			>
-				<Provenance
-					src={src}
-				/>
+				<Provenance />
 			</Collapse>
 		</div>
 	)

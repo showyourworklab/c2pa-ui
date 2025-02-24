@@ -1,26 +1,54 @@
 import { selectProducer, selectSocialAccounts, generateVerifyUrl } from 'c2pa'
 import { getSafeLocale, getDateString } from './i18n'
 
-export const getProducer = data => data ? selectProducer(data)?.name : null
-export const getProducerSocials = data => data ? selectSocialAccounts(data) : null
-export const getGenerator = data => data?.claimGenerator
+
+export const getProducer = data => data ? {
+	name: selectProducer(data)?.name,
+	socials: selectSocialAccounts(data)
+} : null
+
+/**
+ * Gets a description of claim generator
+ * @function
+ * @param {object} data - Manifest entry
+ * @return {string} - List of generator names with version (i.e. Lightroom Classic 14.0)
+ */
+export const getGenerator = data =>
+	data?.claimGeneratorInfo.map(d =>
+		[d.name, d.version]
+			.filter(d => d !== null && d !== undefined)
+			.join(" ")
+	).join(", ")
+
 export const getSignator = data => data?.signatureInfo?.issuer
 
-const parseExifDate = (string) => {
-	const parsedStr = string.split(/\D/);
-	return new Date(parsedStr[0],parsedStr[1]-1,parsedStr[2],parsedStr[3],parsedStr[4],parsedStr[5]);
-}
+/**
+ * Gets a localized date string from manifest entry's date
+ * @function
+ * @param {string} locale - Active locale
+ * @param {object} data - Manifest entry
+ * @return {string} - Localized date string
+ */
 export const getTimestamp = (locale, data) => {
 	if(data?.signatureInfo?.time) {
 		return getDateString(locale, data?.signatureInfo?.time)
 	} else {
 		const exifData = data?.assertions?.get('stds.exif')[0]?.data
 		const exifDateTime = exifData['exif:DateTimeOriginal']
-		const exifDate = parseExifDate(exifDateTime)
-		return getDateString(locale, exifDate)
+		const exifParsedDate = exifDateTime.split(/\D/);
+		const dateObject = new Date(
+			exifParsedDate[0],
+			exifParsedDate[1] - 1,
+			exifParsedDate[2],
+			exifParsedDate[3],
+			exifParsedDate[4],
+			exifParsedDate[5]
+		);
+		return getDateString(locale, dateObject)
 	}
 }
-export const getIngredients = data => data?.ingredients?.length
+
+export const getIngredients = data => data?.ingredients
 export const getThumbnail = data => data?.thumbnail
 export const getVerifyUrl = data => data ? generateVerifyUrl(data) : null
 export const prepareManifest = (locale, data) => {

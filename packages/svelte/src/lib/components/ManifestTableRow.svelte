@@ -17,6 +17,9 @@
 	<div
 		class={styles.ManifestTableRowValue}
 	>
-		{value ?? ''}
+		{type === "producer"
+			? value.name ?? ''
+			: value ?? ''
+		}
 	</div>
 </li>
