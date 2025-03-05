@@ -1,15 +1,16 @@
 import { useThumbnailUrl } from '@contentauth/react'
 
 import styles from '$common/css/Manifest.module.scss'
+import { MANIFEST_PREVIEW_TITLE_KEYS } from '$common/constants'
 import { handleA11yClick } from '$common/helpers'
 
 function ManifestPreview({
-	data,
+	manifest,
 	toggled,
 	onToggle,
 	previewRef
 }) {
-	const thumbnailUrl = data ? useThumbnailUrl(data?.thumbnail ?? undefined) : null
+	const thumbnailUrl = manifest ? useThumbnailUrl(manifest?.thumbnail ?? undefined) : null
 
 	const onKeyDown = e => handleA11yClick(e, onToggle)
 
@@ -23,20 +24,17 @@ function ManifestPreview({
 			onClick={onToggle}
 			onKeyDown={onKeyDown}
 		>
-			{/*<div
-				className={`${styles.ManifestPreviewCell} ${styles.ManifestPreviewCell_name}`}
-			>
-				<span>{producer?.name}</span>
-			</div>*/}
 			<div
 				className={`${styles.ManifestPreviewCell} ${styles.ManifestPreviewCell_issuer}`}
 			>
-				<span>{data.signator}</span>
+				{MANIFEST_PREVIEW_TITLE_KEYS.filter(key => manifest[key]).map(key =>
+					manifest[key]
+				).join(" ")}
 			</div>
 			<div
 				className={`${styles.ManifestPreviewCell} ${styles.ManifestPreviewCell_time}`}
 			>
-				<span>{data.timestamp}</span>
+				<span>{manifest.timestamp}</span>
 			</div>
 			<div
 				className={`${styles.ManifestPreviewCell} ${styles.ManifestPreviewCell_thumb}`}

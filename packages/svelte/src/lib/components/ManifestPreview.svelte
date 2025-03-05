@@ -1,5 +1,6 @@
 <script>
 	import styles from '$common/css/Manifest.module.scss'
+	import { MANIFEST_PREVIEW_TITLE_KEYS } from '$common/constants'
 	import { handleA11yClick } from '$common/helpers'
 	import { activeManifests } from '$lib/store/ui'
 
@@ -35,7 +36,9 @@
 	<div
 		class={`${styles.ManifestPreviewCell} ${styles.ManifestPreviewCell_issuer}`}
 	>
-		<span>{manifest?.signator ?? ''}</span>
+		{MANIFEST_PREVIEW_TITLE_KEYS.filter(key => manifest[key]).map(key =>
+			manifest[key]
+		).join(" ")}
 	</div>
 	<div
 		class={`${styles.ManifestPreviewCell} ${styles.ManifestPreviewCell_time}`}

@@ -35,7 +35,7 @@
 				{/each}
 			</ul>
 			<div class={styles.ProvenanceVerify}>
-				Verify with&nbsp;
+				Verify with
 				<a
 					href={verifyUrl}
 					target='_blank'

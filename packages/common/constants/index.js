@@ -8,6 +8,11 @@ export const MANIFEST_KEYS = [
 	// 'verify',
 ]
 
+export const MANIFEST_PREVIEW_TITLE_KEYS = [
+	'signator',
+	'generator'
+]
+
 // Hosted at https://github.com/showyourworklab/c2pa-images/tree/main
 export const DEMO_IMAGE_URLS = [
 	'adobe-1.jpg',

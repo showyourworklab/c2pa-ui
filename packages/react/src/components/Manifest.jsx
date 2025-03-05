@@ -32,7 +32,7 @@ function Manifest({ manifest, previewRef }) {
 				className={styles.ManifestRow}
 			>
 				<ManifestPreview
-					data={manifest}
+					manifest={manifest}
 					toggled={open}
 					onToggle={handleToggle}
 					previewRef={previewRef}
@@ -44,7 +44,7 @@ function Manifest({ manifest, previewRef }) {
 						className={styles.ManifestContent}
 					>
 						<ManifestTable
-							data={manifest}
+							manifest={manifest}
 						/>
 					</div>
 				</Collapse>
