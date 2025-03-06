@@ -17,6 +17,7 @@ export const DICTIONARY_EN_US = {
 	explainer_methods_pre: 'Read about',
 	explainer_methods_link: 'our methods',
 	explainer_methods_url: '#',
+	verify: 'Verify on',
 }
 
 export const DICTIONARY_NB_NO = {
@@ -26,11 +27,12 @@ export const DICTIONARY_NB_NO = {
 	timestamp: 'Tidsstempel',
 	ingredients: 'Ingredienser',
 	toggle_explain: 'Hva er dette?',
-	toggle_explain: 'Lukke',
+	toggle_explain_close: 'Lukke',
 	toggle_provenance: 'Se bildeopprinnelse',
 	explainer_methods_pre: 'Les om',
 	explainer_methods_link: 'våre metoder',
 	explainer_methods_url: '#',
+	verify: 'Verifiser på',
 }
 
 export const DICTIONARY_DEFAULT = DICTIONARY_EN_US

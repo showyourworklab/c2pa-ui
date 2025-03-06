@@ -1,5 +1,5 @@
 import { selectProducer, selectSocialAccounts, generateVerifyUrl } from 'c2pa'
-import { getSafeLocale, getDateString } from './i18n'
+import { getSafeLocale } from './i18n'
 
 export const getId = data => data?.instanceId
 
@@ -32,7 +32,8 @@ export const getSignator = data => data?.signatureInfo?.issuer
  */
 export const getTimestamp = (locale, data) => {
 	if(data?.signatureInfo?.time) {
-		return getDateString(locale, data?.signatureInfo?.time)
+		const dateObject = new Date(data?.signatureInfo?.time)
+		return dateObject
 	} else {
 		const exifData = data?.assertions?.get('stds.exif')[0]?.data
 		const exifDateTime = exifData['exif:DateTimeOriginal']
@@ -45,7 +46,7 @@ export const getTimestamp = (locale, data) => {
 			exifParsedDate[4],
 			exifParsedDate[5]
 		);
-		return getDateString(locale, dateObject)
+		return dateObject
 	}
 }
 

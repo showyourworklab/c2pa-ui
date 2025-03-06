@@ -1,8 +1,9 @@
 import { useThumbnailUrl } from '@contentauth/react'
-
-import styles from '$common/css/Manifest.module.scss'
-import { MANIFEST_PREVIEW_TITLE_KEYS } from '$common/constants'
+import { useI18nContext } from '$src/context/i18n'
 import { handleA11yClick } from '$common/helpers'
+import { getDateString } from '$common/helpers/i18n'
+import { MANIFEST_PREVIEW_TITLE_KEYS } from '$common/constants'
+import styles from '$common/css/Manifest.module.scss'
 
 function ManifestPreview({
 	manifest,
@@ -10,6 +11,7 @@ function ManifestPreview({
 	onToggle,
 	previewRef
 }) {
+	const { locale } = useI18nContext()
 	const thumbnailUrl = manifest ? useThumbnailUrl(manifest?.thumbnail ?? undefined) : null
 
 	const onKeyDown = e => handleA11yClick(e, onToggle)
@@ -34,7 +36,7 @@ function ManifestPreview({
 			<div
 				className={`${styles.ManifestPreviewCell} ${styles.ManifestPreviewCell_time}`}
 			>
-				<span>{manifest.timestamp}</span>
+				<span>{getDateString(locale, manifest.timestamp)}</span>
 			</div>
 			<div
 				className={`${styles.ManifestPreviewCell} ${styles.ManifestPreviewCell_thumb}`}

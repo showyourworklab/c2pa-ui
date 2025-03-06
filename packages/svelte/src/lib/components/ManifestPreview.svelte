@@ -2,7 +2,9 @@
 	import styles from '$common/css/Manifest.module.scss'
 	import { MANIFEST_PREVIEW_TITLE_KEYS } from '$common/constants'
 	import { handleA11yClick } from '$common/helpers'
+	import { getDateString } from '$common/helpers/i18n'
 	import { openManifest, closeManifest } from '$lib/store/ui'
+	import { locale } from '$lib/store/i18n'
 
 	export let open
 	export let manifest
@@ -42,7 +44,7 @@
 	<div
 		class={`${styles.ManifestPreviewCell} ${styles.ManifestPreviewCell_time}`}
 	>
-		<span>{manifest?.timestamp ?? ''}</span>
+		<span>{getDateString($locale, manifest?.timestamp) ?? ''}</span>
 	</div>
 	<div
 		class={`${styles.ManifestPreviewCell} ${styles.ManifestPreviewCell_thumb}`}
