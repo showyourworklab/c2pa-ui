@@ -3,7 +3,7 @@
 	import { LOCALE_DEFAULT, DICTIONARIES } from '$common/constants/i18n'
 	import { DEMO_IMAGE_URLS, DEMO_IMAGE_URL_DEFAULT, DEMO_IMAGE_URL_BASE } from '$common/constants'
 	import SywLogo from '$common/images/logo-dark.svg'
-	import App from '$lib/components/App.svelte'
+	import SywSvelte from '$lib'
 
 	const locales = Object.keys(DICTIONARIES)
 	let locale = LOCALE_DEFAULT
@@ -18,6 +18,10 @@
 	const onImageChange = e => {
 		const { value } = e.target
 		demoImage = value
+	}
+
+	const handleEvent = (type, event, manifest) => {
+		// console.log(type, event, manifest)
 	}
 </script>
 
@@ -70,11 +74,12 @@
 				{/each}
 			</select>
 		</header>
-		<App
+		<SywSvelte
 			locale={locale}
 			src={`${DEMO_IMAGE_URL_BASE}/${demoImage}`}
 			caption='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis est ut enim imperdiet lacinia. Etiam vitae volutpat eros. Cras sagittis condimentum lacus, sit amet mattis mauris convallis id.'
 			byline='Lectus Vitae / Tristique Imperdiet'
+			onEvent={handleEvent}
 		/>
 	</section>
 </main>

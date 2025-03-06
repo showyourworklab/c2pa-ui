@@ -3,7 +3,7 @@ import { writable } from 'svelte/store'
 export const isHoverImage = writable(false)
 export const isShowProvenance = writable(false)
 export const isShowExplainer = writable(false)
-export const activeManifests = writable([])
+export const openManifests = writable([])
 
 export const hoverImage = () => isHoverImage.set(true)
 export const unhoverImage = () => isHoverImage.set(false)

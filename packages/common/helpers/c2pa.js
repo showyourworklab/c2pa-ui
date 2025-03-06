@@ -1,6 +1,7 @@
 import { selectProducer, selectSocialAccounts, generateVerifyUrl } from 'c2pa'
 import { getSafeLocale, getDateString } from './i18n'
 
+export const getId = data => data?.instanceId
 
 export const getProducer = data => data ? {
 	name: selectProducer(data)?.name,
@@ -54,6 +55,7 @@ export const getVerifyUrl = data => data ? generateVerifyUrl(data) : null
 export const prepareManifest = (locale, data) => {
 	const safeLocale = getSafeLocale(locale)
 	return {
+		id: getId(data),
 		producer: getProducer(data),
 		generator: getGenerator(data),
 		signator: getSignator(data),

@@ -1,7 +1,7 @@
 <script>
 	import styles from '../../../../common/css/Manifest.module.scss'
 	import { handleA11yClick } from '../../../../common/helpers'
-	import { activeManifests } from '../store/ui'
+	import { openManifests } from '../store/ui'
 
 	export let open
 	export let index
@@ -11,7 +11,7 @@
 	const thumbnailUrl = manifest?.thumbnail?.getUrl()?.url
 
 	const handleClick = () => {
-		activeManifests.update(values =>
+		openManifests.update(values =>
 			values.includes(index)
 				? values.filter(v => v !== index)
 				: [...values, index]

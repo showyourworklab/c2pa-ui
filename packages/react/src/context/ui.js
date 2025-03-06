@@ -4,15 +4,16 @@ const UiContext = createContext({
 	isHoverImage: false,
 	isShowProvenance: false,
 	isShowExplainer: false,
-	activeManifests: [],
+	openManifests: {},
 	hoverImage: () => false,
 	unhoverImage: () => false,
 	showProvenance: () => false,
 	hideProvenance: () => false,
-	toggleProvenance: () => false,
 	showExplainer: () => false,
 	hideExplainer: () => false,
-	toggleExplainer: () => false,
+	openManifest: () => false,
+	closeManifest: () => false,
+	eventHandler: null,
 });
 
 const useUiContext = () => useContext(UiContext)

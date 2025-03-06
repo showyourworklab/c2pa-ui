@@ -5,20 +5,23 @@ import { useUiContext, useI18nContext } from '$src/context'
 
 const ToggleProvenance = () => {
 	const {
-		isShowProvenance,
-		toggleProvenance,
+		isOpenProvenance,
+		openProvenance,
+		closeProvenance
 	} = useUiContext()
-	const { locale, getText } = useI18nContext()
+	const { getText } = useI18nContext()
 
-	const onClick = toggleProvenance
+	const onClick = event => isOpenProvenance
+		? closeProvenance(event)
+		: openProvenance(event)
 
 	return (
 		<button
-			aria-pressed={isShowProvenance}
+			aria-pressed={isOpenProvenance}
 			className={styles.ToggleProvenance}
 			onClick={onClick}
 		>
-			{isShowProvenance ? getText('toggle', 'provenance') : getText('toggle', 'provenance')}
+			{isOpenProvenance ? getText('toggle', 'provenance') : getText('toggle', 'provenance')}
 		</button>
 	)
 }

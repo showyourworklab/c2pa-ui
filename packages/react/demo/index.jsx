@@ -11,14 +11,18 @@ const Demo = () => {
 	const [locale, setLocale] = useState(LOCALE_DEFAULT)
 	const [demoImage, setDemoImage] = useState(DEMO_IMAGE_URL_DEFAULT)
 
-	const onLocaleChange = e => {
+	const handleLocaleChange = e => {
 		const { value } = e.target
 		setLocale(value)
 	}
 
-	const onImageChange = e => {
+	const handleImageChange = e => {
 		const { value } = e.target
 		setDemoImage(value)
+	}
+
+	const handleEvent = (type, event, manifest) => {
+		// console.log(type, event, manifest)
 	}
 
 	return (
@@ -44,7 +48,7 @@ const Demo = () => {
 				id="locale"
 				value={locale}
 				// defaultValue={LOCALE_DEFAULT}
-				onChange={onLocaleChange}
+				onChange={handleLocaleChange}
 			>
 				{Object.keys(DICTIONARIES).map(key =>
 					<option
@@ -62,7 +66,7 @@ const Demo = () => {
 					<select
 						id="image"
 						value={demoImage}
-						onChange={onImageChange}
+						onChange={handleImageChange}
 					>
 						{DEMO_IMAGE_URLS.map(key =>
 							<option
@@ -79,6 +83,7 @@ const Demo = () => {
 					src={`${DEMO_IMAGE_URL_BASE}/${demoImage}`}
 					caption='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis est ut enim imperdiet lacinia. Etiam vitae volutpat eros. Cras sagittis condimentum lacus, sit amet mattis mauris convallis id.'
 					byline='Lectus Vitae / Tristique Imperdiet'
+					onEvent={handleEvent}
 				/>
 			</section>
 		</main>

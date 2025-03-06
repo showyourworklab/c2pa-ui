@@ -1,9 +1,9 @@
 export const joinClassNames = (...classNames) => classNames.filter(c => c).join(' ')
 
-export const handleA11yClick = (e, callback) => {
-	if(e.key === 'Enter' || e.key === ' ') {
-		e.preventDefault()
-		if(callback) callback()
+export const handleA11yClick = (event, callback) => {
+	if(event.key === 'Enter' || event.key === ' ') {
+		event.preventDefault()
+		if(callback) callback(event)
 	}
 }
 

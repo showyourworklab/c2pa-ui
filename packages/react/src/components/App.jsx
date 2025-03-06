@@ -16,12 +16,22 @@ import Explainer from './Explainer'
 import Provenance from './Provenance'
 import Collapse from './Collapse'
 
-function App() {
+function App({
+	onEvent
+}) {
 	const ref = useRef(null)
 	const { src, setManifests } = useDataContext()
 	const { locale } = useI18nContext()
-	const { isHoverImage, isShowProvenance } = useUiContext()
+	const { isHoverImage, isOpenProvenance, eventHandler } = useUiContext()
 	const provenance = useC2pa(src)
+
+	const className = useMemo(() =>
+		joinClassNames(
+			styles.App,
+			isHoverImage ? styles.App_hovered : false,
+			isOpenProvenance ? styles.App_active : false
+		)
+	, [isHoverImage, isOpenProvenance])
 
 	useEffect(() => {
 		const manifestStore = provenance?.manifestStore
@@ -30,13 +40,14 @@ function App() {
 		setManifests(newManifests)
 	}, [locale, provenance])
 
-	const className = useMemo(() =>
-		joinClassNames(
-			styles.App,
-			isHoverImage ? styles.App_hovered : false,
-			isShowProvenance ? styles.App_active : false
-		)
-	, [isHoverImage, isShowProvenance])
+	useEffect(() => {
+		eventHandler.current = onEvent
+	}, [eventHandler, onEvent])
+
+	// useEffect(() => {
+	// 	const time = new Date();
+	// 	if(onProvenanceToggle) onProvenanceToggle(isOpenProvenance, ref.current, time)
+	// }, [isOpenProvenance, ref])
 
 	return (
 		<div
@@ -50,7 +61,7 @@ function App() {
 				<Caption />
 			</Figure>
 			<Collapse
-				open={isShowProvenance}
+				open={isOpenProvenance}
 			>
 				<Provenance />
 			</Collapse>

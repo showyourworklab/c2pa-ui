@@ -1,15 +1,14 @@
 <script>
 	import styles from '$common/css/Manifest.module.scss'
 	import { joinClassNames } from '$common/helpers'
-	import { activeManifests } from '$lib/store/ui.js'
+	import { openManifests } from '$lib/store/ui.js'
 	import Collapse from './Collapse.svelte'
 	import ManifestPreview from './ManifestPreview.svelte'
 	import ManifestTable from './ManifestTable.svelte'
 
-	export let index
 	export let manifest
 
-	$: open = $activeManifests?.includes(index)
+	$: open = manifest.id in $openManifests
 
 	$: classes = joinClassNames(
 		styles.Manifest,
@@ -26,7 +25,6 @@
 	>
 		<ManifestPreview
 			open={open}
-			index={index}
 			manifest={manifest}
 		/>
 		<Collapse

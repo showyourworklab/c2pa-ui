@@ -1,7 +1,7 @@
 <script>
 	import styles from '../../../../common/css/Manifest.module.scss'
 	import { joinClassNames } from '../../../../common/helpers'
-	import { activeManifests } from '../store/ui.js'
+	import { openManifests } from '../store/ui.js'
 	import Collapse from './Collapse.svelte'
 	import ManifestPreview from './ManifestPreview.svelte'
 	import ManifestTable from './ManifestTable.svelte'
@@ -9,7 +9,7 @@
 	export let index
 	export let manifest
 
-	$: open = $activeManifests?.includes(index)
+	$: open = $openManifests?.includes(index)
 
 	$: classes = joinClassNames(
 		styles.Manifest,

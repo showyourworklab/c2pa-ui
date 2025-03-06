@@ -1,11 +1,15 @@
 <script>
 	import styles from '$common/css/Explainer.module.scss'
 	import { locale, getText } from '$lib/store/i18n'
-	import { isShowExplainer, toggleExplainer } from '$lib/store/ui'
+	import { isExplainerOpen, openExplainer, closeExplainer } from '$lib/store/ui'
 	import Collapse from './Collapse.svelte'
 
-	const onCloseClick = () => {
-		toggleExplainer()
+	const onCloseClick = (event) => {
+		if(isExplainerOpen) {
+			closeExplainer(event)
+		} else {
+			openExplainer(event)
+		}
 	}
 </script>
 
@@ -13,14 +17,14 @@
 	class={styles.Explainer}
 >
 	<Collapse
-		open={$isShowExplainer}
+		open={$isExplainerOpen}
 	>
 		<div
 			class={styles.ExplainerInner}
 		>
 			<button
 				class={styles.ExplainerClose}
-				aria-pressed={$isShowExplainer}
+				aria-pressed={$isExplainerOpen}
 				on:click={onCloseClick}
 			>
 				{getText($locale, 'toggle', 'explain', 'close')}

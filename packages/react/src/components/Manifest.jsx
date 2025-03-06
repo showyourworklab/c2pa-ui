@@ -8,21 +8,28 @@ import ManifestTable from './ManifestTable'
 
 function Manifest({ manifest, previewRef }) {
 	const [open, setOpen] = useState(false)
-	const { isShowProvenance } = useUiContext()
-
-	const handleToggle = useCallback(e => {
-		setOpen(!open)
-	}, [open])
+	const { isOpenProvenance, openManifests, openManifest, closeManifest } = useUiContext()
 
 	const className = useMemo(() => [
 		styles.Manifest,
 		open ? styles.Manifest_open : null
 	].filter(c => c).join(' '), [open])
 
+	// Handle click of manifest preview / header
+	const handleToggle = useCallback(event => {
+		setOpen(!open)
+		if(open) {
+			closeManifest(event, manifest)
+		} else {
+			openManifest(event, manifest)
+		}
+	}, [open, manifest, openManifest, closeManifest, openManifests])
+
 	// Close manifest when provenance is closed
 	useEffect(() => {
-		if(!isShowProvenance) setOpen(false)
-	}, [isShowProvenance])
+		if(!isOpenProvenance) setOpen(false)
+	}, [isOpenProvenance])
+
 
 	return (
 		<li

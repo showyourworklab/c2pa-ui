@@ -5,17 +5,20 @@ import { useUiContext, useI18nContext } from '$src/context'
 
 const ToggleExplainer = () => {
 	const {
-		isShowExplainer,
-		toggleExplainer,
+		isOpenExplainer,
+		openExplainer,
+		closeExplainer,
 	} = useUiContext()
 	const { getText } = useI18nContext()
 
-	const onClick = toggleExplainer
+	const onClick = event => isOpenExplainer
+		? closeExplainer(event)
+		: openExplainer(event)
 
 	return (
 		<button
 			className={styles.ToggleExplainer}
-			aria-pressed={isShowExplainer}
+			aria-pressed={isOpenExplainer}
 			onClick={onClick}
 		>
 			{getText('toggle', 'explain')}

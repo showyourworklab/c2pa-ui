@@ -13,21 +13,32 @@ const Image = () => {
 	const {
 		hoverImage,
 		unhoverImage,
-		toggleProvenance,
+		openProvenance,
+		closeProvenance,
+		isOpenProvenance
 	} = useUiContext()
 
-	const onClick = useCallback(toggleProvenance)
+	const onClick = useCallback(event =>
+		isOpenProvenance
+			? closeProvenance(event)
+			: openProvenance(event)
+	, [openProvenance, closeProvenance, isOpenProvenance])
 
-	const onKeyDown = useCallback(e =>
-		handleA11yClick(e, toggleProvenance)
-	, [toggleProvenance])
+	const onKeyDown = useCallback(event =>
+		handleA11yClick(
+			event,
+			isOpenProvenance
+				? closeProvenance
+				: openProvenance
+		)
+	, [openProvenance, closeProvenance, isOpenProvenance])
 
-	const onMouseEnter = useCallback(() =>
-		hoverImage()
+	const onMouseEnter = useCallback(event =>
+		hoverImage(event)
 	, [hoverImage])
 	
-	const onMouseLeave = useCallback(() =>
-		unhoverImage()
+	const onMouseLeave = useCallback(event =>
+		unhoverImage(event)
 	, [unhoverImage])
 
 

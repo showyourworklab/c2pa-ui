@@ -10,15 +10,15 @@ function Provenance() {
 	const ref = useRef(null)
 	const firstPreviewRef = useRef(null)
 	const { src, manifests } = useDataContext()
-	const { isShowProvenance } = useUiContext()
+	const { isOpenProvenance } = useUiContext()
 	
 	const verifyUrl = getVerifyUrl(src)
 
 	useEffect(() => {
-		if(isShowProvenance && firstPreviewRef.current) {
+		if(isOpenProvenance && firstPreviewRef.current) {
 			firstPreviewRef.current?.focus()
 		}
-	}, [firstPreviewRef, isShowProvenance])
+	}, [firstPreviewRef, isOpenProvenance])
 
 
 	return (
@@ -29,11 +29,11 @@ function Provenance() {
 			<ul
 				className={styles.ProvenanceList}
 			>
-				{manifests ? manifests.map((manifest, i) =>
+				{manifests ? manifests.map((manifest, index) =>
 					<Manifest
-						key={i}
+						key={index}
 						manifest={manifest}
-						previewRef={i === 0 ? firstPreviewRef : null}
+						previewRef={index === 0 ? firstPreviewRef : null}
 					/>
 				) : null}
 			</ul>

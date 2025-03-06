@@ -2,25 +2,24 @@
 	import styles from '$common/css/Manifest.module.scss'
 	import { MANIFEST_PREVIEW_TITLE_KEYS } from '$common/constants'
 	import { handleA11yClick } from '$common/helpers'
-	import { activeManifests } from '$lib/store/ui'
+	import { openManifest, closeManifest } from '$lib/store/ui'
 
 	export let open
-	export let index
 	export let manifest
 
 	// const thumbnailUrl = manifest ? useThumbnailUrl(manifest?.thumbnail ?? undefined) : null
 	const thumbnailUrl = manifest?.thumbnail?.getUrl()?.url
 
-	const handleClick = () => {
-		activeManifests.update(values =>
-			values.includes(index)
-				? values.filter(v => v !== index)
-				: [...values, index]
-		)
-	}
+	const handleClick = (event => {
+		if(open) {
+			closeManifest(event, manifest)
+		} else {
+			openManifest(event, manifest)
+		}
+	})
 
-	const handleKeyDown = e => {
-		handleA11yClick(e, handleClick)
+	const handleKeyDown = event => {
+		handleA11yClick(event, handleClick)
 	}
 
 </script>

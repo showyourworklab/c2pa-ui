@@ -1,10 +1,14 @@
 <script>
 	import styles from '$common/css/ToggleProvenance.module.scss'
 	import { locale, getText } from '$lib/store/i18n.js'
-	import { isShowProvenance, toggleProvenance } from '$lib/store/ui.js'
+	import { isProvenanceOpen, openProvenance, closeProvenance } from '$lib/store/ui.js'
 
-	const handleClick = () => {
-		toggleProvenance()
+	const handleClick = (event) => {
+		if($isProvenanceOpen) {
+			closeProvenance(event)
+		} else {
+			openProvenance(event)
+		}
 	}
 
 </script>
@@ -14,5 +18,5 @@
 	class={styles.ToggleProvenance}
 	on:click={handleClick}
 >
-	{$isShowProvenance ? getText($locale, 'toggle', 'provenance') : getText($locale, 'toggle', 'provenance')}
+	{$isProvenanceOpen ? getText($locale, 'toggle', 'provenance') : getText($locale, 'toggle', 'provenance')}
 </button>
