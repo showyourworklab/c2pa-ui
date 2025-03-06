@@ -43,36 +43,48 @@
 		A Svelte component that wraps a C2PA-compliant image in a UI to expose its provenance.
 	</p>
 
-	<select
-		id="locale"
-		value={locale}
-		on:change={onLocaleChange}
-	>
-		{#each locales as value}
-			<option
-				value={value}
-			>
-				{value}
-			</option>
-		{/each}
-	</select>
-
 	<section>
 		<header>
-			<h2>Select image to demo:</h2>
-			<select
-				id="image"
-				value={demoImage}
-				on:change={onImageChange}
-			>
-				{#each DEMO_IMAGE_URLS as value}
-					<option
-						value={value}
-					>
-						{value}
-					</option>
-				{/each}
-			</select>
+			<div>
+				<label
+					for="select-image"
+				>
+					Select image to demo:
+				</label>
+				<select
+					id="select-image"
+					value={demoImage}
+					on:change={onImageChange}
+				>
+					{#each DEMO_IMAGE_URLS as value}
+						<option
+							value={value}
+						>
+							{value}
+						</option>
+					{/each}
+				</select>
+			</div>
+			<div>
+				<label
+					for="select-locale"
+				>
+					Select language of component:
+				</label>					
+				<select
+					id="select-locale"
+					value={locale}
+					on:change={onLocaleChange}
+				>
+					{#each locales as value}
+						<option
+							value={value}
+						>
+							{value}
+						</option>
+					{/each}
+				</select>
+			</div>
 		</header>
 		<SywSvelte
 			locale={locale}
@@ -86,10 +98,10 @@
 
 <style>
 	main {
-		max-width: 700px;
-		margin: auto;
-		padding: 0 2em;
 		font-family: monospace;
+		max-width: 700px;
+		margin: 0 auto;
+		padding: 0 2rem;
 	}
 	#logo {
 		width: 10rem;
@@ -103,14 +115,14 @@
 	}
 	section header {
 		display: flex;
+		justify-content: space-between;
 		margin: 0 0 1rem 0;
 	}
-	section header h2 {
-		margin: 0 1rem 0 0;
+	section header label {
+		font-weight: bold;
+		margin-right: 0.25rem;
 	}
-	select#locale {
-		position: fixed;
-		top: 1rem;
-		right: 1rem;
+	section header select {
+		
 	}
 </style>

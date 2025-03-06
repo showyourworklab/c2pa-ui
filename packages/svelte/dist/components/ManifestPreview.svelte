@@ -1,25 +1,27 @@
 <script>
 	import styles from '../../../../common/css/Manifest.module.scss'
+	import { MANIFEST_PREVIEW_TITLE_KEYS } from '../../../../common/constants'
 	import { handleA11yClick } from '../../../../common/helpers'
-	import { openManifests } from '../store/ui'
+	import { getDateString } from '../../../../common/helpers/i18n'
+	import { openManifest, closeManifest } from '../store/ui'
+	import { locale } from '../store/i18n'
 
 	export let open
-	export let index
 	export let manifest
 
 	// const thumbnailUrl = manifest ? useThumbnailUrl(manifest?.thumbnail ?? undefined) : null
 	const thumbnailUrl = manifest?.thumbnail?.getUrl()?.url
 
-	const handleClick = () => {
-		openManifests.update(values =>
-			values.includes(index)
-				? values.filter(v => v !== index)
-				: [...values, index]
-		)
-	}
+	const handleClick = (event => {
+		if(open) {
+			closeManifest(event, manifest)
+		} else {
+			openManifest(event, manifest)
+		}
+	})
 
-	const handleKeyDown = e => {
-		handleA11yClick(e, handleClick)
+	const handleKeyDown = event => {
+		handleA11yClick(event, handleClick)
 	}
 
 </script>
@@ -35,12 +37,14 @@
 	<div
 		class={`${styles.ManifestPreviewCell} ${styles.ManifestPreviewCell_issuer}`}
 	>
-		<span>{manifest?.signator ?? ''}</span>
+		{MANIFEST_PREVIEW_TITLE_KEYS.filter(key => manifest[key]).map(key =>
+			manifest[key]
+		).join(" ")}
 	</div>
 	<div
 		class={`${styles.ManifestPreviewCell} ${styles.ManifestPreviewCell_time}`}
 	>
-		<span>{manifest?.timestamp ?? ''}</span>
+		<span>{getDateString($locale, manifest?.timestamp) ?? ''}</span>
 	</div>
 	<div
 		class={`${styles.ManifestPreviewCell} ${styles.ManifestPreviewCell_thumb}`}

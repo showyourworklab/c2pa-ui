@@ -1,9 +1,25 @@
 <script>
 	import styles from '../../../../common/css/Manifest.module.scss'
 	import { locale, getText } from '../store/i18n'
+	import { getDateString } from '../../../../common/helpers/i18n'
 
 	export let type
 	export let value
+
+	let formattedValue
+	$: {
+		switch(type) {
+			case "producer":
+				formattedValue = value?.name
+				break
+			case "timestamp":
+				formattedValue = getDateString($locale, value)
+				break
+			default:
+				formattedValue = value
+		}
+	}
+
 </script>
 
 <li
@@ -17,9 +33,6 @@
 	<div
 		class={styles.ManifestTableRowValue}
 	>
-		{type === "producer"
-			? value.name ?? ''
-			: value ?? ''
-		}
+		{formattedValue}
 	</div>
 </li>

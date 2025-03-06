@@ -10,7 +10,7 @@
 	import { prepareManifest } from '../../../../common/helpers/c2pa'
 	import { lang, setLocale } from '../store/i18n.js'
 	import { setSrc, setAlt, setCaption, setByline, setManifests } from '../store/data.js'
-	import { isHoverImage, isShowProvenance } from '../store/ui.js'
+	import { isHoverImage, isProvenanceOpen, setEventHandler } from '../store/ui.js'
 	import Figure from './Figure.svelte'
 	import Image from './Image.svelte'
 	import Explainer from './Explainer.svelte'
@@ -23,12 +23,14 @@
 	export let caption = ''
 	export let byline = ''
 	export let locale = ''
+	export let onEvent = null
 
 	$: setSrc(src)
 	$: setAlt(alt)
 	$: setCaption(caption)
 	$: setByline(byline)
 	$: setLocale(locale)
+	$: setEventHandler(onEvent)
 
 	const update = async () => {
 		const c2pa = await createC2pa({
@@ -56,7 +58,7 @@
 	$: classes = joinClassNames(
 		styles.App,
 		$isHoverImage ? styles.App_hovered : false,
-		$isShowProvenance ? styles.App_active : false
+		$isProvenanceOpen ? styles.App_active : false
 	)
 
 </script>

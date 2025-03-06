@@ -6,10 +6,9 @@
 	import ManifestPreview from './ManifestPreview.svelte'
 	import ManifestTable from './ManifestTable.svelte'
 
-	export let index
 	export let manifest
 
-	$: open = $openManifests?.includes(index)
+	$: open = manifest.id in $openManifests
 
 	$: classes = joinClassNames(
 		styles.Manifest,
@@ -26,7 +25,6 @@
 	>
 		<ManifestPreview
 			open={open}
-			index={index}
 			manifest={manifest}
 		/>
 		<Collapse

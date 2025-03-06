@@ -1,9 +1,10 @@
 <script>
 	import { onMount } from 'svelte'
 	import styles from '../../../../common/css/Provenance.module.scss'
-	import { manifests } from '../store/data.js'
-	import { isShowProvenance } from '../store/ui.js'
-	import { src } from '../store/data.js'
+	import { manifests } from '../store/data'
+	import { isProvenanceOpen } from '../store/ui'
+	import { locale, getText } from '../store/i18n'
+	import { src } from '../store/data'
 	import { getVerifyUrl } from '../../../../common/helpers'
 	import Collapse from './Collapse.svelte'
 	import Manifest from './Manifest.svelte'
@@ -19,7 +20,7 @@
 	class={styles.Provenance}
 >
 	<Collapse
-		open={$isShowProvenance}
+		open={$isProvenanceOpen}
 	>
 		<div
 			class={styles.ProvenanceInner}
@@ -27,15 +28,14 @@
 			<ul
 				class={styles.ProvenanceList}
 			>
-				{#each $manifests as manifest, index}
+				{#each $manifests as manifest}
 					<Manifest
-						index={index}
 						manifest={manifest}
 					/>
 				{/each}
 			</ul>
 			<div class={styles.ProvenanceVerify}>
-				Verify with&nbsp;
+				{getText($locale, 'verify')}
 				<a
 					href={verifyUrl}
 					target='_blank'

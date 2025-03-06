@@ -2,22 +2,30 @@
 	import styles from '../../../../common/css/Image.module.scss'
 	import { handleA11yClick } from '../../../../common/helpers'
 	import { src, alt } from '../store/data.js'
-	import { hoverImage, unhoverImage, toggleProvenance } from '../store/ui.js'
+	import { hoverImage, unhoverImage, isProvenanceOpen, openProvenance, closeProvenance } from '../store/ui.js'
 
-	const handleClick = () => {
-		toggleProvenance()
+	const handleClick = (event) => {
+		if($isProvenanceOpen) {
+			closeProvenance(event)
+		} else {
+			openProvenance(event)
+		}
 	}
 
-	const handleMouseEnter = () => {
-		hoverImage()
+	const handleMouseEnter = (event) => {
+		hoverImage(event)
 	}
 
-	const handleMouseLeave = () => {
-		unhoverImage()
+	const handleMouseLeave = (event) => {
+		unhoverImage(event)
 	}
 
-	const handleKeyDown = e => {
-		handleA11yClick(e, toggleProvenance)
+	const handleKeyDown = event => {
+		if($isProvenanceOpen) {
+			handleA11yClick(event, closeProvenance)
+		} else {
+			handleA11yClick(event, openProvenance)
+		}
 	}
 
 </script>

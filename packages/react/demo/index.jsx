@@ -44,39 +44,50 @@ const Demo = () => {
 				A React component that wraps a C2PA-compliant image in a UI to expose its provenance.
 			</p>
 
-			<select
-				id="locale"
-				value={locale}
-				// defaultValue={LOCALE_DEFAULT}
-				onChange={handleLocaleChange}
-			>
-				{Object.keys(DICTIONARIES).map(key =>
-					<option
-						key={key}
-						value={key}
-					>
-						{key}
-					</option>
-				)}
-			</select>
-
 			<section>
 				<header>
-					<h2>Select image to demo:</h2>
-					<select
-						id="image"
-						value={demoImage}
-						onChange={handleImageChange}
-					>
-						{DEMO_IMAGE_URLS.map(key =>
-							<option
-								key={key}
-								value={key}
-							>
-								{key}
-							</option>
-						)}
-					</select>
+					<div>
+						<label
+							htmlFor="select-image"
+						>
+							Select image to demo:
+						</label>
+						<select
+							id="select-image"
+							value={demoImage}
+							onChange={handleImageChange}
+						>
+							{DEMO_IMAGE_URLS.map(key =>
+								<option
+									key={key}
+									value={key}
+								>
+									{key}
+								</option>
+							)}
+						</select>
+					</div>
+					<div>
+						<label
+							htmlFor="select-locale"
+						>
+							Select language of component:
+						</label>					
+						<select
+							id="select-locale"
+							value={locale}
+							onChange={handleLocaleChange}
+						>
+							{Object.keys(DICTIONARIES).map(key =>
+								<option
+									key={key}
+									value={key}
+								>
+									{key}
+								</option>
+							)}
+						</select>
+					</div>
 				</header>
 				<SywReact
 					locale={locale}

@@ -3,7 +3,6 @@
 /** @typedef {typeof __propDef.slots}  ManifestPreviewSlots */
 export default class ManifestPreview extends SvelteComponent<{
     open: any;
-    index: any;
     manifest: any;
 }, {
     [evt: string]: CustomEvent<any>;
@@ -16,7 +15,6 @@ import { SvelteComponent } from "svelte";
 declare const __propDef: {
     props: {
         open: any;
-        index: any;
         manifest: any;
     };
     events: {

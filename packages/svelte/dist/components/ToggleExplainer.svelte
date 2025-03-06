@@ -1,15 +1,19 @@
 <script>
 	import styles from '../../../../common/css/ToggleExplainer.module.scss'
 	import { locale, getText } from '../store/i18n.js'
-	import { isShowExplainer, toggleExplainer } from '../store/ui.js'
+	import { isExplainerOpen, openExplainer, closeExplainer } from '../store/ui.js'
 
-	const handleClick = () => {
-		toggleExplainer()
+	const handleClick = (event) => {
+		if($isExplainerOpen) {
+			closeExplainer(event)
+		} else {
+			openExplainer(event)
+		}
 	}
 </script>
 
 <button
-	aria-pressed={$isShowExplainer}
+	aria-pressed={$isExplainerOpen}
 	class={styles.ToggleExplainer}
 	on:click={handleClick}
 >

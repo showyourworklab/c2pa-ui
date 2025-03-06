@@ -26,13 +26,13 @@ section {
 }
 section header {
 	display: flex;
+	justify-content: space-between;
 	margin: 0 0 1rem 0;
 }
-section header h2 {
-	margin: 0 1rem 0 0;
+section header label {
+	font-weight: bold;
+	margin-right: 0.25rem;
 }
-select#locale {
-	position: fixed;
-	top: 1rem;
-	right: 1rem;
+section header select {
+	
 }

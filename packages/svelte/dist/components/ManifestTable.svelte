@@ -17,14 +17,4 @@
 			/>
 		{/if}
 	{/each}
-	<!-- {manifest?.verifyUrl ?
-		<li>
-			<a
-				href={manifest?.verifyUrl}
-				target='_blank'
-			>
-				View Content Credentials
-			</a>
-		</li>
-	: null} -->
 </ul>
