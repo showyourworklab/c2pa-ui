@@ -37,7 +37,7 @@
 			border-color: var(--color-quaternary);
 		}
 	}
-	.App_active & {
+	.App_expand.App_active & {
 		color: var(--color-primary);
 		background-color: var(--color-secondary);
 		&::before {
@@ -46,7 +46,7 @@
 			// border-color: var(--color-primary);
 		}
 	}
-	.App_active &:hover, .App_active.App_hovered & {
+	.App_expand.App_active &:hover, .App_expand.App_active.App_hovered & {
 		color: var(--color-quaternary);
 		background-color: var(--color-secondary);
 		&::before {

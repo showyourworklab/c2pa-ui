@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef } from 'react'
 import { useC2pa } from '@contentauth/react'
 
-import '$src/globals.scss'
+import '$common/css/globals.scss'
 import styles from '$common/css/App.module.scss'
 import { joinClassNames } from '$common/helpers'
 import { prepareManifest } from '$common/helpers/c2pa'
@@ -15,6 +15,7 @@ import Caption from './Caption'
 import Explainer from './Explainer'
 import Provenance from './Provenance'
 import Collapse from './Collapse'
+import ModalProvenance from './ModalProvenance'
 
 function App({
 	onEvent
@@ -22,14 +23,15 @@ function App({
 	const ref = useRef(null)
 	const { src, setManifests } = useDataContext()
 	const { locale } = useI18nContext()
-	const { isHoverImage, isOpenProvenance, eventHandler } = useUiContext()
+	const { variant, isHoverImage, isOpenProvenance, eventHandler } = useUiContext()
 	const provenance = useC2pa(src)
 
 	const className = useMemo(() =>
 		joinClassNames(
 			styles.App,
+			styles[`App_${variant}`],
 			isHoverImage ? styles.App_hovered : false,
-			isOpenProvenance ? styles.App_active : false
+			isOpenProvenance ? styles.App_active : false,
 		)
 	, [isHoverImage, isOpenProvenance])
 
@@ -44,11 +46,6 @@ function App({
 		eventHandler.current = onEvent
 	}, [eventHandler, onEvent])
 
-	// useEffect(() => {
-	// 	const time = new Date();
-	// 	if(onProvenanceToggle) onProvenanceToggle(isOpenProvenance, ref.current, time)
-	// }, [isOpenProvenance, ref])
-
 	return (
 		<div
 			ref={ref}
@@ -56,15 +53,23 @@ function App({
 		>
 			<Figure>
 				<Image />
-				<Explainer />
+				{variant === 'expand' ?
+					<Explainer />
+				: null}
 				<Cutline />
 				<Caption />
 			</Figure>
-			<Collapse
-				open={isOpenProvenance}
-			>
-				<Provenance />
-			</Collapse>
+			{variant === 'expand' ?
+				<Collapse
+					open={isOpenProvenance}
+					className={styles.ModalProvenance}
+				>
+					<Provenance />
+				</Collapse>
+			: null}
+			{variant === 'modal' ?
+				<ModalProvenance />
+			: null}
 		</div>
 	)
 }

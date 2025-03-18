@@ -3,17 +3,23 @@ import ReactDOM from 'react-dom'
 
 import SywReact from '$src/index'
 import { LOCALE_DEFAULT, DICTIONARIES } from '$common/constants/i18n'
-import { DEMO_IMAGE_URLS, DEMO_IMAGE_URL_DEFAULT, DEMO_IMAGE_URL_BASE } from '$common/constants'
+import { VARIANT_KEYS, DEMO_IMAGE_URLS, DEMO_IMAGE_URL_DEFAULT, DEMO_IMAGE_URL_BASE } from '$common/constants'
 import SywLogo from '$common/images/logo-dark.svg'
 import './style.css'
 
 const Demo = () => {
 	const [locale, setLocale] = useState(LOCALE_DEFAULT)
+	const [variant, setVariant] = useState("expand")
 	const [demoImage, setDemoImage] = useState(DEMO_IMAGE_URL_DEFAULT)
 
 	const handleLocaleChange = e => {
 		const { value } = e.target
 		setLocale(value)
+	}
+
+	const handleVariantChange = e => {
+		const { value } = e.target
+		setVariant(value)
 	}
 
 	const handleImageChange = e => {
@@ -69,6 +75,27 @@ const Demo = () => {
 					</div>
 					<div>
 						<label
+							htmlFor="select-variant"
+						>
+							Select embed variant:
+						</label>
+						<select
+							id="select-variant"
+							value={variant}
+							onChange={handleVariantChange}
+						>
+							{VARIANT_KEYS.map(key =>
+								<option
+									key={key}
+									value={key}
+								>
+									{key}
+								</option>
+							)}
+						</select>
+					</div>
+					<div>
+						<label
 							htmlFor="select-locale"
 						>
 							Select language of component:
@@ -94,6 +121,7 @@ const Demo = () => {
 					src={`${DEMO_IMAGE_URL_BASE}/${demoImage}`}
 					caption='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis est ut enim imperdiet lacinia. Etiam vitae volutpat eros. Cras sagittis condimentum lacus, sit amet mattis mauris convallis id.'
 					byline='Lectus Vitae / Tristique Imperdiet'
+					variant={variant}
 					onEvent={handleEvent}
 				/>
 			</section>

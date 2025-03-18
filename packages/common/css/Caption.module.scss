@@ -26,28 +26,8 @@
 		border-width: 0 1px;
 		transition: all 200ms ease;
 	}
-	// &::after {
-	// 	content: '';
-	// 	display: block;
-	// 	width: 8px;
-	// 	height: 8px;
-	// 	position: absolute;
-	// 	left: calc(var(--space-3) - 5px);
-	// 	top: calc(var(--space-3));
-	// 	z-index: 4;
-	// 	border-radius: 100%;
-	// 	// background-color: var(--color-secondary-light);
-	// 	// border-color: var(--color-secondary-dark);
-	// 	background-color: var(--color-tertiary-light);
-	// 	border-color: var(--color-primary);
-	// 	border-style: solid;
-	// 	border-width: 1px;
-	// 	opacity: 0;
-	// 	transition: all 200ms ease;
-	// }
-	.App_active & {
+	.App_expand.App_active {
 		color: var(--color-secondary);
-		
 		&::before {
 			// top: -2px;
 			height: calc(100% + var(--space-10) + 2px);
@@ -60,13 +40,13 @@
 }
 .CaptionInner {
 	transition: all 200ms ease;
-	.App_active & {
+	.App_expand.App_active & {
 		transform: translateX(var(--space-6));
 	}
 }
 .CaptionByline {
 	color: var(--color-tertiary-dark);
-	.App_active & {
+	.App_expand.App_active & {
 		color: var(--color-secondary-dark);
 	}
 }

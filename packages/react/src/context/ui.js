@@ -1,6 +1,8 @@
 import { createContext, useContext } from 'react'
+import { DEFAULT_VARIANT } from "$common/constants"
 
 const UiContext = createContext({
+	variant: DEFAULT_VARIANT,
 	isHoverImage: false,
 	isShowProvenance: false,
 	isShowExplainer: false,

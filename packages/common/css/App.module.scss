@@ -35,15 +35,18 @@
 		appearance: none;
 	}
 	&.App_hovered {
-		transform: translate(0, 0);
+		// transform: translate(0, 0);
 	}
-	&.App_active {
+	&.App_expand.App_active {
 		background-color: var(--color-primary);
 	}
+	&.App_modal.App_active {
+		background-color: inherit;
+	}
 }
 .App_hovered {
-	transform: translate(0, 0);
+	// transform: translate(0, 0);
 }
 .App_hovered {
-	transform: translate(0, 0);
+	// transform: translate(0, 0);
 }
