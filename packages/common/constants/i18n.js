@@ -17,7 +17,8 @@ export const DICTIONARY_EN_US = {
 	explainer_methods_pre: 'Read about',
 	explainer_methods_link: 'our methods',
 	explainer_methods_url: '#',
-	verify: 'Verify on',
+	verify_pre: 'Verify on',
+	verify_cc: 'Content Credentials',
 }
 
 export const DICTIONARY_NB_NO = {
@@ -32,7 +33,8 @@ export const DICTIONARY_NB_NO = {
 	explainer_methods_pre: 'Les om',
 	explainer_methods_link: 'våre metoder',
 	explainer_methods_url: '#',
-	verify: 'Verifiser på',
+	verify_pre: 'Verifiser på',
+	verify_cc: 'Content Credentials',
 }
 
 export const DICTIONARY_DEFAULT = DICTIONARY_EN_US

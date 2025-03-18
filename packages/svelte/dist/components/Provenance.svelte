@@ -35,13 +35,13 @@
 				{/each}
 			</ul>
 			<div class={styles.ProvenanceVerify}>
-				{getText($locale, 'verify')}
+				{getText($locale, 'verify', 'pre')}
 				<a
 					href={verifyUrl}
 					target='_blank'
 
 				>
-					Content Credentials
+					{getText($locale, 'verify', 'cc')}
 				</a>
 			</div>
 		</div>

@@ -307,7 +307,7 @@ var fL = OL;
     }
   };
 })($y, $y.exports);
-var EB = $y.exports, fQ = { exports: {} };
+var EB = $y.exports, xQ = { exports: {} };
 /**
  * @license
  * Lodash <https://lodash.com/>
@@ -328,7 +328,7 @@ var EB = $y.exports, fQ = { exports: {} };
       ["partial", wA],
       ["partialRight", oA],
       ["rearg", MA]
-    ], T = "[object Arguments]", d = "[object Array]", x = "[object AsyncFunction]", W = "[object Boolean]", X = "[object Date]", UA = "[object DOMException]", nA = "[object Error]", HA = "[object Function]", uA = "[object GeneratorFunction]", pA = "[object Map]", cg = "[object Number]", wB = "[object Null]", Rg = "[object Object]", iB = "[object Promise]", wE = "[object Proxy]", YI = "[object RegExp]", Eg = "[object Set]", hI = "[object String]", jI = "[object Symbol]", oE = "[object Undefined]", KI = "[object WeakMap]", dQ = "[object WeakSet]", cI = "[object ArrayBuffer]", II = "[object DataView]", NC = "[object Float32Array]", kC = "[object Float64Array]", r = "[object Int8Array]", V = "[object Int16Array]", BA = "[object Int32Array]", yA = "[object Uint8Array]", fA = "[object Uint8ClampedArray]", xA = "[object Uint16Array]", LA = "[object Uint32Array]", JA = /\b__p \+= '';/g, Tg = /\b(__p \+=) '' \+/g, aI = /(__e\(.*?\)|\b__t\)) \+\n'';/g, RI = /&(?:amp|lt|gt|quot|#39);/g, ZI = /[&<>"']/g, oB = RegExp(RI.source), io = RegExp(ZI.source), wo = /<%-([\s\S]+?)%>/g, oo = /<%([\s\S]+?)%>/g, GE = /<%=([\s\S]+?)%>/g, Go = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/, Mo = /^\w*$/, No = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g, GB = /[\\^$.*+?()[\]{}|]/g, ko = RegExp(GB.source), MB = /^\s+/, Yo = /\s/, ho = /\{(?:\n\/\* \[wrapped with .+\] \*\/)?\n?/, ao = /\{\n\/\* \[wrapped with (.+)\] \*/, Ro = /,? & /, yo = /[^\x00-\x2f\x3a-\x40\x5b-\x60\x7b-\x7f]+/g, Fo = /[()=,{}\[\]\/\s]/, so = /\\(\\)?/g, Jo = /\$\{([^\\}]*(?:\\.[^\\}]*)*)\}/g, ME = /\w*$/, Ko = /^[-+]0x[0-9a-f]+$/i, co = /^0b[01]+$/i, Uo = /^\[object .+?Constructor\]$/, Ho = /^0o[0-7]+$/i, Lo = /^(?:0|[1-9]\d*)$/, So = /[\xc0-\xd6\xd8-\xf6\xf8-\xff\u0100-\u017f]/g, YC = /($^)/, qo = /['\n\r\u2028\u2029\\]/g, hC = "\\ud800-\\udfff", eo = "\\u0300-\\u036f", to = "\\ufe20-\\ufe2f", ro = "\\u20d0-\\u20ff", NE = eo + to + ro, kE = "\\u2700-\\u27bf", YE = "a-z\\xdf-\\xf6\\xf8-\\xff", no = "\\xac\\xb1\\xd7\\xf7", po = "\\x00-\\x2f\\x3a-\\x40\\x5b-\\x60\\x7b-\\xbf", lo = "\\u2000-\\u206f", Oo = " \\t\\x0b\\f\\xa0\\ufeff\\n\\r\\u2028\\u2029\\u1680\\u180e\\u2000\\u2001\\u2002\\u2003\\u2004\\u2005\\u2006\\u2007\\u2008\\u2009\\u200a\\u202f\\u205f\\u3000", hE = "A-Z\\xc0-\\xd6\\xd8-\\xde", aE = "\\ufe0e\\ufe0f", RE = no + po + lo + Oo, NB = "['\u2019]", fo = "[" + hC + "]", yE = "[" + RE + "]", aC = "[" + NE + "]", FE = "\\d+", xo = "[" + kE + "]", sE = "[" + YE + "]", JE = "[^" + hC + RE + FE + kE + YE + hE + "]", kB = "\\ud83c[\\udffb-\\udfff]", To = "(?:" + aC + "|" + kB + ")", KE = "[^" + hC + "]", YB = "(?:\\ud83c[\\udde6-\\uddff]){2}", hB = "[\\ud800-\\udbff][\\udc00-\\udfff]", UI = "[" + hE + "]", cE = "\\u200d", UE = "(?:" + sE + "|" + JE + ")", jo = "(?:" + UI + "|" + JE + ")", HE = "(?:" + NB + "(?:d|ll|m|re|s|t|ve))?", LE = "(?:" + NB + "(?:D|LL|M|RE|S|T|VE))?", SE = To + "?", qE = "[" + aE + "]?", Zo = "(?:" + cE + "(?:" + [KE, YB, hB].join("|") + ")" + qE + SE + ")*", Wo = "\\d*(?:1st|2nd|3rd|(?![123])\\dth)(?=\\b|[A-Z_])", uo = "\\d*(?:1ST|2ND|3RD|(?![123])\\dTH)(?=\\b|[a-z_])", eE = qE + SE + Zo, mo = "(?:" + [xo, YB, hB].join("|") + ")" + eE, Po = "(?:" + [KE + aC + "?", aC, YB, hB, fo].join("|") + ")", bo = RegExp(NB, "g"), Vo = RegExp(aC, "g"), aB = RegExp(kB + "(?=" + kB + ")|" + Po + eE, "g"), vo = RegExp([
+    ], T = "[object Arguments]", d = "[object Array]", x = "[object AsyncFunction]", W = "[object Boolean]", X = "[object Date]", UA = "[object DOMException]", nA = "[object Error]", HA = "[object Function]", uA = "[object GeneratorFunction]", pA = "[object Map]", cg = "[object Number]", wB = "[object Null]", Rg = "[object Object]", iB = "[object Promise]", wE = "[object Proxy]", YI = "[object RegExp]", Eg = "[object Set]", hI = "[object String]", jI = "[object Symbol]", oE = "[object Undefined]", KI = "[object WeakMap]", lQ = "[object WeakSet]", cI = "[object ArrayBuffer]", II = "[object DataView]", NC = "[object Float32Array]", kC = "[object Float64Array]", r = "[object Int8Array]", V = "[object Int16Array]", BA = "[object Int32Array]", yA = "[object Uint8Array]", fA = "[object Uint8ClampedArray]", xA = "[object Uint16Array]", LA = "[object Uint32Array]", JA = /\b__p \+= '';/g, Tg = /\b(__p \+=) '' \+/g, aI = /(__e\(.*?\)|\b__t\)) \+\n'';/g, RI = /&(?:amp|lt|gt|quot|#39);/g, ZI = /[&<>"']/g, oB = RegExp(RI.source), io = RegExp(ZI.source), wo = /<%-([\s\S]+?)%>/g, oo = /<%([\s\S]+?)%>/g, GE = /<%=([\s\S]+?)%>/g, Go = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/, Mo = /^\w*$/, No = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g, GB = /[\\^$.*+?()[\]{}|]/g, ko = RegExp(GB.source), MB = /^\s+/, Yo = /\s/, ho = /\{(?:\n\/\* \[wrapped with .+\] \*\/)?\n?/, ao = /\{\n\/\* \[wrapped with (.+)\] \*/, Ro = /,? & /, yo = /[^\x00-\x2f\x3a-\x40\x5b-\x60\x7b-\x7f]+/g, Fo = /[()=,{}\[\]\/\s]/, so = /\\(\\)?/g, Jo = /\$\{([^\\}]*(?:\\.[^\\}]*)*)\}/g, ME = /\w*$/, Ko = /^[-+]0x[0-9a-f]+$/i, co = /^0b[01]+$/i, Uo = /^\[object .+?Constructor\]$/, Ho = /^0o[0-7]+$/i, Lo = /^(?:0|[1-9]\d*)$/, So = /[\xc0-\xd6\xd8-\xf6\xf8-\xff\u0100-\u017f]/g, YC = /($^)/, qo = /['\n\r\u2028\u2029\\]/g, hC = "\\ud800-\\udfff", eo = "\\u0300-\\u036f", to = "\\ufe20-\\ufe2f", ro = "\\u20d0-\\u20ff", NE = eo + to + ro, kE = "\\u2700-\\u27bf", YE = "a-z\\xdf-\\xf6\\xf8-\\xff", no = "\\xac\\xb1\\xd7\\xf7", po = "\\x00-\\x2f\\x3a-\\x40\\x5b-\\x60\\x7b-\\xbf", lo = "\\u2000-\\u206f", Oo = " \\t\\x0b\\f\\xa0\\ufeff\\n\\r\\u2028\\u2029\\u1680\\u180e\\u2000\\u2001\\u2002\\u2003\\u2004\\u2005\\u2006\\u2007\\u2008\\u2009\\u200a\\u202f\\u205f\\u3000", hE = "A-Z\\xc0-\\xd6\\xd8-\\xde", aE = "\\ufe0e\\ufe0f", RE = no + po + lo + Oo, NB = "['\u2019]", fo = "[" + hC + "]", yE = "[" + RE + "]", aC = "[" + NE + "]", FE = "\\d+", xo = "[" + kE + "]", sE = "[" + YE + "]", JE = "[^" + hC + RE + FE + kE + YE + hE + "]", kB = "\\ud83c[\\udffb-\\udfff]", To = "(?:" + aC + "|" + kB + ")", KE = "[^" + hC + "]", YB = "(?:\\ud83c[\\udde6-\\uddff]){2}", hB = "[\\ud800-\\udbff][\\udc00-\\udfff]", UI = "[" + hE + "]", cE = "\\u200d", UE = "(?:" + sE + "|" + JE + ")", jo = "(?:" + UI + "|" + JE + ")", HE = "(?:" + NB + "(?:d|ll|m|re|s|t|ve))?", LE = "(?:" + NB + "(?:D|LL|M|RE|S|T|VE))?", SE = To + "?", qE = "[" + aE + "]?", Zo = "(?:" + cE + "(?:" + [KE, YB, hB].join("|") + ")" + qE + SE + ")*", Wo = "\\d*(?:1st|2nd|3rd|(?![123])\\dth)(?=\\b|[A-Z_])", uo = "\\d*(?:1ST|2ND|3RD|(?![123])\\dTH)(?=\\b|[a-z_])", eE = qE + SE + Zo, mo = "(?:" + [xo, YB, hB].join("|") + ")" + eE, Po = "(?:" + [KE + aC + "?", aC, YB, hB, fo].join("|") + ")", bo = RegExp(NB, "g"), Vo = RegExp(aC, "g"), aB = RegExp(kB + "(?=" + kB + ")|" + Po + eE, "g"), vo = RegExp([
       UI + "?" + sE + "+" + HE + "(?=" + [yE, UI, "$"].join("|") + ")",
       jo + "+" + LE + "(?=" + [yE, UI + UE, "$"].join("|") + ")",
       UI + "?" + UE + "+" + HE,
@@ -3270,7 +3270,7 @@ var EB = $y.exports, fQ = { exports: {} };
         return RA(A) && lA(A) == KI;
       }
       function ZY(A) {
-        return RA(A) && jA(A) == dQ;
+        return RA(A) && jA(A) == lQ;
       }
       var WY = mC(jB), uY = mC(function(A, g) {
         return A <= g;
@@ -3938,7 +3938,7 @@ function print() { __p += __j.call(arguments, '') }
     }, qI = eG();
     CI ? ((CI.exports = qI)._ = qI, RB._ = qI) : qA._ = qI;
   }).call(BB);
-})(fQ, fQ.exports);
+})(xQ, xQ.exports);
 var HQ = { exports: {} };
 (function(I, Q) {
   var B = typeof Reflect < "u" ? Reflect.construct : void 0, D = Object.defineProperty, w = Error.captureStackTrace;
@@ -4211,19 +4211,19 @@ function wS(I, Q) {
   return D < 0 ? (++this.size, B.push([I, Q])) : B[D][1] = Q, this;
 }
 var oS = wS, GS = bL, MS = gS, NS = BS, kS = DS, YS = oS;
-function ZQ(I) {
+function WQ(I) {
   var Q = -1, B = I == null ? 0 : I.length;
   for (this.clear(); ++Q < B; ) {
     var D = I[Q];
     this.set(D[0], D[1]);
   }
 }
-ZQ.prototype.clear = GS;
-ZQ.prototype.delete = MS;
-ZQ.prototype.get = NS;
-ZQ.prototype.has = kS;
-ZQ.prototype.set = YS;
-var Hw = ZQ, hS = Hw;
+WQ.prototype.clear = GS;
+WQ.prototype.delete = MS;
+WQ.prototype.get = NS;
+WQ.prototype.has = kS;
+WQ.prototype.set = YS;
+var Hw = WQ, hS = Hw;
 function aS() {
   this.__data__ = new hS(), this.size = 0;
 }
@@ -4241,14 +4241,14 @@ function KS(I) {
   return this.__data__.has(I);
 }
 var cS = KS, US = typeof BB == "object" && BB && BB.Object === Object && BB, ec = US, HS = ec, LS = typeof self == "object" && self && self.Object === Object && self, SS = HS || LS || Function("return this")(), FI = SS, xa, N0;
-function WQ() {
+function uQ() {
   if (N0)
     return xa;
   N0 = 1;
   var I = FI, Q = I.Symbol;
   return xa = Q, xa;
 }
-var k0 = WQ(), tc = Object.prototype, qS = tc.hasOwnProperty, eS = tc.toString, fi = k0 ? k0.toStringTag : void 0;
+var k0 = uQ(), tc = Object.prototype, qS = tc.hasOwnProperty, eS = tc.toString, fi = k0 ? k0.toStringTag : void 0;
 function tS(I) {
   var Q = qS.call(I, fi), B = I[fi];
   try {
@@ -4263,7 +4263,7 @@ var rS = tS, nS = Object.prototype, pS = nS.toString;
 function dS(I) {
   return pS.call(I);
 }
-var lS = dS, Y0 = WQ(), OS = rS, fS = lS, xS = "[object Null]", TS = "[object Undefined]", h0 = Y0 ? Y0.toStringTag : void 0;
+var lS = dS, Y0 = uQ(), OS = rS, fS = lS, xS = "[object Null]", TS = "[object Undefined]", h0 = Y0 ? Y0.toStringTag : void 0;
 function jS(I) {
   return I == null ? I === void 0 ? TS : xS : h0 && h0 in Object(I) ? OS(I) : fS(I);
 }
@@ -4347,19 +4347,19 @@ function uq(I, Q) {
   return this.size += this.has(I) ? 0 : 1, B[I] = Zq && Q === void 0 ? Wq : Q, this;
 }
 var mq = uq, Pq = Sq, bq = eq, Vq = lq, vq = jq, zq = mq;
-function uQ(I) {
+function mQ(I) {
   var Q = -1, B = I == null ? 0 : I.length;
   for (this.clear(); ++Q < B; ) {
     var D = I[Q];
     this.set(D[0], D[1]);
   }
 }
-uQ.prototype.clear = Pq;
-uQ.prototype.delete = bq;
-uQ.prototype.get = Vq;
-uQ.prototype.has = vq;
-uQ.prototype.set = zq;
-var Xq = uQ, y0 = Xq, _q = Hw, $q = kF;
+mQ.prototype.clear = Pq;
+mQ.prototype.delete = bq;
+mQ.prototype.get = Vq;
+mQ.prototype.has = vq;
+mQ.prototype.set = zq;
+var Xq = mQ, y0 = Xq, _q = Hw, $q = kF;
 function Ae() {
   this.size = 0, this.__data__ = {
     hash: new y0(),
@@ -4396,19 +4396,19 @@ function he(I, Q) {
   return B.set(I, Q), this.size += B.size == D ? 0 : 1, this;
 }
 var ae = he, Re = ge, ye = ie, Fe = Ge, se = ke, Je = ae;
-function mQ(I) {
+function PQ(I) {
   var Q = -1, B = I == null ? 0 : I.length;
   for (this.clear(); ++Q < B; ) {
     var D = I[Q];
     this.set(D[0], D[1]);
   }
 }
-mQ.prototype.clear = Re;
-mQ.prototype.delete = ye;
-mQ.prototype.get = Fe;
-mQ.prototype.has = se;
-mQ.prototype.set = Je;
-var YF = mQ, Ke = Hw, ce = kF, Ue = YF, He = 200;
+PQ.prototype.clear = Re;
+PQ.prototype.delete = ye;
+PQ.prototype.get = Fe;
+PQ.prototype.has = se;
+PQ.prototype.set = Je;
+var YF = PQ, Ke = Hw, ce = kF, Ue = YF, He = 200;
 function Le(I, Q) {
   var B = this.__data__;
   if (B instanceof Ke) {
@@ -4420,16 +4420,16 @@ function Le(I, Q) {
   return B.set(I, Q), this.size = B.size, this;
 }
 var Se = Le, qe = Hw, ee = RS, te = FS, re = JS, ne = cS, pe = Se;
-function PQ(I) {
+function bQ(I) {
   var Q = this.__data__ = new qe(I);
   this.size = Q.size;
 }
-PQ.prototype.clear = ee;
-PQ.prototype.delete = te;
-PQ.prototype.get = re;
-PQ.prototype.has = ne;
-PQ.prototype.set = pe;
-var ew = PQ, de = tQ, le = function() {
+bQ.prototype.clear = ee;
+bQ.prototype.delete = te;
+bQ.prototype.get = re;
+bQ.prototype.has = ne;
+bQ.prototype.set = pe;
+var ew = bQ, de = tQ, le = function() {
   try {
     var I = de(Object, "defineProperty");
     return I({}, "", {}), I;
@@ -4534,11 +4534,11 @@ var yF = F2, s2 = Lw, J2 = yF;
 function K2(I) {
   return I != null && J2(I.length) && !s2(I);
 }
-var bQ = K2, c2 = bQ, U2 = mI;
+var VQ = K2, c2 = VQ, U2 = mI;
 function H2(I) {
   return U2(I) && c2(I);
 }
-var L2 = H2, TQ = { exports: {} };
+var L2 = H2, jQ = { exports: {} };
 function S2() {
   return !1;
 }
@@ -4546,7 +4546,7 @@ var q2 = S2;
 (function(I, Q) {
   var B = FI, D = q2, w = Q && !Q.nodeType && Q, M = w && !0 && I && !I.nodeType && I, N = M && M.exports === w, a = N ? B.Buffer : void 0, h = a ? a.isBuffer : void 0, F = h || D;
   I.exports = F;
-})(TQ, TQ.exports);
+})(jQ, jQ.exports);
 var e2 = eQ, t2 = aF, r2 = mI, n2 = "[object Object]", p2 = Function.prototype, d2 = Object.prototype, jc = p2.toString, l2 = d2.hasOwnProperty, O2 = jc.call(Object);
 function f2(I) {
   if (!r2(I) || e2(I) != n2)
@@ -4617,7 +4617,7 @@ function et(I, Q) {
   var B = typeof I;
   return Q = Q == null ? St : Q, !!Q && (B == "number" || B != "symbol" && qt.test(I)) && I > -1 && I % 1 == 0 && I < Q;
 }
-var dw = et, tt = Lt, rt = nw, nt = zg, pt = TQ.exports, dt = dw, lt = FF, Ot = Object.prototype, ft = Ot.hasOwnProperty;
+var dw = et, tt = Lt, rt = nw, nt = zg, pt = jQ.exports, dt = dw, lt = FF, Ot = Object.prototype, ft = Ot.hasOwnProperty;
 function xt(I, Q) {
   var B = nt(I), D = !B && rt(I), w = !B && !D && pt(I), M = !B && !D && !w && lt(I), N = B || D || w || M, a = N ? tt(I.length, String) : [], h = a.length;
   for (var F in I)
@@ -4641,7 +4641,7 @@ function bt(I) {
     D == "constructor" && (Q || !Pt.call(I, D)) || B.push(D);
   return B;
 }
-var Vt = bt, vt = mc, zt = Vt, Xt = bQ;
+var Vt = bt, vt = mc, zt = Vt, Xt = VQ;
 function _t(I) {
   return Xt(I) ? vt(I, !0) : zt(I);
 }
@@ -4649,7 +4649,7 @@ var Xi = _t, $t = zi, Ar = Xi;
 function gr(I) {
   return $t(I, Ar(I));
 }
-var Ir = gr, L0 = pc, Cr = yw.exports, Br = Oc, Qr = vi, Er = xc, S0 = nw, q0 = zg, Dr = L2, ir = TQ.exports, wr = Lw, or = wC, Gr = Zc, Mr = FF, e0 = Wc, Nr = Ir;
+var Ir = gr, L0 = pc, Cr = yw.exports, Br = Oc, Qr = vi, Er = xc, S0 = nw, q0 = zg, Dr = L2, ir = jQ.exports, wr = Lw, or = wC, Gr = Zc, Mr = FF, e0 = Wc, Nr = Ir;
 function kr(I, Q, B, D, w, M, N) {
   var a = e0(I, B), h = e0(Q, B), F = N.get(h);
   if (F) {
@@ -4678,7 +4678,7 @@ var Kr = Pc;
 function cr(I) {
   return I;
 }
-var VQ = cr;
+var vQ = cr;
 function Ur(I, Q, B) {
   switch (B.length) {
     case 0:
@@ -4709,7 +4709,7 @@ function Sr(I) {
     return I;
   };
 }
-var qr = Sr, er = qr, r0 = nc, tr = VQ, rr = r0 ? function(I, Q) {
+var qr = Sr, er = qr, r0 = nc, tr = vQ, rr = r0 ? function(I, Q) {
   return r0(I, "toString", {
     configurable: !0,
     enumerable: !1,
@@ -4729,11 +4729,11 @@ function Or(I) {
     return I.apply(void 0, arguments);
   };
 }
-var Vc = Or, fr = nr, xr = Vc, Tr = xr(fr), JF = Tr, jr = VQ, Zr = bc, Wr = JF;
+var Vc = Or, fr = nr, xr = Vc, Tr = xr(fr), JF = Tr, jr = vQ, Zr = bc, Wr = JF;
 function ur(I, Q) {
   return Wr(Zr(I, Q, jr), I + "");
 }
-var vc = ur, mr = Vi, Pr = bQ, br = dw, Vr = wC;
+var vc = ur, mr = Vi, Pr = VQ, br = dw, Vr = wC;
 function vr(I, Q, B) {
   if (!Vr(B))
     return !1;
@@ -4753,17 +4753,17 @@ function _r(I) {
 }
 var $r = _r, An = Kr, gn = $r, In = gn(function(I, Q, B) {
   An(I, Q, B);
-}), n0 = In, OQ, CB, kw, Yw, hw, Xc, _c;
+}), n0 = In, fQ, CB, kw, Yw, hw, Xc, _c;
 const yI = EB("c2pa:Downloader"), Za = EB("c2pa:Downloader:Cache");
 class GC {
   constructor(Q, B = {}) {
-    CB.set(this, void 0), kw.set(this, void 0), Yw.set(this, void 0), Wi(this, CB, { ..._g(GC, OQ, "f", Xc), ...B }, "f"), Wi(this, kw, Q, "f"), Wi(this, Yw, new LQ(_g(this, kw, "f"), _g(this, CB, "f").inspectSize), "f");
+    CB.set(this, void 0), kw.set(this, void 0), Yw.set(this, void 0), Wi(this, CB, { ..._g(GC, fQ, "f", Xc), ...B }, "f"), Wi(this, kw, Q, "f"), Wi(this, Yw, new LQ(_g(this, kw, "f"), _g(this, CB, "f").inspectSize), "f");
   }
   static async download(Q, B = {}) {
     var D;
     yI("Downloading", Q);
     try {
-      const w = _g(GC, OQ, "f", _c), M = n0({}, w, B), N = M.rangeStart !== w.rangeStart || M.rangeEnd !== w.rangeEnd, a = [M.rangeStart, (D = M.rangeEnd) != null ? D : ""].join("-"), h = N ? { headers: { range: `bytes=${a}` } } : null, F = await fetch(Q, n0({}, M.fetchConfig, h));
+      const w = _g(GC, fQ, "f", _c), M = n0({}, w, B), N = M.rangeStart !== w.rangeStart || M.rangeEnd !== w.rangeEnd, a = [M.rangeStart, (D = M.rangeEnd) != null ? D : ""].join("-"), h = N ? { headers: { range: `bytes=${a}` } } : null, F = await fetch(Q, n0({}, M.fetchConfig, h));
       if (F.ok)
         return F;
       throw new G0(Q, F);
@@ -4816,7 +4816,7 @@ class GC {
     return M;
   }
   static async cachedGetJson(Q) {
-    if (!_g(this, OQ, "f", hw).get(Q)) {
+    if (!_g(this, fQ, "f", hw).get(Q)) {
       Za("No cache found for %s", Q);
       const D = await (await GC.download(Q, {
         fetchConfig: {
@@ -4826,12 +4826,12 @@ class GC {
           }
         }
       })).json();
-      Za("Saving data for %s", Q, D), _g(this, OQ, "f", hw).set(Q, D);
+      Za("Saving data for %s", Q, D), _g(this, fQ, "f", hw).set(Q, D);
     }
-    return Za("Returning cached data for %s", Q), _g(this, OQ, "f", hw).get(Q);
+    return Za("Returning cached data for %s", Q), _g(this, fQ, "f", hw).get(Q);
   }
 }
-OQ = GC, CB = /* @__PURE__ */ new WeakMap(), kw = /* @__PURE__ */ new WeakMap(), Yw = /* @__PURE__ */ new WeakMap();
+fQ = GC, CB = /* @__PURE__ */ new WeakMap(), kw = /* @__PURE__ */ new WeakMap(), Yw = /* @__PURE__ */ new WeakMap();
 hw = { value: /* @__PURE__ */ new Map() };
 Xc = { value: {
   inspectSize: 0
@@ -4941,26 +4941,26 @@ async function wn(I, Q) {
   const N = await I.compileWasm(M);
   return Wa("Compilation finished"), N;
 }
-function vQ(I) {
+function zQ(I) {
   return Object.prototype.toString.call(I);
 }
 function on(I) {
-  return vQ(I) === "[object Date]";
+  return zQ(I) === "[object Date]";
 }
 function Gn(I) {
-  return vQ(I) === "[object RegExp]";
+  return zQ(I) === "[object RegExp]";
 }
 function Mn(I) {
-  return vQ(I) === "[object Error]";
+  return zQ(I) === "[object Error]";
 }
 function Nn(I) {
-  return vQ(I) === "[object Boolean]";
+  return zQ(I) === "[object Boolean]";
 }
 function kn(I) {
-  return vQ(I) === "[object Number]";
+  return zQ(I) === "[object Number]";
 }
 function Yn(I) {
-  return vQ(I) === "[object String]";
+  return zQ(I) === "[object String]";
 }
 var $c = Array.isArray || function(Q) {
   return Object.prototype.toString.call(Q) === "[object Array]";
@@ -5350,19 +5350,19 @@ async function Ln(I, Q, B) {
     };
   }
 }
-const xQ = EB("c2pa"), ma = EB("c2pa:task");
+const TQ = EB("c2pa"), ma = EB("c2pa:task");
 function Sn(I) {
   if (!I)
     return;
-  const Q = fQ.exports.reduce(I, (B, D, w) => ({
+  const Q = xQ.exports.reduce(I, (B, D, w) => ({
     ...B,
-    [fQ.exports.snakeCase(w)]: fQ.exports.mapKeys(D, (M, N) => fQ.exports.snakeCase(N))
+    [xQ.exports.snakeCase(w)]: xQ.exports.mapKeys(D, (M, N) => xQ.exports.snakeCase(N))
   }), {});
   return JSON.stringify(Q);
 }
 async function qn(I) {
   let Q = 0;
-  xQ("Creating c2pa with config", I), WL();
+  TQ("Creating c2pa with config", I), WL();
   const B = await Dn({
     scriptSrc: I.workerSrc,
     maxWorkers: navigator.hardwareConcurrency || 4
@@ -5409,20 +5409,20 @@ function tn(I, Q, B, D, w, M) {
   if (Q.name === "Toolkit(RemoteManifestUrl)")
     return N && Q.url ? rn(I, Q.url, B, D, M) : null;
   if (en.some((h) => h.test(Q.name)))
-    return xQ("Missing or invalid provenance data found", { error: Q.name }), null;
+    return TQ("Missing or invalid provenance data found", { error: Q.name }), null;
   throw Q;
 }
 async function rn(I, Q, B, D, w) {
   try {
     const M = new URL(Q);
-    if (xQ("Fetching remote manifest from", M), !I.blob)
-      throw xQ("No blob found on source, skipping remote manifest loading", I), new Sc();
+    if (TQ("Fetching remote manifest from", M), !I.blob)
+      throw TQ("No blob found on source, skipping remote manifest loading", I), new Sc();
     const h = await (await (await fetch(M.toString())).blob()).arrayBuffer(), F = await B.getReportFromAssetAndManifestBuffer(D, h, I.blob, w);
     return QU(F);
   } catch (M) {
     if (M instanceof TypeError)
-      return xQ("Invalid URL given, skipping remote manifest loading", Q), null;
-    throw xQ("Error loading remote manifest from", Q, M), M;
+      return TQ("Invalid URL given, skipping remote manifest loading", Q), null;
+    throw TQ("Error loading remote manifest from", Q, M), M;
   }
 }
 var EU = { exports: {} };
@@ -5440,7 +5440,7 @@ function jn(I) {
     Tn.call(I, B) && B != "constructor" && Q.push(B);
   return Q;
 }
-var DU = jn, Zn = mc, Wn = DU, un = bQ;
+var DU = jn, Zn = mc, Wn = DU, un = VQ;
 function mn(I) {
   return un(I) ? Zn(I) : Wn(I);
 }
@@ -5448,7 +5448,7 @@ var _i = mn, Pn = dc, bn = _i;
 function Vn(I, Q) {
   return I && Pn(I, Q, bn);
 }
-var iU = Vn, vn = bQ;
+var iU = Vn, vn = VQ;
 function zn(I, Q) {
   return function(B, D) {
     if (B == null)
@@ -5460,7 +5460,7 @@ function zn(I, Q) {
     return B;
   };
 }
-var Xn = zn, _n = iU, $n = Xn, A4 = $n(_n), wU = A4, g4 = VQ;
+var Xn = zn, _n = iU, $n = Xn, A4 = $n(_n), wU = A4, g4 = vQ;
 function I4(I) {
   return typeof I == "function" ? I : g4;
 }
@@ -6203,7 +6203,7 @@ function MU() {
   var I = GU, Q = I && new I();
   return va = Q, va;
 }
-var R4 = VQ, x0 = MU(), y4 = x0 ? function(I, Q) {
+var R4 = vQ, x0 = MU(), y4 = x0 ? function(I, Q) {
   return x0.set(I, Q), I;
 } : R4, NU = y4, F4 = rw, s4 = wC;
 function J4(I) {
@@ -6615,7 +6615,7 @@ var yd = Rd, Fd = eQ, sd = mI, Jd = "[object Symbol]";
 function Kd(I) {
   return typeof I == "symbol" || sd(I) && Fd(I) == Jd;
 }
-var zQ = Kd, cd = yd, ws = wC, Ud = zQ, os = 0 / 0, Hd = /^[-+]0x[0-9a-f]+$/i, Ld = /^0b[01]+$/i, Sd = /^0o[0-7]+$/i, qd = parseInt;
+var XQ = Kd, cd = yd, ws = wC, Ud = XQ, os = 0 / 0, Hd = /^[-+]0x[0-9a-f]+$/i, Ld = /^0b[01]+$/i, Sd = /^0o[0-7]+$/i, qd = parseInt;
 function ed(I) {
   if (typeof I == "number")
     return I;
@@ -6748,9 +6748,9 @@ function rU() {
   var I = tQ, Q = FI, B = I(Q, "Set");
   return hR = B, hR;
 }
-var gF = ul, IF = kF, CF = Vl, BF = rU(), QF = GU, nU = eQ, XQ = rc, ys = "[object Map]", vl = "[object Object]", Fs = "[object Promise]", ss = "[object Set]", Js = "[object WeakMap]", Ks = "[object DataView]", zl = XQ(gF), Xl = XQ(IF), _l = XQ(CF), $l = XQ(BF), AO = XQ(QF), KQ = nU;
+var gF = ul, IF = kF, CF = Vl, BF = rU(), QF = GU, nU = eQ, _Q = rc, ys = "[object Map]", vl = "[object Object]", Fs = "[object Promise]", ss = "[object Set]", Js = "[object WeakMap]", Ks = "[object DataView]", zl = _Q(gF), Xl = _Q(IF), _l = _Q(CF), $l = _Q(BF), AO = _Q(QF), KQ = nU;
 (gF && KQ(new gF(new ArrayBuffer(1))) != Ks || IF && KQ(new IF()) != ys || CF && KQ(CF.resolve()) != Fs || BF && KQ(new BF()) != ss || QF && KQ(new QF()) != Js) && (KQ = function(I) {
-  var Q = nU(I), B = Q == vl ? I.constructor : void 0, D = B ? XQ(B) : "";
+  var Q = nU(I), B = Q == vl ? I.constructor : void 0, D = B ? _Q(B) : "";
   if (D)
     switch (D) {
       case zl:
@@ -6781,7 +6781,7 @@ function wO(I) {
   var Q = new I.constructor(I.source, iO.exec(I));
   return Q.lastIndex = I.lastIndex, Q;
 }
-var oO = wO, cs = WQ(), Us = cs ? cs.prototype : void 0, Hs = Us ? Us.valueOf : void 0;
+var oO = wO, cs = uQ(), Us = cs ? cs.prototype : void 0, Hs = Us ? Us.valueOf : void 0;
 function GO(I) {
   return Hs ? Object(Hs.call(I)) : {};
 }
@@ -6827,7 +6827,7 @@ var WO = ZO, uO = WO, mO = pw(), Ls = mi.exports, Ss = Ls && Ls.isMap, PO = Ss ?
 function XO(I) {
   return vO(I) && VO(I) == zO;
 }
-var _O = XO, $O = _O, A8 = pw(), qs = mi.exports, es = qs && qs.isSet, g8 = es ? A8(es) : $O, I8 = g8, C8 = ew, B8 = xw, Q8 = uc, E8 = LU, D8 = El, i8 = yw.exports, w8 = vi, o8 = Rl, G8 = Sl, M8 = tU, N8 = Tl, k8 = Aw, Y8 = BO, h8 = fO, a8 = xc, R8 = zg, y8 = TQ.exports, F8 = bO, s8 = wC, J8 = I8, K8 = _i, c8 = Xi, U8 = 1, H8 = 2, L8 = 4, pU = "[object Arguments]", S8 = "[object Array]", q8 = "[object Boolean]", e8 = "[object Date]", t8 = "[object Error]", dU = "[object Function]", r8 = "[object GeneratorFunction]", n8 = "[object Map]", p8 = "[object Number]", lU = "[object Object]", d8 = "[object RegExp]", l8 = "[object Set]", O8 = "[object String]", f8 = "[object Symbol]", x8 = "[object WeakMap]", T8 = "[object ArrayBuffer]", j8 = "[object DataView]", Z8 = "[object Float32Array]", W8 = "[object Float64Array]", u8 = "[object Int8Array]", m8 = "[object Int16Array]", P8 = "[object Int32Array]", b8 = "[object Uint8Array]", V8 = "[object Uint8ClampedArray]", v8 = "[object Uint16Array]", z8 = "[object Uint32Array]", Ig = {};
+var _O = XO, $O = _O, A8 = pw(), qs = mi.exports, es = qs && qs.isSet, g8 = es ? A8(es) : $O, I8 = g8, C8 = ew, B8 = xw, Q8 = uc, E8 = LU, D8 = El, i8 = yw.exports, w8 = vi, o8 = Rl, G8 = Sl, M8 = tU, N8 = Tl, k8 = Aw, Y8 = BO, h8 = fO, a8 = xc, R8 = zg, y8 = jQ.exports, F8 = bO, s8 = wC, J8 = I8, K8 = _i, c8 = Xi, U8 = 1, H8 = 2, L8 = 4, pU = "[object Arguments]", S8 = "[object Array]", q8 = "[object Boolean]", e8 = "[object Date]", t8 = "[object Error]", dU = "[object Function]", r8 = "[object GeneratorFunction]", n8 = "[object Map]", p8 = "[object Number]", lU = "[object Object]", d8 = "[object RegExp]", l8 = "[object Set]", O8 = "[object String]", f8 = "[object Symbol]", x8 = "[object WeakMap]", T8 = "[object ArrayBuffer]", j8 = "[object DataView]", Z8 = "[object Float32Array]", W8 = "[object Float64Array]", u8 = "[object Int8Array]", m8 = "[object Int16Array]", P8 = "[object Int32Array]", b8 = "[object Uint8Array]", V8 = "[object Uint8ClampedArray]", v8 = "[object Uint16Array]", z8 = "[object Uint32Array]", Ig = {};
 Ig[pU] = Ig[S8] = Ig[T8] = Ig[j8] = Ig[q8] = Ig[e8] = Ig[Z8] = Ig[W8] = Ig[u8] = Ig[m8] = Ig[P8] = Ig[n8] = Ig[p8] = Ig[lU] = Ig[d8] = Ig[l8] = Ig[O8] = Ig[f8] = Ig[b8] = Ig[V8] = Ig[v8] = Ig[z8] = !0;
 Ig[t8] = Ig[dU] = Ig[x8] = !1;
 function aw(I, Q, B, D, w, M) {
@@ -6993,7 +6993,7 @@ function nF() {
   }
   return sR = I, sR;
 }
-var ls = WQ(), Os = lc, qf = Vi, ef = TU, tf = Sf, rf = nF(), nf = 1, pf = 2, df = "[object Boolean]", lf = "[object Date]", Of = "[object Error]", ff = "[object Map]", xf = "[object Number]", Tf = "[object RegExp]", jf = "[object Set]", Zf = "[object String]", Wf = "[object Symbol]", uf = "[object ArrayBuffer]", mf = "[object DataView]", fs = ls ? ls.prototype : void 0, JR = fs ? fs.valueOf : void 0;
+var ls = uQ(), Os = lc, qf = Vi, ef = TU, tf = Sf, rf = nF(), nf = 1, pf = 2, df = "[object Boolean]", lf = "[object Date]", Of = "[object Error]", ff = "[object Map]", xf = "[object Number]", Tf = "[object RegExp]", jf = "[object Set]", Zf = "[object String]", Wf = "[object Symbol]", uf = "[object ArrayBuffer]", mf = "[object DataView]", fs = ls ? ls.prototype : void 0, JR = fs ? fs.valueOf : void 0;
 function Pf(I, Q, B, D, w, M, N) {
   switch (B) {
     case mf:
@@ -7061,7 +7061,7 @@ function Xf(I, Q, B, D, w, M) {
   }
   return M.delete(I), M.delete(Q), n;
 }
-var _f = Xf, KR = ew, $f = TU, Ax = bf, gx = _f, Ts = Aw, js = zg, Zs = TQ.exports, Ix = FF, Cx = 1, Ws = "[object Arguments]", us = "[object Array]", ow = "[object Object]", Bx = Object.prototype, ms = Bx.hasOwnProperty;
+var _f = Xf, KR = ew, $f = TU, Ax = bf, gx = _f, Ts = Aw, js = zg, Zs = jQ.exports, Ix = FF, Cx = 1, Ws = "[object Arguments]", us = "[object Array]", ow = "[object Object]", Bx = Object.prototype, ms = Bx.hasOwnProperty;
 function Qx(I, Q, B, D, w, M) {
   var N = js(I), a = js(Q), h = N ? us : Ts(I), F = a ? us : Ts(Q);
   h = h == Ws ? ow : h, F = F == Ws ? ow : F;
@@ -7137,7 +7137,7 @@ function cx(I) {
     return B === I || sx(B, I, Q);
   };
 }
-var Ux = cx, Hx = zg, Lx = zQ, Sx = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/, qx = /^\w*$/;
+var Ux = cx, Hx = zg, Lx = XQ, Sx = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/, qx = /^\w*$/;
 function ex(I, Q) {
   if (Hx(I))
     return !1;
@@ -7182,7 +7182,7 @@ function lF() {
   }
   return cR = I, cR;
 }
-var Vs = WQ(), jx = lF(), Zx = zg, Wx = zQ, ux = 1 / 0, vs = Vs ? Vs.prototype : void 0, zs = vs ? vs.toString : void 0;
+var Vs = uQ(), jx = lF(), Zx = zg, Wx = XQ, ux = 1 / 0, vs = Vs ? Vs.prototype : void 0, zs = vs ? vs.toString : void 0;
 function bU(I) {
   if (typeof I == "string")
     return I;
@@ -7201,7 +7201,7 @@ var VU = bx, Vx = zg, vx = pF, zx = PU, Xx = VU;
 function _x(I, Q) {
   return Vx(I) ? I : vx(I, Q) ? [I] : zx(Xx(I));
 }
-var vU = _x, $x = zQ, AT = 1 / 0;
+var vU = _x, $x = XQ, AT = 1 / 0;
 function gT(I) {
   if (typeof I == "string" || $x(I))
     return I;
@@ -7269,7 +7269,7 @@ var pT = nT, dT = tT, lT = pT, OT = pF, fT = gw;
 function xT(I) {
   return OT(I) ? dT(fT(I)) : lT(I);
 }
-var TT = xT, jT = Ux, ZT = qT, WT = VQ, uT = zg, mT = TT;
+var TT = xT, jT = Ux, ZT = qT, WT = vQ, uT = zg, mT = TT;
 function PT(I) {
   return typeof I == "function" ? I : I == null ? WT : typeof I == "object" ? uT(I) ? ZT(I[0], I[1]) : jT(I) : mT(I);
 }
@@ -7282,7 +7282,7 @@ function _T() {
   if (_s)
     return HR;
   _s = 1;
-  var I = WQ(), Q = nw, B = zg, D = I ? I.isConcatSpreadable : void 0;
+  var I = uQ(), Q = nw, B = zg, D = I ? I.isConcatSpreadable : void 0;
   function w(M) {
     return B(M) || Q(M) || !!(D && M && M[D]);
   }
@@ -7329,7 +7329,7 @@ function XU() {
 }
 var A3 = qF, g3 = XU(), I3 = 256, C3 = g3(function(I, Q) {
   return A3(I, I3, void 0, void 0, void 0, Q);
-}), B3 = C3, Q3 = lF(), E3 = vi, D3 = zg, i3 = zQ, w3 = PU, o3 = gw, G3 = VU;
+}), B3 = C3, Q3 = lF(), E3 = vi, D3 = zg, i3 = XQ, w3 = PU, o3 = gw, G3 = VU;
 function M3(I) {
   return D3(I) ? Q3(I, o3) : i3(I) ? [I] : E3(w3(G3(I)));
 }
@@ -7426,7 +7426,7 @@ function H3() {
   if (EJ)
     return pR;
   EJ = 1;
-  var I = wU, Q = bQ;
+  var I = wU, Q = VQ;
   function B(D, w) {
     var M = -1, N = Q(D) ? Array(D.length) : [];
     return I(D, function(a, h, F) {
@@ -7453,7 +7453,7 @@ function S3() {
   if (iJ)
     return lR;
   iJ = 1;
-  var I = zQ;
+  var I = XQ;
   function Q(B, D) {
     if (B !== D) {
       var w = B !== void 0, M = B === null, N = B === B, a = I(B), h = D !== void 0, F = D === null, y = D === D, Y = I(D);
@@ -7491,7 +7491,7 @@ function e3() {
   if (oJ)
     return fR;
   oJ = 1;
-  var I = lF(), Q = OF(), B = jw, D = H3(), w = L3(), M = pw(), N = q3(), a = VQ, h = zg;
+  var I = lF(), Q = OF(), B = jw, D = H3(), w = L3(), M = pw(), N = q3(), a = vQ, h = zg;
   function F(y, Y, c) {
     Y.length ? Y = I(Y, function(n) {
       return h(n) ? function(e) {
@@ -8694,7 +8694,7 @@ var u3 = W3, m3 = {
 EB("c2pa:selector:editsAndActivity");
 u3(nj, (I, Q) => Q.replace("_", "-"));
 U3(s3, x3((I) => I.id), n3((I) => I.label));
-var fF = { exports: {} }, lQ = {};
+var fF = { exports: {} }, OQ = {};
 /** @license React v16.14.0
  * react-jsx-runtime.production.min.js
  *
@@ -8706,12 +8706,12 @@ var fF = { exports: {} }, lQ = {};
 var hJ;
 function pj() {
   if (hJ)
-    return lQ;
+    return OQ;
   hJ = 1;
   var I = bi, Q = 60103;
-  if (lQ.Fragment = 60107, typeof Symbol == "function" && Symbol.for) {
+  if (OQ.Fragment = 60107, typeof Symbol == "function" && Symbol.for) {
     var B = Symbol.for;
-    Q = B("react.element"), lQ.Fragment = B("react.fragment");
+    Q = B("react.element"), OQ.Fragment = B("react.fragment");
   }
   var D = I.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, w = Object.prototype.hasOwnProperty, M = { key: !0, ref: !0, __self: !0, __source: !0 };
   function N(a, h, F) {
@@ -8724,7 +8724,7 @@ function pj() {
         Y[y] === void 0 && (Y[y] = h[y]);
     return { $$typeof: Q, type: a, key: c, ref: t, props: Y, _owner: D.current };
   }
-  return lQ.jsx = N, lQ.jsxs = N, lQ;
+  return OQ.jsx = N, OQ.jsxs = N, OQ;
 }
 var uR = {};
 /** @license React v16.14.0
@@ -9083,7 +9083,7 @@ Check the top-level render call using <` + BA + ">.");
           r.ref !== null && (cg(r), QA("Invalid attribute `ref` supplied to `React.Fragment`."), cg(null));
         }
       }
-      function dQ(r, V, BA, yA, fA, xA) {
+      function lQ(r, V, BA, yA, fA, xA) {
         {
           var LA = Bg(r);
           if (!LA) {
@@ -9114,10 +9114,10 @@ Check the top-level render call using <` + BA + ">.");
         }
       }
       function cI(r, V, BA) {
-        return dQ(r, V, BA, !0);
+        return lQ(r, V, BA, !0);
       }
       function II(r, V, BA) {
-        return dQ(r, V, BA, !1);
+        return lQ(r, V, BA, !1);
       }
       var NC = II, kC = cI;
       I.jsx = NC, I.jsxs = kC;
@@ -9333,7 +9333,8 @@ const BH = Jw({
   explainer_methods_pre: "Read about",
   explainer_methods_link: "our methods",
   explainer_methods_url: "#",
-  verify: "Verify on"
+  verify_pre: "Verify on",
+  verify_cc: "Content Credentials"
 }, uj = {
   producer: "Produsent",
   generator: "Generator",
@@ -9346,7 +9347,8 @@ const BH = Jw({
   explainer_methods_pre: "Les om",
   explainer_methods_link: "v\xE5re metoder",
   explainer_methods_url: "#",
-  verify: "Verifiser p\xE5"
+  verify_pre: "Verifiser p\xE5",
+  verify_cc: "Content Credentials"
 }, EF = {
   en_US: Wj,
   nb_NO: uj
@@ -9378,7 +9380,7 @@ const BH = Jw({
   setLocale: () => null,
   dictionary: !1,
   getText: () => null
-}), _Q = () => Kw(DH), zj = ({
+}), rQ = () => Kw(DH), zj = ({
   locale: I,
   children: Q
 }) => {
@@ -9407,7 +9409,7 @@ const BH = Jw({
   openManifest: () => !1,
   closeManifest: () => !1,
   eventHandler: null
-}), rQ = () => Kw(iH), Xj = ({
+}), nQ = () => Kw(iH), Xj = ({
   children: I
 }) => {
   const [Q, B] = xI(!1), [D, w] = xI(!1), [M, N] = xI(!1), a = iC({}), h = iC(null), F = (p, P, ...z) => {
@@ -9789,7 +9791,7 @@ var DB = DF.exports, FJ = { exports: {} };
       ["partial", wA],
       ["partialRight", oA],
       ["rearg", MA]
-    ], T = "[object Arguments]", d = "[object Array]", x = "[object AsyncFunction]", W = "[object Boolean]", X = "[object Date]", UA = "[object DOMException]", nA = "[object Error]", HA = "[object Function]", uA = "[object GeneratorFunction]", pA = "[object Map]", cg = "[object Number]", wB = "[object Null]", Rg = "[object Object]", iB = "[object Promise]", wE = "[object Proxy]", YI = "[object RegExp]", Eg = "[object Set]", hI = "[object String]", jI = "[object Symbol]", oE = "[object Undefined]", KI = "[object WeakMap]", dQ = "[object WeakSet]", cI = "[object ArrayBuffer]", II = "[object DataView]", NC = "[object Float32Array]", kC = "[object Float64Array]", r = "[object Int8Array]", V = "[object Int16Array]", BA = "[object Int32Array]", yA = "[object Uint8Array]", fA = "[object Uint8ClampedArray]", xA = "[object Uint16Array]", LA = "[object Uint32Array]", JA = /\b__p \+= '';/g, Tg = /\b(__p \+=) '' \+/g, aI = /(__e\(.*?\)|\b__t\)) \+\n'';/g, RI = /&(?:amp|lt|gt|quot|#39);/g, ZI = /[&<>"']/g, oB = RegExp(RI.source), io = RegExp(ZI.source), wo = /<%-([\s\S]+?)%>/g, oo = /<%([\s\S]+?)%>/g, GE = /<%=([\s\S]+?)%>/g, Go = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/, Mo = /^\w*$/, No = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g, GB = /[\\^$.*+?()[\]{}|]/g, ko = RegExp(GB.source), MB = /^\s+/, Yo = /\s/, ho = /\{(?:\n\/\* \[wrapped with .+\] \*\/)?\n?/, ao = /\{\n\/\* \[wrapped with (.+)\] \*/, Ro = /,? & /, yo = /[^\x00-\x2f\x3a-\x40\x5b-\x60\x7b-\x7f]+/g, Fo = /[()=,{}\[\]\/\s]/, so = /\\(\\)?/g, Jo = /\$\{([^\\}]*(?:\\.[^\\}]*)*)\}/g, ME = /\w*$/, Ko = /^[-+]0x[0-9a-f]+$/i, co = /^0b[01]+$/i, Uo = /^\[object .+?Constructor\]$/, Ho = /^0o[0-7]+$/i, Lo = /^(?:0|[1-9]\d*)$/, So = /[\xc0-\xd6\xd8-\xf6\xf8-\xff\u0100-\u017f]/g, YC = /($^)/, qo = /['\n\r\u2028\u2029\\]/g, hC = "\\ud800-\\udfff", eo = "\\u0300-\\u036f", to = "\\ufe20-\\ufe2f", ro = "\\u20d0-\\u20ff", NE = eo + to + ro, kE = "\\u2700-\\u27bf", YE = "a-z\\xdf-\\xf6\\xf8-\\xff", no = "\\xac\\xb1\\xd7\\xf7", po = "\\x00-\\x2f\\x3a-\\x40\\x5b-\\x60\\x7b-\\xbf", lo = "\\u2000-\\u206f", Oo = " \\t\\x0b\\f\\xa0\\ufeff\\n\\r\\u2028\\u2029\\u1680\\u180e\\u2000\\u2001\\u2002\\u2003\\u2004\\u2005\\u2006\\u2007\\u2008\\u2009\\u200a\\u202f\\u205f\\u3000", hE = "A-Z\\xc0-\\xd6\\xd8-\\xde", aE = "\\ufe0e\\ufe0f", RE = no + po + lo + Oo, NB = "['\u2019]", fo = "[" + hC + "]", yE = "[" + RE + "]", aC = "[" + NE + "]", FE = "\\d+", xo = "[" + kE + "]", sE = "[" + YE + "]", JE = "[^" + hC + RE + FE + kE + YE + hE + "]", kB = "\\ud83c[\\udffb-\\udfff]", To = "(?:" + aC + "|" + kB + ")", KE = "[^" + hC + "]", YB = "(?:\\ud83c[\\udde6-\\uddff]){2}", hB = "[\\ud800-\\udbff][\\udc00-\\udfff]", UI = "[" + hE + "]", cE = "\\u200d", UE = "(?:" + sE + "|" + JE + ")", jo = "(?:" + UI + "|" + JE + ")", HE = "(?:" + NB + "(?:d|ll|m|re|s|t|ve))?", LE = "(?:" + NB + "(?:D|LL|M|RE|S|T|VE))?", SE = To + "?", qE = "[" + aE + "]?", Zo = "(?:" + cE + "(?:" + [KE, YB, hB].join("|") + ")" + qE + SE + ")*", Wo = "\\d*(?:1st|2nd|3rd|(?![123])\\dth)(?=\\b|[A-Z_])", uo = "\\d*(?:1ST|2ND|3RD|(?![123])\\dTH)(?=\\b|[a-z_])", eE = qE + SE + Zo, mo = "(?:" + [xo, YB, hB].join("|") + ")" + eE, Po = "(?:" + [KE + aC + "?", aC, YB, hB, fo].join("|") + ")", bo = RegExp(NB, "g"), Vo = RegExp(aC, "g"), aB = RegExp(kB + "(?=" + kB + ")|" + Po + eE, "g"), vo = RegExp([
+    ], T = "[object Arguments]", d = "[object Array]", x = "[object AsyncFunction]", W = "[object Boolean]", X = "[object Date]", UA = "[object DOMException]", nA = "[object Error]", HA = "[object Function]", uA = "[object GeneratorFunction]", pA = "[object Map]", cg = "[object Number]", wB = "[object Null]", Rg = "[object Object]", iB = "[object Promise]", wE = "[object Proxy]", YI = "[object RegExp]", Eg = "[object Set]", hI = "[object String]", jI = "[object Symbol]", oE = "[object Undefined]", KI = "[object WeakMap]", lQ = "[object WeakSet]", cI = "[object ArrayBuffer]", II = "[object DataView]", NC = "[object Float32Array]", kC = "[object Float64Array]", r = "[object Int8Array]", V = "[object Int16Array]", BA = "[object Int32Array]", yA = "[object Uint8Array]", fA = "[object Uint8ClampedArray]", xA = "[object Uint16Array]", LA = "[object Uint32Array]", JA = /\b__p \+= '';/g, Tg = /\b(__p \+=) '' \+/g, aI = /(__e\(.*?\)|\b__t\)) \+\n'';/g, RI = /&(?:amp|lt|gt|quot|#39);/g, ZI = /[&<>"']/g, oB = RegExp(RI.source), io = RegExp(ZI.source), wo = /<%-([\s\S]+?)%>/g, oo = /<%([\s\S]+?)%>/g, GE = /<%=([\s\S]+?)%>/g, Go = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/, Mo = /^\w*$/, No = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g, GB = /[\\^$.*+?()[\]{}|]/g, ko = RegExp(GB.source), MB = /^\s+/, Yo = /\s/, ho = /\{(?:\n\/\* \[wrapped with .+\] \*\/)?\n?/, ao = /\{\n\/\* \[wrapped with (.+)\] \*/, Ro = /,? & /, yo = /[^\x00-\x2f\x3a-\x40\x5b-\x60\x7b-\x7f]+/g, Fo = /[()=,{}\[\]\/\s]/, so = /\\(\\)?/g, Jo = /\$\{([^\\}]*(?:\\.[^\\}]*)*)\}/g, ME = /\w*$/, Ko = /^[-+]0x[0-9a-f]+$/i, co = /^0b[01]+$/i, Uo = /^\[object .+?Constructor\]$/, Ho = /^0o[0-7]+$/i, Lo = /^(?:0|[1-9]\d*)$/, So = /[\xc0-\xd6\xd8-\xf6\xf8-\xff\u0100-\u017f]/g, YC = /($^)/, qo = /['\n\r\u2028\u2029\\]/g, hC = "\\ud800-\\udfff", eo = "\\u0300-\\u036f", to = "\\ufe20-\\ufe2f", ro = "\\u20d0-\\u20ff", NE = eo + to + ro, kE = "\\u2700-\\u27bf", YE = "a-z\\xdf-\\xf6\\xf8-\\xff", no = "\\xac\\xb1\\xd7\\xf7", po = "\\x00-\\x2f\\x3a-\\x40\\x5b-\\x60\\x7b-\\xbf", lo = "\\u2000-\\u206f", Oo = " \\t\\x0b\\f\\xa0\\ufeff\\n\\r\\u2028\\u2029\\u1680\\u180e\\u2000\\u2001\\u2002\\u2003\\u2004\\u2005\\u2006\\u2007\\u2008\\u2009\\u200a\\u202f\\u205f\\u3000", hE = "A-Z\\xc0-\\xd6\\xd8-\\xde", aE = "\\ufe0e\\ufe0f", RE = no + po + lo + Oo, NB = "['\u2019]", fo = "[" + hC + "]", yE = "[" + RE + "]", aC = "[" + NE + "]", FE = "\\d+", xo = "[" + kE + "]", sE = "[" + YE + "]", JE = "[^" + hC + RE + FE + kE + YE + hE + "]", kB = "\\ud83c[\\udffb-\\udfff]", To = "(?:" + aC + "|" + kB + ")", KE = "[^" + hC + "]", YB = "(?:\\ud83c[\\udde6-\\uddff]){2}", hB = "[\\ud800-\\udbff][\\udc00-\\udfff]", UI = "[" + hE + "]", cE = "\\u200d", UE = "(?:" + sE + "|" + JE + ")", jo = "(?:" + UI + "|" + JE + ")", HE = "(?:" + NB + "(?:d|ll|m|re|s|t|ve))?", LE = "(?:" + NB + "(?:D|LL|M|RE|S|T|VE))?", SE = To + "?", qE = "[" + aE + "]?", Zo = "(?:" + cE + "(?:" + [KE, YB, hB].join("|") + ")" + qE + SE + ")*", Wo = "\\d*(?:1st|2nd|3rd|(?![123])\\dth)(?=\\b|[A-Z_])", uo = "\\d*(?:1ST|2ND|3RD|(?![123])\\dTH)(?=\\b|[a-z_])", eE = qE + SE + Zo, mo = "(?:" + [xo, YB, hB].join("|") + ")" + eE, Po = "(?:" + [KE + aC + "?", aC, YB, hB, fo].join("|") + ")", bo = RegExp(NB, "g"), Vo = RegExp(aC, "g"), aB = RegExp(kB + "(?=" + kB + ")|" + Po + eE, "g"), vo = RegExp([
       UI + "?" + sE + "+" + HE + "(?=" + [yE, UI, "$"].join("|") + ")",
       jo + "+" + LE + "(?=" + [yE, UI + UE, "$"].join("|") + ")",
       UI + "?" + UE + "+" + HE,
@@ -12731,7 +12733,7 @@ var DB = DF.exports, FJ = { exports: {} };
         return RA(A) && lA(A) == KI;
       }
       function ZY(A) {
-        return RA(A) && jA(A) == dQ;
+        return RA(A) && jA(A) == lQ;
       }
       var WY = mC(jB), uY = mC(function(A, g) {
         return A <= g;
@@ -13608,12 +13610,12 @@ var zZ = vZ, KJ = AE(), XZ = PZ, _Z = zZ, $Z = "[object Null]", AW = "[object Un
 function gW(I) {
   return I == null ? I === void 0 ? AW : $Z : cJ && cJ in Object(I) ? XZ(I) : _Z(I);
 }
-var nQ = gW;
+var pQ = gW;
 function IW(I) {
   var Q = typeof I;
   return I != null && (Q == "object" || Q == "function");
 }
-var oC = IW, CW = nQ, BW = oC, QW = "[object AsyncFunction]", EW = "[object Function]", DW = "[object GeneratorFunction]", iW = "[object Proxy]";
+var oC = IW, CW = pQ, BW = oC, QW = "[object AsyncFunction]", EW = "[object Function]", DW = "[object GeneratorFunction]", iW = "[object Proxy]";
 function wW(I) {
   if (!BW(I))
     return !1;
@@ -13659,7 +13661,7 @@ function dW(I, Q) {
   var B = pW(I, Q);
   return nW(B) ? B : void 0;
 }
-var pQ = dW, lW = pQ, OW = sI, fW = lW(OW, "Map"), TF = fW, xW = pQ, TW = xW(Object, "create"), bw = TW, HJ = bw;
+var dQ = dW, lW = dQ, OW = sI, fW = lW(OW, "Map"), TF = fW, xW = dQ, TW = xW(Object, "create"), bw = TW, HJ = bw;
 function jW() {
   this.__data__ = HJ ? HJ(null) : {}, this.size = 0;
 }
@@ -13770,7 +13772,7 @@ CE.prototype.delete = mu;
 CE.prototype.get = Pu;
 CE.prototype.has = bu;
 CE.prototype.set = Vu;
-var vw = CE, vu = pQ, zu = function() {
+var vw = CE, vu = dQ, zu = function() {
   try {
     var I = vu(Object, "defineProperty");
     return I({}, "", {}), I;
@@ -13859,7 +13861,7 @@ var FH = sm;
 function Jm(I) {
   return I != null && typeof I == "object";
 }
-var PI = Jm, Km = nQ, cm = PI, Um = "[object Arguments]";
+var PI = Jm, Km = pQ, cm = PI, Um = "[object Arguments]";
 function Hm(I) {
   return cm(I) && Km(I) == Um;
 }
@@ -13879,7 +13881,7 @@ var BE = Om, fm = BE, xm = PI;
 function Tm(I) {
   return xm(I) && fm(I);
 }
-var jm = Tm, jQ = { exports: {} };
+var jm = Tm, ZQ = { exports: {} };
 function Zm() {
   return !1;
 }
@@ -13887,8 +13889,8 @@ var Wm = Zm;
 (function(I, Q) {
   var B = sI, D = Wm, w = Q && !Q.nodeType && Q, M = w && !0 && I && !I.nodeType && I, N = M && M.exports === w, a = N ? B.Buffer : void 0, h = a ? a.isBuffer : void 0, F = h || D;
   I.exports = F;
-})(jQ, jQ.exports);
-var um = nQ, mm = WF, Pm = PI, bm = "[object Object]", Vm = Function.prototype, vm = Object.prototype, JH = Vm.toString, zm = vm.hasOwnProperty, Xm = JH.call(Object);
+})(ZQ, ZQ.exports);
+var um = pQ, mm = WF, Pm = PI, bm = "[object Object]", Vm = Function.prototype, vm = Object.prototype, JH = Vm.toString, zm = vm.hasOwnProperty, Xm = JH.call(Object);
 function _m(I) {
   if (!Pm(I) || um(I) != bm)
     return !1;
@@ -13898,7 +13900,7 @@ function _m(I) {
   var B = zm.call(Q, "constructor") && Q.constructor;
   return typeof B == "function" && B instanceof B && JH.call(B) == Xm;
 }
-var KH = _m, $m = nQ, AP = mF, gP = PI, IP = "[object Arguments]", CP = "[object Array]", BP = "[object Boolean]", QP = "[object Date]", EP = "[object Error]", DP = "[object Function]", iP = "[object Map]", wP = "[object Number]", oP = "[object Object]", GP = "[object RegExp]", MP = "[object Set]", NP = "[object String]", kP = "[object WeakMap]", YP = "[object ArrayBuffer]", hP = "[object DataView]", aP = "[object Float32Array]", RP = "[object Float64Array]", yP = "[object Int8Array]", FP = "[object Int16Array]", sP = "[object Int32Array]", JP = "[object Uint8Array]", KP = "[object Uint8ClampedArray]", cP = "[object Uint16Array]", UP = "[object Uint32Array]", hg = {};
+var KH = _m, $m = pQ, AP = mF, gP = PI, IP = "[object Arguments]", CP = "[object Array]", BP = "[object Boolean]", QP = "[object Date]", EP = "[object Error]", DP = "[object Function]", iP = "[object Map]", wP = "[object Number]", oP = "[object Object]", GP = "[object RegExp]", MP = "[object Set]", NP = "[object String]", kP = "[object WeakMap]", YP = "[object ArrayBuffer]", hP = "[object DataView]", aP = "[object Float32Array]", RP = "[object Float64Array]", yP = "[object Int8Array]", FP = "[object Int16Array]", sP = "[object Int32Array]", JP = "[object Uint8Array]", KP = "[object Uint8ClampedArray]", cP = "[object Uint16Array]", UP = "[object Uint32Array]", hg = {};
 hg[aP] = hg[RP] = hg[yP] = hg[FP] = hg[sP] = hg[JP] = hg[KP] = hg[cP] = hg[UP] = !0;
 hg[IP] = hg[CP] = hg[YP] = hg[BP] = hg[hP] = hg[QP] = hg[EP] = hg[DP] = hg[iP] = hg[wP] = hg[oP] = hg[GP] = hg[MP] = hg[NP] = hg[kP] = !1;
 function HP(I) {
@@ -13958,7 +13960,7 @@ function uP(I, Q) {
   var B = typeof I;
   return Q = Q == null ? ZP : Q, !!Q && (B == "number" || B != "symbol" && WP.test(I)) && I > -1 && I % 1 == 0 && I < Q;
 }
-var Ao = uP, mP = jP, PP = _w, bP = Xg, VP = jQ.exports, vP = Ao, zP = PF, XP = Object.prototype, _P = XP.hasOwnProperty;
+var Ao = uP, mP = jP, PP = _w, bP = Xg, VP = ZQ.exports, vP = Ao, zP = PF, XP = Object.prototype, _P = XP.hasOwnProperty;
 function $P(I, Q) {
   var B = bP(I), D = !B && PP(I), w = !B && !D && VP(I), M = !B && !D && !w && zP(I), N = B || D || w || M, a = N ? mP(I.length, String) : [], h = a.length;
   for (var F in I)
@@ -13990,7 +13992,7 @@ var Qw = Mb, Nb = Bw, kb = Qw;
 function Yb(I) {
   return Nb(I, kb(I));
 }
-var hb = Yb, dJ = YH, ab = Fw.exports, Rb = RH, yb = Cw, Fb = FH, lJ = _w, OJ = Xg, sb = jm, Jb = jQ.exports, Kb = Pw, cb = oC, Ub = KH, Hb = PF, fJ = cH, Lb = hb;
+var hb = Yb, dJ = YH, ab = Fw.exports, Rb = RH, yb = Cw, Fb = FH, lJ = _w, OJ = Xg, sb = jm, Jb = ZQ.exports, Kb = Pw, cb = oC, Ub = KH, Hb = PF, fJ = cH, Lb = hb;
 function Sb(I, Q, B, D, w, M, N) {
   var a = fJ(I, B), h = fJ(Q, B), F = N.get(h);
   if (F) {
@@ -15086,7 +15088,7 @@ function iF(I, Q, B, D) {
     });
   }), rA;
 }
-var Qv = iF, Ev = pQ, Dv = sI, iv = Ev(Dv, "WeakMap"), TH = iv, Ay, uJ;
+var Qv = iF, Ev = dQ, Dv = sI, iv = Ev(Dv, "WeakMap"), TH = iv, Ay, uJ;
 function jH() {
   if (uJ)
     return Ay;
@@ -15502,7 +15504,7 @@ var E1 = Q1, D1 = E1, i1 = /^\s+/;
 function w1(I) {
   return I && I.slice(0, D1(I) + 1).replace(i1, "");
 }
-var o1 = w1, G1 = nQ, M1 = PI, N1 = "[object Symbol]";
+var o1 = w1, G1 = pQ, M1 = PI, N1 = "[object Symbol]";
 function k1(I) {
   return typeof I == "symbol" || M1(I) && G1(I) == N1;
 }
@@ -15631,15 +15633,15 @@ var EL = HX, LX = QL, SX = BL, qX = Qw;
 function eX(I) {
   return LX(I, qX, SX);
 }
-var tX = eX, rX = pQ, nX = sI, pX = rX(nX, "DataView"), dX = pX, lX = pQ, OX = sI, fX = lX(OX, "Promise"), xX = fX, sy, cK;
+var tX = eX, rX = dQ, nX = sI, pX = rX(nX, "DataView"), dX = pX, lX = dQ, OX = sI, fX = lX(OX, "Promise"), xX = fX, sy, cK;
 function DL() {
   if (cK)
     return sy;
   cK = 1;
-  var I = pQ, Q = sI, B = I(Q, "Set");
+  var I = dQ, Q = sI, B = I(Q, "Set");
   return sy = B, sy;
 }
-var wF = dX, oF = TF, GF = xX, MF = DL(), NF = TH, iL = nQ, iE = NH, UK = "[object Map]", TX = "[object Object]", HK = "[object Promise]", LK = "[object Set]", SK = "[object WeakMap]", qK = "[object DataView]", jX = iE(wF), ZX = iE(oF), WX = iE(GF), uX = iE(MF), mX = iE(NF), cQ = iL;
+var wF = dX, oF = TF, GF = xX, MF = DL(), NF = TH, iL = pQ, iE = NH, UK = "[object Map]", TX = "[object Object]", HK = "[object Promise]", LK = "[object Set]", SK = "[object WeakMap]", qK = "[object DataView]", jX = iE(wF), ZX = iE(oF), WX = iE(GF), uX = iE(MF), mX = iE(NF), cQ = iL;
 (wF && cQ(new wF(new ArrayBuffer(1))) != qK || oF && cQ(new oF()) != UK || GF && cQ(GF.resolve()) != HK || MF && cQ(new MF()) != LK || NF && cQ(new NF()) != SK) && (cQ = function(I) {
   var Q = iL(I), B = Q == TX ? I.constructor : void 0, D = B ? iE(B) : "";
   if (D)
@@ -15718,7 +15720,7 @@ var p6 = n6, d6 = p6, l6 = $w(), nK = Pi.exports, pK = nK && nK.isMap, O6 = pK ?
 function Z6(I) {
   return T6(I) && x6(I) == j6;
 }
-var W6 = Z6, u6 = W6, m6 = $w(), dK = Pi.exports, lK = dK && dK.isSet, P6 = lK ? m6(lK) : u6, b6 = P6, V6 = vw, v6 = Bo, z6 = UH, X6 = IL, _6 = X1, $6 = Fw.exports, A9 = Cw, g9 = wX, I9 = yX, C9 = EL, B9 = tX, Q9 = iw, E9 = vX, D9 = q6, i9 = FH, w9 = Xg, o9 = jQ.exports, G9 = f6, M9 = oC, N9 = b6, k9 = Ew, Y9 = Qw, h9 = 1, a9 = 2, R9 = 4, wL = "[object Arguments]", y9 = "[object Array]", F9 = "[object Boolean]", s9 = "[object Date]", J9 = "[object Error]", oL = "[object Function]", K9 = "[object GeneratorFunction]", c9 = "[object Map]", U9 = "[object Number]", GL = "[object Object]", H9 = "[object RegExp]", L9 = "[object Set]", S9 = "[object String]", q9 = "[object Symbol]", e9 = "[object WeakMap]", t9 = "[object ArrayBuffer]", r9 = "[object DataView]", n9 = "[object Float32Array]", p9 = "[object Float64Array]", d9 = "[object Int8Array]", l9 = "[object Int16Array]", O9 = "[object Int32Array]", f9 = "[object Uint8Array]", x9 = "[object Uint8ClampedArray]", T9 = "[object Uint16Array]", j9 = "[object Uint32Array]", Cg = {};
+var W6 = Z6, u6 = W6, m6 = $w(), dK = Pi.exports, lK = dK && dK.isSet, P6 = lK ? m6(lK) : u6, b6 = P6, V6 = vw, v6 = Bo, z6 = UH, X6 = IL, _6 = X1, $6 = Fw.exports, A9 = Cw, g9 = wX, I9 = yX, C9 = EL, B9 = tX, Q9 = iw, E9 = vX, D9 = q6, i9 = FH, w9 = Xg, o9 = ZQ.exports, G9 = f6, M9 = oC, N9 = b6, k9 = Ew, Y9 = Qw, h9 = 1, a9 = 2, R9 = 4, wL = "[object Arguments]", y9 = "[object Array]", F9 = "[object Boolean]", s9 = "[object Date]", J9 = "[object Error]", oL = "[object Function]", K9 = "[object GeneratorFunction]", c9 = "[object Map]", U9 = "[object Number]", GL = "[object Object]", H9 = "[object RegExp]", L9 = "[object Set]", S9 = "[object String]", q9 = "[object Symbol]", e9 = "[object WeakMap]", t9 = "[object ArrayBuffer]", r9 = "[object DataView]", n9 = "[object Float32Array]", p9 = "[object Float64Array]", d9 = "[object Int8Array]", l9 = "[object Int16Array]", O9 = "[object Int32Array]", f9 = "[object Uint8Array]", x9 = "[object Uint8ClampedArray]", T9 = "[object Uint16Array]", j9 = "[object Uint32Array]", Cg = {};
 Cg[wL] = Cg[y9] = Cg[t9] = Cg[r9] = Cg[F9] = Cg[s9] = Cg[n9] = Cg[p9] = Cg[d9] = Cg[l9] = Cg[O9] = Cg[c9] = Cg[U9] = Cg[GL] = Cg[H9] = Cg[L9] = Cg[S9] = Cg[q9] = Cg[f9] = Cg[x9] = Cg[T9] = Cg[j9] = !0;
 Cg[J9] = Cg[oL] = Cg[e9] = !1;
 function Rw(I, Q, B, D, w, M) {
@@ -15769,7 +15771,7 @@ function C0(I, Q, B) {
   return D.placeholder = C0.placeholder, D;
 }
 C0.placeholder = {};
-var V9 = C0, v9 = nQ, z9 = PI, X9 = KH, _9 = "[object DOMException]", $9 = "[object Error]";
+var V9 = C0, v9 = pQ, z9 = PI, X9 = KH, _9 = "[object DOMException]", $9 = "[object Error]";
 function A5(I) {
   if (!z9(I))
     return !1;
@@ -15952,7 +15954,7 @@ function j5(I, Q, B, D, w, M) {
   }
   return M.delete(I), M.delete(Q), n;
 }
-var Z5 = j5, Sy = vw, W5 = YL, u5 = O5, m5 = Z5, PK = iw, bK = Xg, VK = jQ.exports, P5 = PF, b5 = 1, vK = "[object Arguments]", zK = "[object Array]", Gw = "[object Object]", V5 = Object.prototype, XK = V5.hasOwnProperty;
+var Z5 = j5, Sy = vw, W5 = YL, u5 = O5, m5 = Z5, PK = iw, bK = Xg, VK = ZQ.exports, P5 = PF, b5 = 1, vK = "[object Arguments]", zK = "[object Array]", Gw = "[object Object]", V5 = Object.prototype, XK = V5.hasOwnProperty;
 function v5(I, Q, B, D, w, M) {
   var N = bK(I), a = bK(Q), h = N ? zK : PK(I), F = a ? zK : PK(Q);
   h = h == vK ? Gw : h, F = F == vK ? Gw : F;
@@ -17080,7 +17082,7 @@ const CAA = (I) => I == null ? void 0 : I.instanceId, BAA = (I) => {
     openProvenance: w,
     closeProvenance: M,
     isOpenProvenance: N
-  } = rQ(), a = UQ((Y) => N ? M(Y) : w(Y), [w, M, N]), h = UQ((Y) => oH(Y, N ? M : w), [w, M, N]), F = UQ((Y) => B(Y), [B]), y = UQ((Y) => D(Y), [D]);
+  } = nQ(), a = UQ((Y) => N ? M(Y) : w(Y), [w, M, N]), h = UQ((Y) => oH(Y, N ? M : w), [w, M, N]), F = UQ((Y) => B(Y), [B]), y = UQ((Y) => D(Y), [D]);
   return /* @__PURE__ */ kA("div", {
     className: Jc.Image,
     onClick: a,
@@ -17107,9 +17109,9 @@ const CAA = (I) => I == null ? void 0 : I.instanceId, BAA = (I) => {
     isOpenProvenance: I,
     openProvenance: Q,
     closeProvenance: B
-  } = rQ(), {
+  } = nQ(), {
     getText: D
-  } = _Q(), w = (M) => I ? B(M) : Q(M);
+  } = rQ(), w = (M) => I ? B(M) : Q(M);
   return /* @__PURE__ */ kA("button", {
     "aria-pressed": I,
     className: UAA.ToggleProvenance,
@@ -17125,9 +17127,9 @@ const CAA = (I) => I == null ? void 0 : I.instanceId, BAA = (I) => {
     isOpenExplainer: I,
     openExplainer: Q,
     closeExplainer: B
-  } = rQ(), {
+  } = nQ(), {
     getText: D
-  } = _Q(), w = (M) => I ? B(M) : Q(M);
+  } = rQ(), w = (M) => I ? B(M) : Q(M);
   return /* @__PURE__ */ kA("button", {
     className: eAA.ToggleExplainer,
     "aria-pressed": I,
@@ -17490,10 +17492,10 @@ const DgA = "Syw-Collapse", igA = "Syw-Collapse_open", wgA = "Syw-CollapseInner"
 }, ogA = () => {
   const {
     getText: I
-  } = _Q(), {
+  } = rQ(), {
     isOpenExplainer: Q,
     closeExplainer: B
-  } = rQ(), D = B;
+  } = nQ(), D = B;
   return /* @__PURE__ */ kA("div", {
     className: Mw.Explainer,
     children: /* @__PURE__ */ kA(w0, {
@@ -17561,7 +17563,7 @@ function LgA({
   var a;
   const {
     locale: w
-  } = _Q(), M = I ? xj((a = I == null ? void 0 : I.thumbnail) != null ? a : void 0) : null, N = (h) => oH(h, B);
+  } = rQ(), M = I ? xj((a = I == null ? void 0 : I.thumbnail) != null ? a : void 0) : null, N = (h) => oH(h, B);
   return /* @__PURE__ */ uI("div", {
     ref: D,
     role: "button",
@@ -17593,7 +17595,7 @@ function SgA({
   const {
     locale: B,
     getText: D
-  } = _Q(), w = cw(() => {
+  } = rQ(), w = cw(() => {
     switch (I) {
       case "producer":
         return Q.name;
@@ -17640,7 +17642,7 @@ function egA({
     openManifests: M,
     openManifest: N,
     closeManifest: a
-  } = rQ(), h = cw(() => [MI.Manifest, B ? MI.Manifest_open : null].filter((y) => y).join(" "), [B]), F = UQ((y) => {
+  } = nQ(), h = cw(() => [MI.Manifest, B ? MI.Manifest_open : null].filter((y) => y).join(" "), [B]), F = UQ((y) => {
     D(!B), B ? a(y, I) : N(y, I);
   }, [B, I, N, a, M]);
   return TI(() => {
@@ -17668,29 +17670,32 @@ function egA({
 }
 function tgA() {
   const I = iC(null), Q = iC(null), {
-    src: B,
-    manifests: D
+    locale: B,
+    getText: D
+  } = rQ(), {
+    src: w,
+    manifests: M
   } = Ww(), {
-    isOpenProvenance: w
-  } = rQ(), M = gZ(B);
+    isOpenProvenance: N
+  } = nQ(), a = gZ(w);
   return TI(() => {
-    var N;
-    w && Q.current && ((N = Q.current) == null || N.focus());
-  }, [Q, w]), /* @__PURE__ */ uI("div", {
+    var h;
+    N && Q.current && ((h = Q.current) == null || h.focus());
+  }, [Q, N]), /* @__PURE__ */ uI("div", {
     ref: I,
     className: _y.Provenance,
     children: [/* @__PURE__ */ kA("ul", {
       className: _y.ProvenanceList,
-      children: D ? D.map((N, a) => /* @__PURE__ */ kA(egA, {
-        manifest: N,
-        previewRef: a === 0 ? Q : null
-      }, a)) : null
+      children: M ? M.map((h, F) => /* @__PURE__ */ kA(egA, {
+        manifest: h,
+        previewRef: F === 0 ? Q : null
+      }, F)) : null
     }), /* @__PURE__ */ uI("div", {
       className: _y.ProvenanceVerify,
-      children: ["Verify with\xA0", /* @__PURE__ */ kA("a", {
-        href: M,
+      children: [D("verify", "pre"), "\xA0", /* @__PURE__ */ kA("a", {
+        href: a,
         target: "_blank",
-        children: "Content Credentials"
+        children: D("verify", "cc")
       })]
     })]
   });
@@ -17703,11 +17708,11 @@ function rgA({
     setManifests: D
   } = Ww(), {
     locale: w
-  } = _Q(), {
+  } = rQ(), {
     isHoverImage: M,
     isOpenProvenance: N,
     eventHandler: a
-  } = rQ(), h = fj(B), F = cw(() => wH(PR.App, M ? PR.App_hovered : !1, N ? PR.App_active : !1), [M, N]);
+  } = nQ(), h = fj(B), F = cw(() => wH(PR.App, M ? PR.App_hovered : !1, N ? PR.App_active : !1), [M, N]);
   return TI(() => {
     var c;
     const y = h == null ? void 0 : h.manifestStore, Y = Object.values((c = y == null ? void 0 : y.manifests) != null ? c : {}).map((t) => oAA(w, t));
