@@ -1,3 +1,3 @@
-export const Syw: typeof App;
-export default Syw;
+export const SywSvelte: typeof App;
+export default SywSvelte;
 import App from './components/App.svelte';

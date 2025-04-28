@@ -1,6 +1,4 @@
-import React from 'react'
-
-import styles from '$common/css/Cutline.module.scss'
+import styles from 'syw-common/css/Cutline.module.scss'
 import ToggleProvenance from './ToggleProvenance'
 import ToggleExplainer from './ToggleExplainer'
 

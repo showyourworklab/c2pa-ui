@@ -1,10 +1,7 @@
-import { useMemo } from 'react'
-import { useCollapse } from 'react-collapsed'
 import * as RadixDialog from '@radix-ui/react-dialog'
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
-
-import styles from '$common/css/Modal.module.scss'
-import { joinClassNames } from '$common/helpers'
+import styles from 'syw-common/css/Modal.module.scss'
+import { joinClassNames } from 'syw-common/helpers'
 
 const Modal = ({
 	open = false,

@@ -1,5 +1,5 @@
 <script>
-	import styles from '../../../../common/css/Explainer.module.scss'
+	import styles from 'syw-common/css/Explainer.module.scss'
 	import { locale, getText } from '../store/i18n'
 	import { isExplainerOpen, openExplainer, closeExplainer } from '../store/ui'
 	import Collapse from './Collapse.svelte'

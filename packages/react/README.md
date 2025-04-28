@@ -1,1 +1,1 @@
-# React `@syw/react`
+# Show Your Work — React (`syw-react`)

@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react'
-import { DEFAULT_VARIANT } from "$common/constants"
+import { DEFAULT_VARIANT } from 'syw-common/constants'
 
 const UiContext = createContext({
 	variant: DEFAULT_VARIANT,

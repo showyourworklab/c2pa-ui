@@ -1,6 +1,6 @@
 <script>
-	import styles from '$common/css/Image.module.scss'
-	import { handleA11yClick } from '$common/helpers'
+	import styles from 'syw-common/css/Image.module.scss'
+	import { handleA11yClick } from 'syw-common/helpers'
 	import { src, alt } from '$lib/store/data.js'
 	import { hoverImage, unhoverImage, isProvenanceOpen, openProvenance, closeProvenance } from '$lib/store/ui.js'
 

@@ -7,7 +7,7 @@ const config = {
 		alias: {
 			$src: './src',
 			$lib: './src/lib',
-			$common: '../common',
+			$common: 'syw-common',
 		},
 		adapter: adapter({
 			pages: '../../public/svelte',

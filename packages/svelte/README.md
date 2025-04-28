@@ -1,1 +1,1 @@
-# Svelte `@c2pa-ui/svelte`
+# Show Your Work — Svelte (`syw-svelte`)

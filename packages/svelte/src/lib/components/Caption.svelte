@@ -1,5 +1,5 @@
 <script>
-	import styles from '$common/css/Caption.module.scss'
+	import styles from 'syw-common/css/Caption.module.scss'
 	import { caption, byline } from '$lib/store/data.js'
 
 </script>

@@ -1,6 +1,4 @@
-import React from 'react'
-
-import styles from '$common/css/ModalProvenance.module.scss'
+import styles from 'syw-common/css/ModalProvenance.module.scss'
 import { useUiContext } from '$src/context'
 import Modal from './Modal'
 import Provenance from './Provenance'

@@ -1,14 +1,13 @@
 {
-  "name": "@syw/react",
-  "version": "0.0.2",
+  "name": "syw-react",
+  "version": "0.0.1",
   "description": "",
   "author": "",
   "license": "ISC",
   "main": "src/index.js",
   "exports": {
     ".": {
-      "import": "./dist/index.es.js",
-      "require": "./dist/index.umd.cjs"
+      "import": "./dist/index.js"
     }
   },
   "scripts": {
@@ -22,20 +21,18 @@
   },
   "dependencies": {
     "@contentauth/react": "0.2.49",
-    "@contentauth/sdk": "^0.8.12",
     "@radix-ui/react-dialog": "^1.1.6",
     "@radix-ui/react-visually-hidden": "^1.1.2",
-    "c2pa": "^0.21.0",
+    "c2pa": "^0.20.0",
     "c2pa-wc": "0.12.5",
     "react": "^16.14.0",
     "react-collapsed": "^4.1.2",
-    "react-dom": "^16.14.0"
+    "react-dom": "^16.14.0",
+    "syw-common": "^0.0.1"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.1.0",
     "gh-pages": "^6.1.1",
-    "postcss": "~8.4.12",
-    "postcss-nesting": "^10.0.2",
     "sass": "^1.77.2",
     "vite": "^3.0.4"
   }
