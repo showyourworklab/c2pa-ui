@@ -4,8 +4,9 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
 	publicDir: 'static',
-	// base: '/syw/',
-	base: process.env.NODE_ENV === 'production' ? '/syw/article/' : '',
+	base: process.env.NODE_ENV === 'production'
+		? '/syw/'
+		: '',
 	resolve: {
 		alias: {
 			'$src': resolve(__dirname, 'src'),
@@ -13,10 +14,13 @@ export default defineConfig({
 		},
 	},
 	build: {
-		outDir: resolve(__dirname, '../../public/article'),
-		// rollupOptions: {
-		// 	external: ['react'],
-		// }
+		outDir: resolve(__dirname, '../../public'),
+		assetsDir: './article/assets',
+		rollupOptions: {
+			input: {
+				main: resolve(__dirname, 'article/index.html')
+			},
+		}
 	},
 	esbuild: {
 		loader: 'jsx',
@@ -33,16 +37,12 @@ export default defineConfig({
 	},
 	css: {
 		modules: {
-			localsConvention: 'dashes', // dashes camelCase
+			localsConvention: 'dashes',
 			generateScopedName: 'Syw-[local]',
 		},
 	},
 	plugins: [
-		react({
-			// Disabling this since to stop re-registration custom element error when
-			// hot-reloading web components
-			// fastRefresh: false,
-		}),
+		react(),
 	],
 	server: {
 		port: 3000,
