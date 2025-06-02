@@ -1,6 +1,5 @@
 import React from 'react'
-
-import styles from '$common/css/ToggleExplainer.module.scss'
+import styles from '@syw/common/css/ToggleExplainer.module.scss'
 import { useUiContext, useI18nContext } from '$src/context'
 
 const ToggleExplainer = () => {

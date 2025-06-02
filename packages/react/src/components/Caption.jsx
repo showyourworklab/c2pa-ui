@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styles from '$common/css/Caption.module.scss'
+import styles from '@syw/common/css/Caption.module.scss'
 import { useDataContext } from '$src/context/data'
 
 const Caption = () => {

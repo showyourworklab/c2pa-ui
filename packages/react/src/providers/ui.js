@@ -1,5 +1,4 @@
 import React, { useRef, useState } from 'react'
-
 import { UiContext } from '/src/context/ui'
 
 const UiProvider = ({

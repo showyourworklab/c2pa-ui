@@ -1,6 +1,6 @@
 <script>
-	import styles from '$common/css/Manifest.module.scss'
-	import { joinClassNames } from '$common/helpers'
+	import styles from '@syw/common/css/Manifest.module.scss'
+	import { joinClassNames } from '@syw/common/helpers'
 	import { openManifests } from '$lib/store/ui.js'
 	import Collapse from './Collapse.svelte'
 	import ManifestPreview from './ManifestPreview.svelte'

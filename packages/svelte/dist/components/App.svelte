@@ -4,10 +4,10 @@
 	import wasmSrc from 'c2pa/dist/assets/wasm/toolkit_bg.wasm?url';
 	import workerSrc from 'c2pa/dist/c2pa.worker.min.js?url';
 
-	import '$common/css/globals.scss'
-	import styles from '../../../../common/css/App.module.scss'
-	import { joinClassNames } from '../../../../common/helpers'
-	import { prepareManifest } from '../../../../common/helpers/c2pa'
+	import '@syw/common/css/globals.scss'
+	import styles from '@syw/common/css/App.module.scss'
+	import { joinClassNames } from '@syw/common/helpers'
+	import { prepareManifest } from '@syw/common/helpers/c2pa'
 	import { lang, setLocale } from '../store/i18n.js'
 	import { setSrc, setAlt, setCaption, setByline, setManifests } from '../store/data.js'
 	import { isHoverImage, isProvenanceOpen, setEventHandler } from '../store/ui.js'

@@ -1,6 +1,6 @@
 <script>
-	import '$common/css/globals.scss'
-	import SywLogo from '$common/images/logo-dark.svg'
+	import '@syw/common/css/globals.scss'
+	import SywLogo from '@syw/common/images/logo-dark.svg'
 	import { base } from '$app/paths'
 </script>
 

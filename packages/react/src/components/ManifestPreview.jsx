@@ -1,9 +1,9 @@
 import { useThumbnailUrl } from '@contentauth/react'
+import styles from '@syw/common/css/Manifest.module.scss'
+import { handleA11yClick } from '@syw/common/helpers'
+import { getDateString } from '@syw/common/helpers/i18n'
+import { MANIFEST_PREVIEW_TITLE_KEYS } from '@syw/common/constants'
 import { useI18nContext } from '$src/context/i18n'
-import { handleA11yClick } from '$common/helpers'
-import { getDateString } from '$common/helpers/i18n'
-import { MANIFEST_PREVIEW_TITLE_KEYS } from '$common/constants'
-import styles from '$common/css/Manifest.module.scss'
 
 function ManifestPreview({
 	manifest,

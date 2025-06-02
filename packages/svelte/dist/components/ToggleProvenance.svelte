@@ -1,5 +1,5 @@
 <script>
-	import styles from '../../../../common/css/ToggleProvenance.module.scss'
+	import styles from '@syw/common/css/ToggleProvenance.module.scss'
 	import { locale, getText } from '../store/i18n.js'
 	import { isProvenanceOpen, openProvenance, closeProvenance } from '../store/ui.js'
 

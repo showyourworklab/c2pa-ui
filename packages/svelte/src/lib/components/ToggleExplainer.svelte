@@ -1,5 +1,5 @@
 <script>
-	import styles from '$common/css/ToggleExplainer.module.scss'
+	import styles from '@syw/common/css/ToggleExplainer.module.scss'
 	import { locale, getText } from '$lib/store/i18n.js'
 	import { isExplainerOpen, openExplainer, closeExplainer } from '$lib/store/ui.js'
 

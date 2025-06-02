@@ -9471,8 +9471,7 @@ const BH = Jw({
     },
     I
   );
-};
-const $j = "Syw-App", AZ = "Syw-App_hovered", gZ = "Syw-App_active", PR = {
+}, $j = "Syw-App", AZ = "Syw-App_hovered", gZ = "Syw-App_active", PR = {
   App: $j,
   App_hovered: AZ,
   App_active: gZ

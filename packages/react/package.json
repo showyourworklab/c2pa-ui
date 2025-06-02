@@ -13,9 +13,8 @@
   },
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build && npm run build:demo && npm run build:article",
+    "build": "vite build && npm run build:demo",
     "build:demo": "vite build --config vite.demo.config.js",
-    "build:article": "vite build --config vite.article.config.js",
     "build:release": "rushx build",
     "serve": "vite preview --port 8080",
     "predeploy": "npm run build",

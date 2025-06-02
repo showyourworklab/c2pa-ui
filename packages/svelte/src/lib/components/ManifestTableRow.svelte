@@ -1,7 +1,7 @@
 <script>
-	import styles from '$common/css/Manifest.module.scss'
+	import styles from '@syw/common/css/Manifest.module.scss'
+	import { getDateString } from '@syw/common/helpers/i18n'
 	import { locale, getText } from '$lib/store/i18n'
-	import { getDateString } from '$common/helpers/i18n'
 
 	export let type
 	export let value

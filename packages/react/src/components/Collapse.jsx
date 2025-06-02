@@ -1,8 +1,8 @@
 import { useMemo } from 'react'
 import { useCollapse } from 'react-collapsed'
 
-import styles from '$common/css/Collapse.module.scss'
-import { joinClassNames } from '$common/helpers'
+import styles from '@syw/common/css/Collapse.module.scss'
+import { joinClassNames } from '@syw/common/helpers'
 
 const Collapse = ({
 	open = false,

@@ -1,7 +1,7 @@
-import styles from '$common/css/Manifest.module.scss'
-import { useI18nContext } from '$src/context/i18n'
-import { getDateString } from '$common/helpers/i18n'
 import { useMemo } from 'react'
+import styles from '@syw/common/css/Manifest.module.scss'
+import { getDateString } from '@syw/common/helpers/i18n'
+import { useI18nContext } from '$src/context/i18n'
 
 function ManifestTableRow({ type, value }) {
 	const { locale, getText } = useI18nContext()

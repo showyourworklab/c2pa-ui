@@ -1,11 +1,11 @@
 <script>
 	import { onMount } from 'svelte'
-	import styles from '../../../../common/css/Provenance.module.scss'
+	import styles from '@syw/common/css/Provenance.module.scss'
+	import { getVerifyUrl } from '@syw/common/helpers'
 	import { manifests } from '../store/data'
 	import { isProvenanceOpen } from '../store/ui'
 	import { locale, getText } from '../store/i18n'
 	import { src } from '../store/data'
-	import { getVerifyUrl } from '../../../../common/helpers'
 	import Collapse from './Collapse.svelte'
 	import Manifest from './Manifest.svelte'
 
