@@ -1,4 +1,4 @@
-import{s as ee,n as R}from"../chunks/scheduler.DcMlfnik.js";import{S as te,i as se,e as s,s as r,b as K,c as a,d as L,m as d,h as c,f as Q,g as b,n as p,j as ae,k as e}from"../chunks/index.X_7isy_n.js";/* empty css                        */import{b as X}from"../chunks/paths.BYUA32b9.js";const le=""+new URL("../assets/logo-dark.DJIbkTgj.svg",import.meta.url).href;function ne(Z){let t,i,$=`<img src="${le}" alt="Show Your Work Lab logo" id="logo" class="svelte-m0nlxs"/>`,S,v,j="syw",T,l,u,q="syw/svelte",k,f,G=`
+import{s as ee,n as R}from"../chunks/scheduler.DcMlfnik.js";import{S as te,i as se,e as s,s as r,b as K,c as a,d as L,m as d,h as c,f as Q,g as b,n as p,j as ae,k as e}from"../chunks/index.X_7isy_n.js";/* empty css                        */import{b as X}from"../chunks/paths.C4YhjP5K.js";const le=""+new URL("../assets/logo-dark.DJIbkTgj.svg",import.meta.url).href;function ne(Z){let t,i,$=`<img src="${le}" alt="Show Your Work Lab logo" id="logo" class="svelte-m0nlxs"/>`,S,v,j="syw",T,l,u,q="syw/svelte",k,f,G=`
 <script>
 	import { SywSvelte } from "syw/svelte";
 <\/script>
