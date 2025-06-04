@@ -4,9 +4,9 @@
 export default class App extends SvelteComponent<{
     src?: string;
     alt?: string;
+    locale?: string;
     caption?: string;
     byline?: string;
-    locale?: string;
     onEvent?: any;
 }, {
     [evt: string]: CustomEvent<any>;
@@ -20,9 +20,9 @@ declare const __propDef: {
     props: {
         src?: string;
         alt?: string;
+        locale?: string;
         caption?: string;
         byline?: string;
-        locale?: string;
         onEvent?: any;
     };
     events: {

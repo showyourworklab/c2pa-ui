@@ -1,13 +1,15 @@
 <script>
+	import { getContext } from 'svelte';
 	import styles from '@syw/common/css/Manifest.module.scss'
 	import { MANIFEST_PREVIEW_TITLE_KEYS } from '@syw/common/constants'
 	import { handleA11yClick } from '@syw/common/helpers'
 	import { getDateString } from '@syw/common/helpers/i18n'
-	import { openManifest, closeManifest } from '$lib/store/ui'
-	import { locale } from '$lib/store/i18n'
 
 	export let open
 	export let manifest
+
+	const { locale } = getContext('i18nStoreContext');
+	const { openManifest, closeManifest } = getContext('uiStoreContext');
 
 	// const thumbnailUrl = manifest ? useThumbnailUrl(manifest?.thumbnail ?? undefined) : null
 	const thumbnailUrl = manifest?.thumbnail?.getUrl()?.url

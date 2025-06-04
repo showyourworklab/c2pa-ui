@@ -1,6 +1,8 @@
 <script>
+	import { getContext } from 'svelte';
 	import styles from '@syw/common/css/Caption.module.scss'
-	import { caption, byline } from '../store/data.js'
+
+	const { caption, byline } = getContext('dataStoreContext');
 
 </script>
 

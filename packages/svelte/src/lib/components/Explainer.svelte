@@ -1,8 +1,10 @@
 <script>
+	import { getContext } from 'svelte';
 	import styles from '@syw/common/css/Explainer.module.scss'
-	import { locale, getText } from '$lib/store/i18n'
-	import { isExplainerOpen, openExplainer, closeExplainer } from '$lib/store/ui'
 	import Collapse from './Collapse.svelte'
+
+	const { locale, getText } = getContext('i18nStoreContext');
+	const { isExplainerOpen, openExplainer, closeExplainer } = getContext('uiStoreContext');
 
 	const onCloseClick = (event) => {
 		if(isExplainerOpen) {

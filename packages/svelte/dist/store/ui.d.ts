@@ -1,15 +1,17 @@
 /// <reference types="svelte" />
-export const isHoverImage: import("svelte/store").Writable<boolean>;
-export const isProvenanceOpen: import("svelte/store").Writable<boolean>;
-export const isExplainerOpen: import("svelte/store").Writable<boolean>;
-export const openManifests: import("svelte/store").Writable<{}>;
-export const eventHandler: import("svelte/store").Writable<any>;
-export function setEventHandler(val: any): void;
-export function hoverImage(event: any): void;
-export function unhoverImage(event: any): void;
-export function openProvenance(event: any): void;
-export function closeProvenance(event: any): void;
-export function openExplainer(event: any): void;
-export function closeExplainer(event: any): void;
-export function openManifest(event: any, manifest: any): void;
-export function closeManifest(event: any, manifest: any): void;
+export default function createUiStore(): {
+    isHoverImage: import("svelte/store").Writable<boolean>;
+    isProvenanceOpen: import("svelte/store").Writable<boolean>;
+    isExplainerOpen: import("svelte/store").Writable<boolean>;
+    openManifests: import("svelte/store").Writable<{}>;
+    eventHandler: import("svelte/store").Writable<any>;
+    setEventHandler: (val: any) => void;
+    hoverImage: (event: any) => void;
+    unhoverImage: (event: any) => void;
+    openProvenance: (event: any) => void;
+    closeProvenance: (event: any) => void;
+    openExplainer: (event: any) => void;
+    closeExplainer: (event: any) => void;
+    openManifest: (event: any, manifest: any) => void;
+    closeManifest: (event: any, manifest: any) => void;
+};
