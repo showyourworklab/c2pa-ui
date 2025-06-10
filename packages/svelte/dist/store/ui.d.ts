@@ -1,4 +1,3 @@
-/// <reference types="svelte" />
 export default function createUiStore(): {
     isHoverImage: import("svelte/store").Writable<boolean>;
     isProvenanceOpen: import("svelte/store").Writable<boolean>;

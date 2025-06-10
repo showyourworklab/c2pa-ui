@@ -1,4 +1,3 @@
-/// <reference types="svelte" />
 export default function createDataStore(): {
     src: import("svelte/store").Writable<any>;
     alt: import("svelte/store").Writable<any>;

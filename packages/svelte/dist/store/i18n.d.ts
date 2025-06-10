@@ -1,4 +1,3 @@
-/// <reference types="svelte" />
 export default function createI18nStore(): {
     locale: import("svelte/store").Writable<any>;
     lang: import("svelte/store").Writable<any>;

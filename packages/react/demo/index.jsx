@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
-import SywReact from '$src/index'
 import { LOCALE_DEFAULT, DICTIONARIES } from '@syw/common/constants/i18n'
 import { DEMO_IMAGE_URLS, DEMO_IMAGE_URL_DEFAULT, DEMO_IMAGE_URL_BASE } from '@syw/common/constants'
 import SywLogo from '@syw/common/images/logo-dark.svg'
+import SywReact from '$src/index'
 import './style.css'
 
 const Demo = () => {

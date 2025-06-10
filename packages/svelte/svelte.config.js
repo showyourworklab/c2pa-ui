@@ -1,5 +1,5 @@
-import { sveltePreprocess } from 'svelte-preprocess';
 import adapter from '@sveltejs/adapter-static';
+import sveltePreprocess from 'svelte-preprocess';
 
 const config = {
 	preprocess: sveltePreprocess(),
