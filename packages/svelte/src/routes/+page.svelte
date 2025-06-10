@@ -93,13 +93,6 @@
 			byline='Lectus Vitae / Tristique Imperdiet'
 			onEvent={handleEvent}
 		/>
-
-		<SywSvelte
-			locale={locale}
-			src={`${DEMO_IMAGE_URL_BASE}/${DEMO_IMAGE_URLS[2]}`}
-			caption='TEST!'
-			byline='TEST!'
-		/>
 	</section>
 </main>
 
