@@ -9320,7 +9320,8 @@ const BH = Jw({
   );
 }, RJ = "en", SQ = "en_US", mR = {
   en: "en_US",
-  no: "no_NO"
+  no: "no_NO",
+  sv: "sv_SE"
 }, Wj = {
   producer: "Producer",
   generator: "Generator",

@@ -2,7 +2,8 @@ export const LANG_DEFAULT = 'en'
 export const LOCALE_DEFAULT = 'en_US'
 export const LOCALE_DEFAULTS = {
 	en: 'en_US',
-	no: 'no_NO'
+	no: 'no_NO',
+	sv: 'sv_SE'
 }
 
 export const DICTIONARY_EN_US = {

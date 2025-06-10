@@ -1,1 +1,1 @@
-# Svelte `@c2pa-ui/svelte`
+# Svelte `@syw/svelte`

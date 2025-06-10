@@ -19,8 +19,7 @@
     "docs:dev": "npm run docs:lerna dev",
     "docs:build": "npm run docs:lerna build",
     "build": "npm run docs:build && npm run react:build && npm run svelte:build",
-    "deploy": "npx gh-pages -d public",
-    "readme": "scripts/readme.js"
+    "deploy": "npx gh-pages -d public"
   },
   "devDependencies": {
     "gh-pages": "^6.3.0",

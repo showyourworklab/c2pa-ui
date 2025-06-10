@@ -1,1 +1,1 @@
-# Common `@c2pa-ui/common`
+# Common `@syw/common`
