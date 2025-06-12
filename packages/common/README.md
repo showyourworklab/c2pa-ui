@@ -1,1 +1,1 @@
-# Common `@syw/common`
+# Common `syw-common`

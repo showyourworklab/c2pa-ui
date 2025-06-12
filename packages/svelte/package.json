@@ -1,6 +1,6 @@
 {
 	"name": "syw-svelte",
-	"version": "0.0.3",
+	"version": "0.0.5",
 	"description": "",
 	"author": "Show Your Work Lab",
 	"private": false,
@@ -31,7 +31,7 @@
 	},
 	"dependencies": {
 		"sass": "^1.89.2",
-		"syw-common": "^0.0.2"
+		"syw-common": "^0.0.6"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.28.1",
