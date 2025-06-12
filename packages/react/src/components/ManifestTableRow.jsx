@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
-import styles from '@syw/common/css/Manifest.module.scss'
-import { getDateString } from '@syw/common/helpers/i18n'
+import styles from 'syw-common/css/Manifest.module.scss'
+import { getDateString } from 'syw-common/helpers/i18n'
 import { useI18nContext } from '$src/context/i18n'
 
 function ManifestTableRow({ type, value }) {

@@ -4,7 +4,7 @@ import {
 	LOCALE_DEFAULTS,
 	DICTIONARIES,
 	DICTIONARY_DEFAULT,
-} from '../constants/i18n'
+} from '../constants/i18n.js'
 
 /**
  * Gets the language code from a locale code

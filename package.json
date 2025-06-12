@@ -1,26 +1,30 @@
 {
   "name": "syw",
-  "version": "0.0.5",
+  "version": "0.0.1",
   "workspaces": [
-    "packages/*"
+    "packages/common",
+    "packages/react",
+    "packages/svelte",
+    "packages/docs"
   ],
   "scripts": {
-    "react:lerna": "lerna run --scope @syw/react",
+    "react:lerna": "lerna run --scope syw-react",
     "react:dev": "npm run react:lerna dev",
     "react:build": "npm run react:lerna build",
     "react:package": "npm run react:lerna package",
     "react:preview": "npm run react:lerna preview",
     "react:publish": "npm run react:lerna publish",
-    "svelte:lerna": "lerna run --scope @syw/svelte",
+    "svelte:lerna": "lerna run --scope syw-svelte",
     "svelte:dev": "npm run svelte:lerna dev",
     "svelte:build": "npm run svelte:lerna build",
     "svelte:package": "npm run svelte:lerna package",
     "svelte:preview": "npm run svelte:lerna preview",
-    "docs:lerna": "lerna run --scope @syw/docs",
+    "docs:lerna": "lerna run --scope syw-docs",
     "docs:dev": "npm run docs:lerna dev",
     "docs:build": "npm run docs:lerna build",
     "build": "npm run docs:build && npm run react:build && npm run svelte:build",
-    "deploy": "npx gh-pages -d public"
+    "deploy": "npx gh-pages -d public",
+    "publish": "npx lerna publish --no-private"
   },
   "devDependencies": {
     "gh-pages": "^6.3.0",

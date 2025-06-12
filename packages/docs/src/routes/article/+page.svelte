@@ -1,7 +1,7 @@
 <script>
 	import './style.css'
-	import '@syw/common/css/globals.scss'
-	import SywSvelte from '@syw/svelte'
+	import 'syw-common/css/globals.scss'
+	import SywSvelte from 'syw-svelte'
 </script>
 
 <main>

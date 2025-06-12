@@ -1,5 +1,5 @@
 import React from 'react'
-import { getLocaleText } from '@syw/common/helpers/i18n'
+import { getLocaleText } from 'syw-common/helpers/i18n'
 import { I18nContext } from '/src/context/i18n'
 
 const I18nProvider = ({

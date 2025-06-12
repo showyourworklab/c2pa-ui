@@ -1,5 +1,5 @@
 import { selectProducer, selectSocialAccounts, generateVerifyUrl } from 'c2pa'
-import { getSafeLocale } from './i18n'
+import { getSafeLocale } from './i18n.js'
 
 export const getId = data => data?.instanceId
 

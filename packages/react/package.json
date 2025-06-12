@@ -1,12 +1,10 @@
 {
-	"name": "@syw/react",
-	"version": "0.0.7",
+	"name": "syw-react",
+	"version": "0.0.1",
 	"description": "",
 	"author": "Show Your Work Lab",
 	"license": "ISC",
-	"publishConfig": {
-		"access": "public"
-	},
+	"private": false,
 	"type": "module",
 	"main": "./dist/index.es.js",
 	"exports": {
@@ -34,10 +32,11 @@
 	},
 	"dependencies": {
 		"@contentauth/react": "0.2.87",
+		"@contentauth/sdk": "^0.8.12",
 		"c2pa": "^0.30.9",
 		"c2pa-wc": "0.14.9",
-		"lerna": "^8.2.2",
-		"react-collapsed": "^4.1.2"
+		"react-collapsed": "^4.1.2",
+		"syw-common": "^0.0.1"
 	},
 	"devDependencies": {
 		"@vitejs/plugin-react": "^1.1.0",

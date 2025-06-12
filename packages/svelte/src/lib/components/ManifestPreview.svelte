@@ -1,9 +1,9 @@
 <script>
 	import { getContext } from 'svelte';
-	import styles from '@syw/common/css/Manifest.module.scss'
-	import { MANIFEST_PREVIEW_TITLE_KEYS } from '@syw/common/constants'
-	import { handleA11yClick } from '@syw/common/helpers'
-	import { getDateString } from '@syw/common/helpers/i18n'
+	import styles from 'syw-common/css/Manifest.module.scss'
+	import { MANIFEST_PREVIEW_TITLE_KEYS } from 'syw-common/constants'
+	import { handleA11yClick } from 'syw-common/helpers'
+	import { getDateString } from 'syw-common/helpers/i18n'
 
 	export let open
 	export let manifest

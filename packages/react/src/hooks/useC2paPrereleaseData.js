@@ -1,7 +1,6 @@
 import { ContentAuth } from '@contentauth/sdk'
 import wasmSrc from '@contentauth/sdk/dist/assets/wasm/toolkit_bg.wasm?url'
 import workerSrc from '@contentauth/sdk/dist/cai-sdk.worker.js?url'
-
 import { ASSERTION_KEY } from '$src/constants'
 
 const getAssertionData = (provenance, assertion) => {

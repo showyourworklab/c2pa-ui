@@ -1,6 +1,6 @@
 <script>
-	import '@syw/common/css/globals.scss'
-	import SywLogo from '@syw/common/images/logo-dark.svg'
+	import 'syw-common/css/globals.scss'
+	import SywLogo from 'syw-common/images/logo-dark.svg'
 	import { base } from '$app/paths'
 </script>
 
@@ -16,14 +16,14 @@
 		/>
 	</a>
 
-	<h1>syw</h1>
+	<h1 class="title">Show Your Work UI</h1>
 
 	<section>
-		<h2>syw/svelte</h2>
+		<h2>syw-svelte</h2>
 		<code>
 {`
 <script>
-	import { SywSvelte } from "syw/svelte";
+
 </script>
 
 <SywSvelte
@@ -38,10 +38,10 @@
 	</section>
 	
 	<section>
-		<h2>syw/react</h2>
+		<h2>syw-react</h2>
 		<code>
 {`
-import { SywReact } from "syw/react";
+
 
 return (
 	<SywReact

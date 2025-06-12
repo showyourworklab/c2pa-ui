@@ -1,4 +1,4 @@
-import styles from '@syw/common/css/Figure.module.scss'
+import styles from 'syw-common/css/Figure.module.scss'
 
 const Figure = ({
 	children

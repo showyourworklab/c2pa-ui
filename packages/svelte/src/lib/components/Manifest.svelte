@@ -1,7 +1,7 @@
 <script>
 	import { getContext } from 'svelte';
-	import styles from '@syw/common/css/Manifest.module.scss'
-	import { joinClassNames } from '@syw/common/helpers'
+	import styles from 'syw-common/css/Manifest.module.scss'
+	import { joinClassNames } from 'syw-common/helpers'
 	import Collapse from './Collapse.svelte'
 	import ManifestPreview from './ManifestPreview.svelte'
 	import ManifestTable from './ManifestTable.svelte'

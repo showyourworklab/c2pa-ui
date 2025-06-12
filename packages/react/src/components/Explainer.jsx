@@ -1,4 +1,4 @@
-import styles from '@syw/common/css/Explainer.module.scss'
+import styles from 'syw-common/css/Explainer.module.scss'
 import { useI18nContext } from '$src/context/i18n'
 import { useUiContext } from '$src/context/ui'
 import Collapse from './Collapse'

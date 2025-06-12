@@ -1,7 +1,7 @@
 <script>
 	import { onMount, getContext } from 'svelte'
-	import styles from '@syw/common/css/Provenance.module.scss'
-	import { getVerifyUrl } from '@syw/common/helpers'
+	import styles from 'syw-common/css/Provenance.module.scss'
+	import { getVerifyUrl } from 'syw-common/helpers'
 	import Collapse from './Collapse.svelte'
 	import Manifest from './Manifest.svelte'
 
