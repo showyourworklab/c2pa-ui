@@ -10,6 +10,7 @@
     "react:build": "npm run react:lerna build",
     "react:package": "npm run react:lerna package",
     "react:preview": "npm run react:lerna preview",
+    "react:publish": "npm run react:lerna publish",
     "svelte:lerna": "lerna run --scope @syw/svelte",
     "svelte:dev": "npm run svelte:lerna dev",
     "svelte:build": "npm run svelte:lerna build",

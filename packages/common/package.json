@@ -1,6 +1,7 @@
 {
   "name": "@syw/common",
   "version": "0.0.6",
+  "private": true,
   "dependencies": {
     "c2pa": "^0.21.0"
   }
