@@ -37,7 +37,7 @@ const Demo = () => {
 				/>
 			</a>
 			<h1>
-				<a href="../">syw</a>/react
+				<a href="../">syw</a>/syw-react
 			</h1>
 			<p>
 				A React component that wraps a C2PA-compliant image in a UI to expose its provenance.

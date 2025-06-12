@@ -1,9 +1,9 @@
 <script>
 	import 'syw-common/css/globals.scss'
-	import { LOCALE_DEFAULT, DICTIONARIES } from 'syw-common/constants/i18n'
 	import { DEMO_IMAGE_URLS, DEMO_IMAGE_URL_DEFAULT, DEMO_IMAGE_URL_BASE } from 'syw-common/constants'
+	import { LOCALE_DEFAULT, DICTIONARIES } from 'syw-common/constants/i18n'
 	import SywLogo from 'syw-common/images/logo-dark.svg'
-	import SywSvelte from '$lib'
+	import SywSvelte from '$lib/components/App.svelte'
 
 	const locales = Object.keys(DICTIONARIES)
 	let locale = LOCALE_DEFAULT
@@ -37,7 +37,7 @@
 		/>
 	</a>
 	<h1>
-		<a href="../">syw</a>/svelte
+		<a href="../">syw</a>/syw-svelte
 	</h1>
 	<p>
 		A Svelte component that wraps a C2PA-compliant image in a UI to expose its provenance.

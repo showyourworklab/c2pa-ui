@@ -1,7 +1,7 @@
 50 error Error: Command failed with exit code 1: npm install --package-lock-only --ignore-scripts
 50 error npm error code ENOVERSIONS
 50 error npm error No versions available for syw-svelte
-50 error npm error A complete log of this run can be found in: /Users/coreytegeler/.npm/_logs/2025-06-12T14_28_01_612Z-debug-0.log
+50 error npm error A complete log of this run can be found in: /Users/coreytegeler/.npm/_logs/2025-06-12T14_32_31_297Z-debug-0.log
 50 error     at makeError (/Users/coreytegeler/Sites/syw/node_modules/execa/lib/error.js:59:11)
 50 error     at handlePromise (/Users/coreytegeler/Sites/syw/node_modules/execa/index.js:114:26)
 50 error     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)

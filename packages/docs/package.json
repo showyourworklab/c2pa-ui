@@ -1,6 +1,6 @@
 {
 	"name": "syw-docs",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"private": true,
 	"type": "module",
 	"scripts": {
@@ -10,8 +10,9 @@
 		"deploy": "npx gh-pages -d build -t true"
 	},
 	"dependencies": {
-		"syw-common": "^0.0.1",
-		"syw-svelte": "^0.0.1"
+		"c2pa": "^0.21.0",
+		"syw-common": "^0.0.2",
+		"syw-svelte": "^0.0.2"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^6.0.1",

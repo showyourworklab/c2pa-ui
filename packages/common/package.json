@@ -1,9 +1,9 @@
 {
   "name": "syw-common",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "type": "module",
   "dependencies": {
-    "c2pa": "^0.21.0"
+    "c2pa": "^0.30.9"
   }
 }

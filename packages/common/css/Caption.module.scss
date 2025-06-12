@@ -2,7 +2,6 @@
 	padding-left: 0;
 	padding-right: 0;
 	padding-top: var(--space-3);
-	padding-bottom: var(--space-2);
 	width: calc(100% - var(--space-8));
 	color: var(--color-secondary-dark);
 	border: 1px solid transparent;
@@ -47,7 +46,7 @@
 	// }
 	.App_active & {
 		color: var(--color-secondary);
-		
+		padding-bottom: var(--space-3);
 		&::before {
 			// top: -2px;
 			height: calc(100% + var(--space-10) + 2px);
