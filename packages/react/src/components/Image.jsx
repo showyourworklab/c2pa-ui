@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import { useCallback } from 'react'
 
 import styles from '@syw/common/css/Image.module.scss'
 import { handleA11yClick } from '@syw/common/helpers'

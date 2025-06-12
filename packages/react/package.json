@@ -1,40 +1,50 @@
 {
-  "name": "@syw/react",
-  "version": "0.0.4",
-  "description": "",
-  "author": "",
-  "license": "ISC",
-  "main": "src/index.js",
-  "exports": {
-    ".": {
-      "import": "./dist/index.es.js",
-      "require": "./dist/index.umd.cjs"
-    }
-  },
-  "scripts": {
-    "dev": "vite dev",
-    "build": "vite build && npm run build:demo",
-    "build:demo": "vite build --config vite.demo.config.js",
-    "build:release": "rushx build",
-    "serve": "vite preview --port 8080",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d ./public"
-  },
-  "dependencies": {
-    "@contentauth/react": "0.2.87",
-    "c2pa": "^0.30.9",
-    "c2pa-wc": "0.14.9",
-    "lerna": "^8.2.2",
-    "react": "^16.14.0",
-    "react-collapsed": "^4.1.2",
-    "react-dom": "^16.14.0"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-react": "^1.1.0",
-    "gh-pages": "^6.1.1",
-    "postcss": "~8.4.12",
-    "postcss-nesting": "^10.0.2",
-    "sass": "^1.89.2",
-    "vite": "^6.3.5"
-  }
+	"name": "@syw/react",
+	"version": "0.0.5",
+	"description": "",
+	"author": "",
+	"license": "ISC",
+	"type": "module",
+	"main": "./dist/index.es.js",
+	"exports": {
+		".": {
+			"import": "./dist/index.es.js",
+			"require": "./dist/index.umd.js"
+		}
+	},
+	"files": [
+		"dist/",
+		"package.json",
+		"README.md",
+		"LICENSE"
+	],
+	"scripts": {
+		"dev": "vite dev",
+		"build": "npm run build:lib && npm run build:demo",
+		"build:lib": "vite build",
+		"build:demo": "vite build --config vite.demo.config.js",
+		"build:release": "rushx build",
+		"serve": "vite preview --port 8080",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d ./public"
+	},
+	"dependencies": {
+		"@contentauth/react": "0.2.87",
+		"c2pa": "^0.30.9",
+		"c2pa-wc": "0.14.9",
+		"lerna": "^8.2.2",
+		"react-collapsed": "^4.1.2"
+	},
+	"devDependencies": {
+		"@vitejs/plugin-react": "^1.1.0",
+		"gh-pages": "^6.1.1",
+		"postcss": "~8.4.12",
+		"postcss-nesting": "^10.0.2",
+		"sass": "^1.89.2",
+		"vite": "^6.3.5"
+	},
+	"peerDependencies": {
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
+	}
 }

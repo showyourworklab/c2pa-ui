@@ -1,5 +1,3 @@
-import React from 'react'
-
 import styles from '@syw/common/css/Caption.module.scss'
 import { useDataContext } from '$src/context/data'
 

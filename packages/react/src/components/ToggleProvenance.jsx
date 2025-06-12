@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from '@syw/common/css/ToggleProvenance.module.scss'
 import { useUiContext, useI18nContext } from '$src/context'
 
