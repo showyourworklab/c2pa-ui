@@ -1,10 +1,10 @@
 <script>
-	import 'syw-common/css/globals.scss'
+	import 'syw-common/css/globals.css'
 	import SywLogo from 'syw-common/images/logo-dark.svg'
 	import { base } from '$app/paths'
 </script>
 
-<main class="Syw-App">
+<main>
 	<a
 		href="https://showyourworklab.org"
 		target="_blank"
@@ -76,7 +76,7 @@ return (
 		padding: 1rem;
 		display: block;
 		font-size: var(--text-1);
-		color: var(--color-secondary-dark);
-		background-color: var(--color-secondary-light);
+		color: #7780A6;
+		background-color: #ECEFFD;
 	}
 </style>

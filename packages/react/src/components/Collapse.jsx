@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { useCollapse } from 'react-collapsed'
-import styles from 'syw-common/css/Collapse.module.scss'
+import styles from 'syw-common/css/Collapse.module.css'
 import { joinClassNames } from 'syw-common/helpers'
 
 const Collapse = ({

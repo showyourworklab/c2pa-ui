@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef } from 'react'
 import { useC2pa } from '@contentauth/react'
-import styles from 'syw-common/css/App.module.scss'
+import 'syw-common/css/globals.css'
+import styles from 'syw-common/css/App.module.css'
 import { joinClassNames } from 'syw-common/helpers'
 import { prepareManifest } from 'syw-common/helpers/c2pa'
 import { useDataContext } from '$src/context/data'
@@ -13,7 +14,6 @@ import Caption from './Caption'
 import Explainer from './Explainer'
 import Provenance from './Provenance'
 import Collapse from './Collapse'
-import '$src/globals.scss'
 
 function App({
 	onEvent

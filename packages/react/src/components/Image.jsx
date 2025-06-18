@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import styles from 'syw-common/css/Image.module.scss'
+import styles from 'syw-common/css/Image.module.css'
 import { handleA11yClick } from 'syw-common/helpers'
 import { useDataContext } from '$src/context/data'
 import { useUiContext } from '$src/context/ui'

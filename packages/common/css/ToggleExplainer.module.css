@@ -1,0 +1,21 @@
+/* Toggle Explainer */
+.Cutline button.ToggleExplainer {
+	margin-left: var(--syw-space-2);
+	color: var(--syw-color-primary-light);
+	font-size: var(--syw-text-xs);
+	font-weight: var(--syw-font-weight-bold);
+	cursor: pointer;
+}
+.Cutline button.ToggleExplainer:hover {
+	color: var(--syw-color-quaternary);
+}
+.Cutline button.ToggleExplainer[aria-pressed="true"] {
+	opacity: 0;
+	pointer-events: none;
+}
+.App_active .Cutline button.ToggleExplainer {
+	color: var(--syw-color-secondary-light);
+}
+.App_active .Cutline button.ToggleExplainer:hover {
+	color: var(--syw-color-quaternary-light);
+}

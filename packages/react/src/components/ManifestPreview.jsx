@@ -1,5 +1,5 @@
 import { useThumbnailUrl } from '@contentauth/react'
-import styles from 'syw-common/css/Manifest.module.scss'
+import styles from 'syw-common/css/Manifest.module.css'
 import { handleA11yClick } from 'syw-common/helpers'
 import { getDateString } from 'syw-common/helpers/i18n'
 import { MANIFEST_PREVIEW_TITLE_KEYS } from 'syw-common/constants'

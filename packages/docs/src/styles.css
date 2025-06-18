@@ -1,0 +1,6 @@
+@import"https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap";@import"https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap";
+
+:root {
+	--font-body: "Instrument Sans", arial, sans-serif;
+	--font-display: "Rethink Sans", arial, sans-serif;
+}

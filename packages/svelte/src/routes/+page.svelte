@@ -1,5 +1,5 @@
 <script>
-	import 'syw-common/css/globals.scss'
+	import 'syw-common/css/globals.css'
 	import { DEMO_IMAGE_URLS, DEMO_IMAGE_URL_DEFAULT, DEMO_IMAGE_URL_BASE } from 'syw-common/constants'
 	import { LOCALE_DEFAULT, DICTIONARIES } from 'syw-common/constants/i18n'
 	import SywLogo from 'syw-common/images/logo-dark.svg'

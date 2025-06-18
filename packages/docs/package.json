@@ -10,7 +10,7 @@
 		"deploy": "npx gh-pages -d build -t true"
 	},
 	"dependencies": {
-		"c2pa": "^0.21.0",
+		"c2pa": "^0.30.9",
 		"syw-common": "^0.0.6",
 		"syw-svelte": "^0.0.6"
 	},

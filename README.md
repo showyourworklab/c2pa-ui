@@ -18,13 +18,13 @@ The `common` package contains shared assets to be used by the `react` and `svelt
 ## Usage
 
 ```js
-	<Syw
-		locale="en-US"
-		src="https://example.com/image.jpg"
-		caption="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut fermentum augue."
-		byline="Nulla Dignissim"
-		onEvent={handleEvent}
-	/>
+<Syw
+	locale="en-US"
+	src="https://example.com/image.jpg"
+	caption="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut fermentum augue."
+	byline="Nulla Dignissim"
+	onEvent={handleEvent}
+/>
 ```
 
 ### Properties
@@ -32,10 +32,10 @@ The `common` package contains shared assets to be used by the `react` and `svelt
 - `src`: URL to C2PA-compliant image file
 - `caption`: Image's caption to appear under the image
 - `byline`: Credit and/or copyright text to appear under the image
-- `onEvent`: Event handler to listen for key events (see below)
+- `onEvent`: Event handler to listen for interaction events (see below)
 
 ### Analytics
-The `onEvent` property takes a callback function to be executed on key events. The function returns a `type` key (see below), the interaction's native `event`, and a `manifest` object if the event is on a manifest entry.
+The `onEvent` property takes a callback function to be executed on interaction events. The function returns a `type` value (see below), the interaction's native `event` object, and a `manifest` object if the event is on a manifest entry.
 
 ```js
 function handleEvent(type, event, [manifest]) {

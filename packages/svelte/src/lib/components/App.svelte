@@ -3,8 +3,8 @@
 	import { createC2pa } from 'c2pa';
 	import wasmSrc from 'c2pa/dist/assets/wasm/toolkit_bg.wasm?url';
 	import workerSrc from 'c2pa/dist/c2pa.worker.min.js?url';
-	import 'syw-common/css/globals.scss'
-	import styles from 'syw-common/css/App.module.scss'
+	import 'syw-common/css/globals.css'
+	import styles from 'syw-common/css/App.module.css'
 	import { joinClassNames } from 'syw-common/helpers'
 	import { prepareManifest } from 'syw-common/helpers/c2pa'
 	import createDataStore from '$lib/store/data.js'

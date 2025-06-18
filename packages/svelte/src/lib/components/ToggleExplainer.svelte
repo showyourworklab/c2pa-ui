@@ -1,6 +1,6 @@
 <script>
 	import { getContext } from 'svelte';
-	import styles from 'syw-common/css/ToggleExplainer.module.scss'
+	import styles from 'syw-common/css/ToggleExplainer.module.css'
 
 	const { locale, getText } = getContext('i18nStoreContext');
 	const { isExplainerOpen, openExplainer, closeExplainer } = getContext('uiStoreContext');

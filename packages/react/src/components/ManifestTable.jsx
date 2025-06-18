@@ -1,5 +1,5 @@
 import { MANIFEST_KEYS } from 'syw-common/constants'
-import styles from 'syw-common/css/Manifest.module.scss'
+import styles from 'syw-common/css/Manifest.module.css'
 import ManifestTableRow from './ManifestTableRow'
 
 function ManifestTable({ manifest }) {

@@ -1,5 +1,5 @@
 <script>
-	import styles from 'syw-common/css/Collapse.module.scss'
+	import styles from 'syw-common/css/Collapse.module.css'
 	import { joinClassNames } from 'syw-common/helpers'
 
 	export let open

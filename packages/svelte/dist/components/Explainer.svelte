@@ -1,6 +1,6 @@
 <script>
 	import { getContext } from 'svelte';
-	import styles from 'syw-common/css/Explainer.module.scss'
+	import styles from 'syw-common/css/Explainer.module.css'
 	import Collapse from './Collapse.svelte'
 
 	const { locale, getText } = getContext('i18nStoreContext');

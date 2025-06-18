@@ -1,0 +1,57 @@
+/* Caption */
+.Caption {
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: var(--syw-space-3);
+	width: calc(100% - var(--syw-space-8));
+	color: var(--syw-color-secondary-dark);
+	border: 1px solid transparent;
+	position: relative;
+	pointer-events: all;
+	line-height: 1.3em;
+	cursor: text;
+	transition: all 200ms ease;
+}
+.Caption::before {
+	content: "";
+	display: block;
+	width: 1px;
+	z-index: 2;
+	position: absolute;
+	left: calc(var(--syw-space-3) - 1.5px);
+	top: calc(var(--syw-space-4) * -1);
+	height: 0;
+	background-color: var(--syw-color-secondary-dark);
+	border-color: var(--syw-color-secondary-light);
+	border-style: solid;
+	border-width: 0 1px;
+	transition: all 200ms ease;
+}
+/* Caption > Active */
+.App_active .Caption {
+	color: var(--syw-color-secondary);
+	padding-bottom: var(--syw-space-3);
+}
+.App_active .Caption::before {
+	height: calc(100% + var(--syw-space-8) + 2px);
+	background-color: var(--syw-color-primary);
+}
+.App_active .Caption::after {
+	opacity: 1;
+}
+/* Caption > Inner */
+.CaptionInner {
+	transition: all 200ms ease;
+}
+/* Caption > Inner > Active */
+.App_active .CaptionInner {
+	transform: translateX(var(--syw-space-6));
+}
+/* Caption > Byline */
+.CaptionByline {
+	color: var(--syw-color-tertiary-dark);
+}
+/* Caption > Byline > Active */
+.App_active .CaptionByline {
+	color: var(--syw-color-secondary-dark);
+}

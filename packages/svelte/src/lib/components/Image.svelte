@@ -1,6 +1,6 @@
 <script>
 	import { getContext } from 'svelte';
-	import styles from 'syw-common/css/Image.module.scss'
+	import styles from 'syw-common/css/Image.module.css'
 	import { handleA11yClick } from 'syw-common/helpers'
 
 	const { src, alt } = getContext('dataStoreContext');
