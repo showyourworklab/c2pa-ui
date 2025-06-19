@@ -9,11 +9,12 @@ The `react` package exports a React component for the Show Your Work C2PA UI. Ru
 ### Svelte
 The `svelte` package exports a Svelte component for the Show Your Work C2PA UI.  Run `npm run svelte:dev` to develop locally.
 
-### Docs
-The `docs` package builds a simple landing page displaying install instructions for both the `react` and `svelte` packages and links to the demo subpages from the `react` and `svelte` packages, displaying examples of the components. The `docs` package also builds a demo article page deployed to `/article`. Run `npm run docs:dev` to develop locally.
-
 ### Common
 The `common` package contains shared assets to be used by the `react` and `svelte` packages to remain continuity between them and improve the ease of updating each. These assets include constant variables, i18n strings, helper functions, and CSS styles.
+
+### Docs
+The `docs` package builds a simple landing page displaying install instructions for both the `react` and `svelte` packages and links to the demo subpages from the `react` and `svelte` packages, displaying examples of the components. The `docs` package also builds a demo article page deployed to `/article`. Run `npm run docs:dev` to develop locally.
+> Note: When the `syw-react` and `syw-svelte` libraries are importable outside this environment `docs` should be spun off into it's own repository/webpage. 
 
 ## Usage
 

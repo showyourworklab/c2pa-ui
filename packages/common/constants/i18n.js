@@ -7,9 +7,9 @@ export const LOCALE_DEFAULTS = {
 }
 
 export const DICTIONARY_EN_US = {
-	producer: 'Producer',
-	generator: 'Generator',
-	signator: 'Signator',
+	producer: 'Produced by',
+	generator: 'Produced with',
+	signator: 'Issued by',
 	timestamp: 'Timestamp',
 	ingredients: 'Ingredients',
 	toggle_explain: 'What is this?',

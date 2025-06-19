@@ -10150,22 +10150,25 @@ const en = "Syw-Collapse", pn = "Syw-Collapse_open", dn = "Syw-CollapseInner", k
       })
     })
   });
-}, fn = "Syw-ProvenanceList", xn = "Syw-ProvenanceVerify", yi = {
-  ProvenanceList: fn,
-  ProvenanceVerify: xn
-}, nn = "Syw-Manifest", On = "Syw-Manifest_open", jn = "Syw-ManifestRow", Tn = "Syw-ManifestPreview", Zn = "Syw-ManifestPreviewCell", Pn = "Syw-ManifestPreviewCell_issuer", ln = "Syw-ManifestPreviewCell_thumb", Wn = "Syw-ManifestContent", mn = "Syw-ManifestTable", Vn = "Syw-ManifestTableRow", bn = "Syw-ManifestTableRowLabel", EI = {
-  Manifest: nn,
-  Manifest_open: On,
-  ManifestRow: jn,
-  ManifestPreview: Tn,
-  ManifestPreviewCell: Zn,
-  ManifestPreviewCell_issuer: Pn,
-  ManifestPreviewCell_thumb: ln,
-  ManifestContent: Wn,
-  ManifestTable: mn,
-  ManifestTableRow: Vn,
-  ManifestTableRowLabel: bn
-}, vn = [
+}, fn = "Syw-Provenance", xn = "Syw-ProvenanceList", nn = "Syw-ProvenanceVerify", yi = {
+  Provenance: fn,
+  ProvenanceList: xn,
+  ProvenanceVerify: nn
+}, On = "Syw-Manifest", jn = "Syw-Manifest_open", Tn = "Syw-ManifestRow", Zn = "Syw-ManifestPreview", Pn = "Syw-ManifestPreviewCell", ln = "Syw-ManifestPreviewCell_issuer", Wn = "Syw-ManifestPreviewCell_time", mn = "Syw-ManifestPreviewCell_thumb", Vn = "Syw-ManifestContent", bn = "Syw-ManifestTable", vn = "Syw-ManifestTableRow", un = "Syw-ManifestTableRowLabel", Xn = "Syw-ManifestTableRowValue", EI = {
+  Manifest: On,
+  Manifest_open: jn,
+  ManifestRow: Tn,
+  ManifestPreview: Zn,
+  ManifestPreviewCell: Pn,
+  ManifestPreviewCell_issuer: ln,
+  ManifestPreviewCell_time: Wn,
+  ManifestPreviewCell_thumb: mn,
+  ManifestContent: Vn,
+  ManifestTable: bn,
+  ManifestTableRow: vn,
+  ManifestTableRowLabel: un,
+  ManifestTableRowValue: Xn
+}, zn = [
   "producer",
   // 'producerSocials',
   "timestamp",
@@ -10173,11 +10176,11 @@ const en = "Syw-Collapse", pn = "Syw-Collapse_open", dn = "Syw-CollapseInner", k
   // 'ingredients',
   "generator"
   // 'verify',
-], un = [
+], _n = [
   "signator",
   "generator"
 ];
-function Xn({
+function $n({
   manifest: g,
   toggled: C,
   onToggle: Q,
@@ -10196,7 +10199,7 @@ function Xn({
     onKeyDown: M,
     children: [/* @__PURE__ */ V("div", {
       className: `${EI.ManifestPreviewCell} ${EI.ManifestPreviewCell_issuer}`,
-      children: un.filter((k) => g[k]).map((k) => g[k]).join(" ")
+      children: _n.filter((k) => g[k]).map((k) => g[k]).join(" ")
     }), /* @__PURE__ */ V("div", {
       className: `${EI.ManifestPreviewCell} ${EI.ManifestPreviewCell_time}`,
       children: /* @__PURE__ */ V("span", {
@@ -10210,7 +10213,7 @@ function Xn({
     })]
   });
 }
-function zn({
+function A3({
   type: g,
   value: C
 }) {
@@ -10238,12 +10241,12 @@ function zn({
     })]
   });
 }
-function _n({
+function I3({
   manifest: g
 }) {
   return /* @__PURE__ */ fI("ul", {
     className: EI.ManifestTable,
-    children: [vn.map((C) => g[C] ? /* @__PURE__ */ V(zn, {
+    children: [zn.map((C) => g[C] ? /* @__PURE__ */ V(A3, {
       type: C,
       value: g[C]
     }, C) : null), g != null && g.verifyUrl ? /* @__PURE__ */ V("li", {
@@ -10255,7 +10258,7 @@ function _n({
     }) : null]
   });
 }
-function $n({
+function g3({
   manifest: g,
   previewRef: C
 }) {
@@ -10273,7 +10276,7 @@ function $n({
     className: y,
     children: /* @__PURE__ */ fI("div", {
       className: EI.ManifestRow,
-      children: [/* @__PURE__ */ V(Xn, {
+      children: [/* @__PURE__ */ V($n, {
         manifest: g,
         toggled: Q,
         onToggle: J,
@@ -10282,7 +10285,7 @@ function $n({
         open: Q,
         children: /* @__PURE__ */ V("div", {
           className: EI.ManifestContent,
-          children: /* @__PURE__ */ V(_n, {
+          children: /* @__PURE__ */ V(I3, {
             manifest: g
           })
         })
@@ -10290,7 +10293,7 @@ function $n({
     })
   });
 }
-function A3() {
+function C3() {
   const g = PI(null), C = PI(null), {
     locale: Q,
     getText: D
@@ -10308,7 +10311,7 @@ function A3() {
     className: yi.Provenance,
     children: [/* @__PURE__ */ V("ul", {
       className: yi.ProvenanceList,
-      children: o ? o.map((y, J) => /* @__PURE__ */ V($n, {
+      children: o ? o.map((y, J) => /* @__PURE__ */ V(g3, {
         manifest: y,
         previewRef: J === 0 ? C : null
       }, J)) : null
@@ -10322,7 +10325,7 @@ function A3() {
     })]
   });
 }
-function I3({
+function Q3({
   onEvent: g
 }) {
   const C = PI(null), {
@@ -10347,11 +10350,11 @@ function I3({
       children: [/* @__PURE__ */ V(vx, {}), /* @__PURE__ */ V(rn, {}), /* @__PURE__ */ V(Cn, {}), /* @__PURE__ */ V(Dn, {})]
     }), /* @__PURE__ */ V(ui, {
       open: M,
-      children: /* @__PURE__ */ V(A3, {})
+      children: /* @__PURE__ */ V(C3, {})
     })]
   });
 }
-function C3({
+function E3({
   locale: g,
   src: C,
   alt: Q,
@@ -10372,7 +10375,7 @@ function C3({
         caption: D,
         byline: w,
         children: /* @__PURE__ */ V(tx, {
-          children: /* @__PURE__ */ V(I3, {
+          children: /* @__PURE__ */ V(Q3, {
             ...o
           })
         })
@@ -10381,5 +10384,5 @@ function C3({
   });
 }
 export {
-  C3 as default
+  E3 as default
 };

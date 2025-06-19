@@ -19,7 +19,6 @@ export default defineConfig({
 				main: resolve(__dirname, 'index.html'),
 				// article: resolve(__dirname, 'article/index.html')
 			},
-			external: ['react', 'react-dom'],
 			output: {
 				globals: {
 					react: 'React',

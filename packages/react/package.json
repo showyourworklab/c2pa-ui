@@ -36,7 +36,8 @@
 		"c2pa": "^0.30.9",
 		"c2pa-wc": "0.14.9",
 		"react-collapsed": "^4.1.2",
-		"syw-common": "^0.0.6"
+		"syw-common": "^0.0.6",
+		"syw-docs": "^0.0.6"
 	},
 	"devDependencies": {
 		"@vitejs/plugin-react": "^1.1.0",
