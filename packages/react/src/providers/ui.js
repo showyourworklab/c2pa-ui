@@ -2,8 +2,10 @@ import React, { useRef, useState } from 'react'
 import { UiContext } from '/src/context/ui'
 
 const UiProvider = ({
+	variant,
 	children
 }) => {
+	const [elem, setElem] = useState(null)
 	const [isHoverImage, setIsHoverImage] = useState(false)
 	const [isOpenProvenance, setIsOpenProvenance] = useState(false)
 	const [isOpenExplainer, setIsOpenExplainer] = useState(false)
@@ -11,9 +13,10 @@ const UiProvider = ({
 	const eventHandler = useRef(null)
 
 	const handleEvent = (type, event, ...args) => {
-		event.persist()
+		if(typeof event?.persist === "function") event.persist()
 		const eventHandlerFunc = eventHandler.current
-		if(typeof eventHandlerFunc === "function") eventHandlerFunc(type, event, ...args)
+		const nativeEvent = event?.nativeEvent ?? event?.detail?.originalEvent ?? event
+		if(typeof eventHandlerFunc === "function") eventHandlerFunc(type, nativeEvent, ...args)
 	}
 	const hoverImage = (event) => {
 		setIsHoverImage(true)
@@ -55,10 +58,13 @@ const UiProvider = ({
 	return (
 		<UiContext.Provider
 			value={{
+				elem,
+				variant,
 				isHoverImage,
 				isOpenProvenance,
 				isOpenExplainer,
 				openManifests: openManifests.current,
+				setElem,
 				hoverImage,
 				unhoverImage,
 				openProvenance,

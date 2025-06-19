@@ -1,20 +1,27 @@
 import { writable, get } from 'svelte/store'
+import { VARIANT_DEFAULT } from 'syw-common/constants/index.js'
 
 export default function createUiStore() {
-
+	
+	const elem = writable(null)
+	const variant = writable(VARIANT_DEFAULT)
 	const isHoverImage = writable(false)
 	const isProvenanceOpen = writable(false)
 	const isExplainerOpen = writable(false)
 	const openManifests = writable({})
 	const eventHandler = writable(null)
 
+	const setElem = (value) => {
+		elem.set(value)
+	}
+
+	const setVariant = (value) => {
+		variant.set(value)
+	}
+
 	const handleEvent = (type, event, ...args) => {
 		const eventHandlerFunc = get(eventHandler)
 		if(typeof eventHandlerFunc === "function") eventHandlerFunc(type, event, ...args)
-	}
-
-	const setEventHandler = val => {
-		eventHandler.set(val)
 	}
 
 	const hoverImage = (event) => {
@@ -57,13 +64,20 @@ export default function createUiStore() {
 		handleEvent("manifest.close", event, manifest)
 	}
 
+	const setEventHandler = val => {
+		eventHandler.set(val)
+	}
+
 	return {
+		elem,
+		variant,
 		isHoverImage,
 		isProvenanceOpen,
 		isExplainerOpen,
 		openManifests,
 		eventHandler,
-		setEventHandler,
+		setElem,
+		setVariant,
 		hoverImage,
 		unhoverImage,
 		openProvenance,
@@ -71,6 +85,7 @@ export default function createUiStore() {
 		openExplainer,
 		closeExplainer,
 		openManifest,
-		closeManifest
+		closeManifest,
+		setEventHandler,
 	}
 }

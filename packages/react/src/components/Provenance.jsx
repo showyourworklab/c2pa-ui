@@ -9,7 +9,7 @@ import Manifest from './Manifest'
 function Provenance() {
 	const ref = useRef(null)
 	const firstPreviewRef = useRef(null)
-	const { locale, getText } = useI18nContext()
+	const { getText } = useI18nContext()
 	const { src, manifests } = useDataContext()
 	const { isOpenProvenance } = useUiContext()
 	

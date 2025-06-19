@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import ReactDOM from 'react-dom'
+import { createRoot } from 'react-dom/client';
 import { LOCALE_DEFAULT, DICTIONARIES } from 'syw-common/constants/i18n'
-import { DEMO_IMAGE_URLS, DEMO_IMAGE_URL_DEFAULT, DEMO_IMAGE_URL_BASE } from 'syw-common/constants'
+import { VARIANT_KEYS, DEMO_IMAGE_URLS, DEMO_IMAGE_URL_DEFAULT, DEMO_IMAGE_URL_BASE, VARIANT_DEFAULT } from 'syw-common/constants'
 import SywLogo from 'syw-common/images/logo-dark.svg'
 import SywReact from '$src/index'
 import 'syw-common/css/globals.css'
@@ -9,11 +9,17 @@ import 'syw-docs/src/styles.css'
 
 const Demo = () => {
 	const [locale, setLocale] = useState(LOCALE_DEFAULT)
+	const [variant, setVariant] = useState(VARIANT_DEFAULT)
 	const [demoImage, setDemoImage] = useState(DEMO_IMAGE_URL_DEFAULT)
 
 	const handleLocaleChange = e => {
 		const { value } = e.target
 		setLocale(value)
+	}
+
+	const handleVariantChange = e => {
+		const { value } = e.target
+		setVariant(value)
 	}
 
 	const handleImageChange = e => {
@@ -53,7 +59,7 @@ const Demo = () => {
 						href="https://github.com/showyourworklab/syw/"
 						target="_blank"
 						rel="noopener noreferrer"
-						class="button"
+						className="button"
 						data-icon="github"
 					>
 						View code
@@ -75,6 +81,27 @@ const Demo = () => {
 							onChange={handleImageChange}
 						>
 							{DEMO_IMAGE_URLS.map(key =>
+								<option
+									key={key}
+									value={key}
+								>
+									{key}
+								</option>
+							)}
+						</select>
+					</div>
+					<div>
+						<label
+							htmlFor="select-variant"
+						>
+							Select embed variant:
+						</label>
+						<select
+							id="select-variant"
+							value={variant}
+							onChange={handleVariantChange}
+						>
+							{VARIANT_KEYS.map(key =>
 								<option
 									key={key}
 									value={key}
@@ -111,6 +138,7 @@ const Demo = () => {
 					src={`${DEMO_IMAGE_URL_BASE}/${demoImage}`}
 					caption='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis est ut enim imperdiet lacinia. Etiam vitae volutpat eros. Cras sagittis condimentum lacus, sit amet mattis mauris convallis id.'
 					byline='Lectus Vitae / Tristique Imperdiet'
+					variant={variant}
 					onEvent={handleEvent}
 				/>
 			</section>
@@ -118,9 +146,6 @@ const Demo = () => {
 	)
 }
 
-ReactDOM.render(
-	<React.StrictMode>
-		<Demo />
-	</React.StrictMode>,
-	document.getElementById('root'),
-)
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(<Demo />);

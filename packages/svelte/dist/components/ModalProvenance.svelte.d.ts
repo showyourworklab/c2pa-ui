@@ -1,25 +1,13 @@
-export default App;
-type App = SvelteComponent<{
-    src?: string;
-    alt?: string;
-    locale?: string;
-    caption?: string;
-    byline?: string;
-    variant?: string;
-    onEvent?: any;
+export default ModalProvenance;
+type ModalProvenance = SvelteComponent<{
+    [x: string]: never;
 }, {
     [evt: string]: CustomEvent<any>;
 }, {}> & {
     $$bindings?: string;
 };
-declare const App: $$__sveltets_2_IsomorphicComponent<{
-    src?: string;
-    alt?: string;
-    locale?: string;
-    caption?: string;
-    byline?: string;
-    variant?: string;
-    onEvent?: any;
+declare const ModalProvenance: $$__sveltets_2_IsomorphicComponent<{
+    [x: string]: never;
 }, {
     [evt: string]: CustomEvent<any>;
 }, {}, {}, string>;
@@ -27,7 +15,7 @@ interface $$__sveltets_2_IsomorphicComponent<Props extends Record<string, any> =
     new (options: import("svelte").ComponentConstructorOptions<Props>): import("svelte").SvelteComponent<Props, Events, Slots> & {
         $$bindings?: Bindings;
     } & Exports;
-    (internal: unknown, props: Props & {
+    (internal: unknown, props: {
         $$events?: Events;
         $$slots?: Slots;
     }): Exports & {

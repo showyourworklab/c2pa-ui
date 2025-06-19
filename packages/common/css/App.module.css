@@ -30,18 +30,28 @@
 	overflow: visible;
 	background: transparent;
 	color: inherit;
-	font: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	font-family: inherit;
+	font-weight: inherit;
 	line-height: normal;
 	-webkit-font-smoothing: inherit;
 	-moz-osx-font-smoothing: inherit;
 	-webkit-appearance: none;
 	appearance: none;
+	cursor: pointer;
 }
 /* App > Hovered */
 .App.App_hovered {
-	transform: translate(0, 0);
+	/* transform: translate(0, 0); */
 }
 /* App > Active */
-.App.App_active {
+/* App > Active > Expand */
+.App.App_active.App_expand {
 	background-color: var(--syw-color-primary);
+}
+/* App > Modal */
+/* App > Active > Modal */
+.App.App_active.App_modal {
+	/* background-color: inherit; */
 }

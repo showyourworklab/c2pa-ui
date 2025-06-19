@@ -1,3 +1,10 @@
+export const VARIANT_KEYS = [
+	"expand",
+	"modal"
+]
+
+export const VARIANT_DEFAULT = "expand"
+
 export const MANIFEST_KEYS = [
 	'producer',
 	// 'producerSocials',

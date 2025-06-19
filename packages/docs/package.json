@@ -1,6 +1,6 @@
 {
 	"name": "syw-docs",
-	"version": "0.0.6",
+	"version": "0.0.7",
 	"private": true,
 	"type": "module",
 	"scripts": {
@@ -11,8 +11,8 @@
 	},
 	"dependencies": {
 		"c2pa": "^0.30.9",
-		"syw-common": "^0.0.6",
-		"syw-svelte": "^0.0.6"
+		"syw-common": "^0.0.7",
+		"syw-svelte": "^0.0.7"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^6.0.1",

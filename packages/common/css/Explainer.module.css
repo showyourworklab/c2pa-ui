@@ -1,5 +1,5 @@
 /* Explainer */
-.Explainer .CollapseInner {
+.App_expand .Explainer .CollapseInner {
 	padding-top: var(--syw-space-4);
 	padding-bottom: var(--syw-space-3);
 }

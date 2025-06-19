@@ -1,21 +1,30 @@
-/* Toggle Explainer */
+.App button.ToggleExplainer {
+	font-size: var(--syw-text-xs);
+	font-weight: var(--syw-font-weight-bold);
+}
+/* Cutline > Toggle Explainer */
 .Cutline button.ToggleExplainer {
 	margin-left: var(--syw-space-2);
 	color: var(--syw-color-primary-light);
-	font-size: var(--syw-text-xs);
-	font-weight: var(--syw-font-weight-bold);
-	cursor: pointer;
 }
+/* Cutline > Toggle Explainer > Hover */
 .Cutline button.ToggleExplainer:hover {
 	color: var(--syw-color-quaternary);
 }
+/* Cutline > Toggle Explainer > Pressed */
 .Cutline button.ToggleExplainer[aria-pressed="true"] {
 	opacity: 0;
 	pointer-events: none;
 }
+/* Cutline > Toggle Explainer > Active */
 .App_active .Cutline button.ToggleExplainer {
 	color: var(--syw-color-secondary-light);
 }
+/* Cutline > Toggle Explainer > Active > Hover */
 .App_active .Cutline button.ToggleExplainer:hover {
 	color: var(--syw-color-quaternary-light);
+}
+/* Modal > Toggle Explainer */
+.ModalContent button.ToggleExplainer {
+	color: var(--color-secondary);
 }

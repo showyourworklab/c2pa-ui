@@ -28,30 +28,31 @@
 	transition: all 200ms ease;
 }
 /* Caption > Active */
-.App_active .Caption {
+.App_active.App_expand .Caption {
 	color: var(--syw-color-secondary);
 	padding-bottom: var(--syw-space-3);
 }
-.App_active .Caption::before {
+/* Caption > Active > Expand */
+.App_active.App_expand .Caption::before {
 	height: calc(100% + var(--syw-space-8) + 2px);
 	background-color: var(--syw-color-primary);
 }
-.App_active .Caption::after {
+.App_active.App_expand .Caption::after {
 	opacity: 1;
 }
 /* Caption > Inner */
 .CaptionInner {
 	transition: all 200ms ease;
 }
-/* Caption > Inner > Active */
-.App_active .CaptionInner {
+/* Caption > Inner > Active > Expand */
+.App_active.App_expand .CaptionInner {
 	transform: translateX(var(--syw-space-6));
 }
 /* Caption > Byline */
 .CaptionByline {
 	color: var(--syw-color-tertiary-dark);
 }
-/* Caption > Byline > Active */
-.App_active .CaptionByline {
+/* Caption > Byline > Active > Expand */
+.App_active.App_expand .CaptionByline {
 	color: var(--syw-color-secondary-dark);
 }

@@ -11,6 +11,7 @@ function SywReact({
 	alt,
 	caption,
 	byline,
+	variant,
 	...props
 }) {
 	return (
@@ -29,7 +30,9 @@ function SywReact({
 					caption={caption}
 					byline={byline}
 				>
-					<UiProvider>
+					<UiProvider
+						variant={variant}
+					>
 						<App { ...props } />
 					</UiProvider>
 				</DataProvider>

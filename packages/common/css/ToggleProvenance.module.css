@@ -42,23 +42,23 @@
 	border-color: var(--syw-color-quaternary);
 }
 /* Toggle Provenance > Active */
-.App_active .Cutline button.ToggleProvenance {
+.App_active.App_expand .Cutline button.ToggleProvenance {
 	color: var(--syw-color-primary);
 	background-color: var(--syw-color-secondary);
 }
 /* Toggle Provenance > Active > Ornament */
-.App_active .Cutline button.ToggleProvenance::before {
+.App_active.App_expand .Cutline button.ToggleProvenance::before {
 	border-color: var(--syw-color-primary);
 }
 /* Toggle Provenance > Active > Hovered */
-.App_active .Cutline button.ToggleProvenance:hover,
-.App_active.App_hovered .Cutline button.ToggleProvenance {
+.App_active.App_expand .Cutline button.ToggleProvenance:hover,
+.App_active.App_expand.App_hovered .Cutline button.ToggleProvenance {
 	color: var(--syw-color-quaternary);
 	background-color: var(--syw-color-secondary);
 }
 /* Toggle Provenance > Active > Hovered > Ornament */
-.App_active .Cutline button.ToggleProvenance:hover::before,
-.App_active.App_hovered .Cutline button.ToggleProvenance::before {
+.App_active.App_expand .Cutline button.ToggleProvenance:hover::before,
+.App_active.App_expand.App_hovered .Cutline button.ToggleProvenance::before {
 	background-color: var(--syw-color-quaternary);
 	border-color: var(--syw-color-quaternary);
 }

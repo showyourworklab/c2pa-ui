@@ -16,6 +16,8 @@
 	import Cutline from './Cutline.svelte'
 	import Caption from './Caption.svelte'
 	import Provenance from './Provenance.svelte'
+	import ModalProvenance from './ModalProvenance.svelte'
+    import Collapse from './Collapse.svelte';
 
 	const dataStore = createDataStore()
 	const i18nStore = createI18nStore()
@@ -24,6 +26,8 @@
 	setContext('i18nStoreContext', i18nStore)
 	setContext('uiStoreContext', uiStore)
 
+	let elemRef
+	export let variant = ''
 	export let src = ''
 	export let alt = ''
 	export let caption = ''
@@ -37,9 +41,15 @@
 	$: dataStore.setByline(byline)
 	$: i18nStore.setLocale(locale)
 	$: uiStore.setEventHandler(onEvent)
+	$: uiStore.setElem(elemRef)
+	$: uiStore.setVariant(variant)
 
 	const { lang } = i18nStore;
-	const { isHoverImage, isProvenanceOpen } = uiStore;
+	const {
+		variant: _variant,
+		isHoverImage,
+		isProvenanceOpen,
+	} = uiStore;
 
 	const update = async (_src) => {
 		const c2pa = await createC2pa({
@@ -62,10 +72,10 @@
 	onMount(() => {
 		update(src)
 	});
-	// $: update(), [src]
 
 	$: classes = joinClassNames(
 		styles.App,
+		styles[`App_${variant}`],
 		$isHoverImage ? styles.App_hovered : false,
 		$isProvenanceOpen ? styles.App_active : false
 	)
@@ -73,8 +83,9 @@
 </script>
 
 <div
-	class={classes}
 	lang={$lang}
+	class={classes}
+	bind:this={elemRef}
 >
 	<Figure>
 		<Image />
@@ -82,5 +93,14 @@
 		<Cutline />
 		<Caption />
 	</Figure>
-	<Provenance />
+	{#if $_variant === 'expand'}
+		<Collapse
+			open={isProvenanceOpen}
+		>
+			<Provenance />
+		</Collapse>
+	{/if}
+	{#if $_variant === 'modal'}
+		<ModalProvenance />
+	{/if}
 </div>

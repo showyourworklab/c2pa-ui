@@ -3,15 +3,26 @@ import { useUiContext, useI18nContext } from '$src/context'
 
 const ToggleExplainer = () => {
 	const {
+		variant,
 		isOpenExplainer,
 		openExplainer,
 		closeExplainer,
+		openProvenance
 	} = useUiContext()
 	const { getText } = useI18nContext()
 
-	const onClick = event => isOpenExplainer
-		? closeExplainer(event)
-		: openExplainer(event)
+	const onClick = event => {
+		// Toggle explainer based on current state
+		if(isOpenExplainer) {
+			closeExplainer(event)
+		} else {
+			openExplainer(event)
+		}
+		// If modal, also open provenance modal to view explainer
+		if(variant === "modal") {
+			openProvenance(event)
+		}
+	}
 
 	return (
 		<button

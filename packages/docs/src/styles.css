@@ -27,46 +27,46 @@ main {
 	font-size: 14px;
 	font-family: var(--font-body);
 }
-hgroup {
+main > hgroup {
 	margin: 2rem 0;
 }
-hgroup h1 {
+main > hgroup h1 {
 	display: inline-block;
 	font-size: 32px;
 	font-family: var(--font-display);
 	margin: 0;
 }
-hgroup h1::after {
+main > hgroup h1::after {
 	content: "\00A0\00A0";
 }
-hgroup h2 {
+main > hgroup h2 {
 	display: inline-block;
 	font-size: 32px;
 	font-family: var(--font-display);
 	margin: 0;
 }
-hgroup p {
+main > hgroup p {
 
 }
-hgroup p a {
+main > hgroup p a {
 	color: inherit;
 }
 section {
 	margin: 4rem auto;
 }
-section h2 {
+section > h2 {
 	font-family: var(--font-mono);
 }
-section header {
+section > header {
 	display: flex;
 	justify-content: space-between;
 	margin: 0 0 1rem 0;
 }
-section header label {
+section > header label {
 	font-weight: bold;
 	margin-right: 0.25rem;
 }
-section header select {
+section > header select {
 	padding: 4px 8px;
 	color: inherit;
 	border: 1px solid;

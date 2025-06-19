@@ -1,10 +1,13 @@
 export default function createUiStore(): {
+    elem: import("svelte/store").Writable<any>;
+    variant: import("svelte/store").Writable<string>;
     isHoverImage: import("svelte/store").Writable<boolean>;
     isProvenanceOpen: import("svelte/store").Writable<boolean>;
     isExplainerOpen: import("svelte/store").Writable<boolean>;
     openManifests: import("svelte/store").Writable<{}>;
     eventHandler: import("svelte/store").Writable<any>;
-    setEventHandler: (val: any) => void;
+    setElem: (value: any) => void;
+    setVariant: (value: any) => void;
     hoverImage: (event: any) => void;
     unhoverImage: (event: any) => void;
     openProvenance: (event: any) => void;
@@ -13,4 +16,5 @@ export default function createUiStore(): {
     closeExplainer: (event: any) => void;
     openManifest: (event: any, manifest: any) => void;
     closeManifest: (event: any, manifest: any) => void;
+    setEventHandler: (val: any) => void;
 };
