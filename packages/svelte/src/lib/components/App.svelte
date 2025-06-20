@@ -18,7 +18,7 @@
 	import Provenance from './Provenance.svelte'
 	import ModalProvenance from './ModalProvenance.svelte'
     import Collapse from './Collapse.svelte';
-
+	
 	const dataStore = createDataStore()
 	const i18nStore = createI18nStore()
 	const uiStore = createUiStore()
@@ -26,6 +26,7 @@
 	setContext('i18nStoreContext', i18nStore)
 	setContext('uiStoreContext', uiStore)
 
+	let mounted = false
 	let elemRef
 	export let variant = ''
 	export let src = ''
@@ -51,14 +52,15 @@
 		isProvenanceOpen,
 	} = uiStore;
 
-	const update = async (_src) => {
+	onMount(async () => {
+		mounted = true
 		const c2pa = await createC2pa({
 			wasmSrc,
 			workerSrc,
 		})
 		try {
 			// Read in the image and get a manifest store
-			const { manifestStore } = await c2pa.read(_src);
+			const { manifestStore } = await c2pa.read(src);
 			// Get the active manifest
 			const newManifests = Object.values(manifestStore?.manifests ?? {})
 				.map(manifest => prepareManifest(locale, manifest))
@@ -67,10 +69,6 @@
 		} catch (err) {
 			console.error('Error reading image:', err);
 		}
-	}
-
-	onMount(() => {
-		update(src)
 	});
 
 	$: classes = joinClassNames(
@@ -82,25 +80,28 @@
 
 </script>
 
-<div
-	lang={$lang}
-	class={classes}
-	bind:this={elemRef}
->
-	<Figure>
-		<Image />
-		<Explainer />
-		<Cutline />
-		<Caption />
-	</Figure>
-	{#if $_variant === 'expand'}
-		<Collapse
-			open={isProvenanceOpen}
-		>
-			<Provenance />
-		</Collapse>
-	{/if}
-	{#if $_variant === 'modal'}
-		<ModalProvenance />
-	{/if}
-</div>
+{#if mounted}
+	<div
+		lang={$lang}
+		class={classes}
+		bind:this={elemRef}
+	>
+		<Figure>
+			<Image />
+			<Explainer />
+			<Cutline />
+			<Caption />
+		</Figure>
+		
+		{#if $_variant === 'expand'}
+			<Collapse
+				open={isProvenanceOpen}
+			>
+				<Provenance />
+			</Collapse>
+		{/if}
+		{#if $_variant === 'modal'}
+			<ModalProvenance />
+		{/if}
+	</div>
+{/if}

@@ -1,6 +1,6 @@
 export default function createUiStore(): {
     elem: import("svelte/store").Writable<any>;
-    variant: import("svelte/store").Writable<string>;
+    variant: import("svelte/store").Writable<"expand">;
     isHoverImage: import("svelte/store").Writable<boolean>;
     isProvenanceOpen: import("svelte/store").Writable<boolean>;
     isExplainerOpen: import("svelte/store").Writable<boolean>;

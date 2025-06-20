@@ -10347,7 +10347,7 @@ function K3(g, C) {
   NQ = g, ti = C, s3(), Oy(!0);
 }
 function ei() {
-  NQ && (ti && ti(), document.removeEventListener("keydown", ny), iQ && iQ.focus && (iQ.focus(), iQ = null), NQ = null, Oy(!1));
+  NQ && (ti && ti(), typeof document < "u" && document.removeEventListener("keydown", ny), iQ && iQ.focus && (iQ.focus(), iQ = null), NQ = null, Oy(!1));
 }
 function ny(g) {
   if (NQ) {
@@ -10358,17 +10358,17 @@ function ny(g) {
         g.preventDefault();
         return;
       }
-      g.shiftKey ? document.activeElement === HB && (qi.focus(), g.preventDefault()) : document.activeElement === qi && (HB.focus(), g.preventDefault());
+      g.shiftKey ? typeof document < "u" && document.activeElement === HB && (qi.focus(), g.preventDefault()) : typeof document < "u" && document.activeElement === qi && (HB.focus(), g.preventDefault());
     }
   }
 }
 function s3() {
-  iQ = document.activeElement, DQ = Array.from(
+  typeof document < "u" && (iQ = document.activeElement), DQ = Array.from(
     NQ.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')
-  ).filter((g) => g.tabIndex !== -1), HB = DQ[0], qi = DQ[DQ.length - 1], HB.focus(), document.addEventListener("keydown", ny);
+  ).filter((g) => g.tabIndex !== -1), HB = DQ[0], qi = DQ[DQ.length - 1], HB.focus(), typeof document < "u" && document.addEventListener("keydown", ny);
 }
 function Oy(g) {
-  document.body.style.overflow = g ? "hidden" : "";
+  typeof document < "u" && (document.body.style.overflow = g ? "hidden" : "");
 }
 const L3 = "Syw-Modal", H3 = "Syw-Modal_open", c3 = "Syw-ModalOverlay", U3 = "Syw-ModalContent", S3 = "Syw-ModalContentBox", a3 = "Syw-ModalContentHeader", q3 = "Syw-ModalClose", Og = {
   Modal: L3,

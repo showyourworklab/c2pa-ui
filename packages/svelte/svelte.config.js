@@ -5,16 +5,17 @@ const config = {
 	preprocess: sveltePreprocess(),
 	kit: {
 		alias: {
-			$src: './src',
-			$lib: './src/lib',
+			$src: 'src',
+			$lib: 'src/lib',
+			'syw-common': 'src/lib/common',
+			// 'syw-common': '../common',
 		},
 		adapter: adapter({
 			pages: '../../public/svelte',
 			// assets: 'build',
-			fallback: undefined,
+			fallback: 'index.html',
 			precompress: false,
 			strict: true,
-			fallback: 'index.html'
 		}),
 		paths: {
 			base: process.env.NODE_ENV === 'production' ? '/syw/svelte' : '',

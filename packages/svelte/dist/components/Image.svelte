@@ -1,7 +1,7 @@
 <script>
 	import { getContext } from 'svelte';
-	import styles from 'syw-common/css/Image.module.css'
-	import { handleA11yClick } from 'syw-common/helpers'
+	import styles from '../common/css/Image.module.css'
+	import { handleA11yClick } from '../common/helpers'
 
 	const { src, alt } = getContext('dataStoreContext');
 	const { hoverImage, unhoverImage, isProvenanceOpen, openProvenance, closeProvenance } = getContext('uiStoreContext');

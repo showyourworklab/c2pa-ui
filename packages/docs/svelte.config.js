@@ -19,6 +19,9 @@ const config = {
 			strict: true,
 			fallback: 'index.html'
 		}),
+		prerender: {
+			handleHttpError: 'ignore'
+		},
 		paths: {
 			base: process.env.NODE_ENV === 'production' ? '/syw' : '',
 		}

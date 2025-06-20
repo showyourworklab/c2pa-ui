@@ -1,6 +1,6 @@
 <script>
 	import { getContext } from 'svelte';
-	import styles from 'syw-common/css/ToggleProvenance.module.css'
+	import styles from '../common/css/ToggleProvenance.module.css'
 
 	const { locale, getText } = getContext('i18nStoreContext');
 	const { isProvenanceOpen, openProvenance, closeProvenance } = getContext('uiStoreContext');

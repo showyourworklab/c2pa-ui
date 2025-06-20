@@ -1,5 +1,5 @@
 <script>
-	import { onMount, getContext } from 'svelte'
+	import { getContext } from 'svelte'
 	import styles from 'syw-common/css/ModalProvenance.module.css'
 	import Modal from './Modal.svelte'
 	import Provenance from './Provenance.svelte'

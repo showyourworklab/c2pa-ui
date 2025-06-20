@@ -5,6 +5,7 @@
 	import Header from '$lib/components/Header.svelte'
 	import Heading from '$lib/components/Heading.svelte'
 	import Preview from '$lib/components/Preview.svelte'
+	import SsrFallback from '$lib/components/SsrFallback.svelte'
 	import '$src/styles.css'
 </script>
 
@@ -13,9 +14,11 @@
 	
 	<Heading />
 	
-	<Preview
-		SywSvelte={SywSvelte}
-	/>
+	<SsrFallback>
+		<Preview
+			SywSvelte={SywSvelte}
+		/>
+	</SsrFallback>
 
 	<section>
 		<h2>

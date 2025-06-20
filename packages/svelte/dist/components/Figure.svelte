@@ -1,5 +1,5 @@
 <script>
-	import styles from 'syw-common/css/Figure.module.css'
+	import styles from '../common/css/Figure.module.css'
 </script>
 
 <figure

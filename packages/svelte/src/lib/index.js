@@ -1,5 +1,23 @@
-import App from './components/App.svelte'
-/** @typedef {import('./components/App.svelte').default} AppComponent */
-/** @type {AppComponent} */
-export const Syw = App
-export default Syw
+// import 'syw-common/css/globals.css'
+// import 'syw-common/css/App.module.css'
+// import 'syw-common/css/Caption.module.css'
+// import 'syw-common/css/Cutline.module.css'
+// import 'syw-common/css/Explainer.module.css'
+// import 'syw-common/css/Figure.module.css'
+// import 'syw-common/css/Image.module.css'
+// import 'syw-common/css/Manifest.module.css'
+// import 'syw-common/css/Modal.module.css'
+// import 'syw-common/css/ModalProvenance.module.css'
+// import 'syw-common/css/ToggleExplainer.module.css'
+// import 'syw-common/css/ToggleProvenance.module.css'
+
+export { default as App } from './components/App.svelte';
+export { default as Figure } from './components/Figure.svelte';
+export { default as Image } from './components/Image.svelte';
+export { default as Explainer } from './components/Explainer.svelte';
+export { default as Cutline } from './components/Cutline.svelte';
+export { default as Caption } from './components/Caption.svelte';
+export { default as Provenance } from './components/Provenance.svelte';
+export { default as ModalProvenance } from './components/ModalProvenance.svelte';
+export { default as Collapse } from './components/Collapse.svelte';
+export { default } from './components/App.svelte';

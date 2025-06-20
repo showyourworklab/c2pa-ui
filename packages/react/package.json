@@ -3,7 +3,7 @@
 	"version": "0.0.7",
 	"description": "",
 	"author": "Show Your Work Lab",
-	"license": "ISC",
+	"license": "MIT",
 	"private": false,
 	"type": "module",
 	"sideEffects": false,
@@ -28,7 +28,8 @@
 		"build:release": "rushx build",
 		"serve": "vite preview --port 8080",
 		"predeploy": "npm run build",
-		"deploy": "gh-pages -d ./public"
+		"deploy": "gh-pages -d ./public",
+		"publish": "npm publish"
 	},
 	"dependencies": {
 		"@contentauth/react": "0.2.87",
@@ -38,7 +39,6 @@
 		"c2pa": "^0.30.9",
 		"c2pa-wc": "0.14.9",
 		"react-collapsed": "^4.1.2",
-		"syw-common": "^0.0.7",
 		"syw-docs": "^0.0.7"
 	},
 	"devDependencies": {

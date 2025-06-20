@@ -6,7 +6,8 @@ export default defineConfig({
 	publicDir: 'public',
 	resolve: {
 		alias: {
-			'$src': resolve(__dirname, 'src')
+			'$src': resolve(__dirname, 'src'),
+			'syw-common': resolve(__dirname, '../common')
 		},
 	},
 	build: {

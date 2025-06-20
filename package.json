@@ -1,6 +1,7 @@
 {
   "name": "syw",
-  "version": "0.0.6",
+  "version": "0.0.7",
+  "license": "MIT",
   "workspaces": [
     "packages/common",
     "packages/react",
@@ -22,6 +23,8 @@
     "docs:lerna": "lerna run --scope syw-docs",
     "docs:dev": "npm run docs:lerna dev",
     "docs:build": "npm run docs:lerna build",
+    "common:lerna": "lerna run --scope syw-common",
+    "common:publish": "npm run common:lerna publish",
     "build": "npm run docs:build && npm run react:build && npm run svelte:build",
     "deploy": "npx gh-pages -d public",
     "publish": "npx lerna publish --no-private"

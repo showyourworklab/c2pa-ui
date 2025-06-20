@@ -1,6 +1,6 @@
 import { get, writable } from 'svelte/store'
-import { LOCALE_DEFAULT } from 'syw-common/constants/i18n'
-import { getLocaleText, getLangFromLocale } from 'syw-common/helpers/i18n'
+import { LOCALE_DEFAULT } from '../common/constants/i18n'
+import { getLocaleText, getLangFromLocale } from '../common/helpers/i18n'
 
 export default function createI18nStore() {
 	const locale = writable(null)
