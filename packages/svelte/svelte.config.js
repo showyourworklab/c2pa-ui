@@ -8,7 +8,7 @@ const config = {
 			$src: 'src',
 			$lib: 'src/lib',
 			'syw-common': 'src/lib/common',
-			// 'syw-common': '../common',
+			// 'syw-docs': '../src/lib/docs',
 		},
 		adapter: adapter({
 			pages: '../../public/svelte',

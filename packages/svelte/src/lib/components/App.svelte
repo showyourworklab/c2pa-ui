@@ -7,6 +7,7 @@
 	import styles from 'syw-common/css/App.module.css'
 	import { joinClassNames } from 'syw-common/helpers'
 	import { prepareManifest } from 'syw-common/helpers/c2pa'
+	import { VARIANT_DEFAULT } from 'syw-common/constants';
 	import createDataStore from '$lib/store/data.js'
 	import createI18nStore from '$lib/store/i18n.js'
 	import createUiStore from '$lib/store/ui.js'
@@ -28,7 +29,7 @@
 
 	let mounted = false
 	let elemRef
-	export let variant = ''
+	export let variant = VARIANT_DEFAULT
 	export let src = ''
 	export let alt = ''
 	export let caption = ''

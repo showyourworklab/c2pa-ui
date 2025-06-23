@@ -33,11 +33,6 @@
 		"publish": "npm publish",
 		"lint": "eslint ."
 	},
-	"dependencies": {
-		"syw-common": "^0.0.7",
-		"syw-docs": "^0.0.7",
-		"vite-plugin-css-injected-by-js": "^3.5.2"
-	},
 	"devDependencies": {
 		"@playwright/test": "^1.28.1",
 		"@sveltejs/adapter-auto": "^6.0.1",
@@ -60,5 +55,6 @@
 	"peerDependencies": {
 		"c2pa": "^0.30.9",
 		"svelte": "^5.34.1"
-	}
+	},
+	"gitHead": "a0a7c93b5414c3e0a91e4d14b4a967daaa2fc938"
 }

@@ -5,7 +5,7 @@ type App = SvelteComponent<{
     locale?: string;
     caption?: string;
     byline?: string;
-    variant?: string;
+    variant?: "expand";
     onEvent?: any;
 }, {
     [evt: string]: CustomEvent<any>;
@@ -18,7 +18,7 @@ declare const App: $$__sveltets_2_IsomorphicComponent<{
     locale?: string;
     caption?: string;
     byline?: string;
-    variant?: string;
+    variant?: "expand";
     onEvent?: any;
 }, {
     [evt: string]: CustomEvent<any>;

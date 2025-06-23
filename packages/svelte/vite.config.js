@@ -19,7 +19,6 @@ export default defineConfig({
 		alias: {
 			$src: resolve(__dirname, '/src'),
 			$lib: resolve(__dirname, '/src/lib'),
-			// 'syw-common': './src/lib/common',
 			'syw-common': resolve(__dirname, 'src/lib/common'),
 		},
 	},

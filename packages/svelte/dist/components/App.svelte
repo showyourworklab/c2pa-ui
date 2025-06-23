@@ -7,6 +7,7 @@
 	import styles from '../common/css/App.module.css'
 	import { joinClassNames } from '../common/helpers'
 	import { prepareManifest } from '../common/helpers/c2pa'
+	import { VARIANT_DEFAULT } from '../common/constants';
 	import createDataStore from '../store/data.js'
 	import createI18nStore from '../store/i18n.js'
 	import createUiStore from '../store/ui.js'
@@ -28,7 +29,7 @@
 
 	let mounted = false
 	let elemRef
-	export let variant = ''
+	export let variant = VARIANT_DEFAULT
 	export let src = ''
 	export let alt = ''
 	export let caption = ''

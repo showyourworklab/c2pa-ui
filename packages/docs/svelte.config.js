@@ -9,6 +9,7 @@ const config = {
 			$src: './src',
 			$lib: './src/lib',
 			$static: './static',
+			'syw-common': '../common',
 		},
 		adapter: adapter({
 			pages: '../../public',
