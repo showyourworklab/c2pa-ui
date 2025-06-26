@@ -14,7 +14,7 @@ const Image = () => {
 		unhoverImage,
 		openProvenance,
 		closeProvenance,
-		isOpenProvenance
+		isOpenProvenance,
 	} = useUiContext()
 
 	const onClick = useCallback(event =>

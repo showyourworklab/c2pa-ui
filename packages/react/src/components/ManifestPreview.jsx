@@ -1,9 +1,10 @@
 import { useThumbnailUrl } from '@contentauth/react'
 import styles from 'syw-common/css/Manifest.module.css'
-import { handleA11yClick } from 'syw-common/helpers'
+import { handleA11yClick, joinClassNames } from 'syw-common/helpers'
 import { getDateString } from 'syw-common/helpers/i18n'
 import { MANIFEST_PREVIEW_TITLE_KEYS } from 'syw-common/constants'
 import { useI18nContext } from '$src/context/i18n'
+import { useUiContext } from '$src/context/ui'
 
 function ManifestPreview({
 	manifest,
@@ -12,9 +13,19 @@ function ManifestPreview({
 	previewRef
 }) {
 	const { locale } = useI18nContext()
+	const { compareImage, addCompareImage, removeCompareImage, updateComparePosition } = useUiContext()
 	const thumbnailUrl = manifest ? useThumbnailUrl(manifest?.thumbnail ?? undefined) : null
-
-	const onKeyDown = e => handleA11yClick(e, onToggle)
+	
+	const onKeyDown = event => handleA11yClick(event, onToggle)
+	const onThumbnailMouseMove = event => {
+		updateComparePosition(event)
+	}
+	const onThumbnailMouseEnter = event => {
+		addCompareImage(thumbnailUrl, event)
+	}
+	const onThumbnailMouseLeave = event => {
+		removeCompareImage(event)
+	}
 
 	return (
 		<div
@@ -39,7 +50,16 @@ function ManifestPreview({
 				<span>{getDateString(locale, manifest.timestamp)}</span>
 			</div>
 			<div
-				className={`${styles.ManifestPreviewCell} ${styles.ManifestPreviewCell_thumb}`}
+				className={joinClassNames(
+					styles.ManifestPreviewCell,
+					styles.ManifestPreviewCell_thumb,
+					thumbnailUrl === compareImage
+						? styles.ManifestPreviewCell_thumb_hover
+						: null
+				)}
+				onMouseMove={onThumbnailMouseMove}
+				onMouseEnter={onThumbnailMouseEnter}
+				onMouseLeave={onThumbnailMouseLeave}
 			>
 				<img
 					src={thumbnailUrl}

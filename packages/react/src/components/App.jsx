@@ -15,6 +15,7 @@ import Explainer from './Explainer'
 import Provenance from './Provenance'
 import Collapse from './Collapse'
 import ModalProvenance from './ModalProvenance'
+import ImageCompare from './ImageCompare'
 
 function App({
 	onEvent
@@ -22,7 +23,7 @@ function App({
 	const ref = useRef(null)
 	const { src, setManifests } = useDataContext()
 	const { locale } = useI18nContext()
-	const { variant, setElem, isHoverImage, isOpenProvenance, eventHandler } = useUiContext()
+	const { variant, compareImage, isHoverImage, isOpenProvenance, setElem, eventHandler } = useUiContext()
 	const provenance = useC2pa(src)
 
 	const className = useMemo(() =>
@@ -77,6 +78,9 @@ function App({
 			: null}
 			{variant === 'modal' ?
 				<ModalProvenance />
+			: null}
+			{compareImage ?
+				<ImageCompare />
 			: null}
 		</div>
 	)

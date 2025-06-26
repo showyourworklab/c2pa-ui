@@ -9,7 +9,7 @@
 	export let manifest
 
 	const { locale } = getContext('i18nStoreContext');
-	const { openManifest, closeManifest } = getContext('uiStoreContext');
+	const { openManifest, closeManifest, updateComparePosition, addCompareImage, removeCompareImage, compareImage } = getContext('uiStoreContext');
 
 	// const thumbnailUrl = manifest ? useThumbnailUrl(manifest?.thumbnail ?? undefined) : null
 	const thumbnailUrl = manifest?.thumbnail?.getUrl()?.url
@@ -26,6 +26,17 @@
 		handleA11yClick(event, handleClick)
 	}
 
+	const handleThumbnailMouseMove = event => {
+		updateComparePosition(event)
+	}
+	const handleThumbnailMouseEnter = event => {
+		// console.log(thumbnailUrl, $compareImage)
+		addCompareImage(thumbnailUrl, event)
+	}
+	const handleThumbnailMouseLeave = event => {
+		removeCompareImage(event)
+	}
+
 </script>
 
 <div
@@ -33,8 +44,8 @@
 	tabindex={0}
 	aria-pressed={open}
 	class={styles.ManifestPreview}
-	on:click={handleClick}
-	on:keydown={handleKeyDown}
+	onclick={handleClick}
+	onkeydown={handleKeyDown}
 >
 	<div
 		class={`${styles.ManifestPreviewCell} ${styles.ManifestPreviewCell_issuer}`}
@@ -49,7 +60,12 @@
 		<span>{getDateString($locale, manifest?.timestamp) ?? ''}</span>
 	</div>
 	<div
+		role='button'
+		tabindex={0}
 		class={`${styles.ManifestPreviewCell} ${styles.ManifestPreviewCell_thumb}`}
+		onmousemove={handleThumbnailMouseMove}
+		onmouseenter={handleThumbnailMouseEnter}
+		onmouseleave={handleThumbnailMouseLeave}
 	>
 		<img
 			src={thumbnailUrl}

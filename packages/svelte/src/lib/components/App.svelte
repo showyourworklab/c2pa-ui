@@ -19,6 +19,7 @@
 	import Provenance from './Provenance.svelte'
 	import ModalProvenance from './ModalProvenance.svelte'
     import Collapse from './Collapse.svelte';
+	import ImageCompare from './ImageCompare.svelte';
 	
 	const dataStore = createDataStore()
 	const i18nStore = createI18nStore()
@@ -51,6 +52,7 @@
 		variant: _variant,
 		isHoverImage,
 		isProvenanceOpen,
+		compareImage
 	} = uiStore;
 
 	onMount(async () => {
@@ -103,6 +105,9 @@
 		{/if}
 		{#if $_variant === 'modal'}
 			<ModalProvenance />
+		{/if}
+		{#if $compareImage}
+			<ImageCompare />
 		{/if}
 	</div>
 {/if}

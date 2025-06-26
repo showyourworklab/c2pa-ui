@@ -62,7 +62,7 @@
 	user-select: none;
 	transition: all 200ms ease;
 	border-radius: var(--syw-radius-lg);
-	padding: var(--syw-space-2) var(--syw-space-4) var(--syw-space-2) var(--syw-space-6);
+	padding: var(--syw-space-1) var(--syw-space-1) var(--syw-space-1) var(--syw-space-6);
 }
 .ManifestPreview::before,
 .ManifestPreview::after {
@@ -117,6 +117,23 @@
 }
 .ManifestPreviewCell_thumb {
 	margin-left: var(--syw-space-2);
+	position: relative;
+	overflow: visible;
+	padding: var(--syw-space-1);
+	border-width: 1px;
+	border-style: solid;
+	border-radius: var(--syw-radius-lg);
+	border-color: transparent;
+	background-color: var(--syw-color-primary);
+	border-color: var(--syw-color-secondary-dark);
+}
+.ManifestPreview:hover .ManifestPreviewCell_thumb {
+	/* border-color: var(--syw-color-secondary); */
+	border-color: transparent;
+}
+.ManifestPreviewCell_thumb_hover,
+.ManifestPreview:hover .ManifestPreviewCell_thumb_hover {
+	border-color: var(--syw-color-quaternary);
 }
 .ManifestPreviewCell_thumb img {
 	width: 30px;

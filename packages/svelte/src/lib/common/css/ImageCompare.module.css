@@ -1,0 +1,23 @@
+/* Image > Compare */
+.ImageCompare {
+	position: fixed;
+	z-index: 2;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	padding: var(--syw-space-2);
+	background-color: var(--syw-color-primary);
+	border-radius: var(--syw-radius-lg);
+	border-color: var(--syw-color-tertiary);
+	border-style: solid;
+	border-width: 1px;
+	--syw-offset: calc(-100% - var(--syw-space-10));
+	transform: translate(var(--syw-offset), calc(-50% + 0px));
+}
+.ImageCompare img {
+	width: 320px;
+	height: auto;
+	margin: auto;
+	object-fit: contain;
+}

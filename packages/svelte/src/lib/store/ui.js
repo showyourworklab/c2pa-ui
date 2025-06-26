@@ -9,6 +9,8 @@ export default function createUiStore() {
 	const isProvenanceOpen = writable(false)
 	const isExplainerOpen = writable(false)
 	const openManifests = writable({})
+	const compareImage = writable(null)
+	const comparePosition = writable(null)
 	const eventHandler = writable(null)
 
 	const setElem = (value) => {
@@ -64,6 +66,19 @@ export default function createUiStore() {
 		handleEvent("manifest.close", event, manifest)
 	}
 
+	const addCompareImage = (value, event) => {
+		compareImage.set(value)
+		handleEvent("manifest.compareImage.add", event)
+	}
+	const removeCompareImage = (event) => {
+		compareImage.set(null)
+		handleEvent("manifest.compareImage.remove", event)
+	}
+	const updateComparePosition = (event) => {
+		const position = event
+		comparePosition.set(position)
+	}
+
 	const setEventHandler = val => {
 		eventHandler.set(val)
 	}
@@ -75,6 +90,8 @@ export default function createUiStore() {
 		isProvenanceOpen,
 		isExplainerOpen,
 		openManifests,
+		compareImage,
+		comparePosition,
 		eventHandler,
 		setElem,
 		setVariant,
@@ -86,6 +103,9 @@ export default function createUiStore() {
 		closeExplainer,
 		openManifest,
 		closeManifest,
+		addCompareImage,
+		removeCompareImage,
+		updateComparePosition,
 		setEventHandler,
 	}
 }

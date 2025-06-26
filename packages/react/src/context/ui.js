@@ -8,6 +8,7 @@ const UiContext = createContext({
 	isShowProvenance: false,
 	isShowExplainer: false,
 	openManifests: {},
+	compareImage: null,
 	setElem: () => false,
 	hoverImage: () => false,
 	unhoverImage: () => false,
@@ -17,6 +18,9 @@ const UiContext = createContext({
 	hideExplainer: () => false,
 	openManifest: () => false,
 	closeManifest: () => false,
+	addCompareImage: () => false,
+	removeCompareImage: () => false,
+	updateComparePosition: () => false,
 	eventHandler: null,
 });
 
