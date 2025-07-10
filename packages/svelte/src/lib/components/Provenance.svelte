@@ -1,5 +1,5 @@
 <script>
-	import { onMount, getContext } from 'svelte'
+	import { getContext } from 'svelte'
 	import styles from 'syw-common/css/Provenance.module.css'
 	import { getVerifyUrl } from 'syw-common/helpers'
 	import Collapse from './Collapse.svelte'
@@ -10,9 +10,7 @@
 	const { isProvenanceOpen } = getContext('uiStoreContext');
 
 	let verifyUrl
-	onMount(() => {
-		verifyUrl = getVerifyUrl($src)
-	})
+	$: verifyUrl = getVerifyUrl($src)
 
 </script>
 

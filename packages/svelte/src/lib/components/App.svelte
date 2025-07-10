@@ -55,23 +55,28 @@
 		compareImage
 	} = uiStore;
 
-	onMount(async () => {
+	$: if(mounted && src) {
+		(async () => {
+			const c2pa = await createC2pa({
+				wasmSrc,
+				workerSrc,
+			})
+			try {
+				// Read in the image and get a manifest store
+				const { manifestStore } = await c2pa.read(src);
+				// Get the active manifest
+				const newManifests = Object.values(manifestStore?.manifests ?? {})
+					.map(manifest => prepareManifest(locale, manifest))
+				// Set manifests to data store
+				dataStore.setManifests(newManifests)
+			} catch (err) {
+				console.error('Error reading image:', err);
+			}
+		})();
+	}
+
+	onMount(() => {
 		mounted = true
-		const c2pa = await createC2pa({
-			wasmSrc,
-			workerSrc,
-		})
-		try {
-			// Read in the image and get a manifest store
-			const { manifestStore } = await c2pa.read(src);
-			// Get the active manifest
-			const newManifests = Object.values(manifestStore?.manifests ?? {})
-				.map(manifest => prepareManifest(locale, manifest))
-			// Set manifests to data store
-			dataStore.setManifests(newManifests)
-		} catch (err) {
-			console.error('Error reading image:', err);
-		}
 	});
 
 	$: classes = joinClassNames(

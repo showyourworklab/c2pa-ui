@@ -12,7 +12,8 @@
 	const { openManifest, closeManifest, updateComparePosition, addCompareImage, removeCompareImage, compareImage } = getContext('uiStoreContext');
 
 	// const thumbnailUrl = manifest ? useThumbnailUrl(manifest?.thumbnail ?? undefined) : null
-	const thumbnailUrl = manifest?.thumbnail?.getUrl()?.url
+	let thumbnailUrl
+	$: thumbnailUrl = manifest?.thumbnail?.getUrl()?.url
 
 	const handleClick = (event => {
 		if(open) {

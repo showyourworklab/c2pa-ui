@@ -4,12 +4,12 @@ import { sveltePreprocess } from 'svelte-preprocess'
 const config = {
 	preprocess: sveltePreprocess(),
 	kit: {
-		alias: {
-			$src: 'src',
-			$lib: 'src/lib',
-			'syw-common': 'src/lib/common',
-			// 'syw-docs': '../src/lib/docs',
-		},
+		// alias: {
+		// 	$src: 'src',
+		// 	$lib: 'src/lib',
+		// 	'syw-common': 'src/lib/common',
+		// 	// 'syw-docs': '../src/lib/docs',
+		// },
 		adapter: adapter({
 			pages: '../../public/svelte',
 			// assets: 'build',
