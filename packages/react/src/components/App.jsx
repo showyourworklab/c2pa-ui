@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef } from 'react'
 import { useC2pa } from '@contentauth/react'
-import 'syw-common/css/globals.scss'
-import styles from 'syw-common/css/App.module.scss'
+import 'syw-common/css/globals.css'
+import styles from 'syw-common/css/App.module.css'
 import { joinClassNames } from 'syw-common/helpers'
 import { prepareManifest } from 'syw-common/helpers/c2pa'
 import { useDataContext } from '$src/context/data'
@@ -15,6 +15,7 @@ import Explainer from './Explainer'
 import Provenance from './Provenance'
 import Collapse from './Collapse'
 import ModalProvenance from './ModalProvenance'
+import ImageCompare from './ImageCompare'
 
 function App({
 	onEvent
@@ -22,7 +23,7 @@ function App({
 	const ref = useRef(null)
 	const { src, setManifests } = useDataContext()
 	const { locale } = useI18nContext()
-	const { variant, isHoverImage, isOpenProvenance, eventHandler } = useUiContext()
+	const { variant, compareImage, isHoverImage, isOpenProvenance, setElem, eventHandler } = useUiContext()
 	const provenance = useC2pa(src)
 
 	const className = useMemo(() =>
@@ -32,7 +33,11 @@ function App({
 			isHoverImage ? styles.App_hovered : false,
 			isOpenProvenance ? styles.App_active : false,
 		)
-	, [isHoverImage, isOpenProvenance])
+	, [variant, isHoverImage, isOpenProvenance])
+
+	useEffect(() => {
+		setElem(ref.current);
+	}, [ref]);
 
 	useEffect(() => {
 		const manifestStore = provenance?.manifestStore
@@ -68,6 +73,9 @@ function App({
 			: null}
 			{variant === 'modal' ?
 				<ModalProvenance />
+			: null}
+			{compareImage ?
+				<ImageCompare />
 			: null}
 		</div>
 	)

@@ -1,55 +1,111 @@
 import { writable, get } from 'svelte/store'
+import { VARIANT_DEFAULT } from 'syw-common/constants/index.js'
 
-export const isHoverImage = writable(false)
-export const isProvenanceOpen = writable(false)
-export const isExplainerOpen = writable(false)
-export const openManifests = writable({})
-export const eventHandler = writable(null)
+export default function createUiStore() {
+	
+	const elem = writable(null)
+	const variant = writable(VARIANT_DEFAULT)
+	const isHoverImage = writable(false)
+	const isProvenanceOpen = writable(false)
+	const isExplainerOpen = writable(false)
+	const openManifests = writable({})
+	const compareImage = writable(null)
+	const comparePosition = writable(null)
+	const eventHandler = writable(null)
 
-const handleEvent = (type, event, ...args) => {
-	const eventHandlerFunc = get(eventHandler)
-	if(typeof eventHandlerFunc === "function") eventHandlerFunc(type, event, ...args)
-}
-export const setEventHandler = val => {
-	eventHandler.set(val)
-}
+	const setElem = (value) => {
+		elem.set(value)
+	}
 
-export const hoverImage = (event) => {
-	isHoverImage.set(true)
-	handleEvent("image.hover", event)
-}
-export const unhoverImage = (event) => {
-	isHoverImage.set(false)
-	handleEvent("image.unhover", event)
-}
+	const setVariant = (value) => {
+		variant.set(value)
+	}
 
-export const openProvenance = (event) => {
-	isProvenanceOpen.set(true)
-	handleEvent("provenance.open", event)
-}
-export const closeProvenance = (event) => {
-	isProvenanceOpen.set(false)
-	handleEvent("provenance.close", event)
-}
+	const handleEvent = (type, event, ...args) => {
+		const eventHandlerFunc = get(eventHandler)
+		if(typeof eventHandlerFunc === "function") eventHandlerFunc(type, event, ...args)
+	}
 
-export const openExplainer = (event) => {
-	isExplainerOpen.set(true)
-	handleEvent("explainer.open", event)
-}
-export const closeExplainer = (event) => {
-	isExplainerOpen.set(false)
-	handleEvent("explainer.close", event)
-}
+	const hoverImage = (event) => {
+		isHoverImage.set(true)
+		handleEvent("image.hover", event)
+	}
+	const unhoverImage = (event) => {
+		isHoverImage.set(false)
+		handleEvent("image.unhover", event)
+	}
 
-export const openManifest = (event, manifest) => {
-	const newOpenManifests = Object.assign(get(openManifests), {})
-	newOpenManifests[manifest.id] = manifest
-	openManifests.set(newOpenManifests)
-	handleEvent("manifest.open", event, manifest)
-}
-export const closeManifest = (event, manifest) => {
-	const newOpenManifests = Object.assign(get(openManifests), {})
-	delete newOpenManifests[manifest.id]
-	openManifests.set(newOpenManifests)
-	handleEvent("manifest.close", event, manifest)
+	const openProvenance = (event) => {
+		isProvenanceOpen.set(true)
+		handleEvent("provenance.open", event)
+	}
+	const closeProvenance = (event) => {
+		isProvenanceOpen.set(false)
+		handleEvent("provenance.close", event)
+	}
+
+	const openExplainer = (event) => {
+		isExplainerOpen.set(true)
+		handleEvent("explainer.open", event)
+	}
+	const closeExplainer = (event) => {
+		isExplainerOpen.set(false)
+		handleEvent("explainer.close", event)
+	}
+
+	const openManifest = (event, manifest) => {
+		const newOpenManifests = Object.assign(get(openManifests), {})
+		newOpenManifests[manifest.id] = manifest
+		openManifests.set(newOpenManifests)
+		handleEvent("manifest.open", event, manifest)
+	}
+	const closeManifest = (event, manifest) => {
+		const newOpenManifests = Object.assign(get(openManifests), {})
+		delete newOpenManifests[manifest.id]
+		openManifests.set(newOpenManifests)
+		handleEvent("manifest.close", event, manifest)
+	}
+
+	const addCompareImage = (value, event) => {
+		compareImage.set(value)
+		handleEvent("manifest.compareImage.add", event)
+	}
+	const removeCompareImage = (event) => {
+		compareImage.set(null)
+		handleEvent("manifest.compareImage.remove", event)
+	}
+	const updateComparePosition = (event) => {
+		const position = event
+		comparePosition.set(position)
+	}
+
+	const setEventHandler = val => {
+		eventHandler.set(val)
+	}
+
+	return {
+		elem,
+		variant,
+		isHoverImage,
+		isProvenanceOpen,
+		isExplainerOpen,
+		openManifests,
+		compareImage,
+		comparePosition,
+		eventHandler,
+		setElem,
+		setVariant,
+		hoverImage,
+		unhoverImage,
+		openProvenance,
+		closeProvenance,
+		openExplainer,
+		closeExplainer,
+		openManifest,
+		closeManifest,
+		addCompareImage,
+		removeCompareImage,
+		updateComparePosition,
+		setEventHandler,
+	}
 }

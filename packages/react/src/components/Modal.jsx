@@ -1,69 +1,87 @@
-import * as RadixDialog from '@radix-ui/react-dialog'
-import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
-import styles from 'syw-common/css/Modal.module.scss'
+import { useEffect, useId, useRef } from 'react'
 import { joinClassNames } from 'syw-common/helpers'
+import { openModal, closeModal } from 'syw-common/helpers/modal'
+import styles from 'syw-common/css/Modal.module.css'
 
 const Modal = ({
 	open = false,
+	title,
+	description,
 	onOpenChange,
 	children,
 	className
 }) => {
+	const ref = useRef();
+	const labelId = useId();
+	const describeId = useId();
 
 	const onClose = (event) => {
 		onOpenChange(false, event)
 	}
 
+	useEffect(() => {
+		if(open) {
+			openModal(ref.current, onOpenChange)
+		} else {
+			closeModal()
+		}
+		return () => {
+			if(ref.current) closeModal()
+		}
+	}, [open, ref])
+
 	return (
-		<RadixDialog.Root
-			open={open}
-			modal={true}
-			// onOpenChange={onOpenChange}
+		<div
+			ref={ref}
+			className={joinClassNames(
+				styles.Modal,
+				open ? styles.Modal_open : null,
+				className
+			)}
 		>
-			{/* <RadixDialog.Trigger /> */}
-			<RadixDialog.Overlay
-				// forceMount={true}
-				className={joinClassNames(
-					styles.ModalOverlay,
-					open ? styles.ModalOverlay_open : null,
-				)}
+			<div
+				className={styles.ModalOverlay}
+				onClick={onClose}
 			/>
-			{/* <div
-				className={joinClassNames(
-					styles.ModalOverlay,
-					open ? styles.ModalOverlay_open : null,
-				)}
-			/> */}
-			<RadixDialog.Content
-				// forceMount={true}
-				onEscapeKeyDown={onClose}
-				onPointerDownOutside={onClose}
-				onInteractOutside={onClose}
-				className={joinClassNames(
-					styles.ModalContent,
-					open ? styles.ModalContent_open : null,
-					className
-				)}
+			<div
+				role="dialog"
+				aria-modal="true"
+				aria-labelledby={labelId}
+				aria-describedby={describeId}
+				className={styles.ModalContent}
 			>
 				<div
 					className={styles.ModalContentBox}
 				>
-					<VisuallyHidden>
-						<RadixDialog.Title>
-							Image Origin
-						</RadixDialog.Title>
-						<RadixDialog.Description>
-							Explore the provenance of this image
-						</RadixDialog.Description>
-					</VisuallyHidden>
+					{title ?
+						<hgroup
+							className={styles.ModalContentHeader}
+						>
+							{title ?
+								<h2
+									id={labelId}
+								>
+									{title}
+								</h2>
+							: null}
+							{description ?
+								<p
+									id={describeId}
+									className='syw-hidden'
+								>
+									{description}
+								</p>
+							: null}
+						</hgroup>
+					: null}
 					{children}
 				</div>
-				<RadixDialog.Close
+				<button
 					onClick={onClose}
 					className={styles.ModalClose}
 				/>
-			</RadixDialog.Content>
-		</RadixDialog.Root>
+			</div>
+		</div>
 	)
 }
 

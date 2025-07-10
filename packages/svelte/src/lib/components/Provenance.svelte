@@ -1,13 +1,14 @@
 <script>
-	import { onMount } from 'svelte'
+	import { onMount, getContext } from 'svelte'
+	import styles from 'syw-common/css/Provenance.module.css'
 	import { getVerifyUrl } from 'syw-common/helpers'
-	import styles from 'syw-common/css/Provenance.module.scss'
-	import { manifests } from '$lib/store/data'
-	import { isProvenanceOpen } from '$lib/store/ui'
-	import { locale, getText } from '$lib/store/i18n'
-	import { src } from '$lib/store/data'
+
 	import Collapse from './Collapse.svelte'
 	import Manifest from './Manifest.svelte'
+
+	const { src, manifests } = getContext('dataStoreContext');
+	const { locale, getText } = getContext('i18nStoreContext');
+	const { isProvenanceOpen } = getContext('uiStoreContext');
 
 	let verifyUrl
 	onMount(() => {

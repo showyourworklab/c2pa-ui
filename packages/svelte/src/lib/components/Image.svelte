@@ -1,8 +1,10 @@
 <script>
-	import styles from 'syw-common/css/Image.module.scss'
+	import { getContext } from 'svelte';
+	import styles from 'syw-common/css/Image.module.css'
 	import { handleA11yClick } from 'syw-common/helpers'
-	import { src, alt } from '$lib/store/data.js'
-	import { hoverImage, unhoverImage, isProvenanceOpen, openProvenance, closeProvenance } from '$lib/store/ui.js'
+
+	const { src, alt } = getContext('dataStoreContext');
+	const { hoverImage, unhoverImage, isProvenanceOpen, openProvenance, closeProvenance } = getContext('uiStoreContext');
 
 	const handleClick = (event) => {
 		if($isProvenanceOpen) {

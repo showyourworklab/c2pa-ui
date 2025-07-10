@@ -4,8 +4,9 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
 	publicDir: 'static',
-	// base: '/syw/',
-	base: process.env.NODE_ENV === 'production' ? '/syw/react/' : '',
+	base: process.env.NODE_ENV === 'production'
+		? '/syw/react/'
+		: '',
 	resolve: {
 		fs: false,
 		path: false,

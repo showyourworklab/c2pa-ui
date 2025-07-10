@@ -1,4 +1,4 @@
-import styles from 'syw-common/css/Cutline.module.scss'
+import styles from 'syw-common/css/Cutline.module.css'
 import ToggleProvenance from './ToggleProvenance'
 import ToggleExplainer from './ToggleExplainer'
 

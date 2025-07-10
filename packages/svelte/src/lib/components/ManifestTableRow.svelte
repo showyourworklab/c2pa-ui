@@ -1,7 +1,9 @@
 <script>
-	import styles from 'syw-common/css/Manifest.module.scss'
-	import { locale, getText } from '$lib/store/i18n'
+	import { getContext } from 'svelte';
+	import styles from 'syw-common/css/Manifest.module.css'
 	import { getDateString } from 'syw-common/helpers/i18n'
+
+	const { locale, getText } = getContext('i18nStoreContext');
 
 	export let type
 	export let value

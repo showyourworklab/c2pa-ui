@@ -1,12 +1,15 @@
 import { createContext, useContext } from 'react'
-import { DEFAULT_VARIANT } from 'syw-common/constants'
+import { VARIANT_DEFAULT } from 'syw-common/constants';
 
 const UiContext = createContext({
-	variant: DEFAULT_VARIANT,
+	variant: VARIANT_DEFAULT,
+	elem: null,
 	isHoverImage: false,
 	isShowProvenance: false,
 	isShowExplainer: false,
 	openManifests: {},
+	compareImage: null,
+	setElem: () => false,
 	hoverImage: () => false,
 	unhoverImage: () => false,
 	showProvenance: () => false,
@@ -15,6 +18,9 @@ const UiContext = createContext({
 	hideExplainer: () => false,
 	openManifest: () => false,
 	closeManifest: () => false,
+	addCompareImage: () => false,
+	removeCompareImage: () => false,
+	updateComparePosition: () => false,
 	eventHandler: null,
 });
 

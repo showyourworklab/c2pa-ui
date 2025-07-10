@@ -1,10 +1,12 @@
 <script>
-	import styles from 'syw-common/css/Manifest.module.scss'
-	import { joinClassNames } from 'syw-common/helpers'
-	import { openManifests } from '../store/ui.js'
+	import { getContext } from 'svelte';
+	import styles from '../common/css/Manifest.module.css'
+	import { joinClassNames } from '../common/helpers'
 	import Collapse from './Collapse.svelte'
 	import ManifestPreview from './ManifestPreview.svelte'
 	import ManifestTable from './ManifestTable.svelte'
+
+	const { openManifests } = getContext('uiStoreContext');
 
 	export let manifest
 

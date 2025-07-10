@@ -1,4 +1,4 @@
-import styles from 'syw-common/css/ModalProvenance.module.scss'
+import styles from 'syw-common/css/ModalProvenance.module.css'
 import { useUiContext } from '$src/context'
 import Modal from './Modal'
 import Provenance from './Provenance'
@@ -27,6 +27,8 @@ const ModalProvenance = () => {
 	return (
 		<Modal
 			open={isOpenProvenance}
+			title="Image Origin"
+			description="Explore the provenance of this image"
 			onOpenChange={handleOpenChange}
 			className={styles.ModalProvenance}
 		>

@@ -1,3 +1,9 @@
-export const SywSvelte: typeof App;
-export default SywSvelte;
-import App from './components/App.svelte';
+export { default as Figure } from "./components/Figure.svelte";
+export { default as Image } from "./components/Image.svelte";
+export { default as Explainer } from "./components/Explainer.svelte";
+export { default as Cutline } from "./components/Cutline.svelte";
+export { default as Caption } from "./components/Caption.svelte";
+export { default as Provenance } from "./components/Provenance.svelte";
+export { default as ModalProvenance } from "./components/ModalProvenance.svelte";
+export { default as Collapse } from "./components/Collapse.svelte";
+export { default as App, default } from "./components/App.svelte";

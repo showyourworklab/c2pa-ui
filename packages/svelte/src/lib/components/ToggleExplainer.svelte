@@ -1,7 +1,9 @@
 <script>
-	import styles from 'syw-common/css/ToggleExplainer.module.scss'
-	import { locale, getText } from '$lib/store/i18n.js'
-	import { isExplainerOpen, openExplainer, closeExplainer } from '$lib/store/ui.js'
+	import { getContext } from 'svelte';
+	import styles from 'syw-common/css/ToggleExplainer.module.css'
+
+	const { locale, getText } = getContext('i18nStoreContext');
+	const { isExplainerOpen, openExplainer, closeExplainer } = getContext('uiStoreContext');
 
 	const handleClick = (event) => {
 		if($isExplainerOpen) {

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import styles from 'syw-common/css/Provenance.module.scss'
+import styles from 'syw-common/css/Provenance.module.css'
 import { getVerifyUrl } from 'syw-common/helpers'
 import { useI18nContext } from '$src/context/i18n'
 import { useDataContext } from '$src/context/data'

@@ -1,4 +1,4 @@
-import styles from 'syw-common/css/ToggleProvenance.module.scss'
+import styles from 'syw-common/css/ToggleProvenance.module.css'
 import { useUiContext, useI18nContext } from '$src/context'
 
 const ToggleProvenance = () => {

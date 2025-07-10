@@ -5,9 +5,12 @@ const UiProvider = ({
 	variant,
 	children
 }) => {
+	const [elem, setElem] = useState(null)
 	const [isHoverImage, setIsHoverImage] = useState(false)
 	const [isOpenProvenance, setIsOpenProvenance] = useState(false)
 	const [isOpenExplainer, setIsOpenExplainer] = useState(false)
+	const [compareImage, setCompareImage] = useState(null)
+	const [comparePosition, setComparePosition] = useState(null)
 	const openManifests = useRef({})
 	const eventHandler = useRef(null)
 
@@ -53,15 +56,31 @@ const UiProvider = ({
 		openManifests.current = newOpenManifests
 		handleEvent("manifest.close", event, manifest)
 	}
+	const addCompareImage = (value, event) => {
+		setCompareImage(value)
+		handleEvent("manifest.compareImage.add", event)
+	}
+	const removeCompareImage = (event) => {
+		setCompareImage(null)
+		handleEvent("manifest.compareImage.remove", event)
+	}
+	const updateComparePosition = (event) => {
+		const position = event
+		setComparePosition(position)
+	}
 
 	return (
 		<UiContext.Provider
 			value={{
+				elem,
 				variant,
 				isHoverImage,
 				isOpenProvenance,
 				isOpenExplainer,
 				openManifests: openManifests.current,
+				compareImage,
+				comparePosition,
+				setElem,
 				hoverImage,
 				unhoverImage,
 				openProvenance,
@@ -70,6 +89,9 @@ const UiProvider = ({
 				closeExplainer,
 				openManifest,
 				closeManifest,
+				addCompareImage,
+				removeCompareImage,
+				updateComparePosition,
 				eventHandler,
 			}}
 		>

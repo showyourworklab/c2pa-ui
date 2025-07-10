@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
-import ReactDOM from 'react-dom'
+import { createRoot } from 'react-dom/client';
 import { LOCALE_DEFAULT, DICTIONARIES } from 'syw-common/constants/i18n'
-import { VARIANT_KEYS, DEMO_IMAGE_URLS, DEMO_IMAGE_URL_DEFAULT, DEMO_IMAGE_URL_BASE } from 'syw-common/constants'
+import { VARIANT_KEYS, DEMO_IMAGE_URLS, DEMO_IMAGE_URL_DEFAULT, DEMO_IMAGE_URL_BASE, VARIANT_DEFAULT } from 'syw-common/constants'
 import SywLogo from 'syw-common/images/logo-dark.svg'
 import SywReact from '$src/index'
-import './style.css'
+import 'syw-common/css/globals.css'
+import 'syw-docs/src/styles.css'
 
 const Demo = () => {
 	const [locale, setLocale] = useState(LOCALE_DEFAULT)
-	const [variant, setVariant] = useState("expand")
+	const [variant, setVariant] = useState(VARIANT_DEFAULT)
 	const [demoImage, setDemoImage] = useState(DEMO_IMAGE_URL_DEFAULT)
 
 	const handleLocaleChange = e => {
@@ -32,22 +33,39 @@ const Demo = () => {
 
 	return (
 		<main>
-			<a
-				href="https://showyourworklab.org"
-				target="_blank"
-			>
-				<img
-					src={SywLogo}
-					alt="Show Your Work Lab logo"
-					id="logo"
-				/>
-			</a>
-			<h1>
-				<a href="../">syw</a>/react
-			</h1>
-			<p>
-				A React component that wraps a C2PA-compliant image in a UI to expose its provenance.
-			</p>
+			<header>
+				<a
+					href="https://showyourworklab.org"
+					target="_blank"
+				>
+					<img
+						src={SywLogo}
+						alt="Show Your Work Lab logo"
+						id="logo"
+					/>
+				</a>
+			</header>
+
+			<hgroup>
+				<h1>
+					The Show Your Work UI
+				</h1>
+				<h2>
+					<var>syw-react</var>
+				</h2>
+				<p><strong><a href="./react">React</a></strong> and <strong><a href="../svelte">Svelte</a></strong> component to embed images with their C2PA data in a user-friendly interface</p>
+				<p>
+					<a
+						href="https://github.com/showyourworklab/syw/"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="button"
+						data-icon="github"
+					>
+						View code
+					</a>
+				</p>
+			</hgroup>
 
 			<section>
 				<header>
@@ -128,9 +146,6 @@ const Demo = () => {
 	)
 }
 
-ReactDOM.render(
-	<React.StrictMode>
-		<Demo />
-	</React.StrictMode>,
-	document.getElementById('root'),
-)
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(<Demo />);

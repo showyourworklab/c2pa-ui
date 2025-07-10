@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
+import styles from 'syw-common/css/Manifest.module.css'
 import { useUiContext } from '$src/context/ui'
-import styles from 'syw-common/css/Manifest.module.scss'
 import Collapse from './Collapse'
 import ManifestPreview from './ManifestPreview'
 import ManifestTable from './ManifestTable'
 
 function Manifest({ manifest, previewRef }) {
 	const [open, setOpen] = useState(false)
-	const { isOpenProvenance, openManifests, openManifest, closeManifest } = useUiContext()
+	const { isOpenProvenance, openManifests, openManifest, closeManifest, removeCompareImage } = useUiContext()
 
 	const className = useMemo(() => [
 		styles.Manifest,
@@ -16,6 +16,7 @@ function Manifest({ manifest, previewRef }) {
 
 	// Handle click of manifest preview / header
 	const handleToggle = useCallback(event => {
+		removeCompareImage()
 		setOpen(!open)
 		if(open) {
 			closeManifest(event, manifest)

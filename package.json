@@ -1,8 +1,12 @@
 {
   "name": "syw",
-  "version": "0.0.1",
+  "version": "0.0.7",
+  "license": "MIT",
   "workspaces": [
-    "packages/*"
+    "packages/common",
+    "packages/react",
+    "packages/svelte",
+    "packages/docs"
   ],
   "scripts": {
     "react:lerna": "lerna run --scope syw-react",
@@ -10,6 +14,7 @@
     "react:build": "npm run react:lerna build",
     "react:package": "npm run react:lerna package",
     "react:preview": "npm run react:lerna preview",
+    "react:publish": "npm run react:lerna publish",
     "svelte:lerna": "lerna run --scope syw-svelte",
     "svelte:dev": "npm run svelte:lerna dev",
     "svelte:build": "npm run svelte:lerna build",
@@ -18,12 +23,14 @@
     "docs:lerna": "lerna run --scope syw-docs",
     "docs:dev": "npm run docs:lerna dev",
     "docs:build": "npm run docs:lerna build",
+    "common:lerna": "lerna run --scope syw-common",
+    "common:publish": "npm run common:lerna publish",
     "build": "npm run docs:build && npm run react:build && npm run svelte:build",
     "deploy": "npx gh-pages -d public",
-    "readme": "scripts/readme.js"
+    "publish": "npx lerna publish --no-private"
   },
   "devDependencies": {
     "gh-pages": "^6.3.0",
-    "lerna": "^8.1.3"
+    "lerna": "^8.2.2"
   }
 }

@@ -7,6 +7,7 @@ export default defineConfig({
 	resolve: {
 		alias: {
 			'$src': resolve(__dirname, 'src'),
+			'syw-common': resolve(__dirname, '../common')
 		},
 	},
 	build: {
@@ -15,15 +16,23 @@ export default defineConfig({
 		lib: {
 			name: 'SywReact',
 			entry: resolve(__dirname, 'src/index.jsx'),
-			formats: ['es'],
-			fileName: (format) => {
-				return format === 'es'
-					? `index.js`
-					: `index.${format}.js`
-			},
+			formats: ['es', 'umd'],
+			fileName: (format) =>
+				`index.${format}.js`
+				// format === 'es'
+				// 	? `index.js`
+				// 	: `index.${format}.js`
+			,
+			cssFileName: "style"
 		},
 		rollupOptions: {
-			external: ['react'],
+			external: ['react', 'react-dom'],
+			output: {
+				globals: {
+					'react': 'React',
+					'react-dom': 'ReactDOM',
+				},
+			},
 		}
 	},
 	esbuild: {

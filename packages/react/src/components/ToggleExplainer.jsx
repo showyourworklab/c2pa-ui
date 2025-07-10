@@ -1,4 +1,4 @@
-import styles from 'syw-common/css/ToggleExplainer.module.scss'
+import styles from 'syw-common/css/ToggleExplainer.module.css'
 import { useUiContext, useI18nContext } from '$src/context'
 
 const ToggleExplainer = () => {
@@ -7,11 +7,12 @@ const ToggleExplainer = () => {
 		isOpenExplainer,
 		openExplainer,
 		closeExplainer,
-		openProvenance,
+		openProvenance
 	} = useUiContext()
 	const { getText } = useI18nContext()
 
 	const onClick = event => {
+		// Toggle explainer based on current state
 		if(isOpenExplainer) {
 			closeExplainer(event)
 		} else {

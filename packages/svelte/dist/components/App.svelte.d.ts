@@ -1,35 +1,38 @@
-/** @typedef {typeof __propDef.props}  AppProps */
-/** @typedef {typeof __propDef.events}  AppEvents */
-/** @typedef {typeof __propDef.slots}  AppSlots */
-export default class App extends SvelteComponent<{
+export default App;
+type App = SvelteComponent<{
     src?: string;
     alt?: string;
+    locale?: string;
     caption?: string;
     byline?: string;
-    locale?: string;
+    variant?: "expand";
     onEvent?: any;
 }, {
     [evt: string]: CustomEvent<any>;
-}, {}> {
-}
-export type AppProps = typeof __propDef.props;
-export type AppEvents = typeof __propDef.events;
-export type AppSlots = typeof __propDef.slots;
-import { SvelteComponent } from "svelte";
-declare const __propDef: {
-    props: {
-        src?: string;
-        alt?: string;
-        caption?: string;
-        byline?: string;
-        locale?: string;
-        onEvent?: any;
-    };
-    events: {
-        [evt: string]: CustomEvent<any>;
-    };
-    slots: {};
-    exports?: {};
-    bindings?: string;
+}, {}> & {
+    $$bindings?: string;
 };
-export {};
+declare const App: $$__sveltets_2_IsomorphicComponent<{
+    src?: string;
+    alt?: string;
+    locale?: string;
+    caption?: string;
+    byline?: string;
+    variant?: "expand";
+    onEvent?: any;
+}, {
+    [evt: string]: CustomEvent<any>;
+}, {}, {}, string>;
+interface $$__sveltets_2_IsomorphicComponent<Props extends Record<string, any> = any, Events extends Record<string, any> = any, Slots extends Record<string, any> = any, Exports = {}, Bindings = string> {
+    new (options: import("svelte").ComponentConstructorOptions<Props>): import("svelte").SvelteComponent<Props, Events, Slots> & {
+        $$bindings?: Bindings;
+    } & Exports;
+    (internal: unknown, props: Props & {
+        $$events?: Events;
+        $$slots?: Slots;
+    }): Exports & {
+        $set?: any;
+        $on?: any;
+    };
+    z_$$bindings?: Bindings;
+}

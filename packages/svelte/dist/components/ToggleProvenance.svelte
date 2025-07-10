@@ -1,7 +1,9 @@
 <script>
-	import styles from 'syw-common/css/ToggleProvenance.module.scss'
-	import { locale, getText } from '../store/i18n.js'
-	import { isProvenanceOpen, openProvenance, closeProvenance } from '../store/ui.js'
+	import { getContext } from 'svelte';
+	import styles from '../common/css/ToggleProvenance.module.css'
+
+	const { locale, getText } = getContext('i18nStoreContext');
+	const { isProvenanceOpen, openProvenance, closeProvenance } = getContext('uiStoreContext');
 
 	const handleClick = (event) => {
 		if($isProvenanceOpen) {

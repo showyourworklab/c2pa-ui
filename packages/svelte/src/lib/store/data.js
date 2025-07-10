@@ -1,26 +1,27 @@
 import { writable } from 'svelte/store'
 
-export const src = writable(null)
-export const alt = writable(null)
-export const caption = writable(null)
-export const byline = writable(null)
-export const manifests = writable([])
+export default function createDataStore() {
+	const src = writable(null)
+	const alt = writable(null)
+	const caption = writable(null)
+	const byline = writable(null)
+	const manifests = writable([])
+	const setSrc = val => src.set(val)
+	const setAlt = val => alt.set(val)
+	const setCaption = val => caption.set(val)
+	const setByline = val => byline.set(val)
+	const setManifests = val => manifests.set(val)
 
-export const setSrc = val => src.set(val)
-export const setAlt = val => alt.set(val)
-export const setCaption = val => caption.set(val)
-export const setByline = val => byline.set(val)
-export const setManifests = val => manifests.set(val)
-
-export default {
-	src,
-	alt,
-	caption,
-	byline,
-	manifests,
-	setSrc,
-	setAlt,
-	setCaption,
-	setByline,
-	setManifests
+	return {
+		src,
+		alt,
+		caption,
+		byline,
+		manifests,
+		setSrc,
+		setAlt,
+		setCaption,
+		setByline,
+		setManifests
+	}
 }
