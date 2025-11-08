@@ -18,7 +18,7 @@
 <button
 	aria-pressed={true}
 	class={styles.ProvenanceToggle}
-	on:click={handleClick}
+	onclick={handleClick}
 >
 	{$isProvenanceOpen ? getText($locale, 'toggle', 'provenance') : getText($locale, 'toggle', 'provenance')}
 </button>

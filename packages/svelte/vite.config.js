@@ -23,7 +23,11 @@ export default defineConfig({
 		},
 	},
 	plugins: [
-		svelte(),
+		svelte({
+			compilerOptions: {
+				runes: true,
+			}
+		}),
 		devtoolsJson()
 	],
 	css: {

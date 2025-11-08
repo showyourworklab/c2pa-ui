@@ -9,8 +9,7 @@
 	const { locale, getText } = getContext('i18nStoreContext');
 	const { isProvenanceOpen } = getContext('uiStoreContext');
 
-	let verifyUrl
-	$: verifyUrl = getVerifyUrl($src)
+	const verifyUrl = $derived(getVerifyUrl($src))
 
 </script>
 
@@ -37,7 +36,6 @@
 				<a
 					href={verifyUrl}
 					target='_blank'
-
 				>
 					{getText($locale, 'verify', 'cc')}
 				</a>

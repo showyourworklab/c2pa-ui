@@ -6,7 +6,6 @@
 	const {
 		isProvenanceOpen,
 	} = getContext('uiStoreContext')
-
 </script>
 
 <Collapse

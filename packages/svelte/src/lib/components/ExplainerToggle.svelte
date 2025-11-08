@@ -17,7 +17,7 @@
 <button
 	aria-pressed={$isExplainerOpen}
 	class={styles.ExplainerToggle}
-	on:click={handleClick}
+	onclick={handleClick}
 >
 	{getText($locale, 'toggle', 'explain')}
 </button>

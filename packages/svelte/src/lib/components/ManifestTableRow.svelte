@@ -6,22 +6,21 @@
 
 	const { locale, getText } = getContext('i18nStoreContext');
 
-	export let type
-	export let value
+	const {
+		type,
+		value
+	} = $props()
 
-	let formattedValue
-	$: {
+	const formattedValue = $derived(() => {
 		switch(type) {
 			case "producer":
-				formattedValue = value?.name
-				break
+				return value?.name
 			case "timestamp":
-				formattedValue = getDateString($locale, value)
-				break
+				return getDateString($locale, value)
 			default:
-				formattedValue = value
+				return value
 		}
-	}
+	})
 </script>
 
 <li
@@ -40,7 +39,7 @@
 				location={value}
 			/>
 		{:else}
-			{formattedValue}
+			{formattedValue()}
 		{/if}
 	</div>
 </li>

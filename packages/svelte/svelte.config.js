@@ -3,6 +3,9 @@ import { sveltePreprocess } from 'svelte-preprocess'
 
 const config = {
 	preprocess: sveltePreprocess(),
+	compilerOptions: {
+		runes: true,
+	},
 	kit: {
 		// alias: {
 		// 	$src: 'src',

@@ -8,13 +8,17 @@
 
 	const { openManifests } = getContext('uiStoreContext');
 
-	export let manifest
+	const {
+		manifest = {}
+	} = $props()
 
-	$: open = manifest.id in $openManifests
+	const open = $derived(manifest.id in $openManifests)
 
-	$: classes = joinClassNames(
-		styles.Manifest,
-		open ? styles.Manifest_open : false,
+	const classes = $derived(
+		joinClassNames(
+			styles.Manifest,
+			open ? styles.Manifest_open : false,
+		)
 	)
 
 </script>

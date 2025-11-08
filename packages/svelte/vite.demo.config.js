@@ -12,8 +12,15 @@ export default defineConfig({
 			'syw-common': resolve(__dirname, '../common'),
 		},
 	},
+	optimizeDeps: {
+		exclude: ['svelte-maplibre-gl'], 
+	},
 	plugins: [
-		sveltekit(),
+		sveltekit({
+			compilerOptions: {
+				runes: true,
+			}
+		}),
 		devtoolsJson()
 	],
 	css: {

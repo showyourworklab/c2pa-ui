@@ -3,7 +3,9 @@
 	import { MANIFEST_KEYS } from 'syw-common/constants'
 	import ManifestTableRow from './ManifestTableRow.svelte'
 
-	export let manifest
+	const {
+		manifest = {}
+	} = $props()
 </script>
 
 <ul

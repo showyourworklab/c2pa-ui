@@ -5,15 +5,17 @@
 	import { handleA11yClick } from 'syw-common/helpers'
 	import { getDateString } from 'syw-common/helpers/i18n'
 
-	export let open
-	export let manifest
+	const {
+		open,
+		manifest
+	} = $props()
 
 	const { locale } = getContext('i18nStoreContext');
-	const { openManifest, closeManifest, updateComparePosition, addCompareImage, removeCompareImage, compareImage } = getContext('uiStoreContext');
+	const {
+		openManifest, closeManifest, updateComparePosition, addCompareImage, removeCompareImage
+	} = getContext('uiStoreContext');
 
-	// const thumbnailUrl = manifest ? useThumbnailUrl(manifest?.thumbnail ?? undefined) : null
-	let thumbnailUrl
-	$: thumbnailUrl = manifest?.thumbnail?.getUrl()?.url
+	const thumbnailUrl = $derived(manifest?.thumbnail?.getUrl()?.url)
 
 	const handleClick = (event => {
 		if(open) {
@@ -31,7 +33,6 @@
 		updateComparePosition(event)
 	}
 	const handleThumbnailMouseEnter = event => {
-		// console.log(thumbnailUrl, $compareImage)
 		addCompareImage(thumbnailUrl, event)
 	}
 	const handleThumbnailMouseLeave = event => {

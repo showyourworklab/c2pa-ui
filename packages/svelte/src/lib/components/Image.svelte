@@ -1,10 +1,12 @@
 <script>
-	import { getContext } from 'svelte';
+	import { getContext } from 'svelte'
 	import styles from 'syw-common/css/Image.module.css'
 	import { handleA11yClick } from 'syw-common/helpers'
 
-	const { src, alt } = getContext('dataStoreContext');
-	const { hoverImage, unhoverImage, isProvenanceOpen, openProvenance, closeProvenance } = getContext('uiStoreContext');
+	const { src, alt } = getContext('dataStoreContext')
+	const {
+		hoverImage, unhoverImage, isProvenanceOpen, openProvenance, closeProvenance
+	} = getContext('uiStoreContext')
 
 	const handleClick = (event) => {
 		if($isProvenanceOpen) {
@@ -36,10 +38,10 @@
 	class={styles.Image}
 	role="button"
 	tabindex="0"
-	on:click={handleClick}
-	on:mouseenter={handleMouseEnter}
-	on:mouseleave={handleMouseLeave}
-	on:keydown={handleKeyDown}
+	onclick={handleClick}
+	onmouseenter={handleMouseEnter}
+	onmouseleave={handleMouseLeave}
+	onkeydown={handleKeyDown}
 >
 	<img
 		src={$src}
