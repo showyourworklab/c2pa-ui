@@ -34,7 +34,7 @@
 }
 /* Caption > Active > Expand */
 .App_active.App_expand .Caption::before {
-	height: calc(100% + var(--syw-space-8) + 2px);
+	height: calc(100% + var(--syw-space-9) + 2px);
 	background-color: var(--syw-color-primary);
 }
 .App_active.App_expand .Caption::after {

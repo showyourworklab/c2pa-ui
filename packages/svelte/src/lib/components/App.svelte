@@ -16,9 +16,8 @@
 	import Explainer from './Explainer.svelte'
 	import Cutline from './Cutline.svelte'
 	import Caption from './Caption.svelte'
-	import Provenance from './Provenance.svelte'
-	import ModalProvenance from './ModalProvenance.svelte'
-    import Collapse from './Collapse.svelte';
+	import ProvenanceModal from './ProvenanceModal.svelte'
+	import ProvenanceExpand from './ProvenanceExpand.svelte';
 	import ImageCompare from './ImageCompare.svelte';
 	
 	const dataStore = createDataStore()
@@ -102,14 +101,10 @@
 		</Figure>
 		
 		{#if $_variant === 'expand'}
-			<Collapse
-				open={isProvenanceOpen}
-			>
-				<Provenance />
-			</Collapse>
+			<ProvenanceExpand />
 		{/if}
 		{#if $_variant === 'modal'}
-			<ModalProvenance />
+			<ProvenanceModal />
 		{/if}
 		{#if $compareImage}
 			<ImageCompare />

@@ -2,6 +2,7 @@
 	import { getContext } from 'svelte';
 	import styles from 'syw-common/css/Manifest.module.css'
 	import { getDateString } from 'syw-common/helpers/i18n'
+    import Map from './Map.svelte';
 
 	const { locale, getText } = getContext('i18nStoreContext');
 
@@ -21,7 +22,6 @@
 				formattedValue = value
 		}
 	}
-
 </script>
 
 <li
@@ -35,6 +35,12 @@
 	<div
 		class={styles.ManifestTableRowValue}
 	>
-		{formattedValue}
+		{#if type === 'location'}
+			<Map
+				location={value}
+			/>
+		{:else}
+			{formattedValue}
+		{/if}
 	</div>
 </li>

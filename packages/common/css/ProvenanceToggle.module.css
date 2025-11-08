@@ -1,5 +1,5 @@
 /* Toggle Provenance */
-.Cutline button.ToggleProvenance {
+.Cutline button.ProvenanceToggle {
 	display: flex;
 	align-items: center;
 	position: relative;
@@ -14,7 +14,7 @@
 	transition: all 200ms ease;
 }
 /* Toggle Provenance > Ornament */
-.Cutline button.ToggleProvenance::before {
+.Cutline button.ProvenanceToggle::before {
 	content: '';
 	display: block;
 	width: 8px;
@@ -32,33 +32,33 @@
 	transition: all 200ms ease;
 }
 /* Toggle Provenance > Hovered */
-.Cutline button.ToggleProvenance:hover,
-.App_hovered .Cutline button.ToggleProvenance {
+.Cutline button.ProvenanceToggle:hover,
+.App_hovered .Cutline button.ProvenanceToggle {
 	background-color: var(--syw-color-quaternary);
 }
 /* Toggle Provenance > Hovered > Ornament */
-.Cutline button.ToggleProvenance:hover::before,
-.App_hovered .Cutline button.ToggleProvenance::before {
+.Cutline button.ProvenanceToggle:hover::before,
+.App_hovered .Cutline button.ProvenanceToggle::before {
 	border-color: var(--syw-color-quaternary);
 }
 /* Toggle Provenance > Active */
-.App_active.App_expand .Cutline button.ToggleProvenance {
+.App_active.App_expand .Cutline button.ProvenanceToggle {
 	color: var(--syw-color-primary);
 	background-color: var(--syw-color-secondary);
 }
 /* Toggle Provenance > Active > Ornament */
-.App_active.App_expand .Cutline button.ToggleProvenance::before {
+.App_active.App_expand .Cutline button.ProvenanceToggle::before {
 	border-color: var(--syw-color-primary);
 }
 /* Toggle Provenance > Active > Hovered */
-.App_active.App_expand .Cutline button.ToggleProvenance:hover,
-.App_active.App_expand.App_hovered .Cutline button.ToggleProvenance {
+.App_active.App_expand .Cutline button.ProvenanceToggle:hover,
+.App_active.App_expand.App_hovered .Cutline button.ProvenanceToggle {
 	color: var(--syw-color-quaternary);
 	background-color: var(--syw-color-secondary);
 }
 /* Toggle Provenance > Active > Hovered > Ornament */
-.App_active.App_expand .Cutline button.ToggleProvenance:hover::before,
-.App_active.App_expand.App_hovered .Cutline button.ToggleProvenance::before {
+.App_active.App_expand .Cutline button.ProvenanceToggle:hover::before,
+.App_active.App_expand.App_hovered .Cutline button.ProvenanceToggle::before {
 	background-color: var(--syw-color-quaternary);
 	border-color: var(--syw-color-quaternary);
 }

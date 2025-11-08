@@ -13,6 +13,7 @@ export const MANIFEST_KEYS = [
 	// 'ingredients',
 	'generator',
 	// 'verify',
+	'location',
 ]
 
 export const MANIFEST_PREVIEW_TITLE_KEYS = [
@@ -39,6 +40,6 @@ export const DEMO_IMAGE_URLS = [
 	'leica-nora-9.jpg',
 ]
 
-export const DEMO_IMAGE_URL_DEFAULT = 'leica-nora-1.jpg'
+export const DEMO_IMAGE_URL_DEFAULT = 'truepic-1.jpg'
 
 export const DEMO_IMAGE_URL_BASE = 'https://showyourworklab.github.io/c2pa-images'

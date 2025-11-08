@@ -10,11 +10,12 @@
 	border-width: 1px;
 	transition: all 200ms ease;
 }
-.Manifest::after, .Manifest::before {
+.Manifest::after,
+.Manifest::before {
 	content: '';
 	display: block;
 	width: 1px;
-	height: calc(100% + 3px);
+	height: calc(100% + var(--syw-space-2));
 	position: absolute;
 	z-index: 2;
 	top: calc(var(--syw-space-6));
@@ -71,7 +72,7 @@
 	width: 8px;
 	height: 8px;
 	position: absolute;
-	top: calc(var(--syw-space-4));
+	top: calc(var(--syw-space-5));
 	z-index: 4;
 	background-color: var(--syw-color-tertiary-light);
 	border-color: var(--syw-color-primary);
