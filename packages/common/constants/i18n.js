@@ -25,8 +25,8 @@ export const DICTIONARY_EN_US = {
 
 export const DICTIONARY_NO_NO = {
 	producer: 'Produsent',
-	generator: 'Generator',
-	signator: 'Underskriver',
+	generator: 'Produsert med',
+	signator: 'Signert av',
 	timestamp: 'Tidsstempel',
 	location: 'Sted',
 	ingredients: 'Ingredienser',
@@ -42,8 +42,8 @@ export const DICTIONARY_NO_NO = {
 
 export const DICTIONARY_SV_SE = {
 	producer: 'Producent',
-	generator: 'Generator',
-	signator: 'Undertecknare',
+	generator: 'Producerad med',
+	signator: 'Undertecknad av',
 	timestamp: 'Tidsstämpel',
 	location: 'Plats',
 	ingredients: 'Ingredienser',
