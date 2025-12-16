@@ -14,7 +14,7 @@ import Caption from './Caption'
 import Explainer from './Explainer'
 import Provenance from './Provenance'
 import Collapse from './Collapse'
-import ModalProvenance from './ModalProvenance'
+import ProvenanceModal from './ProvenanceModal'
 import ImageCompare from './ImageCompare'
 
 function App({
@@ -71,13 +71,13 @@ function App({
 			{variant === 'expand' ?
 				<Collapse
 					open={isOpenProvenance}
-					className={styles.ModalProvenance}
+					className={styles.ProvenanceModal}
 				>
 					<Provenance />
 				</Collapse>
 			: null}
 			{variant === 'modal' ?
-				<ModalProvenance />
+				<ProvenanceModal />
 			: null}
 			{compareImage ?
 				<ImageCompare />

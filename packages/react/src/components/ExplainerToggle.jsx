@@ -1,7 +1,7 @@
-import styles from 'syw-common/css/ToggleExplainer.module.css'
+import styles from 'syw-common/css/ExplainerToggle.module.css'
 import { useUiContext, useI18nContext } from '$src/context'
 
-const ToggleExplainer = () => {
+const ExplainerToggle = () => {
 	const {
 		variant,
 		isOpenExplainer,
@@ -26,7 +26,7 @@ const ToggleExplainer = () => {
 
 	return (
 		<button
-			className={styles.ToggleExplainer}
+			className={styles.ExplainerToggle}
 			aria-pressed={isOpenExplainer}
 			onClick={onClick}
 		>
@@ -35,4 +35,4 @@ const ToggleExplainer = () => {
 	)
 }
 
-export default ToggleExplainer
+export default ExplainerToggle

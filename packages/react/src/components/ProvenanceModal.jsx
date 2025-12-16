@@ -1,11 +1,11 @@
-import styles from 'syw-common/css/ModalProvenance.module.css'
+import styles from 'syw-common/css/ProvenanceModal.module.css'
 import { useUiContext } from '$src/context'
 import Modal from './Modal'
 import Provenance from './Provenance'
 import Explainer from './Explainer'
-import ToggleExplainer from './ToggleExplainer'
+import ExplainerToggle from './ExplainerToggle'
 
-const ModalProvenance = () => {
+const ProvenanceModal = () => {
 	const {
 		isOpenExplainer,
 		isOpenProvenance,
@@ -30,12 +30,12 @@ const ModalProvenance = () => {
 			title="Image Origin"
 			description="Explore the provenance of this image"
 			onOpenChange={handleOpenChange}
-			className={styles.ModalProvenance}
+			className={styles.ProvenanceModal}
 		>
 			<div
-				className={styles.ModalProvenanceExplainer}
+				className={styles.ProvenanceModalExplainer}
 			>
-				{!isOpenExplainer ? <ToggleExplainer /> : null}
+				{!isOpenExplainer ? <ExplainerToggle /> : null}
 				<Explainer />
 			</div>
 			<Provenance />
@@ -43,4 +43,4 @@ const ModalProvenance = () => {
 	)
 }
 
-export default ModalProvenance
+export default ProvenanceModal

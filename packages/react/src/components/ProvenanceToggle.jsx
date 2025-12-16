@@ -1,7 +1,7 @@
-import styles from 'syw-common/css/ToggleProvenance.module.css'
+import styles from 'syw-common/css/ProvenanceToggle.module.css'
 import { useUiContext, useI18nContext } from '$src/context'
 
-const ToggleProvenance = () => {
+const ProvenanceToggle = () => {
 	const {
 		isOpenProvenance,
 		openProvenance,
@@ -16,7 +16,7 @@ const ToggleProvenance = () => {
 	return (
 		<button
 			aria-pressed={isOpenProvenance}
-			className={styles.ToggleProvenance}
+			className={styles.ProvenanceToggle}
 			onClick={onClick}
 		>
 			{isOpenProvenance ? getText('toggle', 'provenance') : getText('toggle', 'provenance')}
@@ -24,4 +24,4 @@ const ToggleProvenance = () => {
 	)
 }
 
-export default ToggleProvenance
+export default ProvenanceToggle

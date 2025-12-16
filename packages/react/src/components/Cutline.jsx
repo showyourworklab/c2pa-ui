@@ -1,6 +1,6 @@
 import styles from 'syw-common/css/Cutline.module.css'
-import ToggleProvenance from './ToggleProvenance'
-import ToggleExplainer from './ToggleExplainer'
+import ProvenanceToggle from './ProvenanceToggle'
+import ExplainerToggle from './ExplainerToggle'
 
 const Cutline = ({
 	caption,
@@ -13,8 +13,8 @@ const Cutline = ({
 			<div
 				className={styles.CutlineToggles}
 			>
-				<ToggleProvenance />
-				<ToggleExplainer />
+				<ProvenanceToggle />
+				<ExplainerToggle />
 			</div>
 		</div>
 	)

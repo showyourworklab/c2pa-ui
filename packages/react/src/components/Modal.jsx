@@ -1,7 +1,7 @@
 import { useEffect, useId, useRef } from 'react'
+import styles from 'syw-common/css/Modal.module.css'
 import { joinClassNames } from 'syw-common/helpers'
 import { openModal, closeModal } from 'syw-common/helpers/modal'
-import styles from 'syw-common/css/Modal.module.css'
 
 const Modal = ({
 	open = false,

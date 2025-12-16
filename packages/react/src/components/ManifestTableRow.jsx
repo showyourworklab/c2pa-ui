@@ -12,6 +12,8 @@ function ManifestTableRow({ type, value }) {
 				return value.name
 			case 'timestamp':
 				return getDateString(locale, value)
+			case 'location':
+				return null
 			default:
 				return value
 		}

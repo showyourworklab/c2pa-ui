@@ -87,7 +87,7 @@ export const getVerifyUrl = data => data ? generateVerifyUrl(data) : null
 
 export const prepareManifest = (locale, data) => {
 	const safeLocale = getSafeLocale(locale)
-	console.log(data)
+	// console.log(data)
 	return {
 		id: getId(data),
 		producer: getProducer(data),
@@ -96,7 +96,7 @@ export const prepareManifest = (locale, data) => {
 		timestamp: getTimestamp(data, safeLocale),
 		ingredients: getIngredients(data),
 		thumbnail: getThumbnail(data),
-		location: getLocation(data),
+		// location: getLocation(data),
 		// verifyUrl: getVerifyUrl(data),
 		// verifyUrl: https://verify.contentauthenticity.org/inspect?source=
 	}

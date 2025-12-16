@@ -21,6 +21,7 @@
 				return value
 		}
 	})
+	console.log(value)
 </script>
 
 <li
