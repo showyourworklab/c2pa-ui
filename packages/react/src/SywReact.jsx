@@ -1,8 +1,4 @@
-import wasmSrc from 'c2pa/dist/assets/wasm/toolkit_bg.wasm?url'
-import workerSrc from 'c2pa/dist/c2pa.worker.min.js?url'
-import { C2paProvider } from '@contentauth/react'
-
-import { I18nProvider, DataProvider, UiProvider } from './providers'
+import { C2paProvider, I18nProvider, DataProvider, UiProvider } from './providers'
 import App from './components/App'
 
 function SywReact({
@@ -15,12 +11,7 @@ function SywReact({
 	...props
 }) {
 	return (
-		<C2paProvider
-			config={{
-				wasmSrc,
-				workerSrc,
-			}}
-		>
+		<C2paProvider>
 			<I18nProvider
 				locale={locale}
 			>

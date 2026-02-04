@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useRef } from 'react'
-import { useC2pa } from '@contentauth/react'
 import 'syw-common/css/globals.css'
 import styles from 'syw-common/css/App.module.css'
 import { joinClassNames } from 'syw-common/helpers'
@@ -7,6 +6,7 @@ import { prepareManifest } from 'syw-common/helpers/c2pa'
 import { useDataContext } from '$src/context/data'
 import { useI18nContext } from '$src/context/i18n'
 import { useUiContext } from '$src/context/ui'
+import useC2pa from '$src/hooks/useC2pa'
 import Figure from './Figure'
 import Image from './Image'
 import Cutline from './Cutline'
@@ -24,7 +24,7 @@ function App({
 	const { src, setManifests } = useDataContext()
 	const { locale } = useI18nContext()
 	const { variant, compareImage, isHoverImage, isOpenProvenance, setElem, eventHandler } = useUiContext()
-	const provenance = useC2pa(src)
+	const { reader, provenance } = useC2pa(src)
 
 	const className = useMemo(() =>
 		joinClassNames(
@@ -40,11 +40,20 @@ function App({
 	}, [ref]);
 
 	useEffect(() => {
-		const manifestStore = provenance?.manifestStore
-		const newManifests = Object.values(manifestStore?.manifests ?? {})
-			.map(manifest => prepareManifest(locale, manifest))
-		setManifests(newManifests)
-	}, [locale, provenance])
+        const prepareManifests = async () => {
+            const newManifests = await Promise.all(
+                Object.values(provenance?.manifestStore?.manifests ?? {})
+                    .map(manifest => prepareManifest({
+						src,
+						locale,
+						manifest,
+						reader
+					}))
+            )
+            setManifests(newManifests)
+        }
+        prepareManifests()
+	}, [src, locale, provenance, reader])
 
 	useEffect(() => {
 		eventHandler.current = onEvent

@@ -2,12 +2,74 @@ import { selectProducer, selectSocialAccounts, generateVerifyUrl } from 'c2pa'
 import { getObjectValue } from './index.js'
 import { getSafeLocale } from './i18n.js'
 
-export const getId = data => data?.instanceId
+/////////////// Utilities ///////////////
 
-export const getProducer = data => data ? {
-	name: selectProducer(data)?.name,
-	socials: selectSocialAccounts(data)
-} : null
+/**
+ * Gets an EXIF value from manifest
+ * @function
+ * @param {object} data - Manifest entry
+ * @param {string} key - EXIF value key
+ * @return {string} - EXIF value
+ */
+export const getExifValue = (data, key) => {
+	const exifData = data?.assertions?.find(a => a.label === 'stds.exif')?.data
+	const exifValue = exifData[`exif:${key}`]
+	return exifValue;
+}
+
+/**
+ * Gets a schema.org value from manifest
+ * @function
+ * @param {object} data - Manifest entry
+ * @param {string} key - Schema.org value key
+ * @return {string} - Schema.org value
+ */
+export const getSchemaOrgValue = (data, key) => {
+	const schema = data?.assertions?.find(a => a.label.includes('stds.schema-org'))?.data
+	const schemaValue = schema[key]
+	return schemaValue
+}
+
+/**
+ * Converts degrees minutes seconds (DMS) to decimal degrees (DD)
+ * @function
+ * @param {string} dms - Degrees minutes seconds (DMS)
+ * @param {string} dir - Cardinal direction
+ * @return {string} - Decimal degrees
+ */
+const convertDmsToDd = (dms, dir) => {
+	if(!dms || !dir) return
+    const dmsParts = dms?.split(" ")
+    const degrees = parseFloat(dmsParts[0])
+    const minutes = parseFloat(dmsParts[1])
+    const seconds = parseFloat(dmsParts[2])
+    let decimalDegrees = degrees + (minutes / 60) + (seconds / 3600)
+    if (dir == "S" || dir == "W") {
+        decimalDegrees = decimalDegrees * -1
+    }
+    return decimalDegrees
+}
+
+/////////////// Manifest Creation ///////////////
+
+/**
+ * Gets instance ID
+ * @function
+ * @param {object} data - Manifest entry
+ * @return {string} - Instance ID
+ */
+export const getId = data => data?.instance_id
+
+/**
+ * Gets producer name
+ * @function
+ * @param {object} data - Manifest entry
+ * @return {string} - Producer name
+ */
+export const getProducer = data => {
+	const authorObj = getSchemaOrgValue(data, 'author')
+	return authorObj ?? []
+}
 
 /**
  * Gets a description of claim generator
@@ -15,29 +77,45 @@ export const getProducer = data => data ? {
  * @param {object} data - Manifest entry
  * @return {string} - List of generator names with version (i.e. Lightroom Classic 14.0)
  */
-export const getGenerator = data =>
-	data?.claimGeneratorInfo.map(d =>
-		[d.name, d.version]
-			.filter(d => d !== null && d !== undefined)
-			.join(" ")
-	).join(", ")
-
-export const getSignator = data => data?.signatureInfo?.issuer
+export const getGenerator = data => {
+	if(data?.claim_generator_info) {
+		return data?.claim_generator_info?.map(d =>
+			[d.name, d.version]
+				.filter(d => d !== null && d !== undefined)
+				.join(" ")
+		).join(", ")
+	} else if(getExifValue(data, 'Make') || getExifValue(data, 'Model')) {
+		const exifMake = getExifValue(data, 'Make')
+		const exifModel = getExifValue(data, 'Model')
+		return [exifModel].join(' ')
+		// return [exifMake, exifModel].join(' ')
+	} else if(data?.claim_generator) {
+		return data?.claim_generator
+	}
+	return null
+}
+	
+/**
+ * Gets signature issuer
+ * @function
+ * @param {object} data - Manifest entry
+ * @return {string} - Signature issuer name
+ */
+export const getSignator = data => data?.signature_info?.issuer
 
 /**
  * Gets a localized date string from manifest entry's date
  * @function
- * @param {string} locale - Active locale
  * @param {object} data - Manifest entry
+ * @param {string} locale - Active locale
  * @return {string} - Localized date string
  */
 export const getTimestamp = (data, locale) => {
-	if(data?.signatureInfo?.time) {
-		const dateObject = new Date(data?.signatureInfo?.time)
+	if(data?.signature_info?.time) {
+		const dateObject = new Date(data?.signature_info?.time)
 		return dateObject
 	} else {
-		const exifData = data?.assertions?.get('stds.exif')[0]?.data
-		const exifDateTime = exifData['exif:DateTimeOriginal']
+		const exifDateTime = getExifValue(data, 'DateTimeOriginal')
 		const exifParsedDate = exifDateTime.split(/\D/)
 		const dateObject = new Date(
 			exifParsedDate[0],
@@ -51,19 +129,12 @@ export const getTimestamp = (data, locale) => {
 	}
 }
 
-const convertDmsToDd = (mds, dir) => {
-	if(!mds || !dir) return
-    const mdsParts = mds?.split(" ")
-    const degrees = parseFloat(mdsParts[0])
-    const minutes = parseFloat(mdsParts[1])
-    const seconds = parseFloat(mdsParts[2])
-    let decimalDegrees = degrees + (minutes / 60) + (seconds / 3600)
-    if (dir == "S" || dir == "W") {
-        decimalDegrees = decimalDegrees * -1
-    }
-    return decimalDegrees
-}
-
+/**
+ * Gets latitude and longitude
+ * @function
+ * @param {object} data - Manifest entry
+ * @return {object} - Object of latitude (lat) and longitude (lng)
+ */
 export const getLocation = (data) => {
 	const exifData = data?.assertions?.get('stds.exif')[0]?.data
 	if(!exifData) return null
@@ -81,23 +152,67 @@ export const getLocation = (data) => {
 	return { lat, lng }
 }
 
+/**
+ * Gets ingredients from manifest
+ * @function
+ * @param {object} data - Manifest entry
+ * @return {array} - Array of ingredients
+ */
 export const getIngredients = data => data?.ingredients
-export const getThumbnail = data => data?.thumbnail
-export const getVerifyUrl = data => data ? generateVerifyUrl(data) : null
 
-export const prepareManifest = (locale, data) => {
+/**
+ * Gets latitude and longitude
+ * @function
+ * @param {object} data - Manifest entry
+ * @param {object} reader - C2PA reader instance
+ * @return {string} - Thumbnail URL
+ */
+export const getThumbnail = async (data, reader) => {
+	const thumbnail = data?.thumbnail
+	if (!thumbnail || !reader) return null
+	try {
+		const bytes = await reader.resourceToBytes(thumbnail.identifier)
+		if (bytes) {
+			const blob = new Blob([bytes], { type: thumbnail.format })
+			return URL.createObjectURL(blob)
+		}
+		return null
+	} catch (error) {
+		console.error('Failed to get thumbnail URL:', error)
+		return null
+	}
+}
+
+/**
+ * Gets URL to CAI Verify page with image URL as parameter
+ * @function
+ * @param {string} src - Image URL
+ * @return {string} - CAI Verify URL
+ */
+export const getVerifyUrl = src => `https://verify.contentauthenticity.org/inspect?source=${src}`
+
+/**
+ * Prepares a manifest object with extracted and formatted data
+ * @async
+ * @function
+ * @param {object} props - Object of props
+ * @param {string} props.src - Image URL
+ * @param {string} props.locale - User's locale
+ * @param {object} props.manifest - Manifest entry
+ * @param {object} props.reader - C2PA reader instance
+ * @return {Promise<object>} - Prepared manifest object
+ */
+export const prepareManifest = async ({ src, locale, manifest, reader }) => {
 	const safeLocale = getSafeLocale(locale)
-	// console.log(data)
 	return {
-		id: getId(data),
-		producer: getProducer(data),
-		generator: getGenerator(data),
-		signator: getSignator(data),
-		timestamp: getTimestamp(data, safeLocale),
-		ingredients: getIngredients(data),
-		thumbnail: getThumbnail(data),
-		// location: getLocation(data),
-		// verifyUrl: getVerifyUrl(data),
-		// verifyUrl: https://verify.contentauthenticity.org/inspect?source=
+		id: getId(manifest),
+		producer: getProducer(manifest),
+		generator: getGenerator(manifest),
+		signator: getSignator(manifest),
+		timestamp: getTimestamp(manifest, safeLocale),
+		// ingredients: getIngredients(manifest),
+		thumbnail: await getThumbnail(manifest, reader),
+		// location: getLocation(manifest),
+		verifyUrl: getVerifyUrl(src),
 	}
 }

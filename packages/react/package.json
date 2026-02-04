@@ -32,12 +32,8 @@
 		"publish": "npm publish"
 	},
 	"dependencies": {
-		"@contentauth/react": "0.2.87",
-		"@contentauth/sdk": "^0.8.12",
 		"@radix-ui/react-dialog": "^1.1.14",
 		"@radix-ui/react-visually-hidden": "^1.2.3",
-		"c2pa": "^0.30.9",
-		"c2pa-wc": "0.14.9",
 		"react-collapsed": "^4.1.2",
 		"syw-docs": "^0.0.7"
 	},

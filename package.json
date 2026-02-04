@@ -32,5 +32,8 @@
   "devDependencies": {
     "gh-pages": "^6.3.0",
     "lerna": "^8.2.2"
+  },
+  "dependencies": {
+    "@contentauth/c2pa-web": "^0.5.7"
   }
 }

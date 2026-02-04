@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { generateVerifyUrl, selectProducer } from 'c2pa'
 import { useC2pa } from '@contentauth/react'
 
-import useC2paPrereleaseData from './useC2paPrereleaseData'
+import useC2paPrereleaseData from './_useC2paPrereleaseData'
 
 const useC2paData = src => {
 	// let c2paData, hasC2pa

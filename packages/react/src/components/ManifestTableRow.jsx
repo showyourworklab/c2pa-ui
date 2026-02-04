@@ -9,7 +9,7 @@ function ManifestTableRow({ type, value }) {
 	const formattedValue = useMemo(() => {
 		switch(type) {
 			case 'producer':
-				return value.name
+				return value.map(v => v.name).join(', ')
 			case 'timestamp':
 				return getDateString(locale, value)
 			case 'location':

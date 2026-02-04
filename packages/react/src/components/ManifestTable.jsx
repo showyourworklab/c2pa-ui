@@ -16,7 +16,7 @@ function ManifestTable({ manifest }) {
 					/>
 				: null
 			)}
-			{manifest?.verifyUrl ?
+			{/* {manifest?.verifyUrl ?
 				<li>
 					<a
 						href={manifest?.verifyUrl}
@@ -25,7 +25,7 @@ function ManifestTable({ manifest }) {
 						View Content Credentials
 					</a>
 				</li>
-			: null}
+			: null} */}
 		</ul>
 	)
 }

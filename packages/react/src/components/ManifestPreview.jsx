@@ -1,4 +1,4 @@
-import { useThumbnailUrl } from '@contentauth/react'
+
 import styles from 'syw-common/css/Manifest.module.css'
 import { MANIFEST_PREVIEW_TITLE_KEYS } from 'syw-common/constants'
 import { handleA11yClick, joinClassNames } from 'syw-common/helpers'
@@ -14,9 +14,11 @@ function ManifestPreview({
 }) {
 	const { locale } = useI18nContext()
 	const { compareImage, addCompareImage, removeCompareImage, updateComparePosition } = useUiContext()
-	const thumbnailUrl = manifest ? useThumbnailUrl(manifest?.thumbnail ?? undefined) : null
+	const thumbnailUrl = manifest?.thumbnail
 	
-	const onKeyDown = event => handleA11yClick(event, onToggle)
+	const onKeyDown = event => {
+		handleA11yClick(event, onToggle)
+	}
 	const onThumbnailMouseMove = event => {
 		updateComparePosition(event)
 	}
