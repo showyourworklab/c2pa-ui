@@ -1,6 +1,5 @@
 <script>
 	import { onMount, setContext } from 'svelte'
-	import { createC2pa } from 'c2pa'
 	import wasmSrc from 'c2pa/dist/assets/wasm/toolkit_bg.wasm?url'
 	import workerSrc from 'c2pa/dist/c2pa.worker.min.js?url'
 	import 'syw-common/css/globals.css'
@@ -8,6 +7,7 @@
 	import { joinClassNames } from 'syw-common/helpers'
 	import { prepareManifest } from 'syw-common/helpers/c2pa'
 	import { VARIANT_DEFAULT } from 'syw-common/constants'
+	import createC2paStore from '$lib/store/c2pa.js'
 	import createDataStore from '$lib/store/data.js'
 	import createI18nStore from '$lib/store/i18n.js'
 	import createUiStore from '$lib/store/ui.js'
@@ -33,13 +33,16 @@
 	let mounted = $state(false)
 	let elemRef = $state(null)
 	
+	const c2paStore = createC2paStore()
 	const dataStore = createDataStore()
 	const i18nStore = createI18nStore()
 	const uiStore = createUiStore()
+	setContext('c2paStoreContext', c2paStore)
 	setContext('dataStoreContext', dataStore)
 	setContext('i18nStoreContext', i18nStore)
 	setContext('uiStoreContext', uiStore)
 
+	const { c2pa, reader, provenance } = c2paStore
 	const { lang } = i18nStore
 	const {
 		variant: _variant,
@@ -68,24 +71,42 @@
 		uiStore.setVariant(variant)
 	})
 
+	// Initialize C2PA and read image when mounted and src changes
 	$effect(() => {
-		if(mounted && src) {
+		if (mounted && src) {
 			(async () => {
-				const c2pa = await createC2pa({
-					wasmSrc,
-					workerSrc,
-				})
+				// Initialize C2PA if not already done
+				let c2paInstance = $c2pa
+				if (!c2paInstance) {
+					c2paInstance = await c2paStore.init()
+				}
+				
+				if (!c2paInstance) return
+
 				try {
-					// Read in the image and get a manifest store
-					const { manifestStore } = await c2pa.read(src)
-					// Get the active manifest
-					const newManifests = Object.values(manifestStore?.manifests ?? {})
-						.map(manifest => prepareManifest(locale, manifest))
-					// Set manifests to data store
-					dataStore.setManifests(newManifests)
+					// Read C2PA data
+					await c2paStore.read(src)
 				} catch (err) {
 					console.error('Error reading image:', err)
 				}
+			})()
+		}
+	})
+
+	// Prepare manifests when provenance changes
+	$effect(() => {
+		if ($provenance?.manifestStore && $reader) {
+			(async () => {
+				const newManifests = await Promise.all(
+					Object.values($provenance.manifestStore.manifests ?? {})
+						.map(manifest => prepareManifest({
+							src,
+							locale,
+							manifest,
+							reader: $reader
+						}))
+				)
+				dataStore.setManifests(newManifests)
 			})()
 		}
 	})

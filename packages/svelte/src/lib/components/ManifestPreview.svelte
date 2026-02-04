@@ -15,8 +15,6 @@
 		openManifest, closeManifest, updateComparePosition, addCompareImage, removeCompareImage
 	} = getContext('uiStoreContext');
 
-	const thumbnailUrl = $derived(manifest?.thumbnail?.getUrl()?.url)
-
 	const handleClick = (event => {
 		if(open) {
 			closeManifest(event, manifest)
@@ -33,7 +31,7 @@
 		updateComparePosition(event)
 	}
 	const handleThumbnailMouseEnter = event => {
-		addCompareImage(thumbnailUrl, event)
+		addCompareImage(manifest?.thumbnail, event)
 	}
 	const handleThumbnailMouseLeave = event => {
 		removeCompareImage(event)
@@ -70,7 +68,7 @@
 		onmouseleave={handleThumbnailMouseLeave}
 	>
 		<img
-			src={thumbnailUrl}
+			src={manifest?.thumbnail}
 			alt=''
 		/>
 	</div>

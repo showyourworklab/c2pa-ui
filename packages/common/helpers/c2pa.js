@@ -1,6 +1,33 @@
 import { selectProducer, selectSocialAccounts, generateVerifyUrl } from 'c2pa'
 import { getObjectValue } from './index.js'
 import { getSafeLocale } from './i18n.js'
+export const CDN_WASM_SRC_URL = 'https://cdn.jsdelivr.net/npm/@contentauth/c2pa-web/dist/resources/c2pa_bg.wasm'
+
+/////////////// Initialize //////////////
+/**
+ * Creates C2PA instance configuration
+ * @param {object} options - Optional overrides
+ * @param {string} options.wasmSrc - Custom WASM source URL
+ * @return {object} - C2PA configuration object
+ */
+export const getC2paConfig = (options = {}) => ({
+    wasmSrc: options.wasmSrc || CDN_WASM_SRC_URL,
+})
+
+/**
+ * Reads C2PA data from an image source
+ * @async
+ * @param {object} c2pa - C2PA instance
+ * @param {string} src - Image URL
+ * @return {Promise<{manifestStore: object, reader: object}>} - Manifest store and reader
+ */
+export const readC2paFromUrl = async (c2pa, src) => {
+    const response = await fetch(src)
+    const blob = await response.blob()
+    const reader = await c2pa.reader.fromBlob(blob.type, blob)
+    const manifestStore = await reader.manifestStore()
+    return { manifestStore, reader }
+}
 
 /////////////// Utilities ///////////////
 

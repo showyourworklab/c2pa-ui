@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { readC2paFromUrl } from 'syw-common/helpers/c2pa'
 import { useC2paContext } from '$src/context/c2pa'
 
 const useC2pa = (src) => {
@@ -12,11 +13,7 @@ const useC2pa = (src) => {
 		let cancelled = false
 		const fetchProvenance = async () => {
 			try {
-				const response = await fetch(src)
-				const blob = await response.blob()
-				const reader = await c2pa.reader.fromBlob(blob.type, blob)
-				const manifestStore = await reader.manifestStore()
-				// await reader.free();
+				const { manifestStore, reader } = await readC2paFromUrl(c2pa, src)
 				if (!cancelled) {
 					setReader(reader)
 					setProvenance({ manifestStore })

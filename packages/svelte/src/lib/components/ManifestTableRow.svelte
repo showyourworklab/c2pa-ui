@@ -14,7 +14,7 @@
 	const formattedValue = $derived(() => {
 		switch(type) {
 			case "producer":
-				return value?.name
+				return value?.map(v => v.name)?.join(', ')
 			case "timestamp":
 				return getDateString($locale, value)
 			default:
