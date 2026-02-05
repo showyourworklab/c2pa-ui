@@ -32,8 +32,10 @@ export default defineConfig({
 					'react': 'React',
 					'react-dom': 'ReactDOM',
 				},
+				assetFileNames: 'styles.[ext]',
 			},
-		}
+		},
+		cssCodeSplit: false
 	},
 	esbuild: {
 		loader: 'jsx',

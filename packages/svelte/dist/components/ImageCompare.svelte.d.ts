@@ -1,12 +1,12 @@
-export default ToggleExplainer;
-type ToggleExplainer = SvelteComponent<{
+export default ImageCompare;
+type ImageCompare = SvelteComponent<{
     [x: string]: never;
 }, {
     [evt: string]: CustomEvent<any>;
 }, {}> & {
     $$bindings?: string;
 };
-declare const ToggleExplainer: $$__sveltets_2_IsomorphicComponent<{
+declare const ImageCompare: $$__sveltets_2_IsomorphicComponent<{
     [x: string]: never;
 }, {
     [evt: string]: CustomEvent<any>;

@@ -1,7 +1,7 @@
 <script>
-	import { onMount, getContext } from 'svelte'
-	import styles from '../common/css/Provenance.module.css'
-	import { getVerifyUrl } from '../common/helpers'
+	import { getContext } from 'svelte'
+	import styles from 'syw-common/css/Provenance.module.css'
+	import { getVerifyUrl } from 'syw-common/helpers'
 	import Collapse from './Collapse.svelte'
 	import Manifest from './Manifest.svelte'
 
@@ -9,10 +9,7 @@
 	const { locale, getText } = getContext('i18nStoreContext');
 	const { isProvenanceOpen } = getContext('uiStoreContext');
 
-	let verifyUrl
-	onMount(() => {
-		verifyUrl = getVerifyUrl($src)
-	})
+	const verifyUrl = $derived(getVerifyUrl($src))
 
 </script>
 
@@ -39,7 +36,6 @@
 				<a
 					href={verifyUrl}
 					target='_blank'
-
 				>
 					{getText($locale, 'verify', 'cc')}
 				</a>

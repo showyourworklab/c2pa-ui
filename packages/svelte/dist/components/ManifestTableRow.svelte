@@ -1,26 +1,26 @@
 <script>
 	import { getContext } from 'svelte';
-	import styles from '../common/css/Manifest.module.css'
-	import { getDateString } from '../common/helpers/i18n'
+	import styles from 'syw-common/css/Manifest.module.css'
+	import { getDateString } from 'syw-common/helpers/i18n'
+    import Map from './Map.svelte';
 
 	const { locale, getText } = getContext('i18nStoreContext');
 
-	export let type
-	export let value
+	const {
+		type,
+		value
+	} = $props()
 
-	let formattedValue
-	$: {
+	const formattedValue = $derived(() => {
 		switch(type) {
 			case "producer":
-				formattedValue = value?.name
-				break
+				return value?.map(v => v.name)?.join(', ')
 			case "timestamp":
-				formattedValue = getDateString($locale, value)
-				break
+				return getDateString($locale, value)
 			default:
-				formattedValue = value
+				return value
 		}
-	}
+	})
 
 </script>
 
@@ -35,6 +35,12 @@
 	<div
 		class={styles.ManifestTableRowValue}
 	>
-		{formattedValue}
+		{#if type === 'location'}
+			<Map
+				location={value}
+			/>
+		{:else}
+			{formattedValue()}
+		{/if}
 	</div>
 </li>

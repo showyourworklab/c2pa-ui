@@ -1,1 +1,0 @@
-# Common `syw-common`

@@ -1,14 +1,17 @@
 <script>
-	import styles from '../common/css/Collapse.module.css'
-	import { joinClassNames } from '../common/helpers'
+	import styles from 'syw-common/css/Collapse.module.css'
+	import { joinClassNames } from 'syw-common/helpers'
 
-	export let open
+	const { open, children } = $props();
 
-    let height;
-	$: style = `height:${open ? height : 0}px`
-	$: classes = joinClassNames(
-		styles.Collapse,
-		open ? styles.Collapse_open : false
+    let height = $state(null);
+	
+	const style = $derived(`height:${open ? height : 0}px`)
+	const classes = $derived(
+		joinClassNames(
+			styles.Collapse,
+			open ? styles.Collapse_open : false
+		)
 	)
 
 </script>
@@ -22,7 +25,7 @@
 		<div
 			class={styles.CollapseInner}
 		>
-			<slot />
+			{@render children()}
 		</div>
 	</div>
 </div>

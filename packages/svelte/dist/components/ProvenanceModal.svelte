@@ -1,12 +1,11 @@
 <script>
 	import { getContext } from 'svelte'
-	import styles from '../common/css/ModalProvenance.module.css'
+	import styles from 'syw-common/css/ProvenanceModal.module.css'
 	import Modal from './Modal.svelte'
 	import Provenance from './Provenance.svelte'
 	import Explainer from './Explainer.svelte'
-	import ToggleExplainer from './ToggleExplainer.svelte'
+	import ExplainerToggle from './ExplainerToggle.svelte'
 	
-	// const { locale, getText } = getContext('i18nStoreContext');
 	const {
 		isExplainerOpen,
 		isProvenanceOpen,
@@ -32,13 +31,13 @@
 	title="Image Origin"
 	description="Explore the provenance of this image"
 	onOpenChange={handleOpenChange}
-	className={styles.ModalProvenance}
+	className={styles.ProvenanceModal}
 >
 	<div
-		class={styles.ModalProvenanceExplainer}
+		class={styles.ProvenanceModalExplainer}
 	>
 		{#if $isExplainerOpen}
-			<ToggleExplainer />
+			<ExplainerToggle />
 		{/if}
 		<Explainer />
 	</div>

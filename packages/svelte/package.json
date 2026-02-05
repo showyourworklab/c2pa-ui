@@ -12,8 +12,11 @@
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",
-			"svelte": "./dist/index.js"
-		}
+			"svelte": "./dist/index.js",
+			"import": "./dist/index.js",
+			"default": "./dist/index.js"
+		},
+		"./styles.css": "./dist/styles.css"
 	},
 	"files": [
 		"dist",
@@ -21,14 +24,14 @@
 		"README.md",
 		"LICENSE"
 	],
-	"sideEffects": false,
+	"sideEffects": ["**/*.css"],
 	"scripts": {
 		"dev": "vite dev --config vite.demo.config.js",
 		"build": "npm run build:lib && npm run build:demo",
-		"build:lib": "vite build && npm run package && publint",
+		"build:lib": "npm run package && npm run copy:types && publint",
 		"build:demo": "vite build --config vite.demo.config.js",
-		"copy:common": "cp -R ../common ./src/lib",
-		"package": "svelte-package --input src/lib",
+		"copy:types": "cp src/lib/index.d.ts dist/index.d.ts",
+		"package": "svelte-package --preserve-output true",
 		"preview": "vite preview",
 		"publish": "npm publish",
 		"lint": "eslint ."

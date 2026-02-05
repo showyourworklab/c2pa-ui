@@ -1,12 +1,12 @@
-export default ModalProvenance;
-type ModalProvenance = SvelteComponent<{
+export default ProvenanceModal;
+type ProvenanceModal = SvelteComponent<{
     [x: string]: never;
 }, {
     [evt: string]: CustomEvent<any>;
 }, {}> & {
     $$bindings?: string;
 };
-declare const ModalProvenance: $$__sveltets_2_IsomorphicComponent<{
+declare const ProvenanceModal: $$__sveltets_2_IsomorphicComponent<{
     [x: string]: never;
 }, {
     [evt: string]: CustomEvent<any>;

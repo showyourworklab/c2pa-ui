@@ -1,12 +1,12 @@
-export default ToggleProvenance;
-type ToggleProvenance = SvelteComponent<{
+export default ProvenanceExpand;
+type ProvenanceExpand = SvelteComponent<{
     [x: string]: never;
 }, {
     [evt: string]: CustomEvent<any>;
 }, {}> & {
     $$bindings?: string;
 };
-declare const ToggleProvenance: $$__sveltets_2_IsomorphicComponent<{
+declare const ProvenanceExpand: $$__sveltets_2_IsomorphicComponent<{
     [x: string]: never;
 }, {
     [evt: string]: CustomEvent<any>;
