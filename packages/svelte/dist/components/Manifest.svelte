@@ -1,20 +1,24 @@
 <script>
 	import { getContext } from 'svelte';
-	import styles from '../common/css/Manifest.module.css'
-	import { joinClassNames } from '../common/helpers'
+	import styles from 'syw-common/css/Manifest.module.css'
+	import { joinClassNames } from 'syw-common/helpers'
 	import Collapse from './Collapse.svelte'
 	import ManifestPreview from './ManifestPreview.svelte'
 	import ManifestTable from './ManifestTable.svelte'
 
 	const { openManifests } = getContext('uiStoreContext');
 
-	export let manifest
+	const {
+		manifest = {}
+	} = $props()
 
-	$: open = manifest.id in $openManifests
+	const open = $derived(manifest.id in $openManifests)
 
-	$: classes = joinClassNames(
-		styles.Manifest,
-		open ? styles.Manifest_open : false,
+	const classes = $derived(
+		joinClassNames(
+			styles.Manifest,
+			open ? styles.Manifest_open : false,
+		)
 	)
 
 </script>

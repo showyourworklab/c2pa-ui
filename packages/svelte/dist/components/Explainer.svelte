@@ -1,6 +1,6 @@
 <script>
 	import { getContext } from 'svelte';
-	import styles from '../common/css/Explainer.module.css'
+	import styles from 'syw-common/css/Explainer.module.css'
 	import Collapse from './Collapse.svelte'
 
 	const { locale, getText } = getContext('i18nStoreContext');
@@ -27,7 +27,7 @@
 			<button
 				class={styles.ExplainerClose}
 				aria-pressed={$isExplainerOpen}
-				on:click={onCloseClick}
+				onclick={onCloseClick}
 			>
 				{getText($locale, 'toggle', 'explain', 'close')}
 			</button>

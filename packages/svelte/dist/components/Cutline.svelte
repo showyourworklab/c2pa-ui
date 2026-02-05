@@ -1,7 +1,7 @@
 <script>
-	import styles from '../common/css/Cutline.module.css'
-	import ToggleProvenance from './ToggleProvenance.svelte'
-	import ToggleExplainer from './ToggleExplainer.svelte'
+	import styles from 'syw-common/css/Cutline.module.css'
+	import ProvenanceToggle from './ProvenanceToggle.svelte'
+	import ExplainerToggle from './ExplainerToggle.svelte'
 </script>
 
 <div
@@ -10,7 +10,7 @@
 	<div
 		class={styles.CutlineToggles}
 	>
-		<ToggleProvenance />
-		<ToggleExplainer />
+		<ProvenanceToggle />
+		<ExplainerToggle />
 	</div>
 </div>

@@ -1,7 +1,5 @@
 <script>
 	import { onMount, setContext } from 'svelte'
-	import wasmSrc from 'c2pa/dist/assets/wasm/toolkit_bg.wasm?url'
-	import workerSrc from 'c2pa/dist/c2pa.worker.min.js?url'
 	import 'syw-common/css/globals.css'
 	import styles from 'syw-common/css/App.module.css'
 	import { joinClassNames } from 'syw-common/helpers'

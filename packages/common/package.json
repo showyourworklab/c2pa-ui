@@ -4,10 +4,18 @@
   "license": "MIT",
   "private": true,
   "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./constants": "./constants/index.js",
+    "./constants/*": "./constants/*",
+    "./helpers": "./helpers/index.js",
+    "./helpers/*": "./helpers/*",
+    "./css": "./css/index.css",
+    "./css/*": "./css/*"
+  },
   "scripts": {
     "publish": "npm publish"
   },
   "dependencies": {
-    "c2pa": "^0.30.9"
   }
 }

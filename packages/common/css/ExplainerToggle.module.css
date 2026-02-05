@@ -1,4 +1,4 @@
-.App button.ExplainerToggle {
+button.ExplainerToggle {
 	font-size: var(--syw-text-xs);
 	font-weight: var(--syw-font-weight-bold);
 }

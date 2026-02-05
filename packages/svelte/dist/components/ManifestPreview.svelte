@@ -1,18 +1,19 @@
 <script>
 	import { getContext } from 'svelte';
-	import styles from '../common/css/Manifest.module.css'
-	import { MANIFEST_PREVIEW_TITLE_KEYS } from '../common/constants'
-	import { handleA11yClick } from '../common/helpers'
-	import { getDateString } from '../common/helpers/i18n'
+	import styles from 'syw-common/css/Manifest.module.css'
+	import { MANIFEST_PREVIEW_TITLE_KEYS } from 'syw-common/constants'
+	import { handleA11yClick } from 'syw-common/helpers'
+	import { getDateString } from 'syw-common/helpers/i18n'
 
-	export let open
-	export let manifest
+	const {
+		open,
+		manifest
+	} = $props()
 
 	const { locale } = getContext('i18nStoreContext');
-	const { openManifest, closeManifest } = getContext('uiStoreContext');
-
-	// const thumbnailUrl = manifest ? useThumbnailUrl(manifest?.thumbnail ?? undefined) : null
-	const thumbnailUrl = manifest?.thumbnail?.getUrl()?.url
+	const {
+		openManifest, closeManifest, updateComparePosition, addCompareImage, removeCompareImage
+	} = getContext('uiStoreContext');
 
 	const handleClick = (event => {
 		if(open) {
@@ -26,6 +27,16 @@
 		handleA11yClick(event, handleClick)
 	}
 
+	const handleThumbnailMouseMove = event => {
+		updateComparePosition(event)
+	}
+	const handleThumbnailMouseEnter = event => {
+		addCompareImage(manifest?.thumbnail, event)
+	}
+	const handleThumbnailMouseLeave = event => {
+		removeCompareImage(event)
+	}
+
 </script>
 
 <div
@@ -33,8 +44,8 @@
 	tabindex={0}
 	aria-pressed={open}
 	class={styles.ManifestPreview}
-	on:click={handleClick}
-	on:keydown={handleKeyDown}
+	onclick={handleClick}
+	onkeydown={handleKeyDown}
 >
 	<div
 		class={`${styles.ManifestPreviewCell} ${styles.ManifestPreviewCell_issuer}`}
@@ -49,10 +60,15 @@
 		<span>{getDateString($locale, manifest?.timestamp) ?? ''}</span>
 	</div>
 	<div
+		role='button'
+		tabindex={0}
 		class={`${styles.ManifestPreviewCell} ${styles.ManifestPreviewCell_thumb}`}
+		onmousemove={handleThumbnailMouseMove}
+		onmouseenter={handleThumbnailMouseEnter}
+		onmouseleave={handleThumbnailMouseLeave}
 	>
 		<img
-			src={thumbnailUrl}
+			src={manifest?.thumbnail}
 			alt=''
 		/>
 	</div>

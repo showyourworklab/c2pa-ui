@@ -1,16 +1,3 @@
-// import 'syw-common/css/globals.css'
-// import 'syw-common/css/App.module.css'
-// import 'syw-common/css/Caption.module.css'
-// import 'syw-common/css/Cutline.module.css'
-// import 'syw-common/css/Explainer.module.css'
-// import 'syw-common/css/Figure.module.css'
-// import 'syw-common/css/Image.module.css'
-// import 'syw-common/css/Manifest.module.css'
-// import 'syw-common/css/Modal.module.css'
-// import 'syw-common/css/ModalProvenance.module.css'
-// import 'syw-common/css/ToggleExplainer.module.css'
-// import 'syw-common/css/ToggleProvenance.module.css'
-
 export { default as App } from './components/App.svelte';
 export { default as Caption } from './components/Caption.svelte';
 export { default as Collapse } from './components/Collapse.svelte';

@@ -1,6 +1,6 @@
 <script>
 	import { getContext } from 'svelte';
-	import styles from '../common/css/ToggleProvenance.module.css'
+	import styles from 'syw-common/css/ProvenanceToggle.module.css'
 
 	const { locale, getText } = getContext('i18nStoreContext');
 	const { isProvenanceOpen, openProvenance, closeProvenance } = getContext('uiStoreContext');
@@ -17,8 +17,8 @@
 
 <button
 	aria-pressed={true}
-	class={styles.ToggleProvenance}
-	on:click={handleClick}
+	class={styles.ProvenanceToggle}
+	onclick={handleClick}
 >
 	{$isProvenanceOpen ? getText($locale, 'toggle', 'provenance') : getText($locale, 'toggle', 'provenance')}
 </button>
