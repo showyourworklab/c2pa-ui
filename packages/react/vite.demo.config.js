@@ -1,4 +1,4 @@
-import { resolve } from 'path'
+// import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
@@ -8,24 +8,21 @@ export default defineConfig({
 		? '/syw/react/'
 		: '',
 	resolve: {
+		fs: false,
+		path: false,
 		alias: {
-			'$src': resolve(__dirname, 'src')
+			// '$src': resolve(__dirname, 'src'),
+			// '$common': resolve(__dirname, '../common'),
+			'$src': `${process.cwd()}/src`,
+			'$common': `${process.cwd()}/../common`,
 		},
 	},
 	build: {
-		outDir: resolve(__dirname, '../../public/react'),
-		rollupOptions: {
-			input: {
-				main: resolve(__dirname, 'index.html'),
-				// article: resolve(__dirname, 'article/index.html')
-			},
-			output: {
-				globals: {
-					react: 'React',
-					'react-dom': 'ReactDOM',
-				},
-			},
-		}
+		// outDir: resolve(__dirname, '../../public/react'),
+		outDir: `${process.cwd()}/../../public/react`,
+		// rollupOptions: {
+		// 	external: ['react'],
+		// }
 	},
 	esbuild: {
 		loader: 'jsx',

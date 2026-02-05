@@ -13,7 +13,6 @@
 			open ? styles.Collapse_open : false
 		)
 	)
-
 </script>
 
 <div

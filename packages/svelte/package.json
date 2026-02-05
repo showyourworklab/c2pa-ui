@@ -33,8 +33,13 @@
 		"copy:types": "cp src/lib/index.d.ts dist/index.d.ts",
 		"package": "svelte-package --preserve-output true",
 		"preview": "vite preview",
-		"publish": "npm publish",
+		"publish": "npm publish --access=public",
 		"lint": "eslint ."
+	},
+	"dependencies": {
+		"@sveltejs/adapter-static": "^3.0.1",
+		"c2pa": "^0.21.0",
+		"syw-common": "^0.0.1"
 	},
 	"devDependencies": {
 		"@contentauth/c2pa-web": "^0.5.7",
@@ -47,7 +52,6 @@
 		"@types/eslint": "^8.56.7",
 		"eslint": "^9.0.0",
 		"eslint-plugin-svelte": "^2.36.0",
-		"globals": "^15.0.0",
 		"publint": "^0.1.9",
 		"sass": "^1.89.2",
 		"svelte-preprocess": "^6.0.3",
@@ -58,6 +62,5 @@
 	},
 	"peerDependencies": {
 		"svelte": "^5.34.1"
-	},
-	"gitHead": "a0a7c93b5414c3e0a91e4d14b4a967daaa2fc938"
+	}
 }

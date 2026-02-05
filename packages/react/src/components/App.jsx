@@ -31,7 +31,7 @@ function App({
 			styles.App,
 			styles[`App_${variant}`],
 			isHoverImage ? styles.App_hovered : false,
-			isOpenProvenance ? styles.App_active : false
+			isOpenProvenance ? styles.App_active : false,
 		)
 	, [variant, isHoverImage, isOpenProvenance])
 
@@ -58,11 +58,6 @@ function App({
 	useEffect(() => {
 		eventHandler.current = onEvent
 	}, [eventHandler, onEvent])
-
-	// useEffect(() => {
-	// 	const time = new Date();
-	// 	if(onProvenanceToggle) onProvenanceToggle(isOpenProvenance, ref.current, time)
-	// }, [isOpenProvenance, ref])
 
 	return (
 		<div

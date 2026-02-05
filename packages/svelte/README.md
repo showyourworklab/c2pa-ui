@@ -1,1 +1,1 @@
-# Svelte `@syw/svelte`
+# Show Your Work — Svelte (`syw-svelte`)

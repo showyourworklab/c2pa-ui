@@ -31,7 +31,6 @@
 			handleA11yClick(event, openProvenance)
 		}
 	}
-
 </script>
 
 <div

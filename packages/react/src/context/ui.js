@@ -2,8 +2,8 @@ import { createContext, useContext } from 'react'
 import { VARIANT_DEFAULT } from 'syw-common/constants';
 
 const UiContext = createContext({
-	elem: null,
 	variant: VARIANT_DEFAULT,
+	elem: null,
 	isHoverImage: false,
 	isShowProvenance: false,
 	isShowExplainer: false,
