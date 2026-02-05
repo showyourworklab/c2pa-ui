@@ -1,12 +1,12 @@
 <script lang="ts">
-	// import styles from 'syw-common/css/Map.module.css'
+	import { classNames } from 'syw-common/helpers'
 
 	// export const location = {}
 	// console.log(location)
 </script>
 
 <div
-	class='Map'
+	class={classNames('Map')}
 >
 	
 </div>

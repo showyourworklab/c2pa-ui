@@ -1,5 +1,5 @@
 <script>
-	// import styles from 'syw-common/css/Manifest.module.css'
+	import { classNames } from 'syw-common/helpers'
 	import { MANIFEST_KEYS } from 'syw-common/constants'
 	import ManifestTableRow from './ManifestTableRow.svelte'
 
@@ -9,7 +9,7 @@
 </script>
 
 <ul
-	class='ManifestTable'
+	class={classNames('ManifestTable')}
 >
 	{#each MANIFEST_KEYS as key}
 		{#if manifest[key]}

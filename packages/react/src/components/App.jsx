@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useRef } from 'react'
 import 'syw-common/css/styles.css'
-// import styles from 'syw-common/css/App.module.css'
 import { classNames } from 'syw-common/helpers'
 import { prepareManifest } from 'syw-common/helpers/c2pa'
 import { useDataContext } from '$src/context/data'

@@ -1,6 +1,6 @@
 {
 	"name": "syw-react",
-	"version": "0.0.8",
+	"version": "0.0.13",
 	"description": "",
 	"author": "Show Your Work Lab",
 	"license": "MIT",
@@ -12,7 +12,8 @@
 		".": {
 			"import": "./dist/index.es.js",
 			"require": "./dist/index.umd.js"
-		}
+		},
+		"./styles.css": "./dist/styles.css"
 	},
 	"files": [
 		"dist/",
@@ -28,18 +29,17 @@
 		"build:release": "rushx build",
 		"serve": "vite preview --port 8080",
 		"predeploy": "npm run build",
-		"deploy": "gh-pages -d ./public",
-		"publish": "npm publish"
+		"deploy": "gh-pages -d ./public"
 	},
 	"dependencies": {
 		"@contentauth/c2pa-web": "^0.5.7",
 		"@radix-ui/react-dialog": "^1.1.14",
 		"@radix-ui/react-visually-hidden": "^1.2.3",
-		"react-collapsed": "^4.1.2",
-		"syw-docs": "^0.0.7"
+		"react-collapsed": "^4.1.2"
 	},
 	"devDependencies": {
 		"@vitejs/plugin-react": "^1.1.0",
+		"baseline-browser-mapping": "^2.9.19",
 		"gh-pages": "^6.1.1",
 		"postcss": "~8.4.12",
 		"postcss-nesting": "^10.0.2",

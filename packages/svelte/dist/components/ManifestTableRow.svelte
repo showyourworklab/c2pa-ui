@@ -1,6 +1,6 @@
 <script>
 	import { getContext } from 'svelte';
-	// import styles from 'syw-common/css/Manifest.module.css'
+	import { classNames } from 'syw-common/helpers'
 	import { getDateString } from 'syw-common/helpers/i18n'
     import Map from './Map.svelte';
 
@@ -25,15 +25,15 @@
 </script>
 
 <li
-	class='ManifestTableRow'
+	class={classNames('ManifestTableRow')}
 >
 	<div
-		class='ManifestTableRowLabel'
+		class={classNames('ManifestTableRowLabel')}
 	>
 		{type ? getText($locale, type) : ''}
 	</div>
 	<div
-		class='ManifestTableRowValue'
+		class={classNames('ManifestTableRowValue')}
 	>
 		{#if type === 'location'}
 			<Map

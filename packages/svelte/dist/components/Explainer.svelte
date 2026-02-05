@@ -1,6 +1,6 @@
 <script>
 	import { getContext } from 'svelte';
-	// import styles from 'syw-common/css/Explainer.module.css'
+	import { classNames } from 'syw-common/helpers'
 	import Collapse from './Collapse.svelte'
 
 	const { locale, getText } = getContext('i18nStoreContext');
@@ -16,16 +16,16 @@
 </script>
 
 <div
-	class='Explainer'
+	class={classNames('Explainer')}
 >
 	<Collapse
 		open={$isExplainerOpen}
 	>
 		<div
-			class='ExplainerInner'
+			class={classNames('ExplainerInner')}
 		>
 			<button
-				class='ExplainerClose'
+				class={classNames('ExplainerClose')}
 				aria-pressed={$isExplainerOpen}
 				onclick={onCloseClick}
 			>
@@ -44,7 +44,7 @@
 			</div>
 			<p>Suspendisse a neque nulla. Cras sagittis erat sed elit tristique, a efficitur ante malesuada. Quisque dapibus pharetra dictum.</p>
 			<div
-				class='ExplainerMore'
+				class={classNames('ExplainerMore')}
 			>
 				{getText($locale, 'explainer', 'methods', 'pre')}
 				<a

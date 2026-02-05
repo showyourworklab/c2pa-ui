@@ -1,8 +1,9 @@
 import React, { useRef, useState } from 'react'
+import { VARIANT_DEFAULT } from 'syw-common/constants'
 import { UiContext } from '/src/context/ui'
 
 const UiProvider = ({
-	variant,
+	variant = VARIANT_DEFAULT,
 	children
 }) => {
 	const [elem, setElem] = useState(null)
