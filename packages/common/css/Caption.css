@@ -1,0 +1,58 @@
+/* Caption */
+.Syw-Caption {
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: var(--syw-space-3);
+	width: calc(100% - var(--syw-space-8));
+	color: var(--syw-color-secondary-dark);
+	border: 1px solid transparent;
+	position: relative;
+	pointer-events: all;
+	line-height: 1.3em;
+	cursor: text;
+	transition: all 200ms ease;
+}
+.Syw-Caption::before {
+	content: "";
+	display: block;
+	width: 1px;
+	z-index: 2;
+	position: absolute;
+	left: calc(var(--syw-space-3) - 1.5px);
+	top: calc(var(--syw-space-4) * -1);
+	height: 0;
+	background-color: var(--syw-color-secondary-dark);
+	border-color: var(--syw-color-secondary-light);
+	border-style: solid;
+	border-width: 0 1px;
+	transition: all 200ms ease;
+}
+/* Caption > Active */
+.Syw-App_active.Syw-App_expand .Syw-Caption {
+	color: var(--syw-color-secondary);
+	padding-bottom: var(--syw-space-3);
+}
+/* Caption > Active > Expand */
+.Syw-App_active.Syw-App_expand .Syw-Caption::before {
+	height: calc(100% + var(--syw-space-9) + 2px);
+	background-color: var(--syw-color-primary);
+}
+.Syw-App_active.Syw-App_expand .Syw-Caption::after {
+	opacity: 1;
+}
+/* Caption > Inner */
+.Syw-CaptionInner {
+	transition: all 200ms ease;
+}
+/* Caption > Inner > Active > Expand */
+.Syw-App_active.Syw-App_expand .Syw-CaptionInner {
+	transform: translateX(var(--syw-space-6));
+}
+/* Caption > Byline */
+.Syw-CaptionByline {
+	color: var(--syw-color-tertiary-dark);
+}
+/* Caption > Byline > Active > Expand */
+.Syw-App_active.Syw-App_expand .Syw-CaptionByline {
+	color: var(--syw-color-secondary-dark);
+}

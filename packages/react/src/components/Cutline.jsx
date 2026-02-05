@@ -1,4 +1,4 @@
-import styles from 'syw-common/css/Cutline.module.css'
+import { classNames } from 'syw-common/helpers'
 import ProvenanceToggle from './ProvenanceToggle'
 import ExplainerToggle from './ExplainerToggle'
 
@@ -8,10 +8,10 @@ const Cutline = ({
 }) => {
 	return (
 		<div
-			className={styles.Cutline}
+			className={classNames('Cutline')}
 		>
 			<div
-				className={styles.CutlineToggles}
+				className={classNames('CutlineToggles')}
 			>
 				<ProvenanceToggle />
 				<ExplainerToggle />

@@ -1,0 +1,57 @@
+/* App */
+.Syw-App {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	/* margin: 0 calc(-1 * var(--syw-space-3)); */
+	padding: var(--syw-space-3);
+	background-color: var(--syw-color-secondary);
+	border-radius: var(--syw-radius-lg);
+	font-family: var(--syw-font-primary);
+	font-weight: var(--syw-font-weight-normal);
+	font-size: var(--syw-text-base);
+	font-optical-sizing: auto;
+	font-style: normal;
+	transition: all 200ms ease;
+}
+.Syw-App * {
+	box-sizing: border-box;
+}
+/* App > Links */
+.Syw-App a {
+	color: var(--syw-color-primary);
+}
+/* App > Buttons */
+.Syw-App button {
+	border: none;
+	margin: 0;
+	padding: 0;
+	width: auto;
+	overflow: visible;
+	background: transparent;
+	color: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	font-family: inherit;
+	font-weight: inherit;
+	line-height: normal;
+	-webkit-font-smoothing: inherit;
+	-moz-osx-font-smoothing: inherit;
+	-webkit-appearance: none;
+	appearance: none;
+	cursor: pointer;
+}
+/* App > Hovered */
+.Syw-App.Syw-App_hovered {
+	/* transform: translate(0, 0); */
+}
+/* App > Active */
+/* App > Active > Expand */
+.Syw-App.Syw-App_active.Syw-App_expand {
+	background-color: var(--syw-color-primary);
+}
+/* App > Modal */
+/* App > Active > Modal */
+.Syw-App.Syw-App_active.Syw-App_modal {
+	/* background-color: inherit; */
+}

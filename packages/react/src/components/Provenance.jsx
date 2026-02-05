@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react'
-import styles from 'syw-common/css/Provenance.module.css'
-import { getVerifyUrl } from 'syw-common/helpers'
+import { classNames, getVerifyUrl } from 'syw-common/helpers'
 import { useI18nContext } from '$src/context/i18n'
 import { useDataContext } from '$src/context/data'
 import { useUiContext } from '$src/context/ui'
@@ -25,10 +24,10 @@ function Provenance() {
 	return (
 		<div
 			ref={ref}
-			className={styles.Provenance}
+			className={classNames('Provenance')}
 		>
 			<ul
-				className={styles.ProvenanceList}
+				className={classNames('ProvenanceList')}
 			>
 				{manifests ? manifests.map((manifest, index) =>
 					<Manifest
@@ -38,7 +37,7 @@ function Provenance() {
 					/>
 				) : null}
 			</ul>
-			<div className={styles.ProvenanceVerify}>
+			<div className={classNames('ProvenanceVerify')}>
 				{getText('verify', 'pre')}&nbsp;
 				<a
 					href={verifyUrl}

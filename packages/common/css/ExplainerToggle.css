@@ -1,0 +1,30 @@
+button.Syw-ExplainerToggle {
+	font-size: var(--syw-text-xs);
+	font-weight: var(--syw-font-weight-bold);
+}
+/* Cutline > Toggle Explainer */
+.Syw-Cutline button.Syw-ExplainerToggle {
+	margin-left: var(--syw-space-2);
+	color: var(--syw-color-primary-light);
+}
+/* Cutline > Toggle Explainer > Hover */
+.Syw-Cutline button.Syw-ExplainerToggle:hover {
+	color: var(--syw-color-quaternary);
+}
+/* Cutline > Toggle Explainer > Pressed */
+.Syw-Cutline button.Syw-ExplainerToggle[aria-pressed="true"] {
+	opacity: 0;
+	pointer-events: none;
+}
+/* Cutline > Toggle Explainer > Active */
+.Syw-App_active .Syw-Cutline button.Syw-ExplainerToggle {
+	color: var(--syw-color-secondary-light);
+}
+/* Cutline > Toggle Explainer > Active > Hover */
+.Syw-App_active .Syw-Cutline button.Syw-ExplainerToggle:hover {
+	color: var(--syw-color-quaternary-light);
+}
+/* Modal > Toggle Explainer */
+.Syw-ModalContent button.Syw-ExplainerToggle {
+	color: var(--color-secondary);
+}

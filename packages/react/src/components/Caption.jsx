@@ -1,18 +1,18 @@
-import styles from 'syw-common/css/Caption.module.css'
+import { classNames } from 'syw-common/helpers'
 import { useDataContext } from '$src/context/data'
 
 const Caption = () => {
 	const { caption, byline } = useDataContext()
 	return caption || byline ? (
 		<figcaption
-			className={styles.Caption}
+			className={classNames('Caption')}
 		>
 			<div
-				className={styles.CaptionInner}
+				className={classNames('CaptionInner')}
 			>
 				{caption}&nbsp;
 				<em
-					className={styles.CaptionByline}
+					className={classNames('CaptionByline')}
 				>
 					{byline}
 				</em>

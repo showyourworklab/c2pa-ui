@@ -1,20 +1,20 @@
 <script>
 	import { getContext } from 'svelte';
-	import styles from 'syw-common/css/Caption.module.css'
+	import { classNames } from 'syw-common/helpers'
 	const { caption, byline } = getContext('dataStoreContext');
 </script>
 
 {#if $caption || $byline}
 	<!-- svelte-ignore a11y_figcaption_parent -->
 	<figcaption
-		class={styles.Caption}
+		class={classNames('Caption')}
 	>
 		<div
-			class={styles.CaptionInner}
+			class={classNames('CaptionInner')}
 		>
 			{$caption}&nbsp;
 			<em
-				class={styles.CaptionByline}
+				class={classNames('CaptionByline')}
 			>
 				{$byline}
 			</em>

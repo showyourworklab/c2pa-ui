@@ -1,4 +1,4 @@
-export const joinClassNames = (...classNames) => classNames.filter(c => c).join(' ')
+export const classNames = (...arr) => arr.filter(c => c).map(c => `Syw-${c}`).join(' ')
 
 export const handleA11yClick = (event, callback) => {
 	if(event.key === 'Enter' || event.key === ' ') {

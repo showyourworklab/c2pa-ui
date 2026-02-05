@@ -1,6 +1,4 @@
-import React from 'react'
-
-import styles from 'syw-common/css/Explainer.module.css'
+import { classNames } from 'syw-common/helpers'
 import { useI18nContext } from '$src/context/i18n'
 import { useUiContext } from '$src/context/ui'
 import Collapse from './Collapse'
@@ -16,16 +14,16 @@ const Explainer = () => {
 
 	return (
 		<div
-			className={styles.Explainer}
+			className={classNames('Explainer')}
 		>
 			<Collapse
 				open={isOpenExplainer}
 			>
 				<div
-					className={styles.ExplainerInner}
+					className={classNames('ExplainerInner')}
 				>
 					<button
-						className={styles.ExplainerClose}
+						className={classNames('ExplainerClose')}
 						aria-pressed={isOpenExplainer}
 						onClick={onCloseClick}
 					>
@@ -44,7 +42,7 @@ const Explainer = () => {
 					</div>
 					<p>Suspendisse a neque nulla. Cras sagittis erat sed elit tristique, a efficitur ante malesuada. Quisque dapibus pharetra dictum.</p>
 					<div
-						className={styles.ExplainerMore}
+						className={classNames('ExplainerMore')}
 					>
 						{getText('explainer', 'methods', 'pre')}&nbsp;
 						<a

@@ -1,4 +1,4 @@
-import styles from 'syw-common/css/ExplainerToggle.module.css'
+import { classNames } from 'syw-common/helpers'
 import { useUiContext, useI18nContext } from '$src/context'
 
 const ExplainerToggle = () => {
@@ -26,7 +26,7 @@ const ExplainerToggle = () => {
 
 	return (
 		<button
-			className={styles.ExplainerToggle}
+			className={classNames('ExplainerToggle')}
 			aria-pressed={isOpenExplainer}
 			onClick={onClick}
 		>

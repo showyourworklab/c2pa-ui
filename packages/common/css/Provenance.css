@@ -1,0 +1,19 @@
+/* Provenance */
+.Syw-Provenance {
+
+}
+/* Provenance > List */
+.Syw-ProvenanceList {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+/* Provenance > Verify */
+.Syw-ProvenanceVerify {
+	margin-top: var(--syw-space-3);
+	color: var(--syw-color-secondary);
+	font-size: var(--syw-text-xs);
+}
+.Syw-ProvenanceVerify > a {
+	color: var(--syw-color-secondary) !important;
+}

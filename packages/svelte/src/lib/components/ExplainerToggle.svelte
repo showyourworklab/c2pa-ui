@@ -1,6 +1,6 @@
 <script>
 	import { getContext } from 'svelte';
-	import styles from 'syw-common/css/ExplainerToggle.module.css'
+	import { classNames } from 'syw-common/helpers'
 
 	const { locale, getText } = getContext('i18nStoreContext');
 	const { isExplainerOpen, openExplainer, closeExplainer } = getContext('uiStoreContext');
@@ -16,7 +16,7 @@
 
 <button
 	aria-pressed={$isExplainerOpen}
-	class={styles.ExplainerToggle}
+	class={classNames('ExplainerToggle')}
 	onclick={handleClick}
 >
 	{getText($locale, 'toggle', 'explain')}

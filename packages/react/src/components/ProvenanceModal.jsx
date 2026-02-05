@@ -1,4 +1,4 @@
-import styles from 'syw-common/css/ProvenanceModal.module.css'
+import { classNames } from 'syw-common/helpers'
 import { useUiContext } from '$src/context'
 import Modal from './Modal'
 import Provenance from './Provenance'
@@ -30,10 +30,10 @@ const ProvenanceModal = () => {
 			title="Image Origin"
 			description="Explore the provenance of this image"
 			onOpenChange={handleOpenChange}
-			className={styles.ProvenanceModal}
+			className={classNames('ProvenanceModal')}
 		>
 			<div
-				className={styles.ProvenanceModalExplainer}
+				className={classNames('ProvenanceModalExplainer')}
 			>
 				{!isOpenExplainer ? <ExplainerToggle /> : null}
 				<Explainer />

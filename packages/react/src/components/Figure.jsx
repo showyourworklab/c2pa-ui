@@ -1,11 +1,11 @@
-import styles from 'syw-common/css/Figure.module.css'
+import { classNames } from 'syw-common/helpers'
 
 const Figure = ({
 	children
 }) => {
 	return (
 		<figure
-			className={styles.Figure}
+			className={classNames('Figure')}
 		>
 			{children}
 		</figure>
