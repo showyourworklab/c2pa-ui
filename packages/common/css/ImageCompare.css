@@ -1,5 +1,5 @@
 /* Image > Compare */
-.ImageCompare {
+.Syw-ImageCompare {
 	position: fixed;
 	z-index: 2;
 	display: flex;
@@ -15,7 +15,7 @@
 	--syw-offset: calc(-100% - var(--syw-space-10));
 	transform: translate(var(--syw-offset), calc(-50% + 0px));
 }
-.ImageCompare img {
+.Syw-ImageCompare img {
 	width: 320px;
 	height: auto;
 	margin: auto;

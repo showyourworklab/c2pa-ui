@@ -1,9 +1,9 @@
 /* Cutline */
-.Cutline {
+.Syw-Cutline {
 	margin: var(--syw-space-2) 0 0 0;
 }
 /* Cutline > Toggles */
-.CutlineToggles {
+.Syw-CutlineToggles {
 	display: flex;
 	align-content: center;
 }

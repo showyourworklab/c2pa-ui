@@ -3,7 +3,7 @@
 	// import 'syw-common/css/globals.css'
 	import 'syw-common/css/styles.css'
 	// import styles from 'syw-common/css/App.module.css'
-	import { joinClassNames } from 'syw-common/helpers'
+	import { classNames } from 'syw-common/helpers'
 	import { prepareManifest } from 'syw-common/helpers/c2pa'
 	import { VARIANT_DEFAULT } from 'syw-common/constants'
 	import createC2paStore from '$lib/store/c2pa.js'
@@ -51,7 +51,7 @@
 	} = uiStore
 
 	const classes = $derived(
-		joinClassNames(
+		classNames(
 			'App',
 			`App_${variant}`,
 			$isHoverImage ? 'App_hovered' : false,

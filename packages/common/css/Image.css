@@ -1,5 +1,5 @@
 /* Image */
-.Image {
+.Syw-Image {
 	display: flex;
 	cursor: pointer;
 	position: relative;
@@ -8,14 +8,14 @@
 	transition: all 200ms ease-in-out;
 }
 /* Image > Hovered */
-.App_hovered .Image::before {
+.Syw-App_hovered .Syw-Image::before {
 	opacity: 1;
 }
 /* Image > Engaged */
-.App_engaged .Image::before {
+.Syw-App_engaged .Syw-Image::before {
 	border-color: var(--syw-color-secondary);
 }
 /* Image > IMG */
-.ImageImg {
+.Syw-ImageImg {
 	width: 100%;
 }

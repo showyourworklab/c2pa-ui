@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import styles from 'syw-common/css/Manifest.module.css'
+import { classNames } from 'syw-common/helpers'
 import { getDateString } from 'syw-common/helpers/i18n'
 import { useI18nContext } from '$src/context/i18n'
 
@@ -21,15 +21,15 @@ function ManifestTableRow({ type, value }) {
 
 	return (
 		<li
-			className={styles.ManifestTableRow}
+			className={classNames('ManifestTableRow')}
 		>
 			<div
-				className={styles.ManifestTableRowLabel}
+				className={classNames('ManifestTableRowLabel')}
 			>
 				{getText(type)}
 			</div>
 			<div
-				className={styles.ManifestTableRowValue}
+				className={classNames('ManifestTableRowValue')}
 			>
 				{formattedValue}
 			</div>

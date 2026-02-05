@@ -1,7 +1,6 @@
 import { useMemo } from 'react'
 import { useCollapse } from 'react-collapsed'
-import styles from 'syw-common/css/Collapse.module.css'
-import { joinClassNames } from 'syw-common/helpers'
+import { classNames } from 'syw-common/helpers'
 
 const Collapse = ({
 	open = false,
@@ -13,9 +12,9 @@ const Collapse = ({
 	})
 
 	const className = useMemo(() =>
-		joinClassNames(
-			styles.Collapse,
-			open ? styles.Collapse_open : false,
+		classNames(
+			'Collapse',
+			open ? 'Collapse_open' : false,
 		)
 	, [open])
 
@@ -26,7 +25,7 @@ const Collapse = ({
 			aria-labelledby={null}
 			id={null}
 		>
-			<div className={styles.CollapseInner}>
+			<div className={classNames('CollapseInner')}>
 				{children}
 			</div>
 		</div>

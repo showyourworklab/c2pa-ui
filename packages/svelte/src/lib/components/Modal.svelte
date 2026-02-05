@@ -1,5 +1,5 @@
 <script>
-	import { joinClassNames } from 'syw-common/helpers'
+	import { classNames } from 'syw-common/helpers'
 	import { openModal, closeModal } from 'syw-common/helpers/modal'
 	// import styles from 'syw-common/css/Modal.module.css'
 	let {
@@ -32,7 +32,7 @@
 </script>
 
 <div
-	class={joinClassNames(
+	class={classNames(
 		'Modal',
 		open ? 'Modal_open' : null,
 		className
@@ -40,7 +40,7 @@
 	bind:this={elemRef}
 >
 	<div
-		class='ModalOverlay'
+		class={classNames('ModalOverlay')}
 		aria-hidden="true"
 		onclick={onClose}
 	></div>
@@ -49,14 +49,14 @@
 		aria-modal="true"
 		aria-labelledby={labelId}
 		aria-describedby={describeId}
-		class='ModalContent'
+		class={classNames('ModalContent')}
 	>
 		<div
-			class='ModalContentBox'
+			class={classNames('ModalContentBox')}
 		>
 			{#if title}
 				<hgroup
-					class='ModalContentHeader'
+					class={classNames('ModalContentHeader')}
 				>
 					{#if title}
 						<h2
@@ -68,7 +68,7 @@
 					{#if description}
 						<p
 							id={describeId}
-							class='syw-hidden'
+							class={classNames('syw-hidden')}
 						>
 							{description}
 						</p>
@@ -78,7 +78,7 @@
 			{@render children?.()}
 		</div>
 		<button
-			class='ModalClose'
+			class={classNames('ModalClose')}
 			aria-label="Close"
 			onclick={onClose}
 		></button>

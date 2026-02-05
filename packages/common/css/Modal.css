@@ -1,5 +1,5 @@
 /* Modal */
-.Modal {
+.Syw-Modal {
 	width: 100%;
 	height: 100%;
 	position: fixed;
@@ -12,13 +12,13 @@
 	visibility: hidden;
 	pointer-events: none;
 }
-.Modal.Modal_open {
+.Syw-Modal.Syw-Modal_open {
 	opacity: 1;
 	visibility: visible;
 	pointer-events: all;
 }
 /* Modal > Overlay */
-.ModalOverlay {
+.Syw-ModalOverlay {
 	width: 100%;
 	height: 100%;
 	position: absolute;
@@ -28,7 +28,7 @@
 	background-color: var(--syw-color-primary-translucent);
 }
 /* Modal > Content */
-.ModalContent {
+.Syw-ModalContent {
 	width: 40rem;
 	display: flex;
 	margin: auto;
@@ -36,10 +36,11 @@
 	z-index: 10002;
 }
 /* Modal > Content > Box */
-.ModalContentBox {
+.Syw-ModalContentBox {
 	width: 100%;
 	max-width: calc(100vw - var(--syw-space-4));
 	max-height: calc(100vh - var(--syw-space-4));
+	padding: var(--syw-space-3) var(--syw-space-4) var(--syw-space-4);
 	background-color: var(--syw-color-primary);
 	border-radius: var(--syw-radius-lg);
 	border-color: var(--syw-color-tertiary);
@@ -51,17 +52,17 @@
 	position: relative;
 }
 /* Modal > Content > Header */
-hgroup.ModalContentHeader {
+hgroup.Syw-ModalContentHeader {
 	margin: 0 0 var(--syw-space-2) 0 ;
 	font-family: inherit;
 	color: var(--syw-color-secondary);
 }
-hgroup.ModalContentHeader h2 {
+hgroup.Syw-ModalContentHeader h2 {
 	margin: 0;
 	font-size: var(--syw-text-lg);
 }
 /* Modal > Close */
-button.ModalClose {
+button.Syw-ModalClose {
 	width: var(--syw-space-4);
 	height: var(--syw-space-4);
 	display: block;

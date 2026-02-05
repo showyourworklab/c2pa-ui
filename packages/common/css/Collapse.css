@@ -1,5 +1,5 @@
 /* Collapse */
-.Collapse {
+.Syw-Collapse {
 	opacity: 0;
 	transition-property: opacity, height;
 	transition-duration: 200ms;
@@ -7,10 +7,10 @@
 	overflow: hidden;
 }
 /* Collapse > Open */
-.Collapse.Collapse_open {
+.Syw-Collapse.Syw-Collapse_open {
 	opacity: 1;
 }
 /* Collapse > Inner */
-.CollapseInner {
+.Syw-CollapseInner {
 	transform: translate(0, 0);
 }

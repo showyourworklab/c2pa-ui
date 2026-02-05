@@ -1,6 +1,6 @@
 <script>
 	import { getContext } from 'svelte'
-	// import styles from 'syw-common/css/ProvenanceModal.module.css'
+	import { classNames } from 'syw-common/helpers'
 	import Modal from './Modal.svelte'
 	import Provenance from './Provenance.svelte'
 	import Explainer from './Explainer.svelte'
@@ -34,7 +34,7 @@
 	className='ProvenanceModal'
 >
 	<div
-		class='ProvenanceModalExplainer'
+		class={classNames('ProvenanceModalExplainer')}
 	>
 		{#if $isExplainerOpen}
 			<ExplainerToggle />

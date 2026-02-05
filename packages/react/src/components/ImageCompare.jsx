@@ -1,4 +1,4 @@
-import styles from 'syw-common/css/ImageCompare.module.css'
+import { classNames } from 'syw-common/helpers'
 import { useUiContext } from '$src/context/ui'
 
 const ImageCompare = () => {
@@ -9,7 +9,7 @@ const ImageCompare = () => {
 
 	return (
 		<div
-			className={styles.ImageCompare}
+			className={classNames('ImageCompare')}
 			style={{
 				left: `${comparePosition?.clientX}px`,
 				top: `${comparePosition?.clientY}px`,
@@ -18,7 +18,7 @@ const ImageCompare = () => {
 			<img
 				src={compareImage}
 				alt={""}
-				className={styles.ImageCompareImg}
+				className={classNames('ImageCompareImg')}
 			/>
 		</div>
 	)

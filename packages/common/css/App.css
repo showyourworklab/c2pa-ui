@@ -1,5 +1,5 @@
 /* App */
-.App {
+.Syw-App {
 	display: flex;
 	flex-direction: column;
 	position: relative;
@@ -14,15 +14,15 @@
 	font-style: normal;
 	transition: all 200ms ease;
 }
-.App * {
+.Syw-App * {
 	box-sizing: border-box;
 }
 /* App > Links */
-.App a {
+.Syw-App a {
 	color: var(--syw-color-primary);
 }
 /* App > Buttons */
-.App button {
+.Syw-App button {
 	border: none;
 	margin: 0;
 	padding: 0;
@@ -42,16 +42,16 @@
 	cursor: pointer;
 }
 /* App > Hovered */
-.App.App_hovered {
+.Syw-App.Syw-App_hovered {
 	/* transform: translate(0, 0); */
 }
 /* App > Active */
 /* App > Active > Expand */
-.App.App_active.App_expand {
+.Syw-App.Syw-App_active.Syw-App_expand {
 	background-color: var(--syw-color-primary);
 }
 /* App > Modal */
 /* App > Active > Modal */
-.App.App_active.App_modal {
+.Syw-App.Syw-App_active.Syw-App_modal {
 	/* background-color: inherit; */
 }

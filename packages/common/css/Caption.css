@@ -1,5 +1,5 @@
 /* Caption */
-.Caption {
+.Syw-Caption {
 	padding-left: 0;
 	padding-right: 0;
 	padding-top: var(--syw-space-3);
@@ -12,7 +12,7 @@
 	cursor: text;
 	transition: all 200ms ease;
 }
-.Caption::before {
+.Syw-Caption::before {
 	content: "";
 	display: block;
 	width: 1px;
@@ -28,31 +28,31 @@
 	transition: all 200ms ease;
 }
 /* Caption > Active */
-.App_active.App_expand .Caption {
+.Syw-App_active.Syw-App_expand .Syw-Caption {
 	color: var(--syw-color-secondary);
 	padding-bottom: var(--syw-space-3);
 }
 /* Caption > Active > Expand */
-.App_active.App_expand .Caption::before {
+.Syw-App_active.Syw-App_expand .Syw-Caption::before {
 	height: calc(100% + var(--syw-space-9) + 2px);
 	background-color: var(--syw-color-primary);
 }
-.App_active.App_expand .Caption::after {
+.Syw-App_active.Syw-App_expand .Syw-Caption::after {
 	opacity: 1;
 }
 /* Caption > Inner */
-.CaptionInner {
+.Syw-CaptionInner {
 	transition: all 200ms ease;
 }
 /* Caption > Inner > Active > Expand */
-.App_active.App_expand .CaptionInner {
+.Syw-App_active.Syw-App_expand .Syw-CaptionInner {
 	transform: translateX(var(--syw-space-6));
 }
 /* Caption > Byline */
-.CaptionByline {
+.Syw-CaptionByline {
 	color: var(--syw-color-tertiary-dark);
 }
 /* Caption > Byline > Active > Expand */
-.App_active.App_expand .CaptionByline {
+.Syw-App_active.Syw-App_expand .Syw-CaptionByline {
 	color: var(--syw-color-secondary-dark);
 }

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import styles from 'syw-common/css/Manifest.module.css'
+import { classNames } from 'syw-common/helpers'
 import { useUiContext } from '$src/context/ui'
 import Collapse from './Collapse'
 import ManifestPreview from './ManifestPreview'
@@ -9,10 +9,12 @@ function Manifest({ manifest, previewRef }) {
 	const [open, setOpen] = useState(false)
 	const { isOpenProvenance, openManifests, openManifest, closeManifest, removeCompareImage } = useUiContext()
 
-	const className = useMemo(() => [
-		styles.Manifest,
-		open ? styles.Manifest_open : null
-	].filter(c => c).join(' '), [open])
+	const className = useMemo(() =>
+		classNames(
+			'Manifest',
+			open ? 'Manifest_open' : null
+		)
+	, [open])
 
 	// Handle click of manifest preview / header
 	const handleToggle = useCallback(event => {
@@ -36,7 +38,7 @@ function Manifest({ manifest, previewRef }) {
 			className={className}
 		>
 			<div
-				className={styles.ManifestRow}
+				className={classNames('ManifestRow')}
 			>
 				<ManifestPreview
 					manifest={manifest}
@@ -48,7 +50,7 @@ function Manifest({ manifest, previewRef }) {
 					open={open}
 				>
 					<div
-						className={styles.ManifestContent}
+						className={classNames('ManifestContent')}
 					>
 						<ManifestTable
 							manifest={manifest}

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef } from 'react'
-import 'syw-common/css/globals.css'
-import styles from 'syw-common/css/App.module.css'
-import { joinClassNames } from 'syw-common/helpers'
+import 'syw-common/css/styles.css'
+// import styles from 'syw-common/css/App.module.css'
+import { classNames } from 'syw-common/helpers'
 import { prepareManifest } from 'syw-common/helpers/c2pa'
 import { useDataContext } from '$src/context/data'
 import { useI18nContext } from '$src/context/i18n'
@@ -27,11 +27,11 @@ function App({
 	const { reader, provenance } = useC2pa(src)
 
 	const className = useMemo(() =>
-		joinClassNames(
-			styles.App,
-			styles[`App_${variant}`],
-			isHoverImage ? styles.App_hovered : false,
-			isOpenProvenance ? styles.App_active : false
+		classNames(
+			'App',
+			`App_${variant}`,
+			isHoverImage ? 'App_hovered' : false,
+			isOpenProvenance ? 'App_active' : false
 		)
 	, [variant, isHoverImage, isOpenProvenance])
 
@@ -80,7 +80,7 @@ function App({
 			{variant === 'expand' ?
 				<Collapse
 					open={isOpenProvenance}
-					className={styles.ProvenanceModal}
+					className={classNames('ProvenanceModal')}
 				>
 					<Provenance />
 				</Collapse>

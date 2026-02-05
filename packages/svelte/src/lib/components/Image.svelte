@@ -1,6 +1,6 @@
 <script>
 	import { getContext } from 'svelte'
-	// import styles from 'syw-common/css/Image.module.css'
+	import { classNames } from 'syw-common/helpers'
 	import { handleA11yClick } from 'syw-common/helpers'
 
 	const { src, alt } = getContext('dataStoreContext')
@@ -35,7 +35,7 @@
 </script>
 
 <div
-	class='Image'
+	class={classNames('Image')}
 	role="button"
 	tabindex="0"
 	onclick={handleClick}
@@ -46,6 +46,6 @@
 	<img
 		src={$src}
 		alt={$alt}
-		class='ImageImg'
+		class={classNames('ImageImg')}
 	/>
 </div>

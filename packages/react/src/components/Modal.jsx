@@ -1,6 +1,5 @@
 import { useEffect, useId, useRef } from 'react'
-import styles from 'syw-common/css/Modal.module.css'
-import { joinClassNames } from 'syw-common/helpers'
+import { classNames } from 'syw-common/helpers'
 import { openModal, closeModal } from 'syw-common/helpers/modal'
 
 const Modal = ({
@@ -33,14 +32,14 @@ const Modal = ({
 	return (
 		<div
 			ref={ref}
-			className={joinClassNames(
-				styles.Modal,
-				open ? styles.Modal_open : null,
+			className={classNames(
+				'Modal',
+				open ? 'Modal_open' : null,
 				className
 			)}
 		>
 			<div
-				className={styles.ModalOverlay}
+				className={classNames('ModalOverlay')}
 				onClick={onClose}
 			/>
 			<div
@@ -48,14 +47,14 @@ const Modal = ({
 				aria-modal="true"
 				aria-labelledby={labelId}
 				aria-describedby={describeId}
-				className={styles.ModalContent}
+				className={classNames('ModalContent')}
 			>
 				<div
-					className={styles.ModalContentBox}
+					className={classNames('ModalContentBox')}
 				>
 					{title ?
 						<hgroup
-							className={styles.ModalContentHeader}
+							className={classNames('ModalContentHeader')}
 						>
 							{title ?
 								<h2
@@ -78,7 +77,7 @@ const Modal = ({
 				</div>
 				<button
 					onClick={onClose}
-					className={styles.ModalClose}
+					className={classNames('ModalClose')}
 				/>
 			</div>
 		</div>

@@ -1,10 +1,10 @@
 /* Explainer */
-.App_expand .Explainer .CollapseInner {
+.Syw-App_expand .Syw-Explainer .Syw-CollapseInner {
 	padding-top: var(--syw-space-4);
 	padding-bottom: var(--syw-space-3);
 }
 /* Explainer > Inner */
-.ExplainerInner {
+.Syw-ExplainerInner {
 	position: relative;
 	padding: var(--syw-space-4);
 	font-size: var(--syw-text-sm);
@@ -17,32 +17,32 @@
 	border-width: 1px;
 	pointer-events: all;
 }
-.ExplainerInner p {
+.Syw-ExplainerInner p {
 	margin: 0 0 var(--syw-space-2) 0;
 }
-.ExplainerInner a {
+.Syw-ExplainerInner a {
 	color: var(--syw-color-quaternary);
 }
-.ExplainerInner strong {
+.Syw-ExplainerInner strong {
 	display: block;
 	padding-bottom: var(--syw-space-1);
 	font-size: var(--syw-text-xs);
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
 }
-.ExplainerInner p:last-of-type {
+.Syw-ExplainerInner p:last-of-type {
 	margin-bottom: 0;
 }
 /* Explainer > More */
-.ExplainerMore {
+.Syw-ExplainerMore {
 	margin-top: var(--syw-space-4);
 	font-weight: var(--syw-font-weight-bold);
 }
-.ExplainerMore a {
+.Syw-ExplainerMore a {
 	text-decoration: underline;
 }
 /* Explainer > Close */
-button.ExplainerClose {
+button.Syw-ExplainerClose {
 	position: absolute;
 	right: var(--syw-space-2);
 	top: var(--syw-space-2);

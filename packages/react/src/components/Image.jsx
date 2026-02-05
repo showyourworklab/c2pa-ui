@@ -1,6 +1,5 @@
 import { useCallback } from 'react'
-import styles from 'syw-common/css/Image.module.css'
-import { handleA11yClick } from 'syw-common/helpers'
+import { classNames, handleA11yClick } from 'syw-common/helpers'
 import { useDataContext } from '$src/context/data'
 import { useUiContext } from '$src/context/ui'
 
@@ -43,7 +42,7 @@ const Image = () => {
 
 	return (
 		<div
-			className={styles.Image}
+			className={classNames('Image')}
 			onClick={onClick}
 			onKeyDown={onKeyDown}
 			onMouseEnter={onMouseEnter}
@@ -53,7 +52,7 @@ const Image = () => {
 			<img
 				src={src}
 				alt={alt}
-				className={styles.ImageImg}
+				className={classNames('ImageImg')}
 			/>
 		</div>
 	)
