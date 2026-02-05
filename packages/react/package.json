@@ -1,6 +1,6 @@
 {
 	"name": "syw-react",
-	"version": "0.0.13",
+	"version": "0.0.16",
 	"description": "",
 	"author": "Show Your Work Lab",
 	"license": "MIT",
@@ -10,6 +10,7 @@
 	"main": "./dist/index.es.js",
 	"exports": {
 		".": {
+			"types": "./dist/index.d.ts",
 			"import": "./dist/index.es.js",
 			"require": "./dist/index.umd.js"
 		},
@@ -24,9 +25,10 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "npm run build:lib && npm run build:demo",
-		"build:lib": "vite build",
+		"build:lib": "vite build && npm run copy:types",
 		"build:demo": "vite build --config vite.demo.config.js",
 		"build:release": "rushx build",
+		"copy:types": "cp src/index.d.ts dist/index.d.ts",
 		"serve": "vite preview --port 8080",
 		"predeploy": "npm run build",
 		"deploy": "gh-pages -d ./public"

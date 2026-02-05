@@ -11,11 +11,11 @@ const Caption = () => {
 				className={classNames('CaptionInner')}
 			>
 				{caption}&nbsp;
-				<em
+				<div
 					className={classNames('CaptionByline')}
 				>
 					{byline}
-				</em>
+				</div>
 			</div>
 		</figcaption>
 	) : null
