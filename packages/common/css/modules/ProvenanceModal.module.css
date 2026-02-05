@@ -1,0 +1,13 @@
+/* Provenance > Modal > Content */
+.ProvenanceModal .ModalContent {
+	max-width: calc(100% - var(--syw-space-4));
+	max-height: calc(100% - var(--syw-space-4));
+}
+/* Provenance > Modal > >Content > Box */
+.ProvenanceModal .ModalContentBox {
+	padding: var(--syw-space-4);
+}
+/* Provenance > Modal > Explainer */
+.ProvenanceModal .ProvenanceModalExplainer {
+	margin-bottom: var(--syw-space-3);
+}

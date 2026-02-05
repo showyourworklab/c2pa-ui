@@ -1,6 +1,6 @@
 <script>
 	import { getContext } from 'svelte';
-	import styles from 'syw-common/css/ImageCompare.module.css'
+	// import styles from 'syw-common/css/ImageCompare.module.css'
 	const {
 		compareImage,
 		comparePosition
@@ -8,12 +8,12 @@
 </script>
 
 <div
-	class={styles.ImageCompare}
+	class='ImageCompare'
 	style={`left:${$comparePosition?.clientX}px;top:${$comparePosition?.clientY}px`}
 >
 	<img
 		src={$compareImage}
 		alt={""}
-		class={styles.ImageCompareImg}
+		class='ImageCompareImg'
 	/>
 </div>

@@ -1,6 +1,6 @@
 <script>
 	import { getContext } from 'svelte'
-	import styles from 'syw-common/css/Provenance.module.css'
+	// import styles from 'syw-common/css/Provenance.module.css'
 	import { getVerifyUrl } from 'syw-common/helpers'
 	import Collapse from './Collapse.svelte'
 	import Manifest from './Manifest.svelte'
@@ -14,16 +14,16 @@
 </script>
 
 <div
-	class={styles.Provenance}
+	class='Provenance'
 >
 	<Collapse
 		open={$isProvenanceOpen}
 	>
 		<div
-			class={styles.ProvenanceInner}
+			class='ProvenanceInner'
 		>
 			<ul
-				class={styles.ProvenanceList}
+				class='ProvenanceList'
 			>
 				{#each $manifests as manifest}
 					<Manifest
@@ -31,7 +31,7 @@
 					/>
 				{/each}
 			</ul>
-			<div class={styles.ProvenanceVerify}>
+			<div class='ProvenanceVerify'>
 				{getText($locale, 'verify', 'pre')}
 				<a
 					href={verifyUrl}

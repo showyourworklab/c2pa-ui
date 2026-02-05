@@ -1,5 +1,5 @@
 <script>
-	import styles from 'syw-common/css/Collapse.module.css'
+	// import styles from 'syw-common/css/Collapse.module.css'
 	import { joinClassNames } from 'syw-common/helpers'
 
 	const { open, children } = $props();
@@ -9,8 +9,8 @@
 	const style = $derived(`height:${open ? height : 0}px`)
 	const classes = $derived(
 		joinClassNames(
-			styles.Collapse,
-			open ? styles.Collapse_open : false
+			'Collapse',
+			open ? 'Collapse_open' : false
 		)
 	)
 
@@ -23,7 +23,7 @@
 >
 	<div bind:clientHeight={height}>
 		<div
-			class={styles.CollapseInner}
+			class='CollapseInner'
 		>
 			{@render children()}
 		</div>

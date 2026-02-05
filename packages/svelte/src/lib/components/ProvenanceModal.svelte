@@ -1,6 +1,6 @@
 <script>
 	import { getContext } from 'svelte'
-	import styles from 'syw-common/css/ProvenanceModal.module.css'
+	// import styles from 'syw-common/css/ProvenanceModal.module.css'
 	import Modal from './Modal.svelte'
 	import Provenance from './Provenance.svelte'
 	import Explainer from './Explainer.svelte'
@@ -31,10 +31,10 @@
 	title="Image Origin"
 	description="Explore the provenance of this image"
 	onOpenChange={handleOpenChange}
-	className={styles.ProvenanceModal}
+	className='ProvenanceModal'
 >
 	<div
-		class={styles.ProvenanceModalExplainer}
+		class='ProvenanceModalExplainer'
 	>
 		{#if $isExplainerOpen}
 			<ExplainerToggle />

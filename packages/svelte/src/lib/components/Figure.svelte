@@ -1,11 +1,11 @@
 <script>
-	import styles from 'syw-common/css/Figure.module.css'
+	// import styles from 'syw-common/css/Figure.module.css'
 
 	const { children } = $props()
 </script>
 
 <figure
-	class={styles.Figure}
+	class='Figure'
 >
 	{@render children()}
 </figure>

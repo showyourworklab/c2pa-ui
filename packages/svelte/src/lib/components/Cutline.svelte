@@ -1,14 +1,14 @@
 <script>
-	import styles from 'syw-common/css/Cutline.module.css'
+	// import styles from 'syw-common/css/Cutline.module.css'
 	import ProvenanceToggle from './ProvenanceToggle.svelte'
 	import ExplainerToggle from './ExplainerToggle.svelte'
 </script>
 
 <div
-	class={styles.Cutline}
+	class='Cutline'
 >
 	<div
-		class={styles.CutlineToggles}
+		class='CutlineToggles'
 	>
 		<ProvenanceToggle />
 		<ExplainerToggle />

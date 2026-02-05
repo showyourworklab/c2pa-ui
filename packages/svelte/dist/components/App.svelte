@@ -1,7 +1,8 @@
 <script>
 	import { onMount, setContext } from 'svelte'
-	import 'syw-common/css/globals.css'
-	import styles from 'syw-common/css/App.module.css'
+	// import 'syw-common/css/globals.css'
+	import 'syw-common/css/styles.css'
+	// import styles from 'syw-common/css/App.module.css'
 	import { joinClassNames } from 'syw-common/helpers'
 	import { prepareManifest } from 'syw-common/helpers/c2pa'
 	import { VARIANT_DEFAULT } from 'syw-common/constants'
@@ -51,10 +52,10 @@
 
 	const classes = $derived(
 		joinClassNames(
-			styles.App,
-			styles[`App_${variant}`],
-			$isHoverImage ? styles.App_hovered : false,
-			$isProvenanceOpen ? styles.App_active : false
+			'App',
+			`App_${variant}`,
+			$isHoverImage ? 'App_hovered' : false,
+			$isProvenanceOpen ? 'App_active' : false
 		)
 	)
 

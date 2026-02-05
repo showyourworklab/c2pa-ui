@@ -1,6 +1,6 @@
 <script>
 	import { getContext } from 'svelte';
-	import styles from 'syw-common/css/Manifest.module.css'
+	// import styles from 'syw-common/css/Manifest.module.css'
 	import { joinClassNames } from 'syw-common/helpers'
 	import Collapse from './Collapse.svelte'
 	import ManifestPreview from './ManifestPreview.svelte'
@@ -16,8 +16,8 @@
 
 	const classes = $derived(
 		joinClassNames(
-			styles.Manifest,
-			open ? styles.Manifest_open : false,
+			'Manifest',
+			open ? 'Manifest_open' : false,
 		)
 	)
 
@@ -27,7 +27,7 @@
 	class={classes}
 >
 	<div
-		class={styles.ManifestRow}
+		class='ManifestRow'
 	>
 		<ManifestPreview
 			open={open}
@@ -37,7 +37,7 @@
 			open={open}
 		>
 			<div
-				class={styles.ManifestContent}
+				class='ManifestContent'
 			>
 				<ManifestTable
 					manifest={manifest}
