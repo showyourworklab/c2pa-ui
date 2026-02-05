@@ -1,10 +1,8 @@
 /* Caption */
 .Syw-Caption {
-	padding-left: 0;
-	padding-right: 0;
-	padding-top: var(--syw-space-3);
+	padding: var(--syw-space-3) 0 0 0;
 	width: calc(100% - var(--syw-space-8));
-	color: var(--syw-color-secondary-dark);
+	/* color: var(--syw-color-secondary-dark); */
 	border: 1px solid transparent;
 	position: relative;
 	pointer-events: all;
@@ -42,6 +40,7 @@
 }
 /* Caption > Inner */
 .Syw-CaptionInner {
+	max-width: 85ch;
 	transition: all 200ms ease;
 }
 /* Caption > Inner > Active > Expand */
@@ -50,9 +49,11 @@
 }
 /* Caption > Byline */
 .Syw-CaptionByline {
-	color: var(--syw-color-tertiary-dark);
+	display: block;
+	color: var(--syw-color-secondary-dark);
+	font-size: var(--syw-text-sm);
 }
 /* Caption > Byline > Active > Expand */
 .Syw-App_active.Syw-App_expand .Syw-CaptionByline {
-	color: var(--syw-color-secondary-dark);
+	/* color: var(--syw-color-secondary-dark); */
 }

@@ -1,6 +1,6 @@
 /* Cutline */
 .Syw-Cutline {
-	margin: var(--syw-space-2) 0 0 0;
+	margin: var(--syw-space-2) auto 0 auto;
 }
 /* Cutline > Toggles */
 .Syw-CutlineToggles {

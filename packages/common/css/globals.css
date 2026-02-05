@@ -71,8 +71,10 @@
 	--syw-space-8: 32px;
 	--syw-space-9: 36px;
 	--syw-space-10: 40px;
-	/* Spacing > Gap */
+	/* Gap */
 	--syw-gap-outer: 17px;
+	/* Max Width */
+	--syw-max-width:  1000px;
 	/* Typography */
 	/* Typography > Fonts */
 	--syw-font-primary: "Work Sans", arial, sans-serif;
