@@ -11,8 +11,7 @@
 		"deploy": "npx gh-pages -d build -t true"
 	},
 	"dependencies": {
-		"c2pa": "^0.30.9",
-		"syw-svelte": "^0.0.7"
+		"syw-svelte": "^0.0.9"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^6.0.1",

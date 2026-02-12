@@ -38,9 +38,11 @@ export const DEMO_IMAGE_URLS = [
 	'leica-nora-7.jpg',
 	'leica-nora-8.jpg',
 	'leica-nora-9.jpg',
+	'leica-nora-10.jpg',
+	'leica-nora-11.jpg',
 ]
 
-export const DEMO_IMAGE_URL_DEFAULT = 'leica-nora-1.jpg'
+export const DEMO_IMAGE_URL_DEFAULT = 'leica-nora-11.jpg'
 // export const DEMO_IMAGE_URL_DEFAULT = 'truepic-3.jpg'
 
 export const DEMO_IMAGE_URL_BASE = 'https://showyourworklab.github.io/c2pa-images'

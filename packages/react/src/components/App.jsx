@@ -22,17 +22,17 @@ function App({
 	const ref = useRef(null)
 	const { src, setManifests } = useDataContext()
 	const { locale } = useI18nContext()
-	const { variant, compareImage, isHoverImage, isOpenProvenance, setElem, eventHandler } = useUiContext()
+	const { variant, compareImage, isImageHover, isProvenanceOpen, setElem, eventHandler } = useUiContext()
 	const { reader, provenance } = useC2pa(src)
 
 	const className = useMemo(() =>
 		classNames(
 			'App',
 			`App_${variant}`,
-			isHoverImage ? 'App_hovered' : false,
-			isOpenProvenance ? 'App_active' : false
+			isImageHover ? 'App_hovered' : false,
+			isProvenanceOpen ? 'App_active' : false
 		)
-	, [variant, isHoverImage, isOpenProvenance])
+	, [variant, isImageHover, isProvenanceOpen])
 
 	useEffect(() => {
 		setElem(ref.current);
@@ -58,11 +58,6 @@ function App({
 		eventHandler.current = onEvent
 	}, [eventHandler, onEvent])
 
-	// useEffect(() => {
-	// 	const time = new Date();
-	// 	if(onProvenanceToggle) onProvenanceToggle(isOpenProvenance, ref.current, time)
-	// }, [isOpenProvenance, ref])
-
 	return (
 		<div
 			ref={ref}
@@ -78,7 +73,7 @@ function App({
 			</Figure>
 			{variant === 'expand' ?
 				<Collapse
-					open={isOpenProvenance}
+					open={isProvenanceOpen}
 					className={classNames('ProvenanceModal')}
 				>
 					<Provenance />

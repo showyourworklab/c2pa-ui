@@ -13,23 +13,23 @@ const Image = () => {
 		unhoverImage,
 		openProvenance,
 		closeProvenance,
-		isOpenProvenance,
+		isProvenanceOpen,
 	} = useUiContext()
 
 	const onClick = useCallback(event =>
-		isOpenProvenance
+		isProvenanceOpen
 			? closeProvenance(event)
 			: openProvenance(event)
-	, [openProvenance, closeProvenance, isOpenProvenance])
+	, [openProvenance, closeProvenance, isProvenanceOpen])
 
 	const onKeyDown = useCallback(event =>
 		handleA11yClick(
 			event,
-			isOpenProvenance
+			isProvenanceOpen
 				? closeProvenance
 				: openProvenance
 		)
-	, [openProvenance, closeProvenance, isOpenProvenance])
+	, [openProvenance, closeProvenance, isProvenanceOpen])
 
 	const onMouseEnter = useCallback(event =>
 		hoverImage(event)

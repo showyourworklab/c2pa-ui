@@ -7,7 +7,7 @@ import ManifestTable from './ManifestTable'
 
 function Manifest({ manifest, previewRef }) {
 	const [open, setOpen] = useState(false)
-	const { isOpenProvenance, openManifests, openManifest, closeManifest, removeCompareImage } = useUiContext()
+	const { isProvenanceOpen, openManifests, openManifest, closeManifest, removeCompareImage } = useUiContext()
 
 	const className = useMemo(() =>
 		classNames(
@@ -29,8 +29,8 @@ function Manifest({ manifest, previewRef }) {
 
 	// Close manifest when provenance is closed
 	useEffect(() => {
-		if(!isOpenProvenance) setOpen(false)
-	}, [isOpenProvenance])
+		if(!isProvenanceOpen) setOpen(false)
+	}, [isProvenanceOpen])
 
 
 	return (

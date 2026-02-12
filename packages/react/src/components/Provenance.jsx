@@ -10,15 +10,15 @@ function Provenance() {
 	const firstPreviewRef = useRef(null)
 	const { getText } = useI18nContext()
 	const { src, manifests } = useDataContext()
-	const { isOpenProvenance } = useUiContext()
+	const { isProvenanceOpen } = useUiContext()
 	
 	const verifyUrl = getVerifyUrl(src)
 
 	useEffect(() => {
-		if(isOpenProvenance && firstPreviewRef.current) {
+		if(isProvenanceOpen && firstPreviewRef.current) {
 			firstPreviewRef.current?.focus()
 		}
-	}, [firstPreviewRef, isOpenProvenance])
+	}, [firstPreviewRef, isProvenanceOpen])
 
 
 	return (

@@ -13,11 +13,11 @@
 			class={classNames('CaptionInner')}
 		>
 			{$caption}&nbsp;
-			<em
+			<div
 				class={classNames('CaptionByline')}
 			>
 				{$byline}
-			</em>
+			</div>
 		</div>
 	</figcaption>
 {/if}

@@ -6,13 +6,8 @@
 	const { locale, getText } = getContext('i18nStoreContext');
 	const { isExplainerOpen, openExplainer, closeExplainer } = getContext('uiStoreContext');
 
-	const onCloseClick = (event) => {
-		if(isExplainerOpen) {
-			closeExplainer(event)
-		} else {
-			openExplainer(event)
-		}
-	}
+	const onCloseClick = (event) => closeExplainer(event)
+
 </script>
 
 <div
@@ -29,7 +24,7 @@
 				aria-pressed={$isExplainerOpen}
 				onclick={onCloseClick}
 			>
-				{getText($locale, 'toggle', 'explain', 'close')}
+				{getText($locale, 'explainer', 'toggle', 'close')}
 			</button>
 			<div>
 				<strong>

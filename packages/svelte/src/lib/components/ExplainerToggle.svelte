@@ -3,13 +3,18 @@
 	import { classNames } from 'syw-common/helpers'
 
 	const { locale, getText } = getContext('i18nStoreContext');
-	const { isExplainerOpen, openExplainer, closeExplainer } = getContext('uiStoreContext');
+	const { variant, isExplainerOpen, openExplainer, closeExplainer, openProvenance } = getContext('uiStoreContext');
 
 	const handleClick = (event) => {
+		// Toggle explainer based on current state
 		if($isExplainerOpen) {
 			closeExplainer(event)
 		} else {
 			openExplainer(event)
+		}
+		// If modal, also open provenance modal to view explainer
+		if($variant === "modal") {
+			openProvenance(event)
 		}
 	}
 </script>
@@ -19,5 +24,5 @@
 	class={classNames('ExplainerToggle')}
 	onclick={handleClick}
 >
-	{getText($locale, 'toggle', 'explain')}
+	{getText($locale, 'explainer', 'toggle')}
 </button>

@@ -11,7 +11,8 @@
     "./helpers": "./helpers/index.js",
     "./helpers/*": "./helpers/*",
     "./css": "./css/index.css",
-    "./css/*": "./css/*"
+    "./css/*": "./css/*",
+    "./images/*": "./images/*"
   },
   "scripts": {
     "publish": "npm publish"

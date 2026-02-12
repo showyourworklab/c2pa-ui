@@ -1,7 +1,6 @@
 <script>
 	import { classNames } from 'syw-common/helpers'
 	import { openModal, closeModal } from 'syw-common/helpers/modal'
-	// import styles from 'syw-common/css/Modal.module.css'
 	let {
 		open,
 		title,

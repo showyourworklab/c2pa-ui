@@ -1,4 +1,3 @@
-import { selectProducer, selectSocialAccounts, generateVerifyUrl } from 'c2pa'
 import { getObjectValue } from './index.js'
 import { getSafeLocale } from './i18n.js'
 export const CDN_WASM_SRC_URL = 'https://cdn.jsdelivr.net/npm/@contentauth/c2pa-web/dist/resources/c2pa_bg.wasm'

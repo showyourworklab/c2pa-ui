@@ -1,7 +1,7 @@
 /* Image > Compare */
 .Syw-ImageCompare {
 	position: fixed;
-	z-index: 2;
+	z-index: 999999999;
 	display: flex;
 	align-items: center;
 	justify-content: center;

@@ -8,8 +8,8 @@ const UiProvider = ({
 }) => {
 	const [elem, setElem] = useState(null)
 	const [isHoverImage, setIsHoverImage] = useState(false)
-	const [isOpenProvenance, setIsOpenProvenance] = useState(false)
-	const [isOpenExplainer, setIsOpenExplainer] = useState(false)
+	const [isProvenanceOpen, setIsProvenanceOpen] = useState(false)
+	const [isExplainerOpen, setIsExplainerOpen] = useState(false)
 	const [compareImage, setCompareImage] = useState(null)
 	const [comparePosition, setComparePosition] = useState(null)
 	const openManifests = useRef({})
@@ -30,31 +30,31 @@ const UiProvider = ({
 		handleEvent("image.unhover", event)
 	}
 	const openProvenance = (event) => {
-		setIsOpenProvenance(true)
+		setIsProvenanceOpen(true)
 		handleEvent("provenance.open", event)
 	}
 	const closeProvenance = (event) => {
-		setIsOpenProvenance(false)
+		setIsProvenanceOpen(false)
 		handleEvent("provenance.close", event)
 	}
 	const openExplainer = (event) => {
-		setIsOpenExplainer(true)
+		setIsExplainerOpen(true)
 		handleEvent("explainer.open", event)
 	}
 	const closeExplainer = (event) => {
-		setIsOpenExplainer(false)
+		setIsExplainerOpen(false)
 		handleEvent("explainer.close", event)
 	}
 	const openManifest = (event, manifest) => {
-		const newOpenManifests = Object.assign(openManifests.current, {})
-		newOpenManifests[manifest.id] = manifest
-		openManifests.current = newOpenManifests
+		const newManifestsOpen = Object.assign(openManifests.current, {})
+		newManifestsOpen[manifest.id] = manifest
+		openManifests.current = newManifestsOpen
 		handleEvent("manifest.open", event, manifest)
 	}
 	const closeManifest = (event, manifest) => {
-		const newOpenManifests = Object.assign(openManifests.current, {})
-		delete newOpenManifests[manifest.id]
-		openManifests.current = newOpenManifests
+		const newManifestsOpen = Object.assign(openManifests.current, {})
+		delete newManifestsOpen[manifest.id]
+		openManifests.current = newManifestsOpen
 		handleEvent("manifest.close", event, manifest)
 	}
 	const addCompareImage = (value, event) => {
@@ -76,8 +76,8 @@ const UiProvider = ({
 				elem,
 				variant,
 				isHoverImage,
-				isOpenProvenance,
-				isOpenExplainer,
+				isProvenanceOpen,
+				isExplainerOpen,
 				openManifests: openManifests.current,
 				compareImage,
 				comparePosition,

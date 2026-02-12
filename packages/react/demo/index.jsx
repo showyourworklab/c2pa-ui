@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { createRoot } from 'react-dom/client';
 import { LOCALE_DEFAULT, DICTIONARIES } from 'syw-common/constants/i18n'
 import { VARIANT_KEYS, DEMO_IMAGE_URLS, DEMO_IMAGE_URL_DEFAULT, DEMO_IMAGE_URL_BASE, VARIANT_DEFAULT } from 'syw-common/constants'
-// import SywLogo from 'syw-common/images/logo-dark.svg'
+import SywLogo from 'syw-common/images/logo-dark.svg'
 import SywReact from '$src/index'
 import 'syw-common/css/globals.css'
 import 'syw-docs/src/styles.css'
@@ -38,11 +38,11 @@ const Demo = () => {
 					href="https://showyourworklab.org"
 					target="_blank"
 				>
-					{/* <img
+					<img
 						src={SywLogo}
 						alt="Show Your Work Lab logo"
 						id="logo"
-					/> */}
+					/>
 				</a>
 			</header>
 

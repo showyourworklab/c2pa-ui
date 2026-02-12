@@ -20,5 +20,5 @@
 	class={classNames('ProvenanceToggle')}
 	onclick={handleClick}
 >
-	{$isProvenanceOpen ? getText($locale, 'toggle', 'provenance') : getText($locale, 'toggle', 'provenance')}
+	{$isProvenanceOpen ? getText($locale, 'provenance', 'toggle') : getText($locale, 'provenance', 'toggle')}
 </button>

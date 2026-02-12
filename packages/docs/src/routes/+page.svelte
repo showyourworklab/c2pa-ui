@@ -1,7 +1,7 @@
 <script>
 	import { base } from '$app/paths'
-	import SywSvelte from 'syw-svelte'
 	import 'syw-common/css/globals.css'
+	import SywSvelte from 'syw-svelte'
 	import Header from '$lib/components/Header.svelte'
 	import Heading from '$lib/components/Heading.svelte'
 	import Preview from '$lib/components/Preview.svelte'

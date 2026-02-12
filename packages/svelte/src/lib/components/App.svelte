@@ -1,8 +1,6 @@
 <script>
 	import { onMount, setContext } from 'svelte'
-	// import 'syw-common/css/globals.css'
 	import 'syw-common/css/styles.css'
-	// import styles from 'syw-common/css/App.module.css'
 	import { classNames } from 'syw-common/helpers'
 	import { prepareManifest } from 'syw-common/helpers/c2pa'
 	import { VARIANT_DEFAULT } from 'syw-common/constants'
@@ -45,7 +43,7 @@
 	const { lang } = i18nStore
 	const {
 		variant: _variant,
-		isHoverImage,
+		isImageHover,
 		isProvenanceOpen,
 		compareImage
 	} = uiStore
@@ -54,7 +52,7 @@
 		classNames(
 			'App',
 			`App_${variant}`,
-			$isHoverImage ? 'App_hovered' : false,
+			$isImageHover ? 'App_hovered' : false,
 			$isProvenanceOpen ? 'App_active' : false
 		)
 	)
@@ -124,7 +122,9 @@
 	>
 		<Figure>
 			<Image />
-			<Explainer />
+			{#if $_variant === 'expand'}
+				<Explainer />
+			{/if}
 			<Cutline />
 			<Caption />
 		</Figure>

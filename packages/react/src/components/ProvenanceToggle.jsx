@@ -3,23 +3,23 @@ import { useUiContext, useI18nContext } from '$src/context'
 
 const ProvenanceToggle = () => {
 	const {
-		isOpenProvenance,
+		isProvenanceOpen,
 		openProvenance,
 		closeProvenance
 	} = useUiContext()
 	const { getText } = useI18nContext()
 
-	const onClick = event => isOpenProvenance
+	const onClick = event => isProvenanceOpen
 		? closeProvenance(event)
 		: openProvenance(event)
 
 	return (
 		<button
-			aria-pressed={isOpenProvenance}
+			aria-pressed={isProvenanceOpen}
 			className={classNames('ProvenanceToggle')}
 			onClick={onClick}
 		>
-			{isOpenProvenance ? getText('toggle', 'provenance') : getText('toggle', 'provenance')}
+			{isProvenanceOpen ? getText('provenance', 'toggle') : getText('provenance', 'toggle')}
 		</button>
 	)
 }

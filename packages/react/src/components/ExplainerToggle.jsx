@@ -1,10 +1,12 @@
 import { classNames } from 'syw-common/helpers'
 import { useUiContext, useI18nContext } from '$src/context'
 
-const ExplainerToggle = () => {
+const ExplainerToggle = ({
+	className
+}) => {
 	const {
 		variant,
-		isOpenExplainer,
+		isExplainerOpen,
 		openExplainer,
 		closeExplainer,
 		openProvenance
@@ -13,7 +15,7 @@ const ExplainerToggle = () => {
 
 	const onClick = event => {
 		// Toggle explainer based on current state
-		if(isOpenExplainer) {
+		if(isExplainerOpen) {
 			closeExplainer(event)
 		} else {
 			openExplainer(event)
@@ -26,11 +28,14 @@ const ExplainerToggle = () => {
 
 	return (
 		<button
-			className={classNames('ExplainerToggle')}
-			aria-pressed={isOpenExplainer}
+			className={classNames(
+				'ExplainerToggle',
+				className
+			)}
+			aria-pressed={isExplainerOpen}
 			onClick={onClick}
 		>
-			{getText('toggle', 'explain')}
+			{getText('explainer', 'toggle')}
 		</button>
 	)
 }

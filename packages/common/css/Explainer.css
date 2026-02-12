@@ -1,8 +1,4 @@
 /* Explainer */
-.Syw-App_expand .Syw-Explainer .Syw-CollapseInner {
-	padding-top: var(--syw-space-4);
-	padding-bottom: var(--syw-space-3);
-}
 /* Explainer > Inner */
 .Syw-ExplainerInner {
 	position: relative;
@@ -32,6 +28,10 @@
 }
 .Syw-ExplainerInner p:last-of-type {
 	margin-bottom: 0;
+}
+.Syw-Figure > .Syw-Explainer .Syw-CollapseInner {
+	padding-top: var(--syw-space-4);
+	padding-bottom: var(--syw-space-3);
 }
 /* Explainer > More */
 .Syw-ExplainerMore {

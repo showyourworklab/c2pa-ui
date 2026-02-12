@@ -14,6 +14,11 @@
 		closeExplainer
 	} = getContext('uiStoreContext')
 
+	const {
+		locale,
+		getText
+	} = getContext('i18nStoreContext')
+
 	const handleOpenChange = (newOpen, event) => {
 		const originalEvent = event
 		if(newOpen) {
@@ -28,15 +33,14 @@
 
 <Modal
 	open={$isProvenanceOpen}
-	title="Image Origin"
-	description="Explore the provenance of this image"
+	title={$isProvenanceOpen ? getText($locale, 'provenance', 'toggle') : getText($locale, 'provenance', 'toggle')}
 	onOpenChange={handleOpenChange}
 	className='ProvenanceModal'
 >
 	<div
 		class={classNames('ProvenanceModalExplainer')}
 	>
-		{#if $isExplainerOpen}
+		{#if !$isExplainerOpen}
 			<ExplainerToggle />
 		{/if}
 		<Explainer />

@@ -1,5 +1,5 @@
 import { classNames } from 'syw-common/helpers'
-import { useUiContext } from '$src/context'
+import { useI18nContext, useUiContext } from '$src/context'
 import Modal from './Modal'
 import Provenance from './Provenance'
 import Explainer from './Explainer'
@@ -7,12 +7,13 @@ import ExplainerToggle from './ExplainerToggle'
 
 const ProvenanceModal = () => {
 	const {
-		isOpenExplainer,
-		isOpenProvenance,
+		isExplainerOpen,
+		isProvenanceOpen,
 		openProvenance,
 		closeProvenance,
 		closeExplainer
 	} = useUiContext()
+	const { getText } = useI18nContext()
 
 	const handleOpenChange = (newOpen, event) => {
 		const originalEvent = event
@@ -26,16 +27,17 @@ const ProvenanceModal = () => {
 
 	return (
 		<Modal
-			open={isOpenProvenance}
-			title="Image Origin"
-			description="Explore the provenance of this image"
+			open={isProvenanceOpen}
+			title={getText("provenance", "toggle")}
 			onOpenChange={handleOpenChange}
 			className={classNames('ProvenanceModal')}
 		>
 			<div
 				className={classNames('ProvenanceModalExplainer')}
 			>
-				{!isOpenExplainer ? <ExplainerToggle /> : null}
+				{!isExplainerOpen ?
+					<ExplainerToggle />
+				: null}
 				<Explainer />
 			</div>
 			<Provenance />
