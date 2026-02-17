@@ -40,6 +40,7 @@ export const readC2paFromUrl = async (c2pa, src) => {
  */
 export const getExifValue = (data, key) => {
 	const exifData = data?.assertions?.find(a => a.label === 'stds.exif')?.data
+	// console.log(JSON.stringify(exifData))
 	const exifValue = exifData && exifData[`exif:${key}`]
 	return exifValue;
 }
@@ -173,9 +174,9 @@ export const getLocation = (data) => {
 	const lng = isNaN(exifLng)
 		? convertDmsToDd(exifLng, exifLngDir)
 		: parseFloat(exifLng)
-	// if(isNaN(lat) || isNaN(lng)) return null
-	// return { lat, lng }
-	return { lat: 40.647843588895995, lng: -73.97376922474551 }
+	if(isNaN(lat) || isNaN(lng)) return null
+	return { lat, lng }
+	// return { lat: 40.647843588895995, lng: -73.97376922474551 }
 }
 
 /**
@@ -230,6 +231,7 @@ export const getVerifyUrl = src => `https://verify.contentauthenticity.org/inspe
  */
 export const prepareManifest = async ({ src, locale, manifest, reader }) => {
 	const safeLocale = getSafeLocale(locale)
+	// console.log(manifest)
 	return {
 		id: getId(manifest),
 		producer: getProducer(manifest),

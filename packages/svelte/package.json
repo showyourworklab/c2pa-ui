@@ -24,7 +24,9 @@
 		"README.md",
 		"LICENSE"
 	],
-	"sideEffects": ["**/*.css"],
+	"sideEffects": [
+		"**/*.css"
+	],
 	"scripts": {
 		"dev": "vite dev --config vite.demo.config.js",
 		"build": "npm run build:lib && npm run build:demo",
@@ -38,8 +40,7 @@
 	},
 	"dependencies": {
 		"@sveltejs/adapter-static": "^3.0.1",
-		"c2pa": "^0.21.0",
-		"syw-common": "^0.0.1"
+		"maplibre-gl": "^5.18.0"
 	},
 	"devDependencies": {
 		"@contentauth/c2pa-web": "^0.5.7",

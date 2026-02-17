@@ -21,3 +21,4 @@ type $$ComponentProps = {
     locale?: string;
     onEvent?: any;
 };
+import { VARIANT_DEFAULT } from 'syw-common/constants';
