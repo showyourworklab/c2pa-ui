@@ -244,3 +244,33 @@ export const prepareManifest = async ({ src, locale, manifest, reader }) => {
 		verifyUrl: getVerifyUrl(src),
 	}
 }
+
+/**
+ * Prepares a provenance object into sorted array of formatted manifests
+ * @async
+ * @function
+ * @param {object} props - Object of props
+ * @param {string} props.src - Image URL
+ * @param {string} props.locale - User's locale
+ * @param {object} props.provenance - C2PA full provenance
+ * @param {object} props.reader - C2PA reader instance
+ * @return {Promise<object>} - Prepared manifest object
+ */
+export const prepareManifests = async ({ src, locale, provenance, reader }) => {
+	try {
+        if (!provenance?.manifestStore) return []
+        const manifests = Object.values(provenance.manifestStore.manifests ?? {})
+        const preparedManifests = await Promise.all(
+            manifests.map(manifest =>
+				prepareManifest({ src, locale, manifest, reader })
+			)
+        )
+        preparedManifests.sort((a, b) =>
+			(a.timestamp?.getTime?.() || 0) - (b.timestamp?.getTime?.() || 0)
+		)
+        return preparedManifests
+    } catch (error) {
+        console.error(error)
+        return []
+    }
+}

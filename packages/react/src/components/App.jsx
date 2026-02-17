@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef } from 'react'
 import 'syw-common/css/styles.css'
 import { classNames } from 'syw-common/helpers'
-import { prepareManifest } from 'syw-common/helpers/c2pa'
+import { prepareManifests } from 'syw-common/helpers/c2pa'
 import { useDataContext } from '$src/context/data'
 import { useI18nContext } from '$src/context/i18n'
 import { useUiContext } from '$src/context/ui'
@@ -44,19 +44,15 @@ function App({
 	}, [mapOptions])
 
 	useEffect(() => {
-        const prepareManifests = async () => {
-            const newManifests = await Promise.all(
-                Object.values(provenance?.manifestStore?.manifests ?? {})
-                    .map(manifest => prepareManifest({
-						src,
-						locale,
-						manifest,
-						reader
-					}))
-            )
+        (async () => {
+            const newManifests = await prepareManifests({
+				src,
+				locale,
+				provenance,
+				reader
+			})
             setManifests(newManifests)
-        }
-        prepareManifests()
+        })()
 	}, [src, locale, provenance, reader])
 
 	useEffect(() => {

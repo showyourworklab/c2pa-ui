@@ -2,7 +2,7 @@
 	import { onMount, setContext } from 'svelte'
 	import 'syw-common/css/styles.css'
 	import { classNames } from 'syw-common/helpers'
-	import { prepareManifest } from 'syw-common/helpers/c2pa'
+	import { prepareManifests } from 'syw-common/helpers/c2pa'
 	import { VARIANT_DEFAULT } from 'syw-common/constants'
 	import createC2paStore from '$lib/store/c2pa.js'
 	import createDataStore from '$lib/store/data.js'
@@ -94,15 +94,12 @@
 	$effect(() => {
 		if ($provenance?.manifestStore && $reader) {
 			(async () => {
-				const newManifests = await Promise.all(
-					Object.values($provenance.manifestStore.manifests ?? {})
-						.map(manifest => prepareManifest({
-							src,
-							locale,
-							manifest,
-							reader: $reader
-						}))
-				)
+				const newManifests = await prepareManifests({
+					src,
+					locale,
+					provenance: $provenance,
+					reader: $reader
+				})
 				dataStore.setManifests(newManifests)
 			})()
 		}
