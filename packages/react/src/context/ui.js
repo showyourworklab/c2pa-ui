@@ -4,6 +4,7 @@ import { VARIANT_DEFAULT } from 'syw-common/constants';
 const UiContext = createContext({
 	variant: VARIANT_DEFAULT,
 	elem: null,
+	mapOptions: {},
 	isImageHover: false,
 	isProvenanceOpen: false,
 	isExplainerOpen: false,

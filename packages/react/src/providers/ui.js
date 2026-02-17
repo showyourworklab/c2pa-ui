@@ -7,6 +7,7 @@ const UiProvider = ({
 	children
 }) => {
 	const [elem, setElem] = useState(null)
+	const [mapOptions, setMapOptions] = useState(null)
 	const [isHoverImage, setIsHoverImage] = useState(false)
 	const [isProvenanceOpen, setIsProvenanceOpen] = useState(false)
 	const [isExplainerOpen, setIsExplainerOpen] = useState(false)
@@ -75,6 +76,7 @@ const UiProvider = ({
 			value={{
 				elem,
 				variant,
+				mapOptions,
 				isHoverImage,
 				isProvenanceOpen,
 				isExplainerOpen,
@@ -82,6 +84,7 @@ const UiProvider = ({
 				compareImage,
 				comparePosition,
 				setElem,
+				setMapOptions,
 				hoverImage,
 				unhoverImage,
 				openProvenance,

@@ -32,7 +32,6 @@ function Manifest({ manifest, previewRef }) {
 		if(!isProvenanceOpen) setOpen(false)
 	}, [isProvenanceOpen])
 
-
 	return (
 		<li
 			className={className}

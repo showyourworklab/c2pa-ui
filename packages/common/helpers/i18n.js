@@ -12,7 +12,8 @@ import {
  * @return {string} lang - ISO language code (i.e. en)
  */
 export const getLangFromLocale = (locale = LOCALE_DEFAULT) => {
-	const lang = locale.split('_')[0]
+	const localeSplit = locale?.split('_')
+	const lang = localeSplit && localeSplit[0]
 	return lang
 }
 

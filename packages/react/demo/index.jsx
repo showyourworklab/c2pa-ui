@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { createRoot } from 'react-dom/client';
+import { DEMO_IMAGE_URLS, DEMO_IMAGE_URL_DEFAULT } from 'syw-common/constants/demo'
 import { LOCALE_DEFAULT, DICTIONARIES } from 'syw-common/constants/i18n'
-import { VARIANT_KEYS, DEMO_IMAGE_URLS, DEMO_IMAGE_URL_DEFAULT, DEMO_IMAGE_URL_BASE, VARIANT_DEFAULT } from 'syw-common/constants'
+import { VARIANT_KEYS, VARIANT_DEFAULT } from 'syw-common/constants'
 import SywLogo from 'syw-common/images/logo-dark.svg'
 import SywReact from '$src/index'
 import 'syw-common/css/globals.css'
@@ -85,7 +86,7 @@ const Demo = () => {
 									key={key}
 									value={key}
 								>
-									{key}
+									{key.substring(key.lastIndexOf('/') + 1)}
 								</option>
 							)}
 						</select>
@@ -135,10 +136,14 @@ const Demo = () => {
 				</header>
 				<SywReact
 					locale={locale}
-					src={`${DEMO_IMAGE_URL_BASE}/${demoImage}`}
+					// src={`${DEMO_IMAGE_URL_BASE}/${demoImage}`}
+					src={demoImage}
 					caption='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis est ut enim imperdiet lacinia. Etiam vitae volutpat eros. Cras sagittis condimentum lacus, sit amet mattis mauris convallis id.'
 					byline='Lectus Vitae / Tristique Imperdiet'
 					variant={variant}
+					mapOptions={{
+						// style: 'https://tiles.openfreemap.org/styles/positron'
+					}}
 					onEvent={handleEvent}
 				/>
 			</section>

@@ -3,6 +3,7 @@ import { getSafeLocale } from './i18n.js'
 export const CDN_WASM_SRC_URL = 'https://cdn.jsdelivr.net/npm/@contentauth/c2pa-web/dist/resources/c2pa_bg.wasm'
 
 /////////////// Initialize //////////////
+
 /**
  * Creates C2PA instance configuration
  * @param {object} options - Optional overrides
@@ -39,7 +40,7 @@ export const readC2paFromUrl = async (c2pa, src) => {
  */
 export const getExifValue = (data, key) => {
 	const exifData = data?.assertions?.find(a => a.label === 'stds.exif')?.data
-	const exifValue = exifData[`exif:${key}`]
+	const exifValue = exifData && exifData[`exif:${key}`]
 	return exifValue;
 }
 
@@ -52,7 +53,7 @@ export const getExifValue = (data, key) => {
  */
 export const getSchemaOrgValue = (data, key) => {
 	const schema = data?.assertions?.find(a => a.label.includes('stds.schema-org'))?.data
-	const schemaValue = schema[key]
+	const schemaValue = schema && schema[key]
 	return schemaValue
 }
 
@@ -162,20 +163,19 @@ export const getTimestamp = (data, locale) => {
  * @return {object} - Object of latitude (lat) and longitude (lng)
  */
 export const getLocation = (data) => {
-	const exifData = data?.assertions?.get('stds.exif')[0]?.data
-	if(!exifData) return null
-	const exifLat = getObjectValue('exif:GPSLatitude', exifData)
-	const exifLatDir = getObjectValue('exif:GPSLatitudeRef', exifData)
+	const exifLat = getExifValue(data, 'GPSLatitude')
+	const exifLatDir = getExifValue(data, 'GPSLatitudeRef')
 	const lat = isNaN(exifLat)
 		? convertDmsToDd(exifLat, exifLatDir)
 		: parseFloat(exifLat)
-	const exifLng = getObjectValue('exif:GPSLongitude', exifData)
-	const exifLngDir = getObjectValue('exif:GPSLongitudeRef', exifData)
+	const exifLng = getExifValue(data, 'GPSLongitude')
+	const exifLngDir = getExifValue(data, 'GPSLongitudeRef')
 	const lng = isNaN(exifLng)
 		? convertDmsToDd(exifLng, exifLngDir)
 		: parseFloat(exifLng)
-	if(isNaN(lat) || isNaN(lng)) return null
-	return { lat, lng }
+	// if(isNaN(lat) || isNaN(lng)) return null
+	// return { lat, lng }
+	return { lat: 40.647843588895995, lng: -73.97376922474551 }
 }
 
 /**
@@ -238,7 +238,7 @@ export const prepareManifest = async ({ src, locale, manifest, reader }) => {
 		timestamp: getTimestamp(manifest, safeLocale),
 		// ingredients: getIngredients(manifest),
 		thumbnail: await getThumbnail(manifest, reader),
-		// location: getLocation(manifest),
+		location: getLocation(manifest),
 		verifyUrl: getVerifyUrl(src),
 	}
 }

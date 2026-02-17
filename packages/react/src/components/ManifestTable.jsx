@@ -3,6 +3,7 @@ import { MANIFEST_KEYS } from 'syw-common/constants'
 import ManifestTableRow from './ManifestTableRow'
 
 function ManifestTable({ manifest }) {
+
 	return (
 		<ul
 			className={classNames('ManifestTable')}

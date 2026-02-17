@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import { classNames } from 'syw-common/helpers'
 import { getDateString } from 'syw-common/helpers/i18n'
 import { useI18nContext } from '$src/context/i18n'
+import Map from './Map'
 
 function ManifestTableRow({ type, value }) {
 	const { locale, getText } = useI18nContext()
@@ -32,6 +33,11 @@ function ManifestTableRow({ type, value }) {
 				className={classNames('ManifestTableRowValue')}
 			>
 				{formattedValue}
+				{type === 'location' ?
+					<Map
+						location={value}
+					/>
+				: null}
 			</div>
 		</li>
 	)

@@ -17,12 +17,13 @@ import ProvenanceModal from './ProvenanceModal'
 import ImageCompare from './ImageCompare'
 
 function App({
-	onEvent
+	mapOptions,
+	onEvent,
 }) {
 	const ref = useRef(null)
 	const { src, setManifests } = useDataContext()
 	const { locale } = useI18nContext()
-	const { variant, compareImage, isImageHover, isProvenanceOpen, setElem, eventHandler } = useUiContext()
+	const { variant, compareImage, isImageHover, isProvenanceOpen, setElem, setMapOptions, eventHandler } = useUiContext()
 	const { reader, provenance } = useC2pa(src)
 
 	const className = useMemo(() =>
@@ -37,6 +38,10 @@ function App({
 	useEffect(() => {
 		setElem(ref.current);
 	}, [ref]);
+
+	useEffect(() => {
+		setMapOptions(mapOptions)
+	}, [mapOptions])
 
 	useEffect(() => {
         const prepareManifests = async () => {

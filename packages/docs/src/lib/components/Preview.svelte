@@ -1,8 +1,9 @@
 <script>
 	import 'syw-common/css/globals.css'
 	import 'syw-docs/src/styles.css'
-	import { DEMO_IMAGE_URLS, DEMO_IMAGE_URL_DEFAULT, DEMO_IMAGE_URL_BASE, VARIANT_DEFAULT, VARIANT_KEYS } from 'syw-common/constants'
+	import { DEMO_IMAGE_URLS, DEMO_IMAGE_URL_DEFAULT } from 'syw-common/constants/demo'
 	import { LOCALE_DEFAULT, DICTIONARIES } from 'syw-common/constants/i18n'
+	import { VARIANT_DEFAULT, VARIANT_KEYS } from 'syw-common/constants'
 	const locales = Object.keys(DICTIONARIES)
 
 	const { SywSvelte } = $props();
@@ -47,7 +48,7 @@
 					<option
 						value={value}
 					>
-						{value}
+						{value.substring(value.lastIndexOf('/') + 1)}
 					</option>
 				{/each}
 			</select>
@@ -96,7 +97,7 @@
 	<SywSvelte
 		variant={variant}
 		locale={locale}
-		src={`${DEMO_IMAGE_URL_BASE}/${demoImage}`}
+		src={demoImage}
 		caption='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis est ut enim imperdiet lacinia. Etiam vitae volutpat eros. Cras sagittis condimentum lacus, sit amet mattis mauris convallis id.'
 		byline='Lectus Vitae / Tristique Imperdiet'
 		onEvent={handleEvent}
