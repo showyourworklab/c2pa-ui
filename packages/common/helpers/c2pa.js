@@ -1,6 +1,6 @@
-import { getObjectValue } from './index.js'
 import { getSafeLocale } from './i18n.js'
-export const CDN_WASM_SRC_URL = 'https://cdn.jsdelivr.net/npm/@contentauth/c2pa-web/dist/resources/c2pa_bg.wasm'
+import { VERIFY_BASE_URL } from '../constants/index.js'
+import { C2PA_WEB_WASM_CDN_URL } from '../constants/c2pa.js'
 
 /////////////// Initialize //////////////
 
@@ -11,7 +11,7 @@ export const CDN_WASM_SRC_URL = 'https://cdn.jsdelivr.net/npm/@contentauth/c2pa-
  * @return {object} - C2PA configuration object
  */
 export const getC2paConfig = (options = {}) => ({
-    wasmSrc: options.wasmSrc || CDN_WASM_SRC_URL,
+    wasmSrc: options.wasmSrc || C2PA_WEB_WASM_CDN_URL,
 })
 
 /**
@@ -56,6 +56,17 @@ export const getSchemaOrgValue = (data, key) => {
 	const schema = data?.assertions?.find(a => a.label.includes('stds.schema-org'))?.data
 	const schemaValue = schema && schema[key]
 	return schemaValue
+}
+
+/**
+ * Gets a C2PA action value from manifest
+ * @function
+ * @param {object} data - Manifest entry
+ * @return {string} - Schema.org value
+ */
+export const getC2paActions = (data) => {
+	const actions = data?.assertions?.find(a => a.label.includes('c2pa.actions'))?.data?.actions
+	return actions
 }
 
 /**
@@ -106,8 +117,9 @@ export const getProducer = data => {
  * @return {string} - List of generator names with version (i.e. Lightroom Classic 14.0)
  */
 export const getGenerator = data => {
+	let generator = {}
 	if(data?.claim_generator_info) {
-		return data?.claim_generator_info?.map(d =>
+		generator.value = data?.claim_generator_info?.map(d =>
 			[d.name, d.version]
 				.filter(d => d !== null && d !== undefined)
 				.join(" ")
@@ -115,12 +127,13 @@ export const getGenerator = data => {
 	} else if(getExifValue(data, 'Make') || getExifValue(data, 'Model')) {
 		const exifMake = getExifValue(data, 'Make')
 		const exifModel = getExifValue(data, 'Model')
-		return [exifModel].join(' ')
+		generator.value = [exifModel].join(' ')
 		// return [exifMake, exifModel].join(' ')
 	} else if(data?.claim_generator) {
-		return data?.claim_generator
+		generator.value = data?.claim_generator
 	}
-	return null
+	generator.actions = getC2paActions(data)
+	return generator
 }
 	
 /**
@@ -129,7 +142,9 @@ export const getGenerator = data => {
  * @param {object} data - Manifest entry
  * @return {string} - Signature issuer name
  */
-export const getSignator = data => data?.signature_info?.issuer
+export const getSignator = data => ({
+	value: data?.signature_info?.issuer
+})
 
 /**
  * Gets a localized date string from manifest entry's date
@@ -141,7 +156,9 @@ export const getSignator = data => data?.signature_info?.issuer
 export const getTimestamp = (data, locale) => {
 	if(data?.signature_info?.time) {
 		const dateObject = new Date(data?.signature_info?.time)
-		return dateObject
+		return {
+			value: dateObject
+		}
 	} else {
 		const exifDateTime = getExifValue(data, 'DateTimeOriginal')
 		const exifParsedDate = exifDateTime.split(/\D/)
@@ -153,7 +170,9 @@ export const getTimestamp = (data, locale) => {
 			exifParsedDate[4],
 			exifParsedDate[5]
 		)
-		return dateObject
+		return {
+			value: dateObject
+		}
 	}
 }
 
@@ -185,7 +204,20 @@ export const getLocation = (data) => {
  * @param {object} data - Manifest entry
  * @return {array} - Array of ingredients
  */
-export const getIngredients = data => data?.ingredients
+export const getIngredients = data => {
+	return []
+}
+
+/**
+ * Gets actions from manifest
+ * @function
+ * @param {object} data - Manifest entry
+ * @return {array} - Array of ingredients
+ */
+export const getActions = data => {
+	const c2paActions = getC2paActions(data)
+	return c2paActions
+}
 
 /**
  * Gets latitude and longitude
@@ -201,7 +233,9 @@ export const getThumbnail = async (data, reader) => {
 		const bytes = await reader.resourceToBytes(thumbnail.identifier)
 		if (bytes) {
 			const blob = new Blob([bytes], { type: thumbnail.format })
-			return URL.createObjectURL(blob)
+			return {
+				value: URL.createObjectURL(blob)
+			}
 		}
 		return null
 	} catch (error) {
@@ -216,7 +250,7 @@ export const getThumbnail = async (data, reader) => {
  * @param {string} src - Image URL
  * @return {string} - CAI Verify URL
  */
-export const getVerifyUrl = src => `https://verify.contentauthenticity.org/inspect?source=${src}`
+export const getVerifyUrl = src => `https://${VERIFY_BASE_URL}/inspect?source=${src}`
 
 /**
  * Prepares a manifest object with extracted and formatted data
@@ -234,10 +268,10 @@ export const prepareManifest = async ({ src, locale, manifest, reader }) => {
 	// console.log(manifest)
 	return {
 		id: getId(manifest),
-		producer: getProducer(manifest),
-		generator: getGenerator(manifest),
-		signator: getSignator(manifest),
 		timestamp: getTimestamp(manifest, safeLocale),
+		producer: getProducer(manifest),
+		signator: getSignator(manifest),
+		generator: getGenerator(manifest),
 		// ingredients: getIngredients(manifest),
 		thumbnail: await getThumbnail(manifest, reader),
 		location: getLocation(manifest),

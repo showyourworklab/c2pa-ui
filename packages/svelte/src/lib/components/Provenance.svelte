@@ -1,7 +1,8 @@
 <script>
 	import { getContext } from 'svelte'
 	import { classNames } from 'syw-common/helpers'
-	import { getVerifyUrl } from 'syw-common/helpers'
+	import { getVerifyUrl } from 'syw-common/helpers/c2pa'
+	import { VERIFY_BASE_URL } from 'syw-common/constants'
 
 	import Collapse from './Collapse.svelte'
 	import Manifest from './Manifest.svelte'
@@ -38,7 +39,7 @@
 					href={verifyUrl}
 					target='_blank'
 				>
-					{getText($locale, 'verify', 'cc')}
+					{VERIFY_BASE_URL}
 				</a>
 			</div>
 		</div>

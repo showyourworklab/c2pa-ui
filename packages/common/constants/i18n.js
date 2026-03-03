@@ -8,9 +8,10 @@ export const LOCALE_DEFAULTS = {
 
 export const DICTIONARY_EN_US = {
 	producer: 'Produced by',
-	generator: 'Produced with',
-	signator: 'Issued by',
 	timestamp: 'Timestamp',
+	signator: 'Issued by',
+	generator: 'Produced with',
+	generator_actions: 'Made {count} actions. See details .',
 	location: 'Location',
 	ingredients: 'Ingredients',
 	provenance_toggle: 'View Image Origin',
@@ -19,15 +20,15 @@ export const DICTIONARY_EN_US = {
 	explainer_methods_pre: 'Read about',
 	explainer_methods_link: 'our methods',
 	explainer_methods_url: '#',
-	verify_pre: 'Verify on',
-	verify_cc: 'Content Credentials',
+	verify_pre: 'See more at',
 }
 
 export const DICTIONARY_NO_NO = {
 	producer: 'Produsent',
-	generator: 'Produsert med',
-	signator: 'Signert av',
 	timestamp: 'Tidsstempel',
+	signator: 'Signert av',
+	generator: 'Produsert med',
+	generator_actions: 'Made {count} actions. See details .',
 	location: 'Sted',
 	ingredients: 'Ingredienser',
 	provenance_toggle: 'Se bildeopprinnelse',
@@ -36,15 +37,15 @@ export const DICTIONARY_NO_NO = {
 	explainer_methods_pre: 'Les om',
 	explainer_methods_link: 'våre metoder',
 	explainer_methods_url: '#',
-	verify_pre: 'Verifiser på',
-	verify_cc: 'Content Credentials',
+	verify_pre: 'Se mer på',
 }
 
 export const DICTIONARY_SV_SE = {
 	producer: 'Producent',
-	generator: 'Producerad med',
-	signator: 'Undertecknad av',
 	timestamp: 'Tidsstämpel',
+	signator: 'Undertecknad av',
+	generator: 'Producerad med',
+	generator_actions: 'Made {count} actions. See details .',
 	location: 'Plats',
 	ingredients: 'Ingredienser',
 	provenance_toggle: 'Visa bildens ursprung',
@@ -53,8 +54,7 @@ export const DICTIONARY_SV_SE = {
 	explainer_methods_pre: 'Läs om',
 	explainer_methods_link: 'våra metoder',
 	explainer_methods_url: '#',
-	verify_pre: 'Verifiera på',
-	verify_cc: 'Content Credentials',
+	verify_pre: 'Visa mer på',
 }
 
 export const DICTIONARY_DEFAULT = DICTIONARY_EN_US

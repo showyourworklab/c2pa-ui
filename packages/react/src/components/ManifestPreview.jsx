@@ -12,7 +12,7 @@ function ManifestPreview({
 }) {
 	const { locale } = useI18nContext()
 	const { compareImage, addCompareImage, removeCompareImage, updateComparePosition } = useUiContext()
-	const thumbnailUrl = manifest?.thumbnail
+	const thumbnailUrl = manifest?.thumbnail?.value
 	
 	const onKeyDown = event => {
 		handleA11yClick(event, onToggle)
@@ -41,7 +41,7 @@ function ManifestPreview({
 				className={classNames('ManifestPreviewCell', 'ManifestPreviewCell_issuer')}
 			>
 				{MANIFEST_PREVIEW_TITLE_KEYS.filter(key => manifest[key]).map(key =>
-					manifest[key]
+					manifest[key]?.value
 				).join(" ")}
 			</div>
 			<div

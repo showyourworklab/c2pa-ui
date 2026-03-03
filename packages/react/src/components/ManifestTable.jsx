@@ -14,6 +14,7 @@ function ManifestTable({ manifest }) {
 						key={key}
 						type={key}
 						value={manifest[key]}
+						manifest={manifest}
 					/>
 				: null
 			)}

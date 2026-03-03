@@ -1,21 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400..500;1,400..500&display=swap');
 
 :root {
-	/* --syw-color-primary: #060035;
-	--syw-color-primary-light: #2E375C;
-	--syw-color-primary-dark: #000000;
-	
-	--syw-color-secondary: #EEF3F9;
-	--syw-color-secondary-light: #ECEFFD;
-	--syw-color-secondary-dark: #7780A6;
-
-	--syw-color-tertiary: #F7F7F7;
-	--syw-color-tertiary-light: #FFFFFF;
-	--syw-color-tertiary-dark: #A3A3A3;
-
-	--syw-color-quaternary: #0533FF;
-	--syw-color-quaternary-light: #DFE3FC;
-	--syw-color-quaternary-dark: #002EC4; */
 	/* Colors */
 	/* Colors > RGB Values (kept separate to be intergratable into rgba() values) */
 	/* Colors > RGB Values > Primary */

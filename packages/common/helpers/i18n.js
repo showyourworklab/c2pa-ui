@@ -3,7 +3,6 @@ import {
 	LOCALE_DEFAULT,
 	LOCALE_DEFAULTS,
 	DICTIONARIES,
-	DICTIONARY_DEFAULT,
 } from '../constants/i18n.js'
 
 /**

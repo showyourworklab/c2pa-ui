@@ -51,7 +51,7 @@
 		class={classNames('ManifestPreviewCell', 'ManifestPreviewCell_issuer')}
 	>
 		{MANIFEST_PREVIEW_TITLE_KEYS.filter(key => manifest[key]).map(key =>
-			manifest[key]
+			manifest[key]?.value
 		).join(" ")}
 	</div>
 	<div
@@ -68,7 +68,7 @@
 		onmouseleave={handleThumbnailMouseLeave}
 	>
 		<img
-			src={manifest?.thumbnail}
+			src={manifest?.thumbnail?.value}
 			alt=''
 		/>
 	</div>

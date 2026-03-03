@@ -12,7 +12,7 @@
 	style={`left:${$comparePosition?.clientX}px;top:${$comparePosition?.clientY}px`}
 >
 	<img
-		src={$compareImage}
+		src={$compareImage?.value}
 		alt={""}
 		class={classNames('ImageCompareImg')}
 	/>

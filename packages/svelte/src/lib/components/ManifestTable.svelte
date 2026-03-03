@@ -16,6 +16,7 @@
 			<ManifestTableRow
 				type={key}
 				value={manifest[key]}
+				manifest={manifest}
 			/>
 		{/if}
 	{/each}

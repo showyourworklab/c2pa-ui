@@ -43,7 +43,7 @@
 		"maplibre-gl": "^5.18.0"
 	},
 	"devDependencies": {
-		"@contentauth/c2pa-web": "^0.5.7",
+		"@contentauth/c2pa-web": "^0.6.0",
 		"@playwright/test": "^1.28.1",
 		"@sveltejs/adapter-auto": "^6.0.1",
 		"@sveltejs/adapter-static": "^3.0.1",

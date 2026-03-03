@@ -1,5 +1,7 @@
 import { useEffect, useRef } from 'react'
-import { classNames, getVerifyUrl } from 'syw-common/helpers'
+import { classNames } from 'syw-common/helpers'
+import { getVerifyUrl } from 'syw-common/helpers/c2pa'
+import { VERIFY_BASE_URL } from 'syw-common/constants'
 import { useI18nContext } from '$src/context/i18n'
 import { useDataContext } from '$src/context/data'
 import { useUiContext } from '$src/context/ui'
@@ -44,7 +46,7 @@ function Provenance() {
 					target='_blank'
 
 				>
-					{getText('verify', 'cc')}
+					{VERIFY_BASE_URL}
 				</a>
 			</div>
 		</div>

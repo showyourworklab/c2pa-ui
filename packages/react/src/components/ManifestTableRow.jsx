@@ -4,19 +4,17 @@ import { getDateString } from 'syw-common/helpers/i18n'
 import { useI18nContext } from '$src/context/i18n'
 import Map from './Map'
 
-function ManifestTableRow({ type, value }) {
+function ManifestTableRow({ type, value, manifest }) {
 	const { locale, getText } = useI18nContext()
 
 	const formattedValue = useMemo(() => {
 		switch(type) {
 			case 'producer':
-				return value.map(v => v.name).join(', ')
+				return value?.map(v => v.name).join(', ')
 			case 'timestamp':
-				return getDateString(locale, value)
-			case 'location':
-				return null
+				return getDateString(locale, value?.value)
 			default:
-				return value
+				return value?.value || value
 		}
 	}, [type, value]);
 
@@ -32,12 +30,20 @@ function ManifestTableRow({ type, value }) {
 			<div
 				className={classNames('ManifestTableRowValue')}
 			>
-				{formattedValue}
 				{type === 'location' ?
 					<Map
 						location={value}
 					/>
-				: null}
+				: type === 'generator' ?
+					<div>
+						{formattedValue}
+						<div
+							className={classNames('ManifestTableRowValueSub')}
+						>
+							{getText(locale, 'actions', 'count')?.replace('{count}', value?.length)}
+						</div>
+					</div>
+				: formattedValue}
 			</div>
 		</li>
 	)
