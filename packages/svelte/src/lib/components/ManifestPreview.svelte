@@ -12,7 +12,7 @@
 
 	const { locale } = getContext('i18nStoreContext');
 	const {
-		openManifest, closeManifest, updateComparePosition, addCompareImage, removeCompareImage
+		openManifest, closeManifest, updateThumbnailPosition, openThumbnail, closeThumbnail, addThumbnail, removeThumbnail
 	} = getContext('uiStoreContext');
 
 	const handleClick = (event => {
@@ -28,13 +28,15 @@
 	}
 
 	const handleThumbnailMouseMove = event => {
-		updateComparePosition(event)
+		updateThumbnailPosition(event)
 	}
 	const handleThumbnailMouseEnter = event => {
-		addCompareImage(manifest?.thumbnail, event)
+		openThumbnail(event)
+		addThumbnail(manifest?.thumbnail, event)
 	}
 	const handleThumbnailMouseLeave = event => {
-		removeCompareImage(event)
+		closeThumbnail(event)
+		removeThumbnail(event)
 	}
 
 </script>
@@ -67,9 +69,11 @@
 		onmouseenter={handleThumbnailMouseEnter}
 		onmouseleave={handleThumbnailMouseLeave}
 	>
-		<img
-			src={manifest?.thumbnail?.value}
-			alt=''
-		/>
+		{#if manifest?.thumbnail?.value}
+			<img
+				src={manifest?.thumbnail?.value}
+				alt=''
+			/>
+		{/if}
 	</div>
 </div>

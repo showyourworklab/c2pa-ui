@@ -20,6 +20,7 @@ export const DICTIONARY_EN_US = {
 	explainer_methods_pre: 'Read about',
 	explainer_methods_link: 'our methods',
 	explainer_methods_url: '#',
+	thumbnail_missing: 'No thumbnail available',
 	verify_pre: 'See more at',
 }
 
@@ -37,6 +38,7 @@ export const DICTIONARY_NO_NO = {
 	explainer_methods_pre: 'Les om',
 	explainer_methods_link: 'våre metoder',
 	explainer_methods_url: '#',
+	thumbnail_missing: 'Ingen miniatyrbilder tilgjengelig',
 	verify_pre: 'Se mer på',
 }
 
@@ -54,6 +56,7 @@ export const DICTIONARY_SV_SE = {
 	explainer_methods_pre: 'Läs om',
 	explainer_methods_link: 'våra metoder',
 	explainer_methods_url: '#',
+	thumbnail_missing: 'Ingen miniatyrbild tillgänglig',
 	verify_pre: 'Visa mer på',
 }
 

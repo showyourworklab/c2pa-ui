@@ -8,9 +8,10 @@ export default function createUiStore() {
 	const isImageHover = writable(false)
 	const isProvenanceOpen = writable(false)
 	const isExplainerOpen = writable(false)
+	const isThumbnailOpen = writable(false)
 	const openManifests = writable({})
-	const compareImage = writable(null)
-	const comparePosition = writable(null)
+	const thumbnail = writable(null)
+	const thumbnailPosition = writable(null)
 	const eventHandler = writable(null)
 
 	const setElem = (value) => {
@@ -66,17 +67,25 @@ export default function createUiStore() {
 		handleEvent("manifest.close", event, manifest)
 	}
 
-	const addCompareImage = (value, event) => {
-		compareImage.set(value)
-		handleEvent("manifest.compareImage.add", event)
+	const openThumbnail = (event) => {
+		isThumbnailOpen.set(true)
+		handleEvent("manifest.thumbnail.show", event)
 	}
-	const removeCompareImage = (event) => {
-		compareImage.set(null)
-		handleEvent("manifest.compareImage.remove", event)
+	const closeThumbnail = (event) => {
+		isThumbnailOpen.set(false)
+		handleEvent("manifest.thumbnail.show", event)
 	}
-	const updateComparePosition = (event) => {
+	const addThumbnail = (value, event) => {
+		thumbnail.set(value)
+		handleEvent("manifest.thumbnail.add", event)
+	}
+	const removeThumbnail = (event) => {
+		thumbnail.set(null)
+		handleEvent("manifest.thumbnail.remove", event)
+	}
+	const updateThumbnailPosition = (event) => {
 		const position = event
-		comparePosition.set(position)
+		thumbnailPosition.set(position)
 	}
 
 	const setEventHandler = val => {
@@ -89,9 +98,10 @@ export default function createUiStore() {
 		isImageHover,
 		isProvenanceOpen,
 		isExplainerOpen,
+		isThumbnailOpen,
 		openManifests,
-		compareImage,
-		comparePosition,
+		thumbnail,
+		thumbnailPosition,
 		eventHandler,
 		setElem,
 		setVariant,
@@ -103,9 +113,11 @@ export default function createUiStore() {
 		closeExplainer,
 		openManifest,
 		closeManifest,
-		addCompareImage,
-		removeCompareImage,
-		updateComparePosition,
+		openThumbnail,
+		closeThumbnail,
+		addThumbnail,
+		removeThumbnail,
+		updateThumbnailPosition,
 		setEventHandler,
 	}
 }

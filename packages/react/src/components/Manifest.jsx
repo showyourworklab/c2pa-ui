@@ -7,7 +7,7 @@ import ManifestTable from './ManifestTable'
 
 function Manifest({ manifest, previewRef }) {
 	const [open, setOpen] = useState(false)
-	const { isProvenanceOpen, openManifests, openManifest, closeManifest, removeCompareImage } = useUiContext()
+	const { isProvenanceOpen, openManifests, openManifest, closeManifest, removeThumbnail } = useUiContext()
 
 	const className = useMemo(() =>
 		classNames(
@@ -18,7 +18,7 @@ function Manifest({ manifest, previewRef }) {
 
 	// Handle click of manifest preview / header
 	const handleToggle = useCallback(event => {
-		removeCompareImage()
+		removeThumbnail()
 		setOpen(!open)
 		if(open) {
 			closeManifest(event, manifest)

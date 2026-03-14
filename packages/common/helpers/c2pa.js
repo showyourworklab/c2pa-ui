@@ -1,6 +1,7 @@
 import { getSafeLocale } from './i18n.js'
 import { VERIFY_BASE_URL } from '../constants/index.js'
 import { C2PA_WEB_WASM_CDN_URL } from '../constants/c2pa.js'
+import { getMediaType } from './index.js'
 
 /////////////// Initialize //////////////
 
@@ -22,10 +23,18 @@ export const getC2paConfig = (options = {}) => ({
  * @return {Promise<{manifestStore: object, reader: object}>} - Manifest store and reader
  */
 export const readC2paFromUrl = async (c2pa, src) => {
-    const response = await fetch(src)
-    const blob = await response.blob()
-    const reader = await c2pa.reader.fromBlob(blob.type, blob)
-    const manifestStore = await reader.manifestStore()
+	let reader
+	const mediaType = getMediaType(src)
+	if(mediaType === "image") {
+		const response = await fetch(src)
+		const blob = await response.blob()
+		reader = await c2pa.reader.fromBlob(blob.type, blob)
+	} else if(mediaType === "video") {
+		const response = await fetch(src)
+		const blob = await response.blob()
+		reader = await c2pa.reader.fromBlob(blob.type, blob)
+	}
+    const manifestStore = await reader?.manifestStore()
     return { manifestStore, reader }
 }
 
@@ -300,7 +309,7 @@ export const prepareManifests = async ({ src, locale, provenance, reader }) => {
 			)
         )
         preparedManifests.sort((a, b) =>
-			(a.timestamp?.getTime?.() || 0) - (b.timestamp?.getTime?.() || 0)
+			(a?.timestamp?.getTime?.() || 0) - (b?.timestamp?.getTime?.() || 0)
 		)
         return preparedManifests
     } catch (error) {

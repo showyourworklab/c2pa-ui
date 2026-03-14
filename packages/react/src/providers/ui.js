@@ -11,8 +11,9 @@ const UiProvider = ({
 	const [isHoverImage, setIsHoverImage] = useState(false)
 	const [isProvenanceOpen, setIsProvenanceOpen] = useState(false)
 	const [isExplainerOpen, setIsExplainerOpen] = useState(false)
-	const [compareImage, setCompareImage] = useState(null)
-	const [comparePosition, setComparePosition] = useState(null)
+	const [isThumbnailOpen, setIsThumbnailOpen] = useState(false)
+	const [thumbnail, setThumbnail] = useState(null)
+	const [thumbnailPosition, setThumbnailPosition] = useState(null)
 	const openManifests = useRef({})
 	const eventHandler = useRef(null)
 
@@ -58,17 +59,25 @@ const UiProvider = ({
 		openManifests.current = newManifestsOpen
 		handleEvent("manifest.close", event, manifest)
 	}
-	const addCompareImage = (value, event) => {
-		setCompareImage(value)
-		handleEvent("manifest.compareImage.add", event)
+	const openThumbnail = (event) => {
+		setIsThumbnailOpen(true)
+		handleEvent("manifest.thumbnail.open", event)
 	}
-	const removeCompareImage = (event) => {
-		setCompareImage(null)
-		handleEvent("manifest.compareImage.remove", event)
+	const closeThumbnail = (event) => {
+		setIsThumbnailOpen(false)
+		handleEvent("manifest.thumbnail.close", event)
 	}
-	const updateComparePosition = (event) => {
+	const addThumbnail = (value, event) => {
+		setThumbnail(value)
+		handleEvent("manifest.thumbnail.add", event)
+	}
+	const removeThumbnail = (event) => {
+		setThumbnail(null)
+		handleEvent("manifest.thumbnail.remove", event)
+	}
+	const updateThumbnailPosition = (event) => {
 		const position = event
-		setComparePosition(position)
+		setThumbnailPosition(position)
 	}
 
 	return (
@@ -80,9 +89,10 @@ const UiProvider = ({
 				isHoverImage,
 				isProvenanceOpen,
 				isExplainerOpen,
+				isThumbnailOpen,
 				openManifests: openManifests.current,
-				compareImage,
-				comparePosition,
+				thumbnail,
+				thumbnailPosition,
 				setElem,
 				setMapOptions,
 				hoverImage,
@@ -93,9 +103,11 @@ const UiProvider = ({
 				closeExplainer,
 				openManifest,
 				closeManifest,
-				addCompareImage,
-				removeCompareImage,
-				updateComparePosition,
+				openThumbnail,
+				closeThumbnail,
+				addThumbnail,
+				removeThumbnail,
+				updateThumbnailPosition,
 				eventHandler,
 			}}
 		>

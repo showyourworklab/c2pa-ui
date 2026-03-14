@@ -8,17 +8,18 @@
 
 	const {
 		type,
-		value
+		value,
+		manifest
 	} = $props()
 
 	const formattedValue = $derived(() => {
 		switch(type) {
-			case "producer":
-				return value?.map(v => v.name)?.join(', ')
-			case "timestamp":
-				return getDateString($locale, value)
+			case 'producer':
+				return value?.map(v => v.name).join(', ')
+			case 'timestamp':
+				return getDateString($locale, value?.value)
 			default:
-				return value
+				return value?.value || value
 		}
 	})
 
@@ -39,6 +40,15 @@
 			<Map
 				location={value}
 			/>
+		{:else if type === 'generator'}
+			<div>
+				{formattedValue()}
+				<div
+					class={classNames('ManifestTableRowValueSub')}
+				>
+					{getText($locale, 'actions', 'count')?.replace('{count}', value?.length)}
+				</div>
+			</div>
 		{:else}
 			{formattedValue()}
 		{/if}

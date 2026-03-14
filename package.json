@@ -23,10 +23,10 @@
     "docs:lerna": "lerna run --scope syw-docs",
     "docs:dev": "npm run docs:lerna dev",
     "docs:build": "npm run docs:lerna build",
+    "docs:deploy": "npx gh-pages -d public",
     "common:lerna": "lerna run --scope syw-common",
     "common:publish": "npm run common:lerna publish",
     "build": "npm run docs:build && npm run react:build && npm run svelte:build",
-    "deploy": "npx gh-pages -d public",
     "publish": "npx lerna publish --no-private"
   },
   "devDependencies": {
@@ -34,6 +34,7 @@
     "lerna": "^8.2.2"
   },
   "dependencies": {
-    "@contentauth/c2pa-web": "^0.5.7"
+    "@contentauth/c2pa-web": "^0.6.1",
+    "@videojs/react": "^10.0.0-beta.5"
   }
 }
