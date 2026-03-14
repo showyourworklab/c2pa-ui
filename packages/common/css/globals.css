@@ -24,22 +24,20 @@
 	--syw-color-primary: rgb(var(--syw-color-primary-rgb));
 	--syw-color-primary-light: rgb(var(--syw-color-primary-light-rgb));
 	--syw-color-primary-dark: rgb(var(--syw-color-primary-dark-rgb));
-	--syw-color-primary-translucent: rgba(var(--syw-color-primary-rgb), .85);
 	/* Colors > Values > Secondary */
 	--syw-color-secondary: rgb(var(--syw-color-secondary-rgb));
 	--syw-color-secondary-light: rgb(var(--syw-color-secondary-light-rgb));
 	--syw-color-secondary-dark: rgb(var(--syw-color-secondary-dark-rgb));
-	--syw-color-secondary-translucent: rgba(var(--syw-color-secondary-rgb), .85);
 	/* Colors > Values > Tertiary */
 	--syw-color-tertiary: rgb(var(--syw-color-tertiary-rgb));
 	--syw-color-tertiary-light: rgb(var(--syw-color-tertiary-light-rgb));
 	--syw-color-tertiary-dark: rgb(var(--syw-color-tertiary-dark-rgb));
-	--syw-color-tertiary-translucent: rgba(var(--syw-color-tertiary-rgb), .85);
 	/* Colors > Values > Quaternary */
 	--syw-color-quaternary: rgb(var(--syw-color-quaternary-rgb));
 	--syw-color-quaternary-light: rgb(var(--syw-color-quaternary-light-rgb));
 	--syw-color-quaternary-dark: rgb(var(--syw-color-quaternary-dark-rgb));
-	--syw-color-quaternary-translucent: rgba(var(--syw-color-quaternary-rgb), .85);
+	/* Colors > Components */
+	--syw-modal-backdrop: rgba(var(--syw-color-primary-dark-rgb), .85);
 	/* Border Radii */
 	--syw-radius-sm: 2px;
 	--syw-radius-md: 4px;

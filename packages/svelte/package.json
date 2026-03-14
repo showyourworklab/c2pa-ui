@@ -40,10 +40,11 @@
 	},
 	"dependencies": {
 		"@sveltejs/adapter-static": "^3.0.1",
+		"@videojs/html": "^10.0.0-beta.6",
 		"maplibre-gl": "^5.18.0"
 	},
 	"devDependencies": {
-		"@contentauth/c2pa-web": "^0.6.0",
+		"@contentauth/c2pa-web": "^0.6.1",
 		"@playwright/test": "^1.28.1",
 		"@sveltejs/adapter-auto": "^6.0.1",
 		"@sveltejs/adapter-static": "^3.0.1",

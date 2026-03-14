@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef } from 'react'
 import 'syw-common/css/styles.css'
-import { classNames } from 'syw-common/helpers'
+import { classNames, getMediaType } from 'syw-common/helpers'
 import { prepareManifests } from 'syw-common/helpers/c2pa'
 import { useDataContext } from '$src/context/data'
 import { useI18nContext } from '$src/context/i18n'
@@ -8,13 +8,14 @@ import { useUiContext } from '$src/context/ui'
 import useC2pa from '$src/hooks/useC2pa'
 import Figure from './Figure'
 import Image from './Image'
+import Video from './Video'
 import Cutline from './Cutline'
 import Caption from './Caption'
 import Explainer from './Explainer'
 import Provenance from './Provenance'
 import Collapse from './Collapse'
 import ProvenanceModal from './ProvenanceModal'
-import ImageCompare from './ImageCompare'
+import Thumbnail from './Thumbnail'
 
 function App({
 	mapOptions,
@@ -23,7 +24,7 @@ function App({
 	const ref = useRef(null)
 	const { src, setManifests } = useDataContext()
 	const { locale } = useI18nContext()
-	const { variant, compareImage, isImageHover, isProvenanceOpen, setElem, setMapOptions, eventHandler } = useUiContext()
+	const { variant, compareImage, isImageHover, isProvenanceOpen, isThumbnailOpen, setElem, setMapOptions, eventHandler } = useUiContext()
 	const { reader, provenance } = useC2pa(src)
 
 	const className = useMemo(() =>
@@ -34,6 +35,8 @@ function App({
 			isProvenanceOpen ? 'App_active' : false
 		)
 	, [variant, isImageHover, isProvenanceOpen])
+
+	const mediaType = useMemo(() => getMediaType(src), [src])
 
 	useEffect(() => {
 		setElem(ref.current);
@@ -65,7 +68,12 @@ function App({
 			className={className}
 		>
 			<Figure>
-				<Image />
+				{mediaType === "image" ?
+					<Image />
+				: null}
+				{mediaType === "video" ?
+					<Video />
+				: null}
 				{variant === 'expand' ?
 					<Explainer />
 				: null}
@@ -83,8 +91,8 @@ function App({
 			{variant === 'modal' ?
 				<ProvenanceModal />
 			: null}
-			{compareImage ?
-				<ImageCompare />
+			{isThumbnailOpen ?
+				<Thumbnail />
 			: null}
 		</div>
 	)

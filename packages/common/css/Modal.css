@@ -25,7 +25,7 @@
 	left: 0;
 	top: 0;
 	z-index: 10001;
-	background-color: var(--syw-color-primary-translucent);
+	background-color: var(--syw-modal-backdrop);
 }
 /* Modal > Content */
 .Syw-ModalContent {

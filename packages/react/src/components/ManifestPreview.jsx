@@ -11,20 +11,22 @@ function ManifestPreview({
 	previewRef
 }) {
 	const { locale } = useI18nContext()
-	const { compareImage, addCompareImage, removeCompareImage, updateComparePosition } = useUiContext()
+	const { thumbnail, openThumbnail, closeThumbnail, addThumbnail, removeThumbnail, updateThumbnailPosition } = useUiContext()
 	const thumbnailUrl = manifest?.thumbnail?.value
 	
 	const onKeyDown = event => {
 		handleA11yClick(event, onToggle)
 	}
 	const onThumbnailMouseMove = event => {
-		updateComparePosition(event)
+		updateThumbnailPosition(event)
 	}
 	const onThumbnailMouseEnter = event => {
-		addCompareImage(thumbnailUrl, event)
+		openThumbnail(event)
+		addThumbnail(thumbnailUrl, event)
 	}
 	const onThumbnailMouseLeave = event => {
-		removeCompareImage(event)
+		closeThumbnail(event)
+		removeThumbnail(event)
 	}
 
 	return (
@@ -53,7 +55,7 @@ function ManifestPreview({
 				className={classNames(
 					'ManifestPreviewCell',
 					'ManifestPreviewCell_thumb',
-					thumbnailUrl === compareImage
+					thumbnailUrl === thumbnail
 						? 'ManifestPreviewCell_thumb_hover'
 						: null
 				)}

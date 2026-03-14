@@ -1,5 +1,5 @@
 /* Image > Compare */
-.Syw-ImageCompare {
+.Syw-Thumbnail {
 	position: fixed;
 	z-index: 999999999;
 	display: flex;
@@ -15,9 +15,12 @@
 	--syw-offset: calc(-100% - var(--syw-space-10));
 	transform: translate(var(--syw-offset), calc(-50% + 0px));
 }
-.Syw-ImageCompare img {
+.Syw-Thumbnail img {
 	width: 320px;
 	height: auto;
 	margin: auto;
 	object-fit: contain;
+}
+.Syw-Thumbnail .Syw-ThumbnailMissing {
+	color: var(--syw-color-secondary);
 }

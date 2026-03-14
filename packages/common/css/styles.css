@@ -7,10 +7,11 @@
 @import './ExplainerToggle.css';
 @import './Figure.css';
 @import './Image.css';
-@import './ImageCompare.css';
 @import './Manifest.css';
 @import './Map.css';
 @import './Modal.css';
 @import './Provenance.css';
 @import './ProvenanceModal.css';
 @import './ProvenanceToggle.css';
+@import './Thumbnail.css';
+@import './Video.css';
