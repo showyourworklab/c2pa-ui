@@ -24,4 +24,5 @@ export const DEMO_IMAGE_URLS = [
 ]
 
 // export const DEMO_IMAGE_URL_DEFAULT = 'https://showyourworklab.github.io/c2pa-images/leica-nora-11.jpg'
-export const DEMO_IMAGE_URL_DEFAULT = DEMO_IMAGE_URLS[DEMO_IMAGE_URLS.length - 1]
+// export const DEMO_IMAGE_URL_DEFAULT = DEMO_IMAGE_URLS[DEMO_IMAGE_URLS.length - 1]
+export const DEMO_IMAGE_URL_DEFAULT = DEMO_IMAGE_URLS[0]
