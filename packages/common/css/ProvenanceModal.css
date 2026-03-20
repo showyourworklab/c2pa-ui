@@ -8,6 +8,10 @@
 	padding: var(--syw-space-4);
 }
 /* Provenance > Modal > Explainer */
-.Syw-ProvenanceModal .Syw-ProvenanceModalExplainer {
+.Syw-ProvenanceModal .Syw-ProvenanceModalToolbar {
+	display: flex;
 	margin-bottom: var(--syw-space-3);
 }
+/* .Syw-ProvenanceModal .Syw-ProvenanceModalToolbar .Syw-Status {
+	margin-left: auto;
+} */

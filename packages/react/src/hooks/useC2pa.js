@@ -16,7 +16,6 @@ const useC2pa = (src) => {
 				const { manifestStore, reader } = await readC2paFromUrl(c2pa, src)
 				if (!cancelled) {
 					setReader(reader)
-					console.log(manifestStore)
 					setProvenance({ manifestStore })
 				}
 			} catch (error) {

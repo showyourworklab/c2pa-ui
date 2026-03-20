@@ -8,10 +8,14 @@ function SywReact({
 	caption,
 	byline,
 	variant,
+	c2paOptions,
 	...props
 }) {
+
 	return (
-		<C2paProvider>
+		<C2paProvider
+			c2paOptions={c2paOptions}
+		>
 			<I18nProvider
 				locale={locale}
 			>

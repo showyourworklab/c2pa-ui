@@ -1,5 +1,8 @@
 /* Cutline */
 .Syw-Cutline {
+	display: flex;
+	align-content: center;
+	justify-content: space-between;
 	margin: var(--syw-space-2) auto 0 auto;
 }
 /* Cutline > Toggles */

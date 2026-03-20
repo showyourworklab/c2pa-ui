@@ -16,15 +16,17 @@ import Provenance from './Provenance'
 import Collapse from './Collapse'
 import ProvenanceModal from './ProvenanceModal'
 import Thumbnail from './Thumbnail'
+import { getC2paStatus } from 'syw-common/helpers/c2pa.js'
 
 function App({
 	mapOptions,
+	trustlistOptions,
 	onEvent,
 }) {
 	const ref = useRef(null)
-	const { src, setManifests } = useDataContext()
+	const { src, setManifests, setStatus } = useDataContext()
 	const { locale } = useI18nContext()
-	const { variant, compareImage, isImageHover, isProvenanceOpen, isThumbnailOpen, setElem, setMapOptions, eventHandler } = useUiContext()
+	const { variant, isImageHover, isProvenanceOpen, isThumbnailOpen, setElem, setMapOptions, eventHandler } = useUiContext()
 	const { reader, provenance } = useC2pa(src)
 
 	const className = useMemo(() =>
@@ -48,6 +50,8 @@ function App({
 
 	useEffect(() => {
         (async () => {
+			const newStatus = await getC2paStatus(provenance)
+			setStatus(newStatus)
             const newManifests = await prepareManifests({
 				src,
 				locale,

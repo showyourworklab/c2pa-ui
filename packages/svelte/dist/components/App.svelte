@@ -1,8 +1,8 @@
 <script>
 	import { onMount, setContext } from 'svelte'
 	import 'syw-common/css/styles.css'
-	import { classNames } from 'syw-common/helpers'
-	import { prepareManifest } from 'syw-common/helpers/c2pa'
+	import { classNames, getMediaType } from 'syw-common/helpers'
+	import { prepareManifests } from 'syw-common/helpers/c2pa'
 	import { VARIANT_DEFAULT } from 'syw-common/constants'
 	import createC2paStore from '../store/c2pa.js'
 	import createDataStore from '../store/data.js'
@@ -10,12 +10,13 @@
 	import createUiStore from '../store/ui.js'
 	import Figure from './Figure.svelte'
 	import Image from './Image.svelte'
+	import Video from './Video.svelte';
 	import Explainer from './Explainer.svelte'
 	import Cutline from './Cutline.svelte'
 	import Caption from './Caption.svelte'
 	import ProvenanceModal from './ProvenanceModal.svelte'
 	import ProvenanceExpand from './ProvenanceExpand.svelte'
-	import ImageCompare from './ImageCompare.svelte'
+	import Thumbnail from './Thumbnail.svelte'
 
 	const {
 		variant = VARIANT_DEFAULT,
@@ -45,7 +46,7 @@
 		variant: _variant,
 		isImageHover,
 		isProvenanceOpen,
-		compareImage
+		isThumbnailOpen
 	} = uiStore
 
 	const classes = $derived(
@@ -56,6 +57,8 @@
 			$isProvenanceOpen ? 'App_active' : false
 		)
 	)
+
+	const mediaType = $derived(getMediaType(src))
 
 	$effect(() => {
 		dataStore.setSrc(src)
@@ -94,15 +97,12 @@
 	$effect(() => {
 		if ($provenance?.manifestStore && $reader) {
 			(async () => {
-				const newManifests = await Promise.all(
-					Object.values($provenance.manifestStore.manifests ?? {})
-						.map(manifest => prepareManifest({
-							src,
-							locale,
-							manifest,
-							reader: $reader
-						}))
-				)
+				const newManifests = await prepareManifests({
+					src,
+					locale,
+					provenance: $provenance,
+					reader: $reader
+				})
 				dataStore.setManifests(newManifests)
 			})()
 		}
@@ -121,7 +121,12 @@
 		bind:this={elemRef}
 	>
 		<Figure>
-			<Image />
+			{#if mediaType === 'image'}
+				<Image />
+			{/if}
+			{#if mediaType === 'video'}
+				<Video />
+			{/if}
 			{#if $_variant === 'expand'}
 				<Explainer />
 			{/if}
@@ -135,8 +140,8 @@
 		{#if $_variant === 'modal'}
 			<ProvenanceModal />
 		{/if}
-		{#if $compareImage}
-			<ImageCompare />
+		{#if $isThumbnailOpen}
+			<Thumbnail />
 		{/if}
 	</div>
 {/if}

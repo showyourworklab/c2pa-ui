@@ -8,6 +8,7 @@ const DataProvider = ({
     byline,
 	children
 }) => {
+	const [status, setStatus] = useState("validating")
     const [manifests, setManifests] = useState([])
 
 	return (
@@ -17,6 +18,8 @@ const DataProvider = ({
                 alt,
                 caption,
                 byline,
+				status,
+				setStatus,
                 manifests,
                 setManifests
 			}}

@@ -17,7 +17,7 @@ const Video = ({
 	} = useDataContext()
 	return (
 		<div
-			class={classNames('Video')}
+			className={classNames('Video')}
 		>
 			<Player.Provider>
 				<VideoSkin

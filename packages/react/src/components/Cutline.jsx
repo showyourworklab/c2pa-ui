@@ -1,11 +1,14 @@
 import { classNames } from 'syw-common/helpers'
+import { useDataContext } from '$src/context/data'
 import ProvenanceToggle from './ProvenanceToggle'
 import ExplainerToggle from './ExplainerToggle'
+import Status from './Status'
 
-const Cutline = ({
-	caption,
-	byline
-}) => {
+const Cutline = () => {
+	const {
+		status
+	} = useDataContext()
+
 	return (
 		<div
 			className={classNames('Cutline')}
@@ -16,6 +19,9 @@ const Cutline = ({
 				<ProvenanceToggle />
 				<ExplainerToggle />
 			</div>
+			<Status
+				value={status}
+			/>
 		</div>
 	)
 }

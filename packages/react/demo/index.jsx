@@ -7,6 +7,7 @@ import SywLogo from 'syw-common/images/logo-dark.svg'
 import SywReact from '$src/index'
 import 'syw-common/css/globals.css'
 import 'syw-docs/src/styles.css'
+import C2PA_INTERIM_TRUST_LIST from '../../common/trustlists/c2pa-interim';
 
 const Demo = () => {
 	const [locale, setLocale] = useState(LOCALE_DEFAULT)
@@ -143,6 +144,9 @@ const Demo = () => {
 					variant={variant}
 					mapOptions={{
 						// style: 'https://tiles.openfreemap.org/styles/positron'
+					}}
+					c2paOptions={{
+						trustLists: [C2PA_INTERIM_TRUST_LIST]
 					}}
 					onEvent={handleEvent}
 				/>

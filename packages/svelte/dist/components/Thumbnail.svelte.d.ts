@@ -1,12 +1,12 @@
-export default ImageCompare;
-type ImageCompare = SvelteComponent<{
+export default Thumbnail;
+type Thumbnail = SvelteComponent<{
     [x: string]: never;
 }, {
     [evt: string]: CustomEvent<any>;
 }, {}> & {
     $$bindings?: string;
 };
-declare const ImageCompare: $$__sveltets_2_IsomorphicComponent<{
+declare const Thumbnail: $$__sveltets_2_IsomorphicComponent<{
     [x: string]: never;
 }, {
     [evt: string]: CustomEvent<any>;

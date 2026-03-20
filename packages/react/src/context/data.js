@@ -5,6 +5,7 @@ const DataContext = createContext({
     alt: null,
     caption: null,
     byline: null,
+    status: null,
     manifests: [],
     setManifests: () => false,
 });
