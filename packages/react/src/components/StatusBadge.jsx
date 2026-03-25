@@ -1,21 +1,21 @@
 import { classNames } from 'syw-common/helpers'
 import { useI18nContext } from '$src/context/i18n'
+import Badge from './Badge'
 
-const Status = ({
+const StatusBadge = ({
 	value
 }) => {
 	const { getText } = useI18nContext()
 	
 	return (
-		<div
-			className={classNames(
-				'Status',
-				value ? `Status_${value}` : null
-			)}
+		<Badge
+			type="status"
+			value={value}
+			className={classNames("StatusBadge")}
 		>
 			{getText("status", value)}
-		</div>
+		</Badge>
 	)
 }
 
-export default Status
+export default StatusBadge

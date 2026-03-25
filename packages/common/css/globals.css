@@ -2,55 +2,32 @@
 
 :root {
 	/* Colors */
-	/* Colors > RGB Values (kept separate to be intergratable into rgba() values) */
-	/* Colors > RGB Values > Primary */
-	--syw-color-primary-rgb: 6, 0, 53;
-	--syw-color-primary-light-rgb: 46, 55, 92;
-	--syw-color-primary-dark-rgb: 0, 0, 0;
-	/* Colors > RGB Values > Secondary */
-	--syw-color-secondary-rgb: 236, 242, 248;
-	--syw-color-secondary-light-rgb: 236, 239, 253;
-	--syw-color-secondary-dark-rgb: 119, 128, 166;
-	/* Colors > RGB Values > Tertiary */
-	--syw-color-tertiary-rgb: 247, 247, 247;
-	--syw-color-tertiary-light-rgb: 255, 255, 255;
-	--syw-color-tertiary-dark-rgb: 163, 163, 163;
-	/* Colors > RGB Values > Quaternary */
-	--syw-color-quaternary-rgb: 5, 51, 255;
-	--syw-color-quaternary-light-rgb: 223, 227, 252;
-	--syw-color-quaternary-dark-rgb: 0, 46, 196;
-	/* Colors > RGB Values > Status */
-	--syw-color-status-trusted-rgb: 22, 126, 22;
-	--syw-color-status-valid-rgb: 126, 126, 22;
-	--syw-color-status-invalid-rgb: 255, 0, 0;
-	--syw-color-status-trusted-light-rgb: 205, 245, 205;
-	--syw-color-status-valid-light-rgb: 245, 245, 205;
-	--syw-color-status-invalid-light-rgb: 255, 221, 221;
-	/* Colors > Values (to use directly in CSS) */
-	/* Colors > Values > Primary */
-	--syw-color-primary: rgb(var(--syw-color-primary-rgb));
-	--syw-color-primary-light: rgb(var(--syw-color-primary-light-rgb));
-	--syw-color-primary-dark: rgb(var(--syw-color-primary-dark-rgb));
-	/* Colors > Values > Secondary */
-	--syw-color-secondary: rgb(var(--syw-color-secondary-rgb));
-	--syw-color-secondary-light: rgb(var(--syw-color-secondary-light-rgb));
-	--syw-color-secondary-dark: rgb(var(--syw-color-secondary-dark-rgb));
-	/* Colors > Values > Tertiary */
-	--syw-color-tertiary: rgb(var(--syw-color-tertiary-rgb));
-	--syw-color-tertiary-light: rgb(var(--syw-color-tertiary-light-rgb));
-	--syw-color-tertiary-dark: rgb(var(--syw-color-tertiary-dark-rgb));
-	/* Colors > Values > Quaternary */
-	--syw-color-quaternary: rgb(var(--syw-color-quaternary-rgb));
-	--syw-color-quaternary-light: rgb(var(--syw-color-quaternary-light-rgb));
-	--syw-color-quaternary-dark: rgb(var(--syw-color-quaternary-dark-rgb));
+	/* Colors > Primary */
+	--syw-color-primary: rgb(6, 0, 53);
+	--syw-color-primary-light: rgb(46, 55, 92);
+	--syw-color-primary-dark: rgb(46, 55, 92);
+	/* Colors > Secondary */
+	--syw-color-secondary: rgb(236, 242, 248);
+	--syw-color-secondary-light: rgb(236, 239, 253);
+	--syw-color-secondary-dark: rgb(119, 128, 166);
+	/* Colors > Tertiary */
+	--syw-color-tertiary: rgb(247, 247, 247);
+	--syw-color-tertiary-light: rgb(255, 255, 255);
+	--syw-color-tertiary-dark: rgb(163, 163, 163);
+	/* Colors > Quaternary */
+	--syw-color-quaternary: rgb(5, 51, 255);
+	--syw-color-quaternary-light: rgb(223, 227, 252);
+	--syw-color-quaternary-dark: rgb(0, 46, 196);
 	/* Colors > Components */
-	--syw-color-status-trusted: rgb(var(--syw-color-status-trusted-rgb));
-	--syw-color-status-valid: rgb(var(--syw-color-status-valid-rgb));
-	--syw-color-status-invalid: rgb(var(--syw-color-status-invalid-rgb));
-	--syw-color-status-trusted-light: rgb(var(--syw-color-status-trusted-light-rgb));
-	--syw-color-status-valid-light: rgb(var(--syw-color-status-valid-light-rgb));
-	--syw-color-status-invalid-light: rgb(var(--syw-color-status-invalid-light-rgb));
-	--syw-color-modal-backdrop: rgba(var(--syw-color-primary-dark-rgb), .85);
+	--syw-color-status-trusted: rgb(22, 126, 22);
+	--syw-color-status-valid: rgb(126, 126, 22);
+	--syw-color-status-invalid: rgb(255, 0, 0);
+	--syw-color-status-trusted-light: rgb(205, 245, 205);
+	--syw-color-status-valid-light: rgb(245, 245, 205);
+	--syw-color-status-invalid-light: rgb(255, 221, 221);
+	--syw-color-type: rgb(126, 126, 22);
+	--syw-color-type-light: rgb(245, 245, 205);
+	--syw-color-modal-backdrop: rgba(46, 55, 92, .85);
 	/* Border Radii */
 	--syw-radius-sm: 2px;
 	--syw-radius-md: 4px;

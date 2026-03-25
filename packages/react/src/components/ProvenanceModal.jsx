@@ -2,7 +2,7 @@ import { classNames } from 'syw-common/helpers'
 import { useI18nContext, useUiContext, useDataContext } from '$src/context'
 import Modal from './Modal'
 import Provenance from './Provenance'
-import Status from './Status'
+import StatusBadge from './StatusBadge'
 import Explainer from './Explainer'
 import ExplainerToggle from './ExplainerToggle'
 
@@ -40,7 +40,7 @@ const ProvenanceModal = () => {
 				{!isExplainerOpen ?
 					<ExplainerToggle />
 				: null}
-				<Status
+				<StatusBadge
 					value={status}
 				/>
 			</div>

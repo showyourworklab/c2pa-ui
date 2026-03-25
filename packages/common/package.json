@@ -5,10 +5,15 @@
   "private": true,
   "type": "module",
   "exports": {
-    ".": "./index.js",
-    "./constants": "./constants/index.js",
+    "./constants": {
+      "types": "./constants/index.d.ts",
+      "default": "./constants/index.js"
+    },
     "./constants/*": "./constants/*",
-    "./helpers": "./helpers/index.js",
+    "./helpers": {
+      "types": "./helpers/index.d.ts",
+      "default": "./helpers/index.js"
+    },
     "./helpers/*": "./helpers/*",
     "./css": "./css/index.css",
     "./css/*": "./css/*",

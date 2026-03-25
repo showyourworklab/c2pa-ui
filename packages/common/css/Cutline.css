@@ -10,3 +10,11 @@
 	display: flex;
 	align-content: center;
 }
+/* Cutline > Badges */
+.Syw-CutlineBadges {
+	display: flex;
+	align-content: center;
+}
+.Syw-CutlineBadges > div {
+	margin-left: var(--syw-space-2);
+}

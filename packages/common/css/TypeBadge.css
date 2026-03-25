@@ -1,0 +1,10 @@
+/* Type */
+.Syw-TypeBadge {
+	/* color: var(--syw-color-type); */
+	/* background-color: var(--syw-color-status-type); */
+}
+.Syw-App_active .Syw-TypeBadge {
+	/* color: white; */
+	color: var(--syw-color-quaternary-light);
+	/* background-color: var(--syw-color-status-type); */
+}

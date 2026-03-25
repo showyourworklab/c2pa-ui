@@ -110,7 +110,13 @@
 	user-select: text;
 }
 .Syw-ManifestPreviewCell_issuer {
-	margin-left: var(--syw-space-2);
+	/* margin-left: var(--syw-space-1); */
+}
+.Syw-ManifestPreviewCell_badges {
+	display: flex;
+}
+.Syw-ManifestPreviewCell_badges > div {
+	margin-right: var(--syw-space-2);
 }
 .Syw-ManifestPreviewCell_time {
 	flex: 1;

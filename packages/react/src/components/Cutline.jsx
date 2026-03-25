@@ -2,11 +2,12 @@ import { classNames } from 'syw-common/helpers'
 import { useDataContext } from '$src/context/data'
 import ProvenanceToggle from './ProvenanceToggle'
 import ExplainerToggle from './ExplainerToggle'
-import Status from './Status'
+import StatusBadge from './StatusBadge'
+import TypeBadge from './TypeBadge'
 
 const Cutline = () => {
 	const {
-		status
+		status,
 	} = useDataContext()
 
 	return (
@@ -19,9 +20,16 @@ const Cutline = () => {
 				<ProvenanceToggle />
 				<ExplainerToggle />
 			</div>
-			<Status
-				value={status}
-			/>
+			<div
+				className={classNames('CutlineBadges')}
+			>
+				<StatusBadge
+					value={status}
+				/>
+				{/* <TypeBadge
+					value={type}
+				/> */}
+			</div>
 		</div>
 	)
 }

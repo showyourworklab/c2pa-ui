@@ -3,7 +3,8 @@ import { handleA11yClick, classNames } from 'syw-common/helpers'
 import { getDateString } from 'syw-common/helpers/i18n'
 import { useI18nContext } from '$src/context/i18n'
 import { useUiContext } from '$src/context/ui'
-import Status from '$src/components/Status'
+import StatusBadge from '$src/components/StatusBadge'
+import TypeBadge from '$src/components/TypeBadge'
 
 function ManifestPreview({
 	manifest,
@@ -39,13 +40,27 @@ function ManifestPreview({
 			onClick={onToggle}
 			onKeyDown={onKeyDown}
 		>
-			<Status
-				value={manifest.status}
+			<div
 				className={classNames(
 					'ManifestPreviewCell',
-					'ManifestPreviewCell_status'
+					'ManifestPreviewCell_badges'
 				)}
-			/>
+			>
+				<StatusBadge
+					value={manifest.status}
+					className={classNames(
+						'ManifestPreviewCell',
+						'ManifestPreviewCell_status'
+					)}
+				/>
+				<TypeBadge
+					value={manifest.type}
+					className={classNames(
+						'ManifestPreviewCell',
+						'ManifestPreviewCell_type'
+					)}
+				/>
+			</div>
 			<div
 				className={classNames(
 					'ManifestPreviewCell',

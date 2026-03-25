@@ -3,6 +3,8 @@ import { VERIFY_BASE_URL } from 'syw-common/constants/index.js'
 import { C2PA_WEB_WASM_CDN_URL } from 'syw-common/constants/c2pa.js'
 import { getMediaType } from './index.js'
 import { getSafeLocale } from './i18n.js'
+import { IPTC_NEWS_CODES_BASE_URI } from '../constants/iptc.js'
+import { getIptcNewsCode, getIptcNewsCodeDefinition, getIptcNewsCodeKey, getIptcNewsCodeLabel } from './iptc.js'
 
 /////////////// Initialize //////////////
 
@@ -169,10 +171,17 @@ export const getId = data => data?.instance_id
  * @return {string} - Manifest type
  */
 export const getType = manifest => {
-	// const createdActions = getC2paActions(manifest)
-	// console.log(manifest)
-	// const digitalSourceType = digitalSourceType
-	return ""
+	const createdAction = getC2paActions(manifest)?.find(a => a?.action === "c2pa.created")
+	const iptcNewsCodeUri = createdAction?.digitalSourceType
+	const iptcNewsCode = getIptcNewsCode(iptcNewsCodeUri)
+	const typeKey = getIptcNewsCodeKey(iptcNewsCodeUri)
+	const typeLabel = getIptcNewsCodeLabel(iptcNewsCode)
+	const typeDefinition = getIptcNewsCodeDefinition(iptcNewsCode)
+	return {
+		key: typeKey,
+		label: typeLabel,
+		definition: typeDefinition,
+	}
 }
 
 /**
@@ -371,6 +380,7 @@ export const getVerifyUrl = src => `https://${VERIFY_BASE_URL}/inspect?source=${
  */
 export const prepareManifest = async ({ src, locale, manifest, provenance, reader }) => {
 	const safeLocale = getSafeLocale(locale)
+	console.log(manifest)
 	return {
 		id: getId(manifest),
 		type: getType(manifest),

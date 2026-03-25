@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef } from 'react'
 import 'syw-common/css/styles.css'
 import { classNames, getMediaType } from 'syw-common/helpers'
-import { prepareManifests } from 'syw-common/helpers/c2pa'
+import { prepareManifests, getC2paStatus } from 'syw-common/helpers/c2pa'
 import { useDataContext } from '$src/context/data'
 import { useI18nContext } from '$src/context/i18n'
 import { useUiContext } from '$src/context/ui'
@@ -16,27 +16,25 @@ import Provenance from './Provenance'
 import Collapse from './Collapse'
 import ProvenanceModal from './ProvenanceModal'
 import Thumbnail from './Thumbnail'
-import { getC2paStatus } from 'syw-common/helpers/c2pa.js'
 
 function App({
 	mapOptions,
-	trustlistOptions,
 	onEvent,
 }) {
 	const ref = useRef(null)
 	const { src, setManifests, setStatus } = useDataContext()
 	const { locale } = useI18nContext()
-	const { variant, isImageHover, isProvenanceOpen, isThumbnailOpen, setElem, setMapOptions, eventHandler } = useUiContext()
+	const { variant, isHoverImage, isProvenanceOpen, isThumbnailOpen, setElem, setMapOptions, eventHandler } = useUiContext()
 	const { reader, provenance } = useC2pa(src)
 
 	const className = useMemo(() =>
 		classNames(
 			'App',
 			`App_${variant}`,
-			isImageHover ? 'App_hovered' : false,
+			isHoverImage ? 'App_hovered' : false,
 			isProvenanceOpen ? 'App_active' : false
 		)
-	, [variant, isImageHover, isProvenanceOpen])
+	, [variant, isHoverImage, isProvenanceOpen])
 
 	const mediaType = useMemo(() => getMediaType(src), [src])
 
