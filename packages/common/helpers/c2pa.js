@@ -177,11 +177,18 @@ export const getType = manifest => {
 	const typeKey = getIptcNewsCodeKey(iptcNewsCodeUri)
 	const typeLabel = getIptcNewsCodeLabel(iptcNewsCode)
 	const typeDefinition = getIptcNewsCodeDefinition(iptcNewsCode)
-	return {
+	// console.log({
+	// 	iptcNewsCodeUri,
+	// 	iptcNewsCode,
+	// 	typeKey,
+	// 	typeLabel,
+	// 	typeDefinition,
+	// })
+	return typeKey ? {
 		key: typeKey,
 		label: typeLabel,
 		definition: typeDefinition,
-	}
+	} : null
 }
 
 /**

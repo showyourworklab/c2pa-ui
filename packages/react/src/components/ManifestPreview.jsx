@@ -30,6 +30,7 @@ function ManifestPreview({
 		closeThumbnail(event)
 		removeThumbnail(event)
 	}
+	console.log(manifest)
 	return (
 		<div
 			ref={previewRef}
@@ -46,20 +47,24 @@ function ManifestPreview({
 					'ManifestPreviewCell_badges'
 				)}
 			>
-				<StatusBadge
-					value={manifest.status}
-					className={classNames(
-						'ManifestPreviewCell',
-						'ManifestPreviewCell_status'
-					)}
-				/>
-				<TypeBadge
-					value={manifest.type}
-					className={classNames(
-						'ManifestPreviewCell',
-						'ManifestPreviewCell_type'
-					)}
-				/>
+				{manifest.status ?
+					<StatusBadge
+						value={manifest.status}
+						className={classNames(
+							'ManifestPreviewCell',
+							'ManifestPreviewCell_status'
+						)}
+					/>
+				: null}
+				{manifest.type ?
+					<TypeBadge
+						value={manifest.type}
+						className={classNames(
+							'ManifestPreviewCell',
+							'ManifestPreviewCell_type'
+						)}
+					/>
+				: null}
 			</div>
 			<div
 				className={classNames(

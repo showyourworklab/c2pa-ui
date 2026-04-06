@@ -8,6 +8,6 @@ export const getIptcNewsCode = value => {
 		n.uri === uri
 	)
 }
-export const getIptcNewsCodeKey = uri => String(uri).replace(`${IPTC_NEWS_CODES_BASE_URI}/`, "")
+export const getIptcNewsCodeKey = uri => uri && String(uri).replace(`${IPTC_NEWS_CODES_BASE_URI}/`, "")
 export const getIptcNewsCodeLabel = newsCode => newsCode?.prefLabel[`en-GB`]
 export const getIptcNewsCodeDefinition = newsCode => newsCode?.definition[`en-GB`]
