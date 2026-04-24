@@ -65,5 +65,8 @@ export default defineConfig({
 	],
 	server: {
 		port: 3000,
+		// fs: {
+		// 	allow: ['../..'] // or the specific path to your packages dir
+		// }
 	}
 })

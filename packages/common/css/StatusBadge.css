@@ -1,0 +1,13 @@
+/* Status */
+.Syw-StatusBadge.Syw-Badge_trusted {
+	color: var(--syw-color-status-trusted);
+	background-color: var(--syw-color-status-trusted-light);
+}
+.Syw-StatusBadge.Syw-Badge_valid {
+	color: var(--syw-color-status-valid);
+	background-color: var(--syw-color-status-valid-light);
+}
+.Syw-StatusBadge.Syw-Badge_invalid {
+	color: var(--syw-color-status-invalid);
+	background-color: var(--syw-color-status-invalid-light);
+}

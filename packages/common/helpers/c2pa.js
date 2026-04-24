@@ -1,18 +1,29 @@
-import { getSafeLocale } from './i18n.js'
-import { VERIFY_BASE_URL } from '../constants/index.js'
-import { C2PA_WEB_WASM_CDN_URL } from '../constants/c2pa.js'
+import TRUST_LISTS from 'syw-common/trustlists'
+import { VERIFY_BASE_URL } from 'syw-common/constants/index.js'
+import { C2PA_WEB_WASM_CDN_URL } from 'syw-common/constants/c2pa.js'
 import { getMediaType } from './index.js'
+import { getSafeLocale } from './i18n.js'
+import { IPTC_NEWS_CODES_BASE_URI } from '../constants/iptc.js'
+import { getIptcNewsCode, getIptcNewsCodeDefinition, getIptcNewsCodeKey, getIptcNewsCodeLabel } from './iptc.js'
 
 /////////////// Initialize //////////////
 
 /**
  * Creates C2PA instance configuration
- * @param {object} options - Optional overrides
- * @param {string} options.wasmSrc - Custom WASM source URL
+ * @param {object} c2paOptions - Optional overrides
+ * @param {string} c2paOptions.wasmSrc - Custom WASM source URL
+ * @param {string | string[] | } c2paOptions.trustLists - Custom trust anchors file
  * @return {object} - C2PA configuration object
  */
-export const getC2paConfig = (options = {}) => ({
-    wasmSrc: options.wasmSrc || C2PA_WEB_WASM_CDN_URL,
+export const getC2paConfig = (c2paOptions = {}) => ({
+	wasmSrc: c2paOptions.wasmSrc || C2PA_WEB_WASM_CDN_URL,
+	settings: {
+		...(c2paOptions?.settings?.trust || {}),
+		trust: {
+			...(c2paOptions?.settings?.trust?.trustAnchors || {}),
+			trustAnchors: c2paOptions?.settings?.trust?.trustAnchors || joinPem(Object.values(TRUST_LISTS)),
+		}
+	}
 })
 
 /**
@@ -38,6 +49,30 @@ export const readC2paFromUrl = async (c2pa, src) => {
     return { manifestStore, reader }
 }
 
+/**
+ * Reads C2PA validity status
+ * @async
+ * @param {object} c2pa - C2PA instance
+ * @param {string} src - Image URL
+ * @return {Promise<{manifestStore: object, reader: object}>} - Manifest store and reader
+ */
+export const getC2paStatus = async (provenance) => {
+	if(provenance) {
+		const validationStatus = provenance?.manifestStore?.validation_state;
+		if(validationStatus === "Trusted") {
+			return "trusted";
+		} else if(validationStatus === "Valid") {
+			return "valid";
+		} else if(validationStatus === "Invalid") {
+			return "invalid";
+		} else {
+			return "unknown";
+		}
+	} else {
+		return "validating";
+	}
+}
+
 /////////////// Utilities ///////////////
 
 /**
@@ -49,9 +84,18 @@ export const readC2paFromUrl = async (c2pa, src) => {
  */
 export const getExifValue = (data, key) => {
 	const exifData = data?.assertions?.find(a => a.label === 'stds.exif')?.data
-	// console.log(JSON.stringify(exifData))
 	const exifValue = exifData && exifData[`exif:${key}`]
 	return exifValue;
+}
+
+/**
+ * Checks if an EXIF value exists in manifest
+ * @function
+ * @param {object} data - Manifest entry
+ * @return {boolean} - Boolean
+ */
+export const ifHasExif = (data) => {
+	return data?.assertions?.some(a => a.label === 'stds.exif')
 }
 
 /**
@@ -98,10 +142,31 @@ const convertDmsToDd = (dms, dir) => {
     return decimalDegrees
 }
 
+/**
+ * Joins strings of PEM file contents
+ * @function
+ * @param  {string[]} pems - Array of raw string of PEM file contents
+ * @returns {string} - Compined string of PEM file contents
+ */
+const joinPem = (pems) => {
+	return pems.map(cleanPem).join("\n")
+}
+
+/**
+ * Cleans string of PEM file contents
+ * @function
+ * @param {string} pem - Raw string of PEM file contents
+ * @returns {string} - Cleaned string of PEM file contents
+ */
+const cleanPem = (pem) => {
+	const certs = pem.match(/-----BEGIN CERTIFICATE-----[\s\S]+?-----END CERTIFICATE-----/g);
+	return certs ? certs.join("\n") : "";
+}
+
 /////////////// Manifest Creation ///////////////
 
 /**
- * Gets instance ID
+ * Gets manifest ID
  * @function
  * @param {object} data - Manifest entry
  * @return {string} - Instance ID
@@ -111,65 +176,133 @@ export const getId = data => data?.instance_id
 /**
  * Gets producer name
  * @function
- * @param {object} data - Manifest entry
+ * @param {object} manifest - Manifest entry
  * @return {string} - Producer name
  */
-export const getProducer = data => {
-	const authorObj = getSchemaOrgValue(data, 'author')
+export const getProducer = manifest => {
+	const authorObj = getSchemaOrgValue(manifest, 'author')
 	return authorObj ?? []
 }
 
 /**
  * Gets a description of claim generator
  * @function
- * @param {object} data - Manifest entry
+ * @param {object} manifest - Manifest entry
  * @return {string} - List of generator names with version (i.e. Lightroom Classic 14.0)
  */
-export const getGenerator = data => {
+export const getGenerator = manifest => {
 	let generator = {}
-	if(data?.claim_generator_info) {
-		generator.value = data?.claim_generator_info?.map(d =>
+	if(manifest?.claim_generator_info) {
+		generator.value = manifest?.claim_generator_info?.map(d =>
 			[d.name, d.version]
 				.filter(d => d !== null && d !== undefined)
 				.join(" ")
 		).join(", ")
-	} else if(getExifValue(data, 'Make') || getExifValue(data, 'Model')) {
-		const exifMake = getExifValue(data, 'Make')
-		const exifModel = getExifValue(data, 'Model')
+	} else if(getExifValue(manifest, 'Make') || getExifValue(manifest, 'Model')) {
+		const exifMake = getExifValue(manifest, 'Make')
+		const exifModel = getExifValue(manifest, 'Model')
 		generator.value = [exifModel].join(' ')
 		// return [exifMake, exifModel].join(' ')
-	} else if(data?.claim_generator) {
-		generator.value = data?.claim_generator
+	} else if(manifest?.claim_generator) {
+		generator.value = manifest?.claim_generator
 	}
-	generator.actions = getC2paActions(data)
+	generator.actions = getC2paActions(manifest)
 	return generator
+}
+
+/**
+ * Gets manifest type
+ * @function
+ * @param {object} data - Manifest entry
+ * @return {string} - Manifest type
+ */
+export const getType = manifest => {
+	const hasExif = ifHasExif(manifest)
+	const createdAction = getC2paActions(manifest)?.find(a => a?.action === "c2pa.created")
+	let typeKey, typeLabel, typeDefinition
+	if(createdAction) {
+		const iptcNewsCodeUri = createdAction?.digitalSourceType
+		const iptcNewsCode = getIptcNewsCode(iptcNewsCodeUri)
+		typeKey = getIptcNewsCodeKey(iptcNewsCodeUri)
+		typeLabel = getIptcNewsCodeLabel(iptcNewsCode)
+		typeDefinition = getIptcNewsCodeDefinition(iptcNewsCode)
+	} else if(hasExif) {
+		typeKey = "camera"
+		typeLabel = "Camera"
+		typeDefinition = "Camera"
+	}
+	// console.log({
+	// 	iptcNewsCodeUri,
+	// 	iptcNewsCode,
+	// 	typeKey,
+	// 	typeLabel,
+	// 	typeDefinition,
+	// })
+	return typeKey ? {
+		key: typeKey,
+		label: typeLabel,
+		definition: typeDefinition,
+	} : null
+}
+
+export const getTypes = manifests =>
+	manifests?.map(m => m?.type)?.filter(m => m) ?? []
+
+/**
+ * Gets a 
+ * @function
+ * @param {object} manifest - Manifest entry
+ * @return {string} - 
+ */
+export const getStatus = (manifest, provenance) => {
+	const { validation_results, active_manifest } = provenance?.manifestStore;
+	let validation;
+
+	if (manifest.label === active_manifest) {
+		validation = validation_results?.activeManifest ?? null;
+	} else {
+		const ingredientDelta = validation_results?.ingredientDeltas?.find(
+		({ validationDeltas }) =>
+			validationDeltas.success.some(({ url }) =>
+				url.includes(manifest.label ?? '')
+			) ||
+			validationDeltas.failure.some(({ url }) =>
+				url.includes(manifest.label ?? '')
+			)
+		);
+		validation = ingredientDelta?.validationDeltas ?? null;
+	}
+	const status = validation !== null && validation.failure.length === 0
+		? "trusted"
+		: "invalid";
+	return status;
 }
 	
 /**
  * Gets signature issuer
  * @function
- * @param {object} data - Manifest entry
+ * @param {object} manifest - Manifest entry
  * @return {string} - Signature issuer name
  */
-export const getSignator = data => ({
-	value: data?.signature_info?.issuer
+export const getSignator = manifest => ({
+	value: manifest?.signature_info?.issuer
 })
 
 /**
  * Gets a localized date string from manifest entry's date
  * @function
- * @param {object} data - Manifest entry
+ * @param {object} manifest - Manifest entry
  * @param {string} locale - Active locale
  * @return {string} - Localized date string
  */
-export const getTimestamp = (data, locale) => {
-	if(data?.signature_info?.time) {
-		const dateObject = new Date(data?.signature_info?.time)
+export const getTimestamp = (manifest, locale) => {
+	if(manifest?.signature_info?.time) {
+		const dateObject = new Date(manifest?.signature_info?.time)
 		return {
 			value: dateObject
 		}
 	} else {
-		const exifDateTime = getExifValue(data, 'DateTimeOriginal')
+		const exifDateTime = getExifValue(manifest, 'DateTimeOriginal')
 		const exifParsedDate = exifDateTime.split(/\D/)
 		const dateObject = new Date(
 			exifParsedDate[0],
@@ -188,17 +321,17 @@ export const getTimestamp = (data, locale) => {
 /**
  * Gets latitude and longitude
  * @function
- * @param {object} data - Manifest entry
+ * @param {object} manifest - Manifest entry
  * @return {object} - Object of latitude (lat) and longitude (lng)
  */
-export const getLocation = (data) => {
-	const exifLat = getExifValue(data, 'GPSLatitude')
-	const exifLatDir = getExifValue(data, 'GPSLatitudeRef')
+export const getLocation = (manifest) => {
+	const exifLat = getExifValue(manifest, 'GPSLatitude')
+	const exifLatDir = getExifValue(manifest, 'GPSLatitudeRef')
 	const lat = isNaN(exifLat)
 		? convertDmsToDd(exifLat, exifLatDir)
 		: parseFloat(exifLat)
-	const exifLng = getExifValue(data, 'GPSLongitude')
-	const exifLngDir = getExifValue(data, 'GPSLongitudeRef')
+	const exifLng = getExifValue(manifest, 'GPSLongitude')
+	const exifLngDir = getExifValue(manifest, 'GPSLongitudeRef')
 	const lng = isNaN(exifLng)
 		? convertDmsToDd(exifLng, exifLngDir)
 		: parseFloat(exifLng)
@@ -213,30 +346,30 @@ export const getLocation = (data) => {
  * @param {object} data - Manifest entry
  * @return {array} - Array of ingredients
  */
-export const getIngredients = data => {
+export const getIngredients = manifest => {
 	return []
 }
 
 /**
  * Gets actions from manifest
  * @function
- * @param {object} data - Manifest entry
+ * @param {object} manifest - Manifest entry
  * @return {array} - Array of ingredients
  */
-export const getActions = data => {
-	const c2paActions = getC2paActions(data)
+export const getActions = manifest => {
+	const c2paActions = getC2paActions(manifest)
 	return c2paActions
 }
 
 /**
  * Gets latitude and longitude
  * @function
- * @param {object} data - Manifest entry
+ * @param {object} manifest - Manifest entry
  * @param {object} reader - C2PA reader instance
  * @return {string} - Thumbnail URL
  */
-export const getThumbnail = async (data, reader) => {
-	const thumbnail = data?.thumbnail
+export const getThumbnail = async (manifest, reader) => {
+	const thumbnail = manifest?.thumbnail
 	if (!thumbnail || !reader) return null
 	try {
 		const bytes = await reader.resourceToBytes(thumbnail.identifier)
@@ -272,11 +405,13 @@ export const getVerifyUrl = src => `https://${VERIFY_BASE_URL}/inspect?source=${
  * @param {object} props.reader - C2PA reader instance
  * @return {Promise<object>} - Prepared manifest object
  */
-export const prepareManifest = async ({ src, locale, manifest, reader }) => {
+export const prepareManifest = async ({ src, locale, manifest, provenance, reader }) => {
 	const safeLocale = getSafeLocale(locale)
-	// console.log(manifest)
+
 	return {
 		id: getId(manifest),
+		type: getType(manifest),
+		status: getStatus(manifest, provenance),
 		timestamp: getTimestamp(manifest, safeLocale),
 		producer: getProducer(manifest),
 		signator: getSignator(manifest),
@@ -300,12 +435,13 @@ export const prepareManifest = async ({ src, locale, manifest, reader }) => {
  * @return {Promise<object>} - Prepared manifest object
  */
 export const prepareManifests = async ({ src, locale, provenance, reader }) => {
+	console.log(provenance)
 	try {
         if (!provenance?.manifestStore) return []
         const manifests = Object.values(provenance.manifestStore.manifests ?? {})
         const preparedManifests = await Promise.all(
             manifests.map(manifest =>
-				prepareManifest({ src, locale, manifest, reader })
+				prepareManifest({ src, locale, manifest, provenance, reader })
 			)
         )
         preparedManifests.sort((a, b) =>

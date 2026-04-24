@@ -3,6 +3,8 @@ import { handleA11yClick, classNames } from 'syw-common/helpers'
 import { getDateString } from 'syw-common/helpers/i18n'
 import { useI18nContext } from '$src/context/i18n'
 import { useUiContext } from '$src/context/ui'
+import StatusBadge from '$src/components/StatusBadge'
+import TypeBadge from '$src/components/TypeBadge'
 
 function ManifestPreview({
 	manifest,
@@ -40,16 +42,47 @@ function ManifestPreview({
 			onKeyDown={onKeyDown}
 		>
 			<div
-				className={classNames('ManifestPreviewCell', 'ManifestPreviewCell_issuer')}
+				className={classNames(
+					'ManifestPreviewCell',
+					'ManifestPreviewCell_badges'
+				)}
+			>
+				{manifest.status ?
+					<StatusBadge
+						value={manifest.status}
+						className={classNames(
+							'ManifestPreviewCell',
+							'ManifestPreviewCell_status'
+						)}
+					/>
+				: null}
+				{manifest.type ?
+					<TypeBadge
+						value={manifest.type}
+						className={classNames(
+							'ManifestPreviewCell',
+							'ManifestPreviewCell_type'
+						)}
+					/>
+				: null}
+			</div>
+			<div
+				className={classNames(
+					'ManifestPreviewCell',
+					'ManifestPreviewCell_issuer'
+				)}
 			>
 				{MANIFEST_PREVIEW_TITLE_KEYS.filter(key => manifest[key]).map(key =>
 					manifest[key]?.value
 				).join(" ")}
 			</div>
 			<div
-				className={classNames('ManifestPreviewCell', 'ManifestPreviewCell_time')}
+				className={classNames(
+					'ManifestPreviewCell',
+					'ManifestPreviewCell_time'
+				)}
 			>
-				<span>{getDateString(locale, manifest.timestamp)}</span>
+				<span>{getDateString(locale, manifest.timestamp.value)}</span>
 			</div>
 			<div
 				className={classNames(

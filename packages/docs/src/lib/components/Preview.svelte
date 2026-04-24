@@ -100,6 +100,10 @@
 		src={demoImage}
 		caption='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis est ut enim imperdiet lacinia. Etiam vitae volutpat eros. Cras sagittis condimentum lacus, sit amet mattis mauris convallis id.'
 		byline='Lectus Vitae / Tristique Imperdiet'
+		c2paOptions={{
+			// wasmSrc
+			// trustLists: "c2pa"
+		}}
 		onEvent={handleEvent}
 	/>
 </section>

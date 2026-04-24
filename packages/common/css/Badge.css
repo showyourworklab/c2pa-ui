@@ -1,0 +1,13 @@
+/* Badge */
+.Syw-Badge {
+	font-size: var(--syw-text-xs);
+	font-weight: var(--syw-font-weight-bold);
+	color: var(--syw-color-primary);
+	display: flex;
+	align-items: center;
+	padding: var(--syw-space-1) var(--syw-space-2);
+	border-width: 1px;
+	border-style: solid;
+	border-color: currentColor;
+	border-radius: var(--syw-radius-lg);
+}

@@ -109,12 +109,18 @@
 .Syw-ManifestPreviewCell span {
 	user-select: text;
 }
-.Syw-ManifestPreviewCell_name {
-}
 .Syw-ManifestPreviewCell_issuer {
-	flex: 1;
+	/* margin-left: var(--syw-space-1); */
+}
+.Syw-ManifestPreviewCell_badges {
+	display: flex;
+}
+.Syw-ManifestPreviewCell_badges > div {
+	margin-right: var(--syw-space-2);
 }
 .Syw-ManifestPreviewCell_time {
+	flex: 1;
+	text-align: right;
 }
 .Syw-ManifestPreviewCell_thumb {
 	width: 45px;

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef } from 'react'
 import 'syw-common/css/styles.css'
 import { classNames, getMediaType } from 'syw-common/helpers'
-import { prepareManifests } from 'syw-common/helpers/c2pa'
+import { prepareManifests, getTypes, getC2paStatus } from 'syw-common/helpers/c2pa'
 import { useDataContext } from '$src/context/data'
 import { useI18nContext } from '$src/context/i18n'
 import { useUiContext } from '$src/context/ui'
@@ -22,19 +22,19 @@ function App({
 	onEvent,
 }) {
 	const ref = useRef(null)
-	const { src, setManifests } = useDataContext()
+	const { src, setManifests, setTypes, setStatus } = useDataContext()
 	const { locale } = useI18nContext()
-	const { variant, compareImage, isImageHover, isProvenanceOpen, isThumbnailOpen, setElem, setMapOptions, eventHandler } = useUiContext()
+	const { variant, isHoverImage, isProvenanceOpen, isThumbnailOpen, setElem, setMapOptions, eventHandler } = useUiContext()
 	const { reader, provenance } = useC2pa(src)
 
 	const className = useMemo(() =>
 		classNames(
 			'App',
 			`App_${variant}`,
-			isImageHover ? 'App_hovered' : false,
+			isHoverImage ? 'App_hovered' : false,
 			isProvenanceOpen ? 'App_active' : false
 		)
-	, [variant, isImageHover, isProvenanceOpen])
+	, [variant, isHoverImage, isProvenanceOpen])
 
 	const mediaType = useMemo(() => getMediaType(src), [src])
 
@@ -54,7 +54,11 @@ function App({
 				provenance,
 				reader
 			})
+			const newTypes = getTypes(newManifests)
+			const newStatus = await getC2paStatus(provenance)
             setManifests(newManifests)
+			setTypes(newTypes)
+			setStatus(newStatus)
         })()
 	}, [src, locale, provenance, reader])
 

@@ -3,7 +3,7 @@
  * @param  {...any} arr 
  * @returns 
  */
-export const classNames = (...arr) => arr.filter(c => c).map(c => `Syw-${c}`).join(' ')
+export const classNames = (...arr) => arr.filter(c => c).map(c => c.startsWith(`Syw-`) ? c : `Syw-${c}`).join(' ')
 
 /**
  * Handles a11y "clicks" with focused enter or space presses

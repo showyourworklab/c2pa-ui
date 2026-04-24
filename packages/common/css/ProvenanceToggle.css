@@ -32,7 +32,8 @@
 	transition: all 200ms ease;
 }
 /* Toggle Provenance > Hovered */
-.Syw-Cutline button.Syw-ProvenanceToggle:hover,
+.Syw-Cutline button.Syw-ProvenanceToggle:hover
+.Syw-App_hovered .Syw-Cutline button.Syw-ProvenanceToggle,
 .Syw-App_hovered .Syw-Cutline button.Syw-ProvenanceToggle {
 	background-color: var(--syw-color-quaternary);
 }

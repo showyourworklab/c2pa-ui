@@ -33,6 +33,9 @@ The `docs` package builds a simple landing page displaying install instructions 
 - `src`: URL to C2PA-compliant image file
 - `caption`: Image's caption to appear under the image
 - `byline`: Credit and/or copyright text to appear under the image
+- `c2paOptions`: Options to configure C2PA
+- `c2paOptions.wasmSrc`: URL to fetch the WASM binary or an already-instantiated WASM module ([Read more](https://contentauth.github.io/c2pa-js/modules/_contentauth_c2pa-web.html#using-a-separate-wasm-binary))
+- `c2paOptions.trustLists`: Custom trust lists
 - `onEvent`: Event handler to listen for interaction events (see below)
 
 ### Analytics
