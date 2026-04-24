@@ -8,6 +8,7 @@ import TypeBadge from './TypeBadge'
 const Cutline = () => {
 	const {
 		status,
+		types
 	} = useDataContext()
 
 	return (
@@ -26,9 +27,12 @@ const Cutline = () => {
 				<StatusBadge
 					value={status}
 				/>
-				{/* <TypeBadge
-					value={type}
-				/> */}
+				{types.map((type, index) =>
+					<TypeBadge
+						key={index}
+						value={type}
+					/>
+				)}
 			</div>
 		</div>
 	)

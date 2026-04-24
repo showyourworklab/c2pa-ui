@@ -26,7 +26,10 @@
 	class={classes}
 >
 	<div
-		class={classNames('ManifestRow')}
+		class={classNames(
+			'ManifestRow',
+			open ? 'ManifestRow_open' : null
+		)}
 	>
 		<ManifestPreview
 			open={open}

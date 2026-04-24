@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef } from 'react'
 import 'syw-common/css/styles.css'
 import { classNames, getMediaType } from 'syw-common/helpers'
-import { prepareManifests, getC2paStatus } from 'syw-common/helpers/c2pa'
+import { prepareManifests, getTypes, getC2paStatus } from 'syw-common/helpers/c2pa'
 import { useDataContext } from '$src/context/data'
 import { useI18nContext } from '$src/context/i18n'
 import { useUiContext } from '$src/context/ui'
@@ -22,7 +22,7 @@ function App({
 	onEvent,
 }) {
 	const ref = useRef(null)
-	const { src, setManifests, setStatus } = useDataContext()
+	const { src, setManifests, setTypes, setStatus } = useDataContext()
 	const { locale } = useI18nContext()
 	const { variant, isHoverImage, isProvenanceOpen, isThumbnailOpen, setElem, setMapOptions, eventHandler } = useUiContext()
 	const { reader, provenance } = useC2pa(src)
@@ -48,15 +48,17 @@ function App({
 
 	useEffect(() => {
         (async () => {
-			const newStatus = await getC2paStatus(provenance)
-			setStatus(newStatus)
             const newManifests = await prepareManifests({
 				src,
 				locale,
 				provenance,
 				reader
 			})
+			const newTypes = getTypes(newManifests)
+			const newStatus = await getC2paStatus(provenance)
             setManifests(newManifests)
+			setTypes(newTypes)
+			setStatus(newStatus)
         })()
 	}, [src, locale, provenance, reader])
 

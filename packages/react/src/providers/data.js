@@ -9,6 +9,7 @@ const DataProvider = ({
 	children
 }) => {
 	const [status, setStatus] = useState("validating")
+	const [types, setTypes] = useState([])
     const [manifests, setManifests] = useState([])
 
 	return (
@@ -20,6 +21,8 @@ const DataProvider = ({
                 byline,
 				status,
 				setStatus,
+				types,
+				setTypes,
                 manifests,
                 setManifests
 			}}

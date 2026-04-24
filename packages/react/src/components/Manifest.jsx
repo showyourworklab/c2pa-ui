@@ -37,7 +37,12 @@ function Manifest({ manifest, previewRef }) {
 			className={className}
 		>
 			<div
-				className={classNames('ManifestRow')}
+				className={
+					classNames(
+						'ManifestRow',
+						open ? 'ManifestRow_open' : null
+					)
+				}
 			>
 				<ManifestPreview
 					manifest={manifest}

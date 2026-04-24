@@ -2,7 +2,7 @@
 	import { onMount, setContext } from 'svelte'
 	import 'syw-common/css/styles.css'
 	import { classNames, getMediaType } from 'syw-common/helpers'
-	import { prepareManifests } from 'syw-common/helpers/c2pa'
+	import { prepareManifests, getC2paStatus, getTypes } from 'syw-common/helpers/c2pa'
 	import { VARIANT_DEFAULT } from 'syw-common/constants'
 	import createC2paStore from '$lib/store/c2pa.js'
 	import createDataStore from '$lib/store/data.js'
@@ -103,7 +103,11 @@
 					provenance: $provenance,
 					reader: $reader
 				})
+				const newTypes = getTypes(newManifests)
+				const newStatus = await getC2paStatus($provenance)
 				dataStore.setManifests(newManifests)
+				dataStore.setTypes(newTypes)
+				dataStore.setStatus(newStatus)
 			})()
 		}
 	})

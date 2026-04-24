@@ -6,15 +6,14 @@ const TypeBadge = ({
 	value
 }) => {
 	const { getText } = useI18nContext()
-
+	const label = value?.label ?? getText("type", value)
 	return (
 		<Badge
 			type="type"
-			value={value.key}
+			value={value?.key}
 			className={classNames("TypeBadge")}
 		>
-			{/* {getText("type", value)} */}
-			{value?.label}
+			{label}
 		</Badge>
 	)
 }

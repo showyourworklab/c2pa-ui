@@ -30,7 +30,7 @@ function ManifestPreview({
 		closeThumbnail(event)
 		removeThumbnail(event)
 	}
-	console.log(manifest)
+
 	return (
 		<div
 			ref={previewRef}

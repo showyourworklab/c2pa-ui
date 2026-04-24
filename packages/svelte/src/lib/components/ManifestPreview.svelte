@@ -4,6 +4,8 @@
 	import { MANIFEST_PREVIEW_TITLE_KEYS } from 'syw-common/constants'
 	import { handleA11yClick } from 'syw-common/helpers'
 	import { getDateString } from 'syw-common/helpers/i18n'
+    import StatusBadge from './StatusBadge.svelte';
+    import TypeBadge from './TypeBadge.svelte';
 
 	const {
 		open,
@@ -50,6 +52,31 @@
 	onkeydown={handleKeyDown}
 >
 	<div
+		class={classNames(
+			'ManifestPreviewCell',
+			'ManifestPreviewCell_badges'
+		)}
+	>
+		{#if manifest?.status}
+			<StatusBadge
+				value={manifest.status}
+				className={classNames(
+					'ManifestPreviewCell',
+					'ManifestPreviewCell_status'
+				)}
+			/>
+		{/if}
+		{#if manifest?.type}
+			<TypeBadge
+				value={manifest.type}
+				className={classNames(
+					'ManifestPreviewCell',
+					'ManifestPreviewCell_type'
+				)}
+			/>
+		{/if}
+	</div>
+	<div
 		class={classNames('ManifestPreviewCell', 'ManifestPreviewCell_issuer')}
 	>
 		{MANIFEST_PREVIEW_TITLE_KEYS.filter(key => manifest[key]).map(key =>
@@ -59,7 +86,7 @@
 	<div
 		class={classNames('ManifestPreviewCell', 'ManifestPreviewCell_time')}
 	>
-		<span>{getDateString($locale, manifest?.timestamp) ?? ''}</span>
+		<span>{getDateString($locale, manifest?.timestamp.value) ?? ''}</span>
 	</div>
 	<div
 		role='button'

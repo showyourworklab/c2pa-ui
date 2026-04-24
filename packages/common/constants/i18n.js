@@ -25,6 +25,7 @@ export const DICTIONARY_EN_US = {
 	status_invalid: 'Invalid',
 	status_unknown: 'Unknown',
 	status_validating: 'Validating...',
+	type_camera: 'Camera',
 	thumbnail_missing: 'No thumbnail available',
 	verify_pre: 'See more at',
 }
@@ -48,6 +49,7 @@ export const DICTIONARY_NO_NO = {
 	status_invalid: 'Invalid',
 	status_unknown: 'Unknown',
 	status_validating: 'Validating...',
+	type_camera: 'Camera',
 	thumbnail_missing: 'Ingen miniatyrbilder tilgjengelig',
 	verify_pre: 'Se mer på',
 }
@@ -71,6 +73,7 @@ export const DICTIONARY_SV_SE = {
 	status_invalid: 'Invalid',
 	status_unknown: 'Unknown',
 	status_validating: 'Validating...',
+	type_camera: 'Camera',
 	thumbnail_missing: 'Ingen miniatyrbild tillgänglig',
 	verify_pre: 'Visa mer på',
 }

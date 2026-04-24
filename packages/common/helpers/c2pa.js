@@ -84,9 +84,18 @@ export const getC2paStatus = async (provenance) => {
  */
 export const getExifValue = (data, key) => {
 	const exifData = data?.assertions?.find(a => a.label === 'stds.exif')?.data
-	// console.log(JSON.stringify(exifData))
 	const exifValue = exifData && exifData[`exif:${key}`]
 	return exifValue;
+}
+
+/**
+ * Checks if an EXIF value exists in manifest
+ * @function
+ * @param {object} data - Manifest entry
+ * @return {boolean} - Boolean
+ */
+export const ifHasExif = (data) => {
+	return data?.assertions?.some(a => a.label === 'stds.exif')
 }
 
 /**
@@ -165,33 +174,6 @@ const cleanPem = (pem) => {
 export const getId = data => data?.instance_id
 
 /**
- * Gets manifest type
- * @function
- * @param {object} data - Manifest entry
- * @return {string} - Manifest type
- */
-export const getType = manifest => {
-	const createdAction = getC2paActions(manifest)?.find(a => a?.action === "c2pa.created")
-	const iptcNewsCodeUri = createdAction?.digitalSourceType
-	const iptcNewsCode = getIptcNewsCode(iptcNewsCodeUri)
-	const typeKey = getIptcNewsCodeKey(iptcNewsCodeUri)
-	const typeLabel = getIptcNewsCodeLabel(iptcNewsCode)
-	const typeDefinition = getIptcNewsCodeDefinition(iptcNewsCode)
-	// console.log({
-	// 	iptcNewsCodeUri,
-	// 	iptcNewsCode,
-	// 	typeKey,
-	// 	typeLabel,
-	// 	typeDefinition,
-	// })
-	return typeKey ? {
-		key: typeKey,
-		label: typeLabel,
-		definition: typeDefinition,
-	} : null
-}
-
-/**
  * Gets producer name
  * @function
  * @param {object} manifest - Manifest entry
@@ -229,6 +211,44 @@ export const getGenerator = manifest => {
 }
 
 /**
+ * Gets manifest type
+ * @function
+ * @param {object} data - Manifest entry
+ * @return {string} - Manifest type
+ */
+export const getType = manifest => {
+	const hasExif = ifHasExif(manifest)
+	const createdAction = getC2paActions(manifest)?.find(a => a?.action === "c2pa.created")
+	let typeKey, typeLabel, typeDefinition
+	if(createdAction) {
+		const iptcNewsCodeUri = createdAction?.digitalSourceType
+		const iptcNewsCode = getIptcNewsCode(iptcNewsCodeUri)
+		typeKey = getIptcNewsCodeKey(iptcNewsCodeUri)
+		typeLabel = getIptcNewsCodeLabel(iptcNewsCode)
+		typeDefinition = getIptcNewsCodeDefinition(iptcNewsCode)
+	} else if(hasExif) {
+		typeKey = "camera"
+		typeLabel = "Camera"
+		typeDefinition = "Camera"
+	}
+	// console.log({
+	// 	iptcNewsCodeUri,
+	// 	iptcNewsCode,
+	// 	typeKey,
+	// 	typeLabel,
+	// 	typeDefinition,
+	// })
+	return typeKey ? {
+		key: typeKey,
+		label: typeLabel,
+		definition: typeDefinition,
+	} : null
+}
+
+export const getTypes = manifests =>
+	manifests?.map(m => m?.type)?.filter(m => m) ?? []
+
+/**
  * Gets a 
  * @function
  * @param {object} manifest - Manifest entry
@@ -244,10 +264,10 @@ export const getStatus = (manifest, provenance) => {
 		const ingredientDelta = validation_results?.ingredientDeltas?.find(
 		({ validationDeltas }) =>
 			validationDeltas.success.some(({ url }) =>
-			url.includes(manifest.label ?? '')
+				url.includes(manifest.label ?? '')
 			) ||
 			validationDeltas.failure.some(({ url }) =>
-			url.includes(manifest.label ?? '')
+				url.includes(manifest.label ?? '')
 			)
 		);
 		validation = ingredientDelta?.validationDeltas ?? null;
@@ -387,15 +407,15 @@ export const getVerifyUrl = src => `https://${VERIFY_BASE_URL}/inspect?source=${
  */
 export const prepareManifest = async ({ src, locale, manifest, provenance, reader }) => {
 	const safeLocale = getSafeLocale(locale)
-	console.log(manifest)
+
 	return {
 		id: getId(manifest),
 		type: getType(manifest),
+		status: getStatus(manifest, provenance),
 		timestamp: getTimestamp(manifest, safeLocale),
 		producer: getProducer(manifest),
 		signator: getSignator(manifest),
 		generator: getGenerator(manifest),
-		status: getStatus(manifest, provenance),
 		// ingredients: getIngredients(manifest),
 		thumbnail: await getThumbnail(manifest, reader),
 		location: getLocation(manifest),
@@ -415,6 +435,7 @@ export const prepareManifest = async ({ src, locale, manifest, provenance, reade
  * @return {Promise<object>} - Prepared manifest object
  */
 export const prepareManifests = async ({ src, locale, provenance, reader }) => {
+	console.log(provenance)
 	try {
         if (!provenance?.manifestStore) return []
         const manifests = Object.values(provenance.manifestStore.manifests ?? {})
