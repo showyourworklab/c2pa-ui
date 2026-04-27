@@ -3,7 +3,6 @@ import { VERIFY_BASE_URL } from 'syw-common/constants/index.js'
 import { C2PA_WEB_WASM_CDN_URL } from 'syw-common/constants/c2pa.js'
 import { getMediaType } from './index.js'
 import { getSafeLocale } from './i18n.js'
-import { IPTC_NEWS_CODES_BASE_URI } from '../constants/iptc.js'
 import { getIptcNewsCode, getIptcNewsCodeDefinition, getIptcNewsCodeKey, getIptcNewsCodeLabel } from './iptc.js'
 
 /////////////// Initialize //////////////
@@ -444,9 +443,10 @@ export const prepareManifests = async ({ src, locale, provenance, reader }) => {
 				prepareManifest({ src, locale, manifest, provenance, reader })
 			)
         )
-        preparedManifests.sort((a, b) =>
-			(a?.timestamp?.getTime?.() || 0) - (b?.timestamp?.getTime?.() || 0)
+		preparedManifests.sort((a, b) =>
+			(a?.timestamp?.value?.getTime?.() || 0) - (b?.timestamp?.value?.getTime?.() || 0)
 		)
+		
         return preparedManifests
     } catch (error) {
         console.error(error)

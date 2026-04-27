@@ -4,7 +4,7 @@
 	import Collapse from './Collapse.svelte'
 
 	const { locale, getText } = getContext('i18nStoreContext');
-	const { isExplainerOpen, openExplainer, closeExplainer } = getContext('uiStoreContext');
+	const { isExplainerOpen, closeExplainer } = getContext('uiStoreContext');
 
 	const onCloseClick = (event) => closeExplainer(event)
 
