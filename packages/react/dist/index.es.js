@@ -2186,7 +2186,6 @@ x3sizPOefAIye4i1uTYYdbiXHBTuetSuMmuWtRld1howmo5dLeOE5PUoyToTqwyL
   location: Lx(M),
   verifyUrl: oy(_)
 }), Ox = async ({ src: _, locale: v, provenance: M, reader: B }) => {
-  console.log(M);
   try {
     if (!(M != null && M.manifestStore)) return [];
     const N = Object.values(M.manifestStore.manifests ?? {}), W = await Promise.all(
@@ -2384,7 +2383,7 @@ x3sizPOefAIye4i1uTYYdbiXHBTuetSuMmuWtRld1howmo5dLeOE5PUoyToTqwyL
     return (async () => {
       try {
         const { manifestStore: Q, reader: de } = await Ax(v, _);
-        E || (B(de), console.log(Q), W({ manifestStore: Q }));
+        E || (B(de), W({ manifestStore: Q }));
       } catch (Q) {
         console.error(Q);
       }
@@ -6937,7 +6936,7 @@ const OA = bw({
     className: gt("Caption"),
     children: /* @__PURE__ */ xt("div", {
       className: gt("CaptionInner"),
-      children: [_, " ", /* @__PURE__ */ he("div", {
+      children: [_ && _.length ? `${_}` : null, /* @__PURE__ */ he("div", {
         className: gt("CaptionByline"),
         children: v
       })]
@@ -31673,13 +31672,16 @@ function l0() {
   }, [v, W]), /* @__PURE__ */ xt("div", {
     ref: _,
     className: gt("Provenance"),
-    children: [/* @__PURE__ */ he("ul", {
+    children: [N && N.length ? /* @__PURE__ */ he("ul", {
       className: gt("ProvenanceList"),
-      children: N ? N.map((l, Q) => /* @__PURE__ */ he(vT, {
+      children: N.map((l, Q) => /* @__PURE__ */ he(vT, {
         manifest: l,
         previewRef: Q === 0 ? v : null
-      }, Q)) : null
-    }), /* @__PURE__ */ xt("div", {
+      }, Q))
+    }) : null, !N || !N.length ? /* @__PURE__ */ he("div", {
+      className: gt("ProvenanceNone"),
+      children: "No provenance found"
+    }) : null, /* @__PURE__ */ xt("div", {
       className: gt("ProvenanceVerify"),
       children: [M("verify", "pre"), " ", /* @__PURE__ */ he("a", {
         href: E,
