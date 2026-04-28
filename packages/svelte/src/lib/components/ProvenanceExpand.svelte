@@ -9,7 +9,7 @@
 </script>
 
 <Collapse
-	open={isProvenanceOpen}
+	open={$isProvenanceOpen}
 >
 	<Provenance />
 </Collapse>

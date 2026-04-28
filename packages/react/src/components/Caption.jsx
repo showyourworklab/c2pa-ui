@@ -10,7 +10,10 @@ const Caption = () => {
 			<div
 				className={classNames('CaptionInner')}
 			>
-				{caption}&nbsp;
+				{caption && caption.length ?
+					`${caption}`
+				: null}
+
 				<div
 					className={classNames('CaptionByline')}
 				>

@@ -28,18 +28,29 @@ function Provenance() {
 			ref={ref}
 			className={classNames('Provenance')}
 		>
-			<ul
-				className={classNames('ProvenanceList')}
+			{manifests && manifests.length ?
+				<ul
+					className={classNames('ProvenanceList')}
+				>
+					{manifests.map((manifest, index) =>
+						<Manifest
+							key={index}
+							manifest={manifest}
+							previewRef={index === 0 ? firstPreviewRef : null}
+						/>
+					)}
+				</ul>
+			: null}
+			{!manifests || !manifests.length ?
+				<div
+					className={classNames('ProvenanceNone')}
+				>
+					No provenance found
+				</div>
+			: null}
+			<div
+				className={classNames('ProvenanceVerify')}
 			>
-				{manifests ? manifests.map((manifest, index) =>
-					<Manifest
-						key={index}
-						manifest={manifest}
-						previewRef={index === 0 ? firstPreviewRef : null}
-					/>
-				) : null}
-			</ul>
-			<div className={classNames('ProvenanceVerify')}>
 				{getText('verify', 'pre')}&nbsp;
 				<a
 					href={verifyUrl}

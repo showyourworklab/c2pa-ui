@@ -12,7 +12,9 @@
 		<div
 			class={classNames('CaptionInner')}
 		>
-			{$caption}&nbsp;
+			{#if $caption && $caption.length}
+				{$caption}&nbsp;
+			{/if}
 			<div
 				class={classNames('CaptionByline')}
 			>

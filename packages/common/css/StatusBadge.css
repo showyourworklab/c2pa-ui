@@ -11,3 +11,11 @@
 	color: var(--syw-color-status-invalid);
 	background-color: var(--syw-color-status-invalid-light);
 }
+.Syw-StatusBadge.Syw-Badge_unknown {
+	color: var(--syw-color-status-unknown);
+	background-color: var(--syw-color-status-unknown-light);
+}
+.Syw-App_active .Syw-StatusBadge.Syw-Badge_unknown {
+	color: var(--syw-color-status-unknown-light);
+	background-color: var(--syw-color-status-unknown);
+}

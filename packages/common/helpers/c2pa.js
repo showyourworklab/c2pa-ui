@@ -434,7 +434,6 @@ export const prepareManifest = async ({ src, locale, manifest, provenance, reade
  * @return {Promise<object>} - Prepared manifest object
  */
 export const prepareManifests = async ({ src, locale, provenance, reader }) => {
-	console.log(provenance)
 	try {
         if (!provenance?.manifestStore) return []
         const manifests = Object.values(provenance.manifestStore.manifests ?? {})

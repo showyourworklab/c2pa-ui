@@ -72,8 +72,10 @@
 	})
 
 	// Initialize C2PA and read image when mounted and src changes
+	let previousSrc = null
 	$effect(() => {
-		if (mounted && src) {
+		if (mounted && src && src !== previousSrc) {
+			previousSrc = src;
 			(async () => {
 				// Initialize C2PA if not already done
 				let c2paInstance = $c2pa
