@@ -228,7 +228,6 @@ export const getType = manifest => {
 	} else if(hasExif) {
 		typeKey = "camera"
 		typeLabel = "Camera"
-		typeDefinition = "Camera"
 	}
 	// console.log({
 	// 	iptcNewsCodeUri,

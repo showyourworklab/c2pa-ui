@@ -115,7 +115,7 @@
 .Syw-ManifestPreviewCell_badges {
 	display: flex;
 }
-.Syw-ManifestPreviewCell_badges > div {
+.Syw-ManifestPreviewCell_badges > button {
 	margin-right: var(--syw-space-2);
 }
 .Syw-ManifestPreviewCell_time {

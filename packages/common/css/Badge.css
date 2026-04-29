@@ -10,6 +10,9 @@
 	border-style: solid;
 	border-color: currentColor;
 	border-radius: var(--syw-radius-lg);
-	cursor: default;
-	user-select: none;
+	pointer-events: none;
+}
+/* Badge > Tooltip > Trigger */
+.Syw-BadgeTooltipTrigger {
+
 }
