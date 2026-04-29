@@ -1,2 +1,5 @@
-export const prerender = true;
-export const trailingSlash = "always";
+export const prerender = false;
+
+export function load({ redirect }) {
+	redirect(301, '/syw');
+}

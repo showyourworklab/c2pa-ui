@@ -16,7 +16,7 @@
 	background-color: var(--syw-tooltip-background);
 }
 /* Tooltip > Trigger */
-button.Syw-TooltipTrigger {
+.Syw-TooltipTrigger {
 	cursor: default;
 }
 /* Tooltip > Arrow */

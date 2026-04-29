@@ -29,7 +29,7 @@
 		TooltipProps?.className,
 	)}
 >
-	<div
+	<span
 		class={classNames(
 			'Badge',
 			className,
@@ -38,5 +38,5 @@
 		)}
 	>
 		{@render children?.()}
-	</div>
+	</span>
 </Tooltip>

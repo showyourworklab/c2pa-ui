@@ -9,12 +9,12 @@
 		className,
 		children
 	} = $props()
+
 </script>
 
 <ArkTooltip.Root
-	// open={true}
 	openDelay={0}
-	lazyMount={false}
+	lazyMount={true}
 	unmountOnExit={false}
 	disabled={content === undefined}
 >

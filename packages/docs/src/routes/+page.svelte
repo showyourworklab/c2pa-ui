@@ -20,11 +20,36 @@
 		/>
 	</SsrFallback>
 
+	<div>
+		<h2>Example Articles</h2>
+		<ul>
+			<li>
+				<strong>Morgenbladet:</strong>&nbsp;
+				<a
+					href="/syw/article/morgenbladet"
+					class="button"
+				>
+					Livene våre er blitt brikker i klanenes kamp
+				</a>
+			</li>
+			<li>
+				<strong>Aftonbladet:</strong>&nbsp;
+				<a
+					href="/syw/article/aftonbladet"
+					class="button"
+				>
+					Delade staden: "Folk är rädda för att åka hit"
+				</a>
+			</li>
+		</ul>
+	</div>
+
 	<section>
 		<h2>
 			syw-svelte
 		</h2>
-		<code>
+		<pre>
+			<code>
 {`<script>
 	import SywSvelte from "syw-react";
 </script>
@@ -36,7 +61,8 @@
 	byline="Nulla Dignissim"
 	onEvent={handleEvent}
 />`}
-		</code>
+			</code>
+		</pre>
 		<p>
 			<a
 				href="{base}/svelte"

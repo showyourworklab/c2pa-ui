@@ -15,7 +15,10 @@ export default defineConfig({
 			formats: ['es'],
 		},
 		rollupOptions: {
-			external: ['svelte', '@contentauth/c2pa-web'],
+			external: [
+				'svelte',
+				'@contentauth/c2pa-web'
+			],
 			output: {
                 assetFileNames: 'styles.[ext]',
             },
@@ -40,7 +43,7 @@ export default defineConfig({
 	],
 	ssr: {
 		noExternal: ['@ark-ui/svelte']
-	}
+	},
 	css: {
 		modules: {
 			localsConvention: 'dashes',
