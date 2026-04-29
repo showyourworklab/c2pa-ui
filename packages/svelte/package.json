@@ -39,6 +39,7 @@
 		"lint": "eslint ."
 	},
 	"dependencies": {
+		"@ark-ui/svelte": "^5.21.2",
 		"@sveltejs/adapter-static": "^3.0.1",
 		"@videojs/html": "^10.0.0-beta.6",
 		"maplibre-gl": "^5.18.0"

@@ -38,6 +38,9 @@ export default defineConfig({
 		}),
 		devtoolsJson()
 	],
+	ssr: {
+		noExternal: ['@ark-ui/svelte']
+	}
 	css: {
 		modules: {
 			localsConvention: 'dashes',

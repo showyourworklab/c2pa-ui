@@ -6,12 +6,16 @@ type Badge = {
 declare const Badge: import("svelte").Component<{
     type: any;
     value: any;
+    tooltip: any;
+    TooltipProps?: Record<string, any>;
     children: any;
     className: any;
 }, {}, "">;
 type $$ComponentProps = {
     type: any;
     value: any;
+    tooltip: any;
+    TooltipProps?: Record<string, any>;
     children: any;
     className: any;
 };

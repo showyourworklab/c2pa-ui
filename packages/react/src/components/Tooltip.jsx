@@ -4,7 +4,7 @@ import { classNames } from 'syw-common/helpers'
 
 const Tooltip = ({
 	content,
-	ContentProps,
+	ContentProps = {},
 	children,
 	className
 }) => {

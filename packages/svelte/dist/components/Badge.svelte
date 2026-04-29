@@ -1,16 +1,42 @@
 <script>
 	import { classNames } from 'syw-common/helpers'
+    import Tooltip from './Tooltip.svelte';
 
-	const { type, value, children, className } = $props()
+	const {
+		type,
+		value,
+		tooltip,
+		TooltipProps = {},
+		children,
+		className
+	} = $props()
 </script>
 
-<div
-	class={classNames(
-		'Badge',
-		className,
-		type ? `Badge_${type}` : null,
-		value ? `Badge_${value}` : null
+<Tooltip
+	{...TooltipProps}
+	content={tooltip}
+	ContentProps={{
+		...TooltipProps?.ContentProps,
+		className: classNames(
+			TooltipProps?.ContentProps?.classNames,
+			'BadgeTooltipContent',
+			type ? `BadgeTooltipContent_${type}` : null,
+			type && value ? `BadgeTooltipContent_${type}_${value}` : null
+		),
+	}}
+	className={classNames(
+		'BadgeTooltipTrigger',
+		TooltipProps?.className,
 	)}
 >
-	{@render children?.()}
-</div>
+	<div
+		class={classNames(
+			'Badge',
+			className,
+			type ? `Badge_${type}` : null,
+			type && value ? `Badge_${type}_${value}` : null
+		)}
+	>
+		{@render children?.()}
+	</div>
+</Tooltip>

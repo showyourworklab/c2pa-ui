@@ -5,7 +5,7 @@ const Badge = ({
 	type,
 	value,
 	tooltip,
-	TooltipProps,
+	TooltipProps = {},
 	children,
 	className
 }) => {

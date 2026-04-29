@@ -6,12 +6,15 @@
 	const { locale, getText } = getContext('i18nStoreContext');
 
 	const { value } = $props()
+	const label = $derived(() => getText($locale, "status", value))
+	const definition = $derived(() => getText($locale, "status", value, "definition"))
 </script>
 
 <Badge
 	type="status"
 	value={value}
+	tooltip={definition()}
 	className={classNames("StatusBadge")}
 >
-	{getText($locale, "status", value)}
+	{label()}
 </Badge>
