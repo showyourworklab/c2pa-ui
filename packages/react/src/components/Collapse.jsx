@@ -1,15 +1,15 @@
-import { useMemo } from 'react'
-import { useCollapse } from 'react-collapsed'
+import { useEffect, useMemo } from 'react'
+import {
+	Collapsible as ArkCollapsible,
+	useCollapsible as useArkCollapsible
+} from '@ark-ui/react/collapsible'
 import { classNames } from 'syw-common/helpers'
 
 const Collapse = ({
 	open = false,
 	children
 }) => {
-	const { getCollapseProps, isExpanded } = useCollapse({
-		isExpanded: open,
-		defaultExpanded: false,
-	})
+	const arkCollapsible = useArkCollapsible()
 
 	const className = useMemo(() =>
 		classNames(
@@ -18,17 +18,22 @@ const Collapse = ({
 		)
 	, [open])
 
+	useEffect(() => {
+		arkCollapsible.setOpen(open)
+	}, [open])
+
 	return (
-		<div
-			{...getCollapseProps()}
+		<ArkCollapsible.RootProvider
+			value={arkCollapsible}
+			aria-expanded={open}
 			className={className}
-			aria-labelledby={null}
-			id={null}
 		>
-			<div className={classNames('CollapseInner')}>
+			<ArkCollapsible.Content
+				className={classNames('CollapseInner')}
+			>
 				{children}
-			</div>
-		</div>
+			</ArkCollapsible.Content>
+		</ArkCollapsible.RootProvider>
 	)
 }
 

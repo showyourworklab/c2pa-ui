@@ -4,12 +4,10 @@
 	import { getVerifyUrl } from 'syw-common/helpers/c2pa'
 	import { VERIFY_BASE_URL } from 'syw-common/constants'
 
-	import Collapse from './Collapse.svelte'
 	import Manifest from './Manifest.svelte'
 
 	const { src, manifests } = getContext('dataStoreContext');
 	const { locale, getText } = getContext('i18nStoreContext');
-	const { isProvenanceOpen } = getContext('uiStoreContext');
 
 	const verifyUrl = $derived(getVerifyUrl($src))
 
@@ -18,30 +16,22 @@
 <div
 	class={classNames('Provenance')}
 >
-	<Collapse
-		open={$isProvenanceOpen}
+	<ul
+		class={classNames('ProvenanceList')}
 	>
-		<div
-			class={classNames('ProvenanceInner')}
+		{#each $manifests as manifest}
+			<Manifest
+				manifest={manifest}
+			/>
+		{/each}
+	</ul>
+	<div class={classNames('ProvenanceVerify')}>
+		{getText($locale, 'verify', 'pre')}
+		<a
+			href={verifyUrl}
+			target='_blank'
 		>
-			<ul
-				class={classNames('ProvenanceList')}
-			>
-				{#each $manifests as manifest}
-					<Manifest
-						manifest={manifest}
-					/>
-				{/each}
-			</ul>
-			<div class={classNames('ProvenanceVerify')}>
-				{getText($locale, 'verify', 'pre')}
-				<a
-					href={verifyUrl}
-					target='_blank'
-				>
-					{VERIFY_BASE_URL}
-				</a>
-			</div>
-		</div>
-	</Collapse>
+			{VERIFY_BASE_URL}
+		</a>
+	</div>
 </div>

@@ -14,6 +14,7 @@ import Caption from './Caption'
 import Explainer from './Explainer'
 import Provenance from './Provenance'
 import Collapse from './Collapse'
+import ProvenanceExpand from './ProvenanceExpand'
 import ProvenanceModal from './ProvenanceModal'
 import Thumbnail from './Thumbnail'
 
@@ -85,12 +86,7 @@ function App({
 				<Caption />
 			</Figure>
 			{variant === 'expand' ?
-				<Collapse
-					open={isProvenanceOpen}
-					className={classNames('ProvenanceModal')}
-				>
-					<Provenance />
-				</Collapse>
+				<ProvenanceExpand />
 			: null}
 			{variant === 'modal' ?
 				<ProvenanceModal />

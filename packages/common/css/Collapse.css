@@ -1,16 +1,43 @@
 /* Collapse */
 .Syw-Collapse {
-	opacity: 0;
-	transition-property: opacity, height;
+	/* opacity: 0; */
+	/* transition-property: opacity;
 	transition-duration: 200ms;
-	transition-timing-function: ease;
-	overflow: hidden;
+	transition-timing-function: ease; */
 }
 /* Collapse > Open */
 .Syw-Collapse.Syw-Collapse_open {
-	opacity: 1;
+	/* opacity: 1; */
 }
 /* Collapse > Inner */
 .Syw-CollapseInner {
 	transform: translate(0, 0);
+}
+
+@keyframes syw-collapse-expand {
+	from {
+		height: var(--collapsed-height, 0);
+	}
+	to {
+		height: var(--height);
+	}
+}
+
+@keyframes syw-collapse-collapse {
+	from {
+		height: var(--height);
+	}
+	to {
+		height: var(--collapsed-height, 0);
+	}
+}
+
+[data-scope="collapsible"][data-part="content"] {
+	overflow: hidden;
+}
+[data-scope="collapsible"][data-part="content"][data-state="open"] {
+	animation: syw-collapse-expand 250ms forwards;
+}
+[data-scope="collapsible"][data-part="content"][data-state="closed"] {
+	animation: syw-collapse-collapse 250ms;
 }

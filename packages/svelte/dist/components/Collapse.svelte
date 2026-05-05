@@ -1,30 +1,33 @@
 <script>
+	import { tick } from 'svelte'
+	import {
+		Collapsible as ArkCollapsible,
+		useCollapsible as useArkCollapsible
+	} from '@ark-ui/svelte/collapsible'
 	import { classNames } from 'syw-common/helpers'
 
+	const id = $props.id();
 	const { open, children } = $props();
+	const arkCollapsible = useArkCollapsible(() => ({ id, open }))
 
-    let height = $state(null);
-	
-	const style = $derived(`height:${open ? height : 0}px`)
 	const classes = $derived(
 		classNames(
 			'Collapse',
 			open ? 'Collapse_open' : false
 		)
 	)
-
 </script>
 
-<div
+<ArkCollapsible.RootProvider
+	id={id}
 	class={classes}
-	style={style}
-	aria-expanded={open}
+	value={arkCollapsible}
 >
-	<div bind:clientHeight={height}>
+	<ArkCollapsible.Content>
 		<div
 			class={classNames('CollapseInner')}
 		>
 			{@render children()}
 		</div>
-	</div>
-</div>
+	</ArkCollapsible.Content>
+</ArkCollapsible.RootProvider>
