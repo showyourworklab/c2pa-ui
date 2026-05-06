@@ -10,6 +10,7 @@
 /* Provenance > Modal > Explainer */
 .Syw-ProvenanceModal .Syw-ProvenanceModalToolbar {
 	display: flex;
+	justify-content: space-between;
 	margin-bottom: var(--syw-space-3);
 }
 /* .Syw-ProvenanceModal .Syw-ProvenanceModalToolbar .Syw-Status {

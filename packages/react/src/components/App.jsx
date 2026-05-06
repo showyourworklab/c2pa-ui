@@ -17,6 +17,7 @@ import Collapse from './Collapse'
 import ProvenanceExpand from './ProvenanceExpand'
 import ProvenanceModal from './ProvenanceModal'
 import Thumbnail from './Thumbnail'
+import Media from './Media'
 
 function App({
 	mapOptions,
@@ -73,12 +74,9 @@ function App({
 			className={className}
 		>
 			<Figure>
-				{mediaType === "image" ?
-					<Image />
-				: null}
-				{mediaType === "video" ?
-					<Video />
-				: null}
+				<Media
+					type={mediaType}
+				/>
 				{variant === 'expand' ?
 					<Explainer />
 				: null}

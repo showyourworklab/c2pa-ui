@@ -2,7 +2,8 @@
 .Syw-TypeBadge {
 	transition: all 200ms ease;
 }
-.Syw-App_active .Syw-TypeBadge {
+.Syw-App_expand.Syw-App_active .Syw-TypeBadge,
+.Syw-ProvenanceModal .Syw-TypeBadge {
 	color: var(--syw-color-quaternary-light);
 }
 .Syw-ManifestPreview:hover .Syw-TypeBadge {

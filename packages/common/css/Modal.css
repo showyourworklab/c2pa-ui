@@ -1,31 +1,29 @@
 /* Modal */
-.Syw-Modal {
+/* Modal > Backdrop */
+.Syw-ModalBackdrop {
 	width: 100%;
 	height: 100%;
 	position: fixed;
-	left: 0;
-	top: 0;
+    inset: 0;
+	z-index: calc(var(--syw-z-modal) + var(--layer-index, 0));
+	background-color: var(--syw-color-modal-backdrop);
+}
+.Syw-ModalBackdrop[data-state="open"] {
+	animation: syw-modal-backdrop-in 200ms ease;
+}
+.Syw-ModalBackdrop[data-state="closed"] {
+	animation: syw-modal-backdrop-out 200ms ease forwards;
+}
+/* Modal > Positioner */
+.Syw-ModalPositioner {
 	display: flex;
 	align-items: center;
-	z-index: 10000;
-	opacity: 0;
-	visibility: hidden;
-	pointer-events: none;
-}
-.Syw-Modal.Syw-Modal_open {
-	opacity: 1;
-	visibility: visible;
-	pointer-events: all;
-}
-/* Modal > Overlay */
-.Syw-ModalOverlay {
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	left: 0;
-	top: 0;
-	z-index: 10001;
-	background-color: var(--syw-color-modal-backdrop);
+	justify-content: center;
+	position: fixed;
+	inset: 0;
+	z-index: var(--syw-z-modal);
+	/* overscroll-behavior-y: none;
+	scrollbar-gutter: stable both-edges; */
 }
 /* Modal > Content */
 .Syw-ModalContent {
@@ -34,6 +32,15 @@
 	margin: auto;
 	position: relative;
 	z-index: 10002;
+}
+.Syw-ModalContent[hidden] {
+	display: none;
+}
+.Syw-ModalContent[data-state="open"] {
+    animation: syw-modal-content-in 200ms ease;
+}
+.Syw-ModalContent[data-state="closed"] {
+    animation: syw-modal-content-out 200ms ease forwards;
 }
 /* Modal > Content > Box */
 .Syw-ModalContentBox {
@@ -63,8 +70,8 @@ hgroup.Syw-ModalContentHeader h2 {
 }
 /* Modal > Close */
 button.Syw-ModalClose {
-	width: var(--syw-space-4);
-	height: var(--syw-space-4);
+	width: var(--syw-space-6);
+	height: var(--syw-space-6);
 	display: block;
 	position: absolute;
 	right: calc(var(--syw-space-1) * -1);
@@ -79,4 +86,44 @@ button.Syw-ModalClose {
 	border-style: solid;
 	border-width: 1px;
 	cursor: pointer;
+	transition: all 200ms ease;
+}
+button.Syw-ModalClose:hover,
+button.Syw-ModalClose:focus {
+	background-color: var(--syw-color-quaternary);
+}
+/* Modal > Animations */
+/* Modal > Animations > Backdrop */
+@keyframes syw-modal-backdrop-in {
+    from {
+		opacity: 0;
+	}
+    to {
+		opacity: 1;
+	}
+}
+@keyframes syw-modal-backdrop-out {
+    from {
+		opacity: 1;
+	}
+    to {
+		opacity: 0;
+	}
+}
+/* Modal > Animations > Content */
+@keyframes syw-modal-content-in {
+    from {
+		opacity: 0; transform: scale(0.98) translateY(8px);
+	}
+    to {
+		opacity: 1; transform: scale(1) translateY(0);
+	}
+}
+@keyframes syw-modal-content-out {
+    from {
+		opacity: 1; transform: scale(1) translateY(0);
+	}
+    to {
+		opacity: 0; transform: scale(0.98) translateY(8px);
+	}
 }

@@ -399,9 +399,6 @@
 
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
-	:global(html) {
-		
-	}
 	:global(body) {
 		margin: auto;
 		font-family: var(--font-serif);
@@ -410,7 +407,8 @@
 		overflow-x: hidden;
 		color: var(--color-primary);
 		background-color: var(--color-secondary);
-
+	}
+	:global(main) {
 		--text-base: 16px;
 		--font-serif: "Libre Baskerville", "Times New Roman", times, serif;
 		--font-sans-serif: "Rubik", Arial, Helvetica, sans-serif;
@@ -419,6 +417,7 @@
 		--color-ui: #E2E5F1;
 
 		--syw-color-primary: #1A1A1A;
+		--syw-color-primary-light: #AEA281;
 		--syw-color-secondary: #fdf7e6;
 		--syw-color-secondary-light: #faf7f0;
 		--syw-color-secondary-dark: #877a54;
@@ -489,9 +488,9 @@
 		font-size: 0.825rem;
 		line-height: 20px;
 	}
-	:global(.Syw-ManifestPreviewCell_thumb img) {
+	/* :global(.Syw-ManifestPreviewCell_thumb img) {
 		height: unset;
-	}
+	} */
 	:global(.Syw-App .Syw-Caption) {
 		font-family: var(--font-serif);
 	}
