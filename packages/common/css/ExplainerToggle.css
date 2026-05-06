@@ -1,34 +1,29 @@
+/* Explainer > Toggle */
 button.Syw-ExplainerToggle {
 	font-size: var(--syw-text-xs);
 	font-weight: var(--syw-font-weight-bold);
-	color: var(--syw-color-secondary);
 }
 /* Cutline > Explainer > Toggle */
 .Syw-Cutline button.Syw-ExplainerToggle {
 	margin-left: var(--syw-space-2);
-	color: var(--syw-color-primary-light);
 }
 /* Cutline > Explainer > Toggle > Hover */
 .Syw-Cutline button.Syw-ExplainerToggle:hover {
 	color: var(--syw-color-quaternary);
 }
-/* Cutline > Explainer > Toggle > Pressed */
-/* .Syw-Cutline button.Syw-ExplainerToggle[aria-pressed="true"] {
-	opacity: 0;
-	pointer-events: none;
-} */
-/* Cutline > Explainer > Toggle > Active */
+/* Expand > Cutline > Explainer > Toggle */
+.Syw-ProvenanceExpand button.Syw-ExplainerToggle {
+	color: var(--color-secondary);
+}
+/* Modal > Cutline > Explainer > Toggle > Active */
 .Syw-ProvenanceModal .Syw-Cutline button.Syw-ExplainerToggle {
-	color: var(--syw-color-secondary-light);
+	color: var(--syw-color-secondary);
 }
-/* Cutline > Explainer > Toggle > Active > Hover */
+/* Modal > Cutline > Explainer > Toggle > Active > Hover */
 .Syw-ProvenanceModal .Syw-Cutline button.Syw-ExplainerToggle:hover {
-	color: var(--syw-color-quaternary-light);
+	color: var(--syw-color-quaternary);
 }
-/* Modal > Explainer > Toggle */
-.Syw-ProvenanceModal .Syw-Explainer {
-	margin-bottom: var(--syw-space-3);
-}
+/* Modal > Cutline > Explainer > Toggle */
 .Syw-ProvenanceModal button.Syw-ExplainerToggle {
 	color: var(--color-secondary);
 }

@@ -2,8 +2,7 @@
 .Syw-Manifest {
 	position: relative;
 	margin-bottom: var(--syw-space-2);
-	color: var(--syw-color-tertiary-light);
-	background-color: var(--syw-color-primary);
+	background-color: var(--syw-color-secondary);
 	border-radius: var(--syw-radius-lg);
 	border-color: var(--syw-color-tertiary);
 	border-style: solid;
@@ -20,7 +19,7 @@
 	z-index: 2;
 	top: calc(var(--syw-space-6));
 	background-color: var(--syw-color-primary);
-	border-color: var(--syw-color-secondary-light);
+	border-color: var(--syw-color-secondary);
 	border-style: solid;
 	border-width: 0 1px;
 }
@@ -37,6 +36,9 @@
 .Syw-Manifest:last-of-type::before,
 .Syw-Manifest:last-of-type::after {
 	display: none;
+}
+.Syw-App_active .Syw-Manifest {
+	background-color: var(--syw-color-primary);
 }
 /* Manifest > Open */
 .Syw-Manifest.Syw-Manifest_open {
@@ -61,9 +63,20 @@
 	min-height: var(--syw-space-10);
 	cursor: pointer;
 	user-select: none;
-	transition: all 200ms ease;
 	border-radius: var(--syw-radius-lg);
+	background-color: var(--syw-color-primary);
+	color: var(--syw-color-secondary);
 	padding: var(--syw-space-1) var(--syw-space-1) var(--syw-space-1) var(--syw-space-6);
+	opacity: 0;
+	transition: all 200ms ease;
+}
+.Syw-App_active .Syw-ManifestPreview {
+	opacity: 1;
+}
+.Syw-App_active .Syw-ManifestPreview:hover,
+.Syw-App_active .Syw-Manifest_open .Syw-ManifestPreview {
+	color: var(--syw-color-primary);
+	background-color: var(--syw-color-secondary);
 }
 .Syw-ManifestPreview::before,
 .Syw-ManifestPreview::after {
@@ -74,7 +87,7 @@
 	position: absolute;
 	top: calc(var(--syw-space-5));
 	z-index: 4;
-	background-color: var(--syw-color-tertiary-light);
+	background-color: var(--syw-color-tertiary);
 	border-color: var(--syw-color-primary);
 	border-width: 1px;
 	border-style: solid;
@@ -88,22 +101,22 @@
 	right: calc(var(--syw-space-3) - 5px);
 	display: none;
 }
-.Syw-Manifest_open .Syw-ManifestPreview {
-	color: var(--syw-color-primary);
-}
-.Syw-Manifest_open .Syw-ManifestPreview::before,
-.Syw-Manifest_open .Syw-ManifestPreview::after {
+.Syw-App_active .Syw-Manifest_open .Syw-ManifestPreview::before,
+.Syw-App_active .Syw-Manifest_open .Syw-ManifestPreview::after {
 	background-color: var(--syw-color-primary);
 }
-.Syw-ManifestPreview:hover {
+.Syw-ManifestPreview:hover .Syw-ManifestPreviewCell_issuer,
+.Syw-ManifestPreview:hover .Syw-ManifestPreviewCell_time {
 	color: var(--syw-color-quaternary);
 }
 .Syw-ManifestPreview:hover::before,
 .Syw-ManifestPreview:hover::after {
+	border-color: var(--syw-color-quaternary);
 	background-color: var(--syw-color-quaternary);
 }
 .Syw-ManifestPreviewCell {
 	width: auto;
+	transition: all 200ms ease;
 	font-weight: var(--syw-font-weight-bold);
 }
 .Syw-ManifestPreviewCell span {
@@ -134,7 +147,7 @@
 	border-radius: var(--syw-radius-lg);
 	border-color: transparent;
 	background-color: var(--syw-color-primary);
-	border-color: var(--syw-color-secondary-dark);
+	border-color: var(--syw-color-secondary);
 }
 .Syw-ManifestPreview:hover .Syw-ManifestPreviewCell_thumb {
 	/* border-color: var(--syw-color-secondary); */
@@ -169,7 +182,6 @@
 	margin-bottom: 0;
 }
 .Syw-ManifestTableRowLabel {
-	color: var(--syw-color-primary-light);
 	font-size: var(--syw-text-xs);
 	font-weight: var(--syw-font-weight-bold);
 	letter-spacing: 0.1em;

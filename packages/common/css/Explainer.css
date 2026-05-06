@@ -6,9 +6,9 @@
 	font-size: var(--syw-text-sm);
 	line-height: 1.5em;
 	color: var(--syw-color-primary);
-	background-color: var(--syw-color-secondary-light);
+	background-color: var(--syw-color-secondary);
 	border-radius: var(--syw-radius-lg);
-	border-color: var(--syw-color-primary-light);
+	border-color: var(--syw-color-primary);
 	border-style: dotted;
 	border-width: 1px;
 	pointer-events: all;
@@ -48,9 +48,13 @@ button.Syw-ExplainerClose {
 	top: var(--syw-space-2);
 	padding: var(--syw-space-1) var(--syw-space-2);
 	border-radius: var(--syw-radius-lg);
-	border-color: var(--syw-color-primary-light);
+	border-color: var(--syw-color-primary);
 	border-style: dotted;
 	border-width: 1px;
 	font-size: var(--syw-text-xs);
 	cursor: pointer;
+}
+/* Modal > Explainer */
+.Syw-ProvenanceModal .Syw-Explainer {
+	margin-bottom: var(--syw-space-3);
 }

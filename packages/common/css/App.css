@@ -48,6 +48,7 @@
 /* App > Active */
 /* App > Active > Expand */
 .Syw-App.Syw-App_active.Syw-App_expand {
+	color: var(--syw-color-secondary);
 	background-color: var(--syw-color-primary);
 }
 /* App > Modal */

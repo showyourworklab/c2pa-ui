@@ -4,20 +4,20 @@
 	/* Colors */
 	/* Colors > Primary */
 	--syw-color-primary: rgb(6, 0, 53);
-	--syw-color-primary-light: rgb(46, 55, 92);
-	--syw-color-primary-dark: rgb(46, 55, 92);
+	/* --syw-color-primary-light: rgb(46, 55, 92); */
+	/* --syw-color-primary-dark: rgb(46, 55, 92); */
 	/* Colors > Secondary */
 	--syw-color-secondary: rgb(236, 242, 248);
-	--syw-color-secondary-light: rgb(236, 239, 253);
-	--syw-color-secondary-dark: rgb(119, 128, 166);
+	/* --syw-color-secondary-light: rgb(236, 239, 253); */
+	/* --syw-color-secondary-dark: rgb(119, 128, 166); */
 	/* Colors > Tertiary */
 	--syw-color-tertiary: rgb(247, 247, 247);
-	--syw-color-tertiary-light: rgb(255, 255, 255);
-	--syw-color-tertiary-dark: rgb(163, 163, 163);
+	/* --syw-color-tertiary-light: rgb(255, 255, 255); */
+	/* --syw-color-tertiary-dark: rgb(163, 163, 163); */
 	/* Colors > Quaternary */
 	--syw-color-quaternary: rgb(5, 51, 255);
-	--syw-color-quaternary-light: rgb(223, 227, 252);
-	--syw-color-quaternary-dark: rgb(0, 46, 196);
+	/* --syw-color-quaternary-light: rgb(223, 227, 252); */
+	/* --syw-color-quaternary-dark: rgb(0, 46, 196); */
 	/* Colors > Components */
 	--syw-color-status-trusted: rgb(22, 126, 22);
 	--syw-color-status-valid: rgb(126, 126, 22);

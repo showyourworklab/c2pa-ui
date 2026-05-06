@@ -48,6 +48,7 @@
 	max-width: calc(100vw - var(--syw-space-4));
 	max-height: calc(100vh - var(--syw-space-4));
 	padding: var(--syw-space-3) var(--syw-space-4) var(--syw-space-4);
+	color: var(--syw-color-secondary);
 	background-color: var(--syw-color-primary);
 	border-radius: var(--syw-radius-lg);
 	border-color: var(--syw-color-tertiary);

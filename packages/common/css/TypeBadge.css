@@ -2,19 +2,8 @@
 .Syw-TypeBadge {
 	transition: all 200ms ease;
 }
-.Syw-App_expand.Syw-App_active .Syw-TypeBadge,
-.Syw-ProvenanceModal .Syw-TypeBadge {
-	color: var(--syw-color-quaternary-light);
-}
-.Syw-ManifestPreview:hover .Syw-TypeBadge {
-	color: var(--syw-color-primary);
-}
-.Syw-ManifestRow_open .Syw-TypeBadge {
-	color: var(--syw-color-primary);
-}
 /* Type > Badge > Tooltip */
 .Syw-TooltipContent.Syw-BadgeTooltipContent_type {
 	--syw-tooltip-text: var(--syw-color-primary);
 	--syw-tooltip-background: var(--syw-color-secondary);
-	/* background-color: var(--syw-color-quaternary-light); */
 }
