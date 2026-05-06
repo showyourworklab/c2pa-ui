@@ -13,6 +13,7 @@
 <Badge
 	type="status"
 	value={value}
+	icon={value}
 	tooltip={definition()}
 	className={classNames("StatusBadge")}
 >

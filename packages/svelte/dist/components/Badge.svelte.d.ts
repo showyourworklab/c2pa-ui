@@ -6,6 +6,7 @@ type Badge = {
 declare const Badge: import("svelte").Component<{
     type: any;
     value: any;
+    icon: any;
     tooltip: any;
     TooltipProps?: Record<string, any>;
     children: any;
@@ -14,6 +15,7 @@ declare const Badge: import("svelte").Component<{
 type $$ComponentProps = {
     type: any;
     value: any;
+    icon: any;
     tooltip: any;
     TooltipProps?: Record<string, any>;
     children: any;

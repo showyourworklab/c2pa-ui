@@ -42,7 +42,10 @@ export default defineConfig({
 		devtoolsJson()
 	],
 	ssr: {
-		noExternal: ['@ark-ui/svelte']
+		noExternal: [
+			'@ark-ui/svelte',
+			'@lucide/svelte'
+		]
 	},
 	css: {
 		modules: {
