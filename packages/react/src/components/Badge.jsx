@@ -1,9 +1,11 @@
 import { classNames } from 'syw-common/helpers'
 import Tooltip from './Tooltip'
+import Icon from './Icon'
 
 const Badge = ({
 	type,
 	value,
+	icon,
 	tooltip,
 	TooltipProps = {},
 	children,
@@ -32,10 +34,23 @@ const Badge = ({
 					'Badge',
 					className,
 					type ? `Badge_${type}` : null,
-					type && value ? `Badge_${type}_${value}` : null
+					type && value ? `Badge_${type}_${value}` : null,
+					icon ? `Badge_icon` : null,
 				)}
 			>
-				{children}
+				{icon ?
+					<>
+						<Icon
+							type={icon}
+							className={classNames('BadgeIcon')}
+						/>
+						<span
+							className='syw-hidden'
+						>
+							{children}
+						</span>
+					</>
+				: children}
 			</div>
 		</Tooltip>
 	)

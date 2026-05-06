@@ -1,5 +1,6 @@
 import { Dialog } from '@ark-ui/react/dialog'
 import { classNames } from 'syw-common/helpers'
+import Icon from './Icon'
 
 const Modal = ({
 	open = false,
@@ -61,7 +62,11 @@ const Modal = ({
 						</div>
 						<Dialog.CloseTrigger
 							className={classNames('ModalClose')}
-						/>
+						>
+							<Icon
+								type="close"
+							/>
+						</Dialog.CloseTrigger>
 					</Dialog.Content>
 				</Dialog.Positioner>
 			{/* </Portal> */}

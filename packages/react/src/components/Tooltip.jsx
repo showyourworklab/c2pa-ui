@@ -12,8 +12,8 @@ const Tooltip = ({
 		<ArkTooltip.Root
 			// open={true}
 			openDelay={0}
-			lazyMount={false}
-			unmountOnExit={false}
+			lazyMount={true}
+			unmountOnExit={true}
 			disabled={content === undefined}
 		>
 			<ArkTooltip.Trigger
@@ -25,7 +25,9 @@ const Tooltip = ({
 				{children}
 			</ArkTooltip.Trigger>
 			<ArkPortal>
-				<ArkTooltip.Positioner>
+				<ArkTooltip.Positioner
+					className={classNames('TooltipPositioner')}
+				>
 					<ArkTooltip.Content
 						{...ContentProps}
 						className={classNames(

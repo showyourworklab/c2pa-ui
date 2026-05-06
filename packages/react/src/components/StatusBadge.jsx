@@ -11,6 +11,7 @@ const StatusBadge = ({
 	return (
 		<Badge
 			type="status"
+			icon={value}
 			value={value}
 			tooltip={definition}
 			className={classNames("StatusBadge")}

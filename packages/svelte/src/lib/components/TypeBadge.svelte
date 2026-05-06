@@ -14,6 +14,7 @@
 <Badge
 	type="type"
 	value={value?.key}
+	icon={value?.key}
 	tooltip={definition()}
 	className={classNames("TypeBadge")}
 >
