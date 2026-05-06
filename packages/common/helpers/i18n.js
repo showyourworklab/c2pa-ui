@@ -99,7 +99,7 @@ export const getDateString = (locale = LOCALE_DEFAULT, date) => {
 	const isValidDate = dateObj instanceof Date && isFinite(dateObj.getTime())
 	const dateString = isValidDate ?
 		dateObj.toLocaleDateString(locale.replace('_', '-'), {
-			weekday: 'long',
+			// weekday: 'long',
 			year: 'numeric',
 			month: 'long',
 			day: 'numeric',

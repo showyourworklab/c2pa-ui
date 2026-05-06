@@ -1,6 +1,7 @@
 <script>
+	import { Dialog } from '@ark-ui/svelte/dialog'
 	import { classNames } from 'syw-common/helpers'
-	import { openModal, closeModal } from 'syw-common/helpers/modal'
+
 	let {
 		open,
 		title,
@@ -9,28 +10,63 @@
 		className,
 		children
 	} = $props()
-	let elemRef
-	const id = $props.id()
-	const labelId = `${id}-label`
-	const describeId = `${id}-describe`
 
-	const onClose = (event) => {
-		onOpenChange(false, event)
+	const handleOpenChange = (event) => {
+		onOpenChange(event.open)
 	}
-
-	$effect(() => {
-		if(open) {
-			openModal(elemRef, onOpenChange)
-		} else {
-			closeModal()
-		}
-		return () => {
-			if(elemRef) closeModal()
-		}
-	})
 </script>
 
-<div
+<Dialog.Root
+	open={open}
+	modal={false}
+	lazyMount={true}
+	unmountOnExit={true}
+	closeOnInteractOutside={true}
+	onOpenChange={handleOpenChange}
+>
+	<Dialog.Backdrop
+		class={classNames('ModalBackdrop')}
+	/>
+	<Dialog.Positioner
+		class={classNames('ModalPositioner')}
+	>
+		<Dialog.Content
+			class={classNames(
+				className,
+				'ModalContent'
+			)}
+		>
+			<div
+				class={classNames('ModalContentBox')}
+			>
+				{#if title}
+					<hgroup
+						class={classNames('ModalContentHeader')}
+					>
+						{#if title}
+							<Dialog.Title>
+								{title}
+							</Dialog.Title>
+						{/if}
+						{#if description}
+							<Dialog.Description
+								class='syw-hidden'
+							>
+								{description}
+							</Dialog.Description>
+						{/if}
+					</hgroup>
+				{/if}
+				{@render children?.()}
+			</div>
+			<Dialog.CloseTrigger
+				class={classNames('ModalClose')}
+			/>
+		</Dialog.Content>
+	</Dialog.Positioner>
+</Dialog.Root>
+
+<!-- <div
 	class={classNames(
 		'Modal',
 		open ? 'Modal_open' : null,
@@ -82,4 +118,37 @@
 			onclick={onClose}
 		></button>
 	</div>
-</div>
+</div> -->
+
+
+<!-- import { useId, useRef, useEffect, useState } from 'react'
+import { Dialog } from '@ark-ui/react/dialog'
+import { Portal } from '@ark-ui/react/portal'
+import { classNames } from 'syw-common/helpers'
+
+const Modal = ({
+	open = false,
+	title,
+	description,
+	onOpenChange,
+	children,
+	className
+}) => {
+	const ref = useRef()
+	const labelId = useId()
+	const describeId = useId()
+
+	const onClose = (event) => {
+		onOpenChange(false, event)
+	}
+
+	const handleOpenChange = (event) => {
+		onOpenChange(event.open)
+	}
+
+	return (
+		
+	)
+}
+
+export default Modal -->

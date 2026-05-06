@@ -1,13 +1,16 @@
-<script>
-	import { onMount } from 'svelte';
-	let mounted = false;
+<script lang="ts">
+	import { onMount } from 'svelte'
+
+	let { children } = $props();
+	
+	let mounted = $state(false);
 	onMount(() => {
     	mounted = true;
 	});
 </script>
 
 {#if mounted}
-	<slot />
+	{@render children?.()}
 {:else}
 	<!-- SSR fallback -->
 {/if}

@@ -6,14 +6,16 @@ const StatusBadge = ({
 	value
 }) => {
 	const { getText } = useI18nContext()
-	
+	const label = getText("status", value)
+	const definition = getText("status", value, "definition")
 	return (
 		<Badge
 			type="status"
 			value={value}
+			tooltip={definition}
 			className={classNames("StatusBadge")}
 		>
-			{getText("status", value)}
+			{label}
 		</Badge>
 	)
 }

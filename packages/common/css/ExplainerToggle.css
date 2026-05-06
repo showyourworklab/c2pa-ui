@@ -13,22 +13,22 @@ button.Syw-ExplainerToggle {
 	color: var(--syw-color-quaternary);
 }
 /* Cutline > Explainer > Toggle > Pressed */
-.Syw-Cutline button.Syw-ExplainerToggle[aria-pressed="true"] {
+/* .Syw-Cutline button.Syw-ExplainerToggle[aria-pressed="true"] {
 	opacity: 0;
 	pointer-events: none;
-}
+} */
 /* Cutline > Explainer > Toggle > Active */
-.Syw-App_active .Syw-Cutline button.Syw-ExplainerToggle {
+.Syw-ProvenanceModal .Syw-Cutline button.Syw-ExplainerToggle {
 	color: var(--syw-color-secondary-light);
 }
 /* Cutline > Explainer > Toggle > Active > Hover */
-.Syw-App_active .Syw-Cutline button.Syw-ExplainerToggle:hover {
+.Syw-ProvenanceModal .Syw-Cutline button.Syw-ExplainerToggle:hover {
 	color: var(--syw-color-quaternary-light);
 }
 /* Modal > Explainer > Toggle */
-.Syw-ModalContent .Syw-Explainer {
+.Syw-ProvenanceModal .Syw-Explainer {
 	margin-bottom: var(--syw-space-3);
 }
-.Syw-ModalContent button.Syw-ExplainerToggle {
+.Syw-ProvenanceModal button.Syw-ExplainerToggle {
 	color: var(--color-secondary);
 }

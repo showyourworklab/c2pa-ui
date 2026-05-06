@@ -37,9 +37,7 @@ const ProvenanceModal = () => {
 			<div
 				className={classNames('ProvenanceModalToolbar')}
 			>
-				{!isExplainerOpen ?
-					<ExplainerToggle />
-				: null}
+				<ExplainerToggle />
 				<StatusBadge
 					value={status}
 				/>

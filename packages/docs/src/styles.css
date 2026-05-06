@@ -95,6 +95,13 @@ code {
 	font-family: var(--font-mono);
 	overflow: auto;
 }
+ul {
+	padding-left: 0;
+	list-style: none;
+}
+ul li {
+	margin-bottom: 0.5rem;
+}
 a.button {
 	padding: 4px 8px;
 	color: inherit;

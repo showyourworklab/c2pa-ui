@@ -47,8 +47,8 @@
 }
 /* Caption > Inner > Active > Expand */
 .Syw-App_active.Syw-App_expand .Syw-CaptionInner {
-	/* transform: translateX(var(--syw-space-6)); */
-	padding-left: var(--syw-space-6);
+	transform: translateX(var(--syw-space-6));
+	/* padding-left: var(--syw-space-6); */
 }
 /* Caption > Byline */
 .Syw-CaptionByline {

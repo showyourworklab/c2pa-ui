@@ -7,6 +7,12 @@ export default defineConfig({
 		sveltekit(),
 		devtoolsJson()
 	],
+	ssr: {
+		noExternal: ['@ark-ui/svelte']
+	},
+	resolve: {
+		dedupe: ['svelte', '@ark-ui/svelte'],
+	},
 	css: {
 		modules: {
 			localsConvention: 'dashes',

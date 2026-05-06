@@ -1,6 +1,5 @@
-import { useEffect, useId, useRef } from 'react'
+import { Dialog } from '@ark-ui/react/dialog'
 import { classNames } from 'syw-common/helpers'
-import { openModal, closeModal } from 'syw-common/helpers/modal'
 
 const Modal = ({
 	open = false,
@@ -10,77 +9,63 @@ const Modal = ({
 	children,
 	className
 }) => {
-	const ref = useRef();
-	const labelId = useId();
-	const describeId = useId();
 
-	const onClose = (event) => {
-		onOpenChange(false, event)
+	const handleOpenChange = (event) => {
+		onOpenChange(event.open)
 	}
 
-	useEffect(() => {
-		if(open) {
-			openModal(ref.current, onOpenChange)
-		} else {
-			closeModal()
-		}
-		return () => {
-			if(ref.current) closeModal()
-		}
-	}, [open, ref])
-
 	return (
-		<div
-			ref={ref}
-			className={classNames(
-				'Modal',
-				open ? 'Modal_open' : null,
-				className
-			)}
+		<Dialog.Root
+			open={open}
+			modal={false}
+			lazyMount={true}
+			unmountOnExit={true}
+			closeOnInteractOutside={true}
+			onOpenChange={handleOpenChange}
 		>
-			<div
-				className={classNames('ModalOverlay')}
-				onClick={onClose}
-			/>
-			<div
-				role="dialog"
-				aria-modal="true"
-				aria-labelledby={labelId}
-				aria-describedby={describeId}
-				className={classNames('ModalContent')}
-			>
-				<div
-					className={classNames('ModalContentBox')}
+			{/* <Portal> */}
+				<Dialog.Backdrop
+					className={classNames('ModalBackdrop')}
+				/>
+				<Dialog.Positioner
+					className={classNames('ModalPositioner')}
 				>
-					{title ?
-						<hgroup
-							className={classNames('ModalContentHeader')}
+					<Dialog.Content
+						className={classNames(
+							className,
+							'ModalContent'
+						)}
+					>
+						<div
+							className={classNames('ModalContentBox')}
 						>
 							{title ?
-								<h2
-									id={labelId}
+								<hgroup
+									className={classNames('ModalContentHeader')}
 								>
-									{title}
-								</h2>
+									{title ?
+										<Dialog.Title>
+											{title}
+										</Dialog.Title>
+									: null}
+									{description ?
+										<Dialog.Description
+											className='syw-hidden'
+										>
+											{description}
+										</Dialog.Description>
+									: null}
+								</hgroup>
 							: null}
-							{description ?
-								<p
-									id={describeId}
-									className='syw-hidden'
-								>
-									{description}
-								</p>
-							: null}
-						</hgroup>
-					: null}
-					{children}
-				</div>
-				<button
-					onClick={onClose}
-					className={classNames('ModalClose')}
-				/>
-			</div>
-		</div>
+							{children}
+						</div>
+						<Dialog.CloseTrigger
+							className={classNames('ModalClose')}
+						/>
+					</Dialog.Content>
+				</Dialog.Positioner>
+			{/* </Portal> */}
+		</Dialog.Root>
 	)
 }
 

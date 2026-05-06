@@ -115,7 +115,7 @@
 .Syw-ManifestPreviewCell_badges {
 	display: flex;
 }
-.Syw-ManifestPreviewCell_badges > div {
+.Syw-ManifestPreviewCell_badges > button {
 	margin-right: var(--syw-space-2);
 }
 .Syw-ManifestPreviewCell_time {
@@ -174,7 +174,4 @@
 	font-weight: var(--syw-font-weight-bold);
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
-}
-.Syw-ManifestTableRowValue {
-	
 }
