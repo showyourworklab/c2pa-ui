@@ -4,6 +4,7 @@
 	--syw-tooltip-background: var(--syw-color-secondary);
 	--arrow-background: var(--syw-tooltip-text);
 	--arrow-size: 6px;
+	max-width: 400px;
 	padding: var(--syw-space-2);
 	font-family: var(--syw-font-primary);
 	font-weight: var(--syw-font-weight-normal);

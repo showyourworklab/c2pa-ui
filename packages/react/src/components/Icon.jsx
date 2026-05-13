@@ -1,18 +1,19 @@
 import { useMemo } from 'react'
-import { Camera, Check, Ellipsis, Scissors, Sparkles, TriangleAlert, X } from 'lucide-react'
+import { BadgeInfo, Camera, Check, Ellipsis, SquarePen, Sparkles, TriangleAlert, X } from 'lucide-react'
 import {  ICON_DEFAULT_SIZE, ICON_DEFAULT_STROKE_WIDTH } from 'syw-common/constants'
 import { classNames } from 'syw-common/helpers'
 
 export const ICONS = {
-	close: X,
+	origin: BadgeInfo,
 	validating: Ellipsis,
 	trusted: Check,
 	valid: Check,
 	invalid: X,
 	unknown: TriangleAlert,
 	camera: Camera,
-	edit: Scissors,
+	edit: SquarePen,
 	ai: Sparkles,
+	close: X,
 }
 
 const Icon = ({

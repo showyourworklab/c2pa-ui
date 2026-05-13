@@ -219,15 +219,32 @@ export const getType = manifest => {
 	const hasExif = ifHasExif(manifest)
 	const createdAction = getC2paActions(manifest)?.find(a => a?.action === "c2pa.created")
 	let typeKey, typeLabel, typeDefinition
+	let iptcTypeKey, iptcTypeLabel, iptcTypeDefinition
 	if(createdAction) {
 		const iptcNewsCodeUri = createdAction?.digitalSourceType
 		const iptcNewsCode = getIptcNewsCode(iptcNewsCodeUri)
-		typeKey = getIptcNewsCodeKey(iptcNewsCodeUri)
-		typeLabel = getIptcNewsCodeLabel(iptcNewsCode)
-		typeDefinition = getIptcNewsCodeDefinition(iptcNewsCode)
+		iptcTypeKey = getIptcNewsCodeKey(iptcNewsCodeUri)
+		iptcTypeLabel = getIptcNewsCodeLabel(iptcNewsCode)
+		iptcTypeDefinition = getIptcNewsCodeDefinition(iptcNewsCode)
+		// TEMP: Not exhausted list of possible news codes
+		if(iptcTypeKey === "trainedAlgorithmicMedia") {
+			typeKey = "ai"
+		}
+		console.log({
+			iptcNewsCodeUri,
+			iptcNewsCode,
+			iptcTypeKey,
+			iptcTypeLabel,
+			iptcTypeDefinition
+		})
 	} else if(hasExif) {
+		// TEMP: Unsure if EXIF detection is a safe determinant
 		typeKey = "camera"
-		typeLabel = "Camera"
+		// typeLabel = "Camera"
+	} else if(manifest?.signature_info?.issuer === "Adobe Inc.") {
+		// TEMP: Unsure if "Adobe Inc."" detection is a safe determinant
+		typeKey = "edit"
+		// typeLabel = "Camera"
 	}
 	// console.log({
 	// 	iptcNewsCodeUri,
@@ -238,8 +255,13 @@ export const getType = manifest => {
 	// })
 	return typeKey ? {
 		key: typeKey,
-		label: typeLabel,
-		definition: typeDefinition,
+		// label: typeLabel,
+		// definition: typeDefinition,
+		iptc: {
+			key: iptcTypeKey,
+			label: iptcTypeLabel,
+			definition: iptcTypeDefinition
+		}
 	} : null
 }
 
