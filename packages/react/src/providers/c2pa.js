@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { createC2pa } from '@contentauth/c2pa-web'
 import { getC2paConfig } from 'syw-common/helpers/c2pa'
-import { C2paContext } from '/src/context/c2pa'
+import { C2paContext } from '$src/context/c2pa'
 
 const C2paProvider = ({
 	c2paOptions = {},

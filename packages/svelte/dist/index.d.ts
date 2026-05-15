@@ -1,53 +1,27 @@
-import type { Component } from 'svelte'
-
-export interface AppProps {
-    variant?: string
-    src?: string
-    alt?: string
-    caption?: string
-    byline?: string
-    locale?: string
-    onEvent?: ((event: any) => void) | null
-}
-
-declare const App: Component<AppProps>
-declare const Caption: Component<{}>
-declare const Collapse: Component<{ open?: boolean; className?: string }>
-declare const Cutline: Component<{}>
-declare const Explainer: Component<{}>
-declare const ExplainerToggle: Component<{}>
-declare const Figure: Component<{}>
-declare const Image: Component<{}>
-declare const ImageCompare: Component<{}>
-declare const Manifest: Component<{}>
-declare const ManifestPreview: Component<{}>
-declare const ManifestTable: Component<{}>
-declare const ManifestTableRow: Component<{}>
-declare const Modal: Component<{}>
-declare const Provenance: Component<{}>
-declare const ProvenanceToggle: Component<{}>
-declare const ProvenanceModal: Component<{}>
-declare const ProvenanceExpand: Component<{}>
-
-export {
-    App,
-    Caption,
-    Collapse,
-    Cutline,
-    Explainer,
-    ExplainerToggle,
-    Figure,
-    Image,
-    ImageCompare,
-    Manifest,
-    ManifestPreview,
-    ManifestTable,
-    ManifestTableRow,
-    Modal,
-    Provenance,
-    ProvenanceToggle,
-    ProvenanceModal,
-    ProvenanceExpand
-}
-
-export default App
+export { default as App } from './components/App.svelte';
+export { default as Badge } from './components/Badge.svelte';
+export { default as Caption } from './components/Caption.svelte';
+export { default as Collapse } from './components/Collapse.svelte';
+export { default as Cutline } from './components/Cutline.svelte';
+export { default as Explainer } from './components/Explainer.svelte';
+export { default as ExplainerToggle } from './components/ExplainerToggle.svelte';
+export { default as Figure } from './components/Figure.svelte';
+export { default as Icon } from './components/Icon.svelte';
+export { default as Image } from './components/Image.svelte';
+export { default as Manifest } from './components/Manifest.svelte';
+export { default as ManifestPreview } from './components/ManifestPreview.svelte';
+export { default as ManifestTable } from './components/ManifestTable.svelte';
+export { default as ManifestTableRow } from './components/ManifestTableRow.svelte';
+export { default as Map } from './components/Map.svelte';
+export { default as Modal } from './components/Modal.svelte';
+export { default as Provenance } from './components/Provenance.svelte';
+export { default as ProvenanceExpand } from './components/ProvenanceExpand.svelte';
+export { default as ProvenanceModal } from './components/ProvenanceModal.svelte';
+export { default as ProvenanceToggle } from './components/ProvenanceToggle.svelte';
+export { default as StatusBadge } from './components/StatusBadge.svelte';
+export { default as Thumbnail } from './components/Thumbnail.svelte';
+export { default as Tooltip } from './components/Tooltip.svelte';
+export { default as TypeBadge } from './components/TypeBadge.svelte';
+export { default as Video } from './components/Video.svelte';
+export { default } from './components/App.svelte';
+export { parseSywData } from 'syw-common/helpers/c2pa.js';

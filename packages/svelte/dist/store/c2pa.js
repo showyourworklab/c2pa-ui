@@ -1,13 +1,12 @@
 import { writable, get } from 'svelte/store'
 import { createC2pa } from '@contentauth/c2pa-web'
-import { getC2paConfig, readC2paFromUrl } from 'syw-common/helpers/c2pa'
+import { C2PA_DATA_DEFAULT, C2PA_PHASES, C2PA_STATUSES } from 'syw-common/constants/c2pa.js'
+import { getC2paConfig, prepareData } from 'syw-common/helpers/c2pa'
 
 const createC2paStore = () => {
 	const c2pa = writable(null)
-	const reader = writable(null)
-	const provenance = writable(null)
-	const loading = writable(false)
-	const error = writable(null)
+	const data = writable(C2PA_DATA_DEFAULT)
+	let requestId = 0
 
 	const init = async (config = {}) => {
 		try {
@@ -15,42 +14,46 @@ const createC2paStore = () => {
 			c2pa.set(c2paInstance)
 			return c2paInstance
 		} catch (err) {
-			error.set(err)
-			console.error('Failed to initialize C2PA:', err)
+			data.set({
+				...C2PA_DATA_DEFAULT,
+				phase: C2PA_PHASES.ERROR,
+				status: C2PA_STATUSES.UNKNOWN,
+				error: err
+			})
 			return null
 		}
 	}
 
-	const read = async (src) => {
+	const read = async ({ src, locale }) => {
 		const c2paInstance = get(c2pa)
-		if (!c2paInstance || !src) return null
+		const id = ++requestId
 
-		loading.set(true)
-		error.set(null)
-
-		try {
-			const result = await readC2paFromUrl(c2paInstance, src)
-			reader.set(result.reader)
-			provenance.set({ manifestStore: result.manifestStore })
-			return result
-		} catch (err) {
-			error.set(err)
-			console.error('Failed to read C2PA data:', err)
-			return null
-		} finally {
-			loading.set(false)
+		if (!src) {
+			return {
+				src: null,
+				...C2PA_DATA_DEFAULT
+			}
 		}
+
+		if (!c2paInstance) {
+			return {
+				src,
+				...C2PA_DATA_DEFAULT
+			}
+		}
+
+		const newData = await prepareData({
+			c2pa: c2paInstance,
+			src,
+			locale
+		})
+
+		if (id === requestId) data.set(newData)
+
+		return newData
 	}
 
-	return {
-		c2pa,
-		reader,
-		provenance,
-		loading,
-		error,
-		init,
-		read,
-	}
+	return { c2pa, data, init, read }
 }
 
 export default createC2paStore

@@ -1,6 +1,6 @@
 {
 	"name": "syw-react",
-	"version": "0.0.17",
+	"version": "0.0.20",
 	"description": "",
 	"author": "Show Your Work Lab",
 	"license": "MIT",
@@ -10,24 +10,8 @@
 	"main": "./dist/index.es.js",
 	"exports": {
 		".": {
-			"types": "./types/index.d.ts",
-			"default": "./index.js"
-		},
-		"./helpers": {
-			"types": "./types/helpers/index.d.ts",
-			"default": "./helpers/index.js"
-		},
-		"./helpers/*": {
-			"types": "./types/helpers/*.d.ts",
-			"default": "./helpers/*"
-		},
-		"./constants": {
-			"types": "./types/constants/index.d.ts",
-			"default": "./constants/index.js"
-		},
-		"./constants/*": {
-			"types": "./types/constants/*.d.ts",
-			"default": "./constants/*"
+			"types": "./dist/index.d.ts",
+			"default": "./dist/index.es.js"
 		},
 		"./styles.css": "./dist/styles.css"
 	},

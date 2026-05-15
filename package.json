@@ -1,6 +1,6 @@
 {
   "name": "syw",
-  "version": "0.0.7",
+  "version": "0.0.20",
   "license": "MIT",
   "workspaces": [
     "packages/common",

@@ -1,6 +1,7 @@
+import { createC2pa } from '@contentauth/c2pa-web'
 import TRUST_LISTS from 'syw-common/trustlists'
 import { VERIFY_BASE_URL } from 'syw-common/constants/index.js'
-import { C2PA_WEB_WASM_CDN_URL } from 'syw-common/constants/c2pa.js'
+import { C2PA_PHASES, C2PA_DATA_DEFAULT, C2PA_STATUSES, C2PA_WEB_WASM_CDN_URL } from 'syw-common/constants/c2pa.js'
 import { getMediaType } from './index.js'
 import { getSafeLocale } from './i18n.js'
 import { getIptcNewsCode, getIptcNewsCodeDefinition, getIptcNewsCodeKey, getIptcNewsCodeLabel } from './iptc.js'
@@ -230,13 +231,6 @@ export const getType = manifest => {
 		if(iptcTypeKey === "trainedAlgorithmicMedia") {
 			typeKey = "ai"
 		}
-		console.log({
-			iptcNewsCodeUri,
-			iptcNewsCode,
-			iptcTypeKey,
-			iptcTypeLabel,
-			iptcTypeDefinition
-		})
 	} else if(hasExif) {
 		// TEMP: Unsure if EXIF detection is a safe determinant
 		typeKey = "camera"
@@ -455,7 +449,6 @@ export const prepareManifest = async ({ src, locale, manifest, provenance, reade
  * @return {Promise<object>} - Prepared manifest object
  */
 export const prepareManifests = async ({ src, locale, provenance, reader }) => {
-	console.log(`Reading manifest for ${src}`, JSON.stringify(provenance))
 	try {
         if (!provenance?.manifestStore) return []
         const manifests = Object.values(provenance.manifestStore.manifests ?? {})
@@ -465,7 +458,7 @@ export const prepareManifests = async ({ src, locale, provenance, reader }) => {
 			)
         )
 		preparedManifests.sort((a, b) =>
-			(a?.timestamp?.value?.getTime?.() || 0) - (b?.timestamp?.value?.getTime?.() || 0)
+			(b?.timestamp?.value?.getTime?.() || 0) - (a?.timestamp?.value?.getTime?.() || 0)
 		)
 		
         return preparedManifests
@@ -473,4 +466,59 @@ export const prepareManifests = async ({ src, locale, provenance, reader }) => {
         console.error(error)
         return []
     }
+}
+
+/**
+ * Prepares data from C2PA
+ * @async
+ * @function
+ * @param {object} props - Object of props
+ * @param {string} props.c2pa - C2PA instance
+ * @param {string} props.src - Image URL
+ * @param {string} props.locale - User's locale
+ * @return {Promise<object>} - Prepared manifest object
+ */
+export const prepareC2paData = async ({ c2pa, src, locale }) => {
+    if (!c2pa || !src) return C2PA_DATA_DEFAULT
+
+    try {
+        const { manifestStore, reader } = await readC2paFromUrl(c2pa, src)
+        const provenance = manifestStore ? { manifestStore } : null
+        const manifests = await prepareManifests({ src, locale, provenance, reader })
+		const status = await getC2paStatus(provenance)
+        const types = getTypes(manifests)
+        return {
+            phase: C2PA_PHASES.READY,
+            status,
+            types,
+            provenance,
+			manifests,
+            reader,
+            error: null,
+        }
+    } catch (error) {
+        return {
+            ...C2PA_DATA_DEFAULT,
+            phase: C2PA_PHASES.ERROR,
+            status: C2PA_STATUSES.UNKNOWN,
+            error,
+        }
+    }
+};
+
+export const prepareData = async ({ 
+	c2pa,
+	src,
+	locale
+}) => {
+	if (!src) return C2PA_DATA_DEFAULT
+	return await prepareC2paData({ c2pa, src, locale })
+}
+
+let cachedC2pa = null
+export const parseSywData = async (src, options = {}) => {
+	if (typeof Worker === 'undefined') return C2PA_DATA_DEFAULT
+	const { locale = '', c2paOptions = {} } = options
+	if (!cachedC2pa) cachedC2pa = await createC2pa(getC2paConfig(c2paOptions))
+	return prepareData({ c2pa: cachedC2pa, src, locale })
 }

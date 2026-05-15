@@ -9,7 +9,7 @@ export default defineConfig({
         // emptyOutDir: true,
 		lib: {
 			name: 'SywSvelte',
-			entry: resolve(__dirname, 'src/lib/index.js'),
+			entry: resolve(__dirname, 'src/lib/index.ts'),
 			// fileName: (format) => `index.${format}.js`,
 			fileName: () => `index.js`,
 			formats: ['es'],

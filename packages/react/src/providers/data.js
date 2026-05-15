@@ -1,32 +1,28 @@
-import React, { useState } from 'react'
-import { DataContext } from '/src/context/data'
+import React, { useMemo } from 'react'
+import { DataContext } from '$src/context/data'
+import { useI18nContext } from '$src/context/i18n'
+import useC2pa from '$src/hooks/useC2pa'
 
 const DataProvider = ({
 	src,
-    alt,
-    caption,
-    byline,
+	alt,
+	caption,
+	byline,
 	children
 }) => {
-	const [status, setStatus] = useState("validating")
-	const [types, setTypes] = useState([])
-    const [manifests, setManifests] = useState([])
+	const { locale } = useI18nContext()
+	const c2paData = useC2pa({ src, locale })
+
+	const value = useMemo(() => ({
+		...c2paData,
+		src,
+		alt,
+		caption,
+		byline
+	}), [c2paData, src, alt, caption, byline])
 
 	return (
-		<DataContext.Provider
-			value={{
-				src,
-                alt,
-                caption,
-                byline,
-				status,
-				setStatus,
-				types,
-				setTypes,
-                manifests,
-                setManifests
-			}}
-		>
+		<DataContext.Provider value={value}>
 			{children}
 		</DataContext.Provider>
 	)

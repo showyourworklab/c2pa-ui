@@ -40,7 +40,7 @@ function ManifestTableRow({ type, value, manifest }) {
 						<div
 							className={classNames('ManifestTableRowValueSub')}
 						>
-							{getText(locale, 'actions', 'count')?.replace('{count}', value?.length)}
+							{getText('actions', 'count')?.replace('{count}', value?.length)}
 						</div>
 					</div>
 				: formattedValue}

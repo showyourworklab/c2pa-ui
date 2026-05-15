@@ -39,7 +39,10 @@ export const getObjectValue = (key, object) => {
  */
 export const getMediaType = (src) => {
 	// Needs less rudementary check
-	if(src.endsWith("mp4")) {
+	if(!src) {
+		return null
+	}
+	else if(src.endsWith("mp4")) {
 		return "video"
 	} else {
 		return "image"

@@ -27,7 +27,7 @@ const Cutline = () => {
 				<StatusBadge
 					value={status}
 				/>
-				{types.map((type, index) =>
+				{types?.map((type, index) =>
 					<TypeBadge
 						key={index}
 						value={type}

@@ -1,6 +1,6 @@
 {
 	"name": "syw-svelte",
-	"version": "0.0.9",
+	"version": "0.0.20",
 	"description": "",
 	"author": "Show Your Work Lab",
 	"license": "MIT",
@@ -30,10 +30,9 @@
 	"scripts": {
 		"dev": "vite dev --config vite.demo.config.js",
 		"build": "npm run build:lib && npm run build:demo",
-		"build:lib": "npm run package && npm run copy:types && publint",
+		"build:lib": "npm run package && publint",
 		"build:demo": "vite build --config vite.demo.config.js",
-		"copy:types": "cp src/lib/index.d.ts dist/index.d.ts",
-		"package": "svelte-package --preserve-output true",
+		"package": "svelte-kit sync && svelte-package --preserve-output true",
 		"preview": "vite preview",
 		"publish": "npm publish --access=public",
 		"lint": "eslint ."

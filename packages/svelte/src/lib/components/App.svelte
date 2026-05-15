@@ -2,7 +2,6 @@
 	import { onMount, setContext } from 'svelte'
 	import 'syw-common/css/styles.css'
 	import { classNames, getMediaType } from 'syw-common/helpers'
-	import { prepareManifests, getC2paStatus, getTypes } from 'syw-common/helpers/c2pa'
 	import { VARIANT_DEFAULT } from 'syw-common/constants'
 	import createC2paStore from '$lib/store/c2pa.js'
 	import createDataStore from '$lib/store/data.js'
@@ -10,7 +9,7 @@
 	import createUiStore from '$lib/store/ui.js'
 	import Figure from './Figure.svelte'
 	import Image from './Image.svelte'
-	import Video from './Video.svelte';
+	import Video from './Video.svelte'
 	import Explainer from './Explainer.svelte'
 	import Cutline from './Cutline.svelte'
 	import Caption from './Caption.svelte'
@@ -30,17 +29,20 @@
 
 	let mounted = $state(false)
 	let elemRef = $state(null)
-	
+	let prevSrc = $state(null)
+	let prevLocale = $state(null)
+
 	const c2paStore = createC2paStore()
 	const dataStore = createDataStore()
 	const i18nStore = createI18nStore()
 	const uiStore = createUiStore()
+
 	setContext('c2paStoreContext', c2paStore)
 	setContext('dataStoreContext', dataStore)
 	setContext('i18nStoreContext', i18nStore)
 	setContext('uiStoreContext', uiStore)
 
-	const { c2pa, reader, provenance } = c2paStore
+	const { c2pa } = c2paStore
 	const { lang } = i18nStore
 	const {
 		variant: _variant,
@@ -65,59 +67,38 @@
 		dataStore.setAlt(alt)
 		dataStore.setCaption(caption)
 		dataStore.setByline(byline)
-		i18nStore.setLocale(locale)
-		uiStore.setEventHandler(onEvent)
+	})
+
+	$effect(() => {
 		uiStore.setElem(elemRef)
+		uiStore.setEventHandler(onEvent)
 		uiStore.setVariant(variant)
 	})
 
-	// Initialize C2PA and read image when mounted and src changes
-	let previousSrc = null
 	$effect(() => {
-		if (mounted && src && src !== previousSrc) {
-			previousSrc = src;
-			(async () => {
-				// Initialize C2PA if not already done
-				let c2paInstance = $c2pa
-				if (!c2paInstance) {
-					c2paInstance = await c2paStore.init()
-				}
-				
-				if (!c2paInstance) return
-
-				try {
-					// Read C2PA data
-					await c2paStore.read(src)
-				} catch (err) {
-					console.error('Error reading image:', err)
-				}
-			})()
-		}
+		i18nStore.setLocale(locale)
 	})
 
-	// Prepare manifests when provenance changes
 	$effect(() => {
-		if ($provenance?.manifestStore && $reader) {
-			(async () => {
-				const newManifests = await prepareManifests({
-					src,
-					locale,
-					provenance: $provenance,
-					reader: $reader
-				})
-				const newTypes = getTypes(newManifests)
-				const newStatus = await getC2paStatus($provenance)
-				dataStore.setManifests(newManifests)
-				dataStore.setTypes(newTypes)
-				dataStore.setStatus(newStatus)
-			})()
-		}
+		if (!mounted) return
+		if(src === prevSrc && locale === prevLocale) return
+		prevSrc = src
+		prevLocale = locale
+
+		;(async () => {
+			let c2paInstance = $c2pa
+			if (!c2paInstance) c2paInstance = await c2paStore.init()
+			const newData = await c2paStore.read({ src, locale })
+			if (import.meta.env.DEV) {
+				console.log({ src, alt, caption, byline, ...newData })
+			}
+			dataStore.setC2paData(newData)
+		})()
 	})
 
 	onMount(() => {
 		mounted = true
 	})
-
 </script>
 
 {#if mounted}
@@ -139,7 +120,7 @@
 			<Cutline />
 			<Caption />
 		</Figure>
-		
+
 		{#if $_variant === 'expand'}
 			<ProvenanceExpand />
 		{/if}

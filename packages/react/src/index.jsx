@@ -1,2 +1,3 @@
 import SywReact from './SywReact';
-export default SywReact;
+import { parseSywData } from 'syw-common/helpers/c2pa'
+export { SywReact as default, SywReact, parseSywData };

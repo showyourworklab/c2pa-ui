@@ -1,35 +1,30 @@
-import { useState, useEffect } from 'react'
-import { readC2paFromUrl } from 'syw-common/helpers/c2pa'
+import { useState, useEffect, useRef } from 'react'
+import { C2PA_DATA_DEFAULT, C2PA_PHASES } from 'syw-common/constants/c2pa'
+import { prepareData } from 'syw-common/helpers/c2pa'
 import { useC2paContext } from '$src/context/c2pa'
 
-const useC2pa = (src) => {
+const useC2pa = ({ src, locale }) => {
 	const { c2pa } = useC2paContext()
-	const [reader, setReader] = useState(null)
-	const [provenance, setProvenance] = useState(null)
+	const [data, setData] = useState(C2PA_DATA_DEFAULT)
+	const requestIdRef = useRef(0)
 
 	useEffect(() => {
-		if (!src || !c2pa) return
+		const id = ++requestIdRef.current
 
-		let cancelled = false
-		const fetchProvenance = async () => {
-			try {
-				const { manifestStore, reader } = await readC2paFromUrl(c2pa, src)
-				if (!cancelled) {
-					setReader(reader)
-					setProvenance({ manifestStore })
-				}
-			} catch (error) {
-				console.error(error)
-			}
+		if (!src || !c2pa) {
+			setData(C2PA_DATA_DEFAULT)
+			return
 		}
-		
-		fetchProvenance()
-		return () => {
-			cancelled = true
-		}
-	}, [src, c2pa])
 
-	return { reader, provenance }
+		setData(prev => ({ ...prev, phase: C2PA_PHASES.LOADING }))
+
+		;(async () => {
+			const next = await prepareData({ c2pa, src, locale })
+			if (id === requestIdRef.current) setData(next)
+		})()
+	}, [src, locale, c2pa])
+
+	return data
 }
 
 export default useC2pa

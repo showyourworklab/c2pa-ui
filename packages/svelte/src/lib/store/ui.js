@@ -69,11 +69,11 @@ export default function createUiStore() {
 
 	const openThumbnail = (event) => {
 		isThumbnailOpen.set(true)
-		handleEvent("manifest.thumbnail.show", event)
+		handleEvent("manifest.thumbnail.open", event)
 	}
 	const closeThumbnail = (event) => {
 		isThumbnailOpen.set(false)
-		handleEvent("manifest.thumbnail.show", event)
+		handleEvent("manifest.thumbnail.close", event)
 	}
 	const addThumbnail = (value, event) => {
 		thumbnail.set(value)
