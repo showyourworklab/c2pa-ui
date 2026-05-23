@@ -206,7 +206,6 @@ export const getGenerator = manifest => {
 	} else if(manifest?.claim_generator) {
 		generator.value = manifest?.claim_generator
 	}
-	generator.actions = getC2paActions(manifest)
 	return generator
 }
 
@@ -365,13 +364,18 @@ export const getIngredients = manifest => {
 }
 
 /**
- * Gets actions from manifest
+ * Gets action keys from manifest
  * @function
  * @param {object} manifest - Manifest entry
  * @return {array} - Array of ingredients
  */
 export const getActions = manifest => {
 	const c2paActions = getC2paActions(manifest)
+		?.map(action => action.action?.replace(".", "_"))
+		?.reduce((arr, val) => !arr.includes(val)
+			? [...arr, val]
+			: arr
+		, [])
 	return c2paActions
 }
 
@@ -430,6 +434,7 @@ export const prepareManifest = async ({ src, locale, manifest, provenance, reade
 		producer: getProducer(manifest),
 		signator: getSignator(manifest),
 		generator: getGenerator(manifest),
+		actions: getActions(manifest),
 		// ingredients: getIngredients(manifest),
 		thumbnail: await getThumbnail(manifest, reader),
 		location: getLocation(manifest),
@@ -480,14 +485,14 @@ export const prepareManifests = async ({ src, locale, provenance, reader }) => {
  */
 export const prepareC2paData = async ({ c2pa, src, locale }) => {
     if (!c2pa || !src) return C2PA_DATA_DEFAULT
-
+	let data = {}
     try {
         const { manifestStore, reader } = await readC2paFromUrl(c2pa, src)
         const provenance = manifestStore ? { manifestStore } : null
         const manifests = await prepareManifests({ src, locale, provenance, reader })
 		const status = await getC2paStatus(provenance)
         const types = getTypes(manifests)
-        return {
+        data = {
             phase: C2PA_PHASES.READY,
             status,
             types,
@@ -497,13 +502,15 @@ export const prepareC2paData = async ({ c2pa, src, locale }) => {
             error: null,
         }
     } catch (error) {
-        return {
+        data = {
             ...C2PA_DATA_DEFAULT,
             phase: C2PA_PHASES.ERROR,
             status: C2PA_STATUSES.UNKNOWN,
             error,
         }
     }
+	console.log(data)
+	return data
 };
 
 export const prepareData = async ({ 

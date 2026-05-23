@@ -8,13 +8,23 @@ export const VARIANT_DEFAULT = 'expand'
 /////////////// Manifests //////////////
 export const MANIFEST_KEYS = [
 	'producer',
-	// 'producerSocials',
 	'timestamp',
 	'signator',
 	'generator',
+	'actions',
 	// 'ingredients',
 	// 'verify',
 	'location',
+]
+export const MANIFEST_PRIMARY_KEYS = [
+	'producer',
+	'timestamp',
+	'signator',
+	'generator',
+]
+export const MANIFEST_SECONDARY_KEYS = [
+	'location',
+	'actions'
 ]
 export const MANIFEST_PREVIEW_TITLE_KEYS = [
 	'signator',
