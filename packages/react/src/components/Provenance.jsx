@@ -22,7 +22,6 @@ function Provenance() {
 		}
 	}, [firstPreviewRef, isProvenanceOpen])
 
-
 	return (
 		<div
 			ref={ref}
@@ -32,7 +31,7 @@ function Provenance() {
 				<div
 					className={classNames('ProvenanceList')}
 				>
-					{manifests.map((manifest, index) =>
+					{[...manifests].reverse().map((manifest, index) =>
 						<Manifest
 							key={index}
 							manifest={manifest}

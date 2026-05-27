@@ -463,7 +463,7 @@ export const prepareManifests = async ({ src, locale, provenance, reader }) => {
 			)
         )
 		preparedManifests.sort((a, b) =>
-			(b?.timestamp?.value?.getTime?.() || 0) - (a?.timestamp?.value?.getTime?.() || 0)
+			(a?.timestamp?.value?.getTime?.() || 0) - (b?.timestamp?.value?.getTime?.() || 0)
 		)
 		
         return preparedManifests

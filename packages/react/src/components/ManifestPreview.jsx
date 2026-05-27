@@ -12,7 +12,7 @@ function ManifestPreview({
 	onToggle,
 	previewRef
 }) {
-	const { locale } = useI18nContext()
+	const { locale, getText } = useI18nContext()
 	const { thumbnail, openThumbnail, closeThumbnail, addThumbnail, removeThumbnail, updateThumbnailPosition } = useUiContext()
 	const thumbnailUrl = manifest?.thumbnail?.value
 	
@@ -72,9 +72,12 @@ function ManifestPreview({
 					'ManifestPreviewCell_issuer'
 				)}
 			>
-				{MANIFEST_PREVIEW_TITLE_KEYS.filter(key => manifest[key]).map(key =>
-					manifest[key]?.value
-				).join(" ")}
+				{manifest.type?.key
+					? getText("type", manifest.type?.key)
+					: MANIFEST_PREVIEW_TITLE_KEYS.filter(key => manifest[key]).map(key =>
+						manifest[key]?.value
+					).join(" ")
+				}
 			</div>
 			<div
 				className={classNames(

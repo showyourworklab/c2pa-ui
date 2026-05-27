@@ -16,7 +16,6 @@ function ManifestTable({ keys = [], manifest }) {
 					/>
 				: null
 			)}
-
 		</ul>
 	)
 }

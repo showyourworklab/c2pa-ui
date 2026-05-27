@@ -2,14 +2,14 @@
 	import { getContext } from 'svelte';
 	import { classNames } from 'syw-common/helpers'
 	import { getDateString } from 'syw-common/helpers/i18n'
-    import Map from './Map.svelte';
+    import Map from './Map.svelte'
+	import Actions from './Actions.svelte'
 
 	const { locale, getText } = getContext('i18nStoreContext');
 
 	const {
 		type,
 		value,
-		manifest
 	} = $props()
 
 	const formattedValue = $derived(() => {
@@ -39,6 +39,10 @@
 		{#if type === 'location'}
 			<Map
 				location={value}
+			/>
+		{:else if type === 'actions'}
+			<Actions
+				actions={value}
 			/>
 		{:else if type === 'generator'}
 			<div>

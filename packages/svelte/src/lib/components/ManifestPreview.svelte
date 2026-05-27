@@ -12,7 +12,7 @@
 		manifest
 	} = $props()
 
-	const { locale } = getContext('i18nStoreContext');
+	const { locale, getText } = getContext('i18nStoreContext');
 	const {
 		openManifest, closeManifest, updateThumbnailPosition, openThumbnail, closeThumbnail, addThumbnail, removeThumbnail
 	} = getContext('uiStoreContext');
@@ -79,9 +79,11 @@
 	<div
 		class={classNames('ManifestPreviewCell', 'ManifestPreviewCell_issuer')}
 	>
-		{MANIFEST_PREVIEW_TITLE_KEYS.filter(key => manifest[key]).map(key =>
-			manifest[key]?.value
-		).join(" ")}
+		{manifest.type?.key
+			? getText($locale, 'type', manifest.type?.key)
+			: MANIFEST_PREVIEW_TITLE_KEYS.filter(key => manifest[key]).map(key =>
+				manifest[key]?.value
+			).join(" ")}
 	</div>
 	<div
 		class={classNames('ManifestPreviewCell', 'ManifestPreviewCell_time')}

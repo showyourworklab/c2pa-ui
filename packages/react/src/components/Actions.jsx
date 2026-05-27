@@ -6,7 +6,6 @@ const Actions = ({
 	actions
 }) => {
 	const { locale, getText } = useI18nContext()
-	console.log(actions)
 	return (
 		<ul
 			className={classNames('Actions')}
