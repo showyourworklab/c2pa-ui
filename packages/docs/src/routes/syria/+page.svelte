@@ -9,7 +9,7 @@
 	>
 		<hgroup>
 			<h1>Livene våre er blitt brikker i klanenes kamp</h1>
-			<p>Ett år etter diktatoren Assads fall havner lik fra hevndrap og konflikter fortsatt på obdusent Sara Melhems bord. Kan det nye Syria overleve?</p>
+			<p id="lede">Ett år etter diktatoren Assads fall havner lik fra hevndrap og konflikter fortsatt på obdusent Sara Melhems bord. Kan det nye Syria overleve?</p>
 
 			<div id="credit">
 			<p>Skrivet av Magnus Falkehed</p>
@@ -396,7 +396,7 @@
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 	:global(html) {
-		--text-base: 16px;
+		--text-base: 20px;
 		--font-serif: "Libre Baskerville", "Times New Roman", times, serif;
 		--font-sans-serif: "Rubik", Arial, Helvetica, sans-serif;
 		--color-primary: #333;
@@ -449,6 +449,10 @@
 		font-size: 1rem;
 		margin: 0 auto;
 	}
+	#lede {
+		font-size: 2.5rem;
+		line-height: 1.2em;
+	}
 	#credit {
 		margin-top: 0.5rem;
 		margin-bottom: 2rem;
@@ -471,7 +475,7 @@
 		line-height: 1.5em;
 	}
 	article p, article h2 {
-		max-width: 45rem;
+		max-width: 35rem;
 		margin: 1em auto;
 	}
 	article :global(.Syw-App) {

@@ -10,7 +10,7 @@
 	>
 		<hgroup>
 			<h1>Livene våre er blitt brikker i klanenes kamp</h1>
-			<p>Ett år etter diktatoren Assads fall havner lik fra hevndrap og konflikter fortsatt på obdusent Sara Melhems bord. Kan det nye Syria overleve?</p>
+			<p id="lede">Ett år etter diktatoren Assads fall havner lik fra hevndrap og konflikter fortsatt på obdusent Sara Melhems bord. Kan det nye Syria overleve?</p>
 
 			<div id="credit">
 			<p>Skrivet av Magnus Falkehed</p>
@@ -407,9 +407,8 @@
 		overflow-x: hidden;
 		color: var(--color-primary);
 		background-color: var(--color-secondary);
-	}
-	:global(main) {
-		--text-base: 16px;
+	
+		--text-base: 18px;
 		--font-serif: "Libre Baskerville", "Times New Roman", times, serif;
 		--font-sans-serif: "Rubik", Arial, Helvetica, sans-serif;
 		--color-primary: #333;
@@ -431,10 +430,13 @@
 		display: flex;
 		flex-direction: column;
 	}
+	html {
+		background-color: #FFFFFD;
+	}
 	#hero {
 		max-width: 40rem;
 		margin: auto;
-		padding: 4em 0;
+		padding: 4rem 0 2rem 0;
 		display: flex;
 		position: relative;
 		overflow: hidden;
@@ -449,14 +451,21 @@
 		line-height: 1.2em;
 		letter-spacing: -0.05em;
 	}
-	#hero hgroup p {
+	/* #hero hgroup p {
 		font-size: 1rem;
 		margin: 0 auto;
+	} */
+	#lede {
+		font-size: 1.5rem;
+		line-height: 1.25em;
 	}
 	#credit {
 		margin-top: 0.5rem;
 		margin-bottom: 2rem;
 		font-family: var(--font-sans-serif);
+	}
+	#credit p {
+		margin: 0;
 	}
 	#disclaimer {
 		font-style: italic;
@@ -472,10 +481,11 @@
 		font-family: var(--font-sans-serif);
 	}
 	main p {
+		font-size: var(--text-base);
 		line-height: 1.5em;
 	}
 	article p, article h2 {
-		max-width: 45rem;
+		max-width: 40rem;
 		margin: 1em auto;
 	}
 	article :global(.Syw-App) {

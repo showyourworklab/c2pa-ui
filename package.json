@@ -20,6 +20,7 @@
     "svelte:build": "npm run svelte:lerna build",
     "svelte:package": "npm run svelte:lerna package",
     "svelte:preview": "npm run svelte:lerna preview",
+    "svelte:publish": "npm run svelte:lerna publish",
     "docs:lerna": "lerna run --scope syw-docs",
     "docs:dev": "npm run docs:lerna dev",
     "docs:build": "npm run docs:lerna build",
