@@ -1,14 +1,12 @@
 import { classNames } from 'syw-common/helpers'
-import { MANIFEST_KEYS } from 'syw-common/constants'
 import ManifestTableRow from './ManifestTableRow'
 
-function ManifestTable({ manifest }) {
-
+function ManifestTable({ keys = [], manifest }) {
 	return (
 		<ul
 			className={classNames('ManifestTable')}
 		>
-			{MANIFEST_KEYS.map(key =>
+			{keys.map(key =>
 				manifest[key] ?
 					<ManifestTableRow
 						key={key}
@@ -18,6 +16,7 @@ function ManifestTable({ manifest }) {
 					/>
 				: null
 			)}
+
 		</ul>
 	)
 }

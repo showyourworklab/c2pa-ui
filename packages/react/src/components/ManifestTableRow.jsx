@@ -3,6 +3,7 @@ import { classNames } from 'syw-common/helpers'
 import { getDateString } from 'syw-common/helpers/i18n'
 import { useI18nContext } from '$src/context/i18n'
 import Map from './Map'
+import Actions from './Actions'
 
 function ManifestTableRow({ type, value, manifest }) {
 	const { locale, getText } = useI18nContext()
@@ -33,6 +34,10 @@ function ManifestTableRow({ type, value, manifest }) {
 				{type === 'location' ?
 					<Map
 						location={value}
+					/>
+				: type === 'actions' ?
+					<Actions
+						actions={value}
 					/>
 				: type === 'generator' ?
 					<div>

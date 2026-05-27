@@ -168,6 +168,15 @@
 	border-spacing: 0;
 	padding: 0 var(--syw-space-4) var(--syw-space-4) var(--syw-space-6);
 	position: relative;
+	display: flex;
+	flex-direction: row;
+}
+.Syw-ManifestContentPrimary {
+	width: 50%;
+	padding-right: var(--syw-space-2);
+}
+.Syw-ManifestContentSecondary {
+	width: 50%;
 }
 /* Manifest > Table */
 .Syw-ManifestTable {
