@@ -3,8 +3,7 @@ import { handleA11yClick, classNames } from 'syw-common/helpers'
 import { getDateString } from 'syw-common/helpers/i18n'
 import { useI18nContext } from '$src/context/i18n'
 import { useUiContext } from '$src/context/ui'
-import StatusBadge from '$src/components/StatusBadge'
-import TypeBadge from '$src/components/TypeBadge'
+import Badge from '$src/components/Badge'
 
 function ManifestPreview({
 	manifest,
@@ -47,21 +46,13 @@ function ManifestPreview({
 					'ManifestPreviewCell_badges'
 				)}
 			>
-				{manifest.status ?
-					<StatusBadge
-						value={manifest.status}
-						className={classNames(
-							'ManifestPreviewCell',
-							'ManifestPreviewCell_status'
-						)}
-					/>
-				: null}
 				{manifest.type ?
-					<TypeBadge
-						value={manifest.type}
+					<Badge
+						type={manifest.type}
+						status={manifest.status}
 						className={classNames(
 							'ManifestPreviewCell',
-							'ManifestPreviewCell_type'
+							'ManifestPreviewCell_badge'
 						)}
 					/>
 				: null}

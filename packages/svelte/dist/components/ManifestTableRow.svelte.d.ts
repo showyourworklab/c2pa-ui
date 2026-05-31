@@ -6,10 +6,8 @@ type ManifestTableRow = {
 declare const ManifestTableRow: import("svelte").Component<{
     type: any;
     value: any;
-    manifest: any;
 }, {}, "">;
 type $$ComponentProps = {
     type: any;
     value: any;
-    manifest: any;
 };

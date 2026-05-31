@@ -399,7 +399,7 @@
 
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
-	:global(body) {
+	:global(html) {
 		margin: auto;
 		font-family: var(--font-serif);
 		font-size: var(--text-base);
@@ -434,7 +434,7 @@
 		background-color: #FFFFFD;
 	}
 	#hero {
-		max-width: 40rem;
+		max-width: 900px;
 		margin: auto;
 		padding: 4rem 0 2rem 0;
 		display: flex;
@@ -468,8 +468,9 @@
 		margin: 0;
 	}
 	#disclaimer {
-		font-style: italic;
 		opacity: 0.5;
+		font-style: italic;
+		font-size: 1rem;
 	}
 	#disclaimer a {
 		color: inherit;
@@ -478,7 +479,7 @@
 		padding: 0 2rem;
 	}
 	main h1, main h2 {
-		font-family: var(--font-sans-serif);
+		/* font-family: var(--font-sans-serif); */
 	}
 	main p {
 		font-size: var(--text-base);
@@ -487,6 +488,18 @@
 	article p, article h2 {
 		max-width: 40rem;
 		margin: 1em auto;
+	}
+	article p:first-of-type {
+
+	}
+	article p:first-of-type:first-letter {
+		/* color: var(--syw-color-quaternary); */
+		float: left;
+		font-family: Georgia;
+		font-size: 5rem;
+		line-height: 0.75em;
+		padding-top: 0.05em;
+		padding-right: 0.25em;
 	}
 	article :global(.Syw-App) {
 		max-width: 900px;

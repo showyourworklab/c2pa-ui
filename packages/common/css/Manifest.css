@@ -182,6 +182,7 @@
 .Syw-ManifestTable {
 	width: 100%;
 	padding: 0;
+	margin: 0;
 	list-style: none;
 }
 .Syw-ManifestTableRow {

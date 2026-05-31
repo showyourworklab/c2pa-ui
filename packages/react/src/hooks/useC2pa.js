@@ -16,11 +16,17 @@ const useC2pa = ({ src, locale }) => {
 			return
 		}
 
-		setData(prev => ({ ...prev, phase: C2PA_PHASES.LOADING }))
+		setData(prev => ({
+			...prev,
+			phase: C2PA_PHASES.LOADING
+		}))
 
 		;(async () => {
-			const next = await prepareData({ c2pa, src, locale })
-			if (id === requestIdRef.current) setData(next)
+			const newData = await prepareData({ c2pa, src, locale })
+			if (import.meta.env.DEV) {
+				console.log({ src, ...newData })
+			}
+			if (id === requestIdRef.current) setData(newData)
 		})()
 	}, [src, locale, c2pa])
 

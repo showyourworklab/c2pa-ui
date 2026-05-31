@@ -4,7 +4,8 @@ import Badge from './Badge'
 import Icon from './Icon'
 
 const TypeBadge = ({
-	value
+	value,
+	status
 }) => {
 	const { getText } = useI18nContext()
 	const label = value?.label ?? getText("type", value?.key)
@@ -14,8 +15,12 @@ const TypeBadge = ({
 			type="type"
 			icon={value?.key}
 			value={value?.key}
+			status={value?.status}
 			tooltip={definition}
-			className={classNames("TypeBadge")}
+			className={classNames(
+				"TypeBadge",
+				status ? `Badge_status_${status}` : null
+			)}
 		>
 			{label}
 		</Badge>

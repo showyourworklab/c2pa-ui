@@ -26,7 +26,9 @@ function App({ mapOptions, onEvent }) {
 		)
 	, [variant, isHoverImage, isProvenanceOpen])
 
-	const mediaType = useMemo(() => getMediaType(src), [src])
+	const mediaType = useMemo(() =>
+		getMediaType(src)
+	, [src])
 
 	useEffect(() => {
 		setElem(ref.current)

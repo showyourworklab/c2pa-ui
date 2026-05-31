@@ -24,7 +24,7 @@ const Icon = ({
 }) => {
 
 	const IconComponent = useMemo(() =>
-		ICONS[type]
+		ICONS[type] ?? ICONS["validating"]
 	, [type])
 
 	return (

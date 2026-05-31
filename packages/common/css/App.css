@@ -3,7 +3,6 @@
 	display: flex;
 	flex-direction: column;
 	position: relative;
-	/* margin: 0 calc(-1 * var(--syw-space-3)); */
 	padding: var(--syw-space-3);
 	background-color: var(--syw-color-secondary);
 	border-radius: var(--syw-radius-lg);

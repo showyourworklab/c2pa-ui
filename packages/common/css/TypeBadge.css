@@ -1,9 +1,0 @@
-/* Type > Badge */
-.Syw-TypeBadge {
-	transition: all 200ms ease;
-}
-/* Type > Badge > Tooltip */
-.Syw-TooltipContent.Syw-BadgeTooltipContent_type {
-	--syw-tooltip-text: var(--syw-color-primary);
-	--syw-tooltip-background: var(--syw-color-secondary);
-}

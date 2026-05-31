@@ -28,7 +28,7 @@
 		close: X,
 	}
 
-	const IconComponent = $derived(ICONS[type])
+	const IconComponent = $derived(ICONS[type] ?? ICONS["validating"])
 	// console.log()
 </script>
 
@@ -42,6 +42,4 @@
 			className
 		)}
 	/>
-{:else}
-	test
 {/if}

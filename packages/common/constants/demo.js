@@ -35,11 +35,13 @@ export const DEMO_IMAGE_URLS = [
 	'https://showyourworklab.github.io/c2pa-images/leica-nora-syria-16.jpg',
 	'https://showyourworklab.github.io/c2pa-images/truepic-1.mp4',
 	'https://showyourworklab.github.io/c2pa-images/sora-1.mp4',
+	'https://iptc.org/wp-content/uploads/2026/04/IMG_4143.jpg'
 
 	// 'https://iptc.org/std/videometadatahub/examples/c2pa/park-bench-sunset-c2pa-max-vmh.mp4',
 	// 'https://stream.mux.com/BV3YZtogl89mg9VcNBhhnHm02Y34zI1nlMuMQfAbl3dM/highest.mp4',
 ]
 
 export const DEMO_IMAGE_URL_DEFAULT = 'https://showyourworklab.github.io/c2pa-images/leica-nora-syria-1.jpg'
+// export const DEMO_IMAGE_URL_DEFAULT = 'https://iptc.org/wp-content/uploads/2026/04/IMG_4143.jpg'
 // export const DEMO_IMAGE_URL_DEFAULT = DEMO_IMAGE_URLS[DEMO_IMAGE_URLS.length - 1]
 // export const DEMO_IMAGE_URL_DEFAULT = DEMO_IMAGE_URLS[0]

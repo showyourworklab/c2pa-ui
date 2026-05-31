@@ -1,9 +1,10 @@
 /* Actions */
-.Syw-Actions {
-	
+ul.Syw-Actions {
+	list-style: none;
+	padding-left: 0;
 }
 /* Actions > Item */
-.Syw-ActionsItem {
+li.Syw-ActionsItem {
 	padding: 0;
 	margin-bottom: 0;
 	margin-top: var(--syw-space-1);

@@ -11,7 +11,7 @@
 		"deploy": "npx gh-pages -d build -t true"
 	},
 	"dependencies": {
-		"syw-svelte": "^0.0.20"
+		"syw-svelte": "^0.0.21"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^6.0.1",

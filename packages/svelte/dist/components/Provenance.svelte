@@ -19,7 +19,7 @@
 	<ul
 		class={classNames('ProvenanceList')}
 	>
-		{#each $manifests as manifest}
+		{#each [...$manifests].reverse() as manifest}
 			<Manifest
 				manifest={manifest}
 			/>

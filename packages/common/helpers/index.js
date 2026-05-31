@@ -38,7 +38,7 @@ export const getObjectValue = (key, object) => {
  * @returns {string} - Returns "image" or "video"
  */
 export const getMediaType = (src) => {
-	// Needs less rudementary check
+	// TODO: Needs less rudementary check
 	if(!src) {
 		return null
 	}

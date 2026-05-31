@@ -1,5 +1,6 @@
+import { redirect } from '@sveltejs/kit'
 export const prerender = false;
 
-export function load({ redirect }) {
-	redirect(301, '/syw');
+export function load() {
+	redirect(301, '/syw')
 }

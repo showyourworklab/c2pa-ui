@@ -1,6 +1,7 @@
 <script>
 	import { Dialog } from '@ark-ui/svelte/dialog'
 	import { classNames } from 'syw-common/helpers'
+	import Icon from './Icon.svelte'
 
 	let {
 		open,
@@ -61,7 +62,11 @@
 			</div>
 			<Dialog.CloseTrigger
 				class={classNames('ModalClose')}
-			/>
+			>
+				<Icon
+					type="close"
+				/>
+			</Dialog.CloseTrigger>
 		</Dialog.Content>
 	</Dialog.Positioner>
 </Dialog.Root>

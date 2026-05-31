@@ -3,8 +3,7 @@
 	import { classNames } from 'syw-common/helpers'
 	import ProvenanceToggle from './ProvenanceToggle.svelte'
 	import ExplainerToggle from './ExplainerToggle.svelte'
-    import TypeBadge from './TypeBadge.svelte';
-    import StatusBadge from './StatusBadge.svelte';
+    import Badge from './Badge.svelte';
 
 	const { status, types } = getContext('dataStoreContext');
 </script>
@@ -21,13 +20,9 @@
 	<div
 		class={classNames('CutlineBadges')}
 	>
-		<StatusBadge
-			value={$status}
+		<Badge
+			status={$status}
+			type={$types[0]}
 		/>
-		{#each $types as type}
-			<TypeBadge
-				value={type}
-			/>
-		{/each}
 	</div>
 </div>

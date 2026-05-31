@@ -4,15 +4,14 @@
 	import { MANIFEST_PREVIEW_TITLE_KEYS } from 'syw-common/constants'
 	import { handleA11yClick } from 'syw-common/helpers'
 	import { getDateString } from 'syw-common/helpers/i18n'
-    import StatusBadge from './StatusBadge.svelte';
-    import TypeBadge from './TypeBadge.svelte';
+    import Badge from './Badge.svelte';
 
 	const {
 		open,
 		manifest
 	} = $props()
 
-	const { locale } = getContext('i18nStoreContext');
+	const { locale, getText } = getContext('i18nStoreContext');
 	const {
 		openManifest, closeManifest, updateThumbnailPosition, openThumbnail, closeThumbnail, addThumbnail, removeThumbnail
 	} = getContext('uiStoreContext');
@@ -57,31 +56,23 @@
 			'ManifestPreviewCell_badges'
 		)}
 	>
-		{#if manifest?.status}
-			<StatusBadge
-				value={manifest.status}
-				className={classNames(
-					'ManifestPreviewCell',
-					'ManifestPreviewCell_status'
-				)}
-			/>
-		{/if}
-		{#if manifest?.type}
-			<TypeBadge
-				value={manifest.type}
-				className={classNames(
-					'ManifestPreviewCell',
-					'ManifestPreviewCell_type'
-				)}
-			/>
-		{/if}
+		<Badge
+			type={manifest.type}
+			status={manifest.status}
+			className={classNames(
+				'ManifestPreviewCell',
+				'ManifestPreviewCell_badge'
+			)}
+		/>
 	</div>
 	<div
 		class={classNames('ManifestPreviewCell', 'ManifestPreviewCell_issuer')}
 	>
-		{MANIFEST_PREVIEW_TITLE_KEYS.filter(key => manifest[key]).map(key =>
-			manifest[key]?.value
-		).join(" ")}
+		{manifest.type?.key
+			? getText($locale, 'type', manifest.type?.key)
+			: MANIFEST_PREVIEW_TITLE_KEYS.filter(key => manifest[key]).map(key =>
+				manifest[key]?.value
+			).join(" ")}
 	</div>
 	<div
 		class={classNames('ManifestPreviewCell', 'ManifestPreviewCell_time')}

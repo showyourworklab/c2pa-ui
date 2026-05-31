@@ -350,7 +350,6 @@ export const getLocation = (manifest) => {
 		: parseFloat(exifLng)
 	if(isNaN(lat) || isNaN(lng)) return null
 	return { lat, lng }
-	// return { lat: 40.647843588895995, lng: -73.97376922474551 }
 }
 
 /**
@@ -487,7 +486,8 @@ export const prepareC2paData = async ({ c2pa, src, locale }) => {
     if (!c2pa || !src) return C2PA_DATA_DEFAULT
 	let data = {}
     try {
-        const { manifestStore, reader } = await readC2paFromUrl(c2pa, src)
+        const c2paData = await readC2paFromUrl(c2pa, src)
+		const { manifestStore, reader } = c2paData
         const provenance = manifestStore ? { manifestStore } : null
         const manifests = await prepareManifests({ src, locale, provenance, reader })
 		const status = await getC2paStatus(provenance)
@@ -502,6 +502,7 @@ export const prepareC2paData = async ({ c2pa, src, locale }) => {
             error: null,
         }
     } catch (error) {
+		console.error(error)
         data = {
             ...C2PA_DATA_DEFAULT,
             phase: C2PA_PHASES.ERROR,
@@ -524,6 +525,7 @@ export const prepareData = async ({
 
 let cachedC2pa = null
 export const parseSywData = async (src, options = {}) => {
+	if (!src) return C2PA_DATA_DEFAULT
 	if (typeof Worker === 'undefined') return C2PA_DATA_DEFAULT
 	const { locale = '', c2paOptions = {} } = options
 	if (!cachedC2pa) cachedC2pa = await createC2pa(getC2paConfig(c2paOptions))

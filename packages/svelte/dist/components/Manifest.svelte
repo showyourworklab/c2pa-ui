@@ -1,6 +1,7 @@
 <script>
 	import { getContext } from 'svelte';
 	import { classNames } from 'syw-common/helpers'
+	import { MANIFEST_PRIMARY_KEYS, MANIFEST_SECONDARY_KEYS } from 'syw-common/constants'
 	import Collapse from './Collapse.svelte'
 	import ManifestPreview from './ManifestPreview.svelte'
 	import ManifestTable from './ManifestTable.svelte'
@@ -41,9 +42,22 @@
 			<div
 				class={classNames('ManifestContent')}
 			>
-				<ManifestTable
-					manifest={manifest}
-				/>
+				<div
+					class={classNames('ManifestContentPrimary')}
+				>
+					<ManifestTable
+						keys={MANIFEST_PRIMARY_KEYS}
+						manifest={manifest}
+					/>
+				</div>
+				<div
+					class={classNames('ManifestContentSecondary')}
+				>
+					<ManifestTable
+						keys={MANIFEST_SECONDARY_KEYS}
+						manifest={manifest}
+					/>
+				</div>
 			</div>
 		</Collapse>
 	</div>

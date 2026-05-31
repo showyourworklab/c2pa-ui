@@ -1,30 +1,33 @@
 <script>
+	import { getContext } from 'svelte'
 	import { classNames } from 'syw-common/helpers'
-    import Tooltip from './Tooltip.svelte';
-    import Icon from './Icon.svelte';
+    import Tooltip from './Tooltip.svelte'
+    import Icon from './Icon.svelte'
 
 	const {
 		type,
-		value,
-		icon,
-		tooltip,
+		status,
 		TooltipProps = {},
 		children,
 		className
 	} = $props()
+	const { locale, getText } = getContext('i18nStoreContext');
+	const typeLabel = $derived(() => type?.label ?? getText($locale, "type", type?.key))
+	const typeDefinition = $derived(() => type?.definition ?? getText($locale, "type", type?.key, "definition"))
+	const statusLabel = $derived(() => getText($locale, "status", status))
+	const statusDefinition = $derived(() => getText($locale, "status", status, "definition"))
 </script>
 
 <Tooltip
 	{...TooltipProps}
-	content={tooltip}
+	content={typeDefinition()}
 	ContentProps={{
 		...TooltipProps?.ContentProps,
 		className: classNames(
 			TooltipProps?.ContentProps?.classNames,
 			'BadgeTooltipContent',
-			type ? `BadgeTooltipContent_${type}` : null,
-			type && value ? `BadgeTooltipContent_${type}_${value}` : null,
-			icon ? `Badge_icon` : null,
+			type?.key ? `BadgeTooltipContent_${type?.key}` : null,
+			status ? `BadgeTooltipContent_${status}` : null,
 		),
 	}}
 	className={classNames(
@@ -36,23 +39,18 @@
 		class={classNames(
 			'Badge',
 			className,
-			type ? `Badge_${type}` : null,
-			type && value ? `Badge_${type}_${value}` : null,
-			icon ? 'Badge_icon' : null
+			type?.key ? `Badge_${type?.key}` : null,
+			status ? `Badge_${status}` : null,
 		)}
 	>
-		{#if icon}
-			<Icon
-				type={icon}
-				className={classNames('BadgeIcon')}
-			/>
-			<span
-				class='syw-hidden'
-			>
-				{@render children?.()}
-			</span>
-		{:else}
+		<Icon
+			type={type?.key}
+			className={classNames('BadgeIcon')}
+		/>
+		<span
+			class='syw-hidden'
+		>
 			{@render children?.()}
-		{/if}
+		</span>
 	</span>
 </Tooltip>
