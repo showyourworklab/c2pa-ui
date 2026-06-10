@@ -47,7 +47,7 @@
 			<SywSvelte
 				locale={"no_NO"}
 				src={`https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/leica-nora-syria-3.jpg`}
-				caption=''
+				caption='Kjellerkorridorene ved al-Mowuasat universitetssykehus i Damaskus leder inn til likhuset, Sara Melhems arbeidsplass.'
 				byline='Nora Savosnick'
 			/>
 			
@@ -386,7 +386,7 @@
 			<SywSvelte
 				locale={"no_NO"}
 				src={`https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/leica-nora-syria-13.jpg`}
-				caption=''
+				caption='Broket fremtid: To måneder gamle Affaf Alsayed vil ha bånd til både Norge og Syria. Men nå skal hun til Saudi-Arabia.'
 				byline='Nora Savosnick'
 			/>
 
@@ -399,7 +399,7 @@
 
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
-	:global(html) {
+	:global(body) {
 		margin: auto;
 		font-family: var(--font-serif);
 		font-size: var(--text-base);
@@ -503,7 +503,10 @@
 	}
 	article :global(.Syw-App) {
 		max-width: 900px;
-		margin: auto;
+		margin: 4rem auto;
+	}
+	article :global(.Syw-App):first-child {
+		margin-top: 0;
 	}
 	article .caption {
 		max-width: 52rem;

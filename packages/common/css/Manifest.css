@@ -166,7 +166,7 @@
 /* Manifest > Content */
 .Syw-ManifestContent {
 	border-spacing: 0;
-	padding: 0 var(--syw-space-4) var(--syw-space-4) var(--syw-space-6);
+	padding: var(--syw-space-2) var(--syw-space-4) var(--syw-space-4) var(--syw-space-6);
 	position: relative;
 	display: flex;
 	flex-direction: row;
@@ -186,7 +186,7 @@
 	list-style: none;
 }
 .Syw-ManifestTableRow {
-	margin-bottom: var(--syw-space-2);
+	margin-bottom: var(--syw-space-3);
 }
 .Syw-ManifestTableRow:last-of-type {
 	margin-bottom: 0;

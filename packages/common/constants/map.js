@@ -5,7 +5,7 @@ export const MAP_ZOOM = 5
 // export const MAP_STYLE = 'https://tiles.openfreemap.org/styles/positron',
 export const MAP_STYLE = 'https://tiles.openfreemap.org/styles/bright'
 export const MAP_PROPS = {
-	zoom: 8,
+	zoom: 10,
 	style: MAP_STYLE
 }
 export const MAP_LABEL_LAYERS = [
