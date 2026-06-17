@@ -4,17 +4,17 @@ import { classNames } from 'syw-common/helpers'
 
 const Tooltip = ({
 	content,
+	disabled,
 	ContentProps = {},
 	children,
 	className
 }) => {
+	if (disabled || content === undefined) return children;
 	return (
 		<ArkTooltip.Root
-			// open={true}
 			openDelay={0}
 			lazyMount={true}
 			unmountOnExit={true}
-			disabled={content === undefined}
 		>
 			<ArkTooltip.Trigger
 				className={classNames(

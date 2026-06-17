@@ -4,7 +4,7 @@
 	align-items: center;
 	position: relative;
 	cursor: pointer;
-	padding: var(--syw-space-1) var(--syw-space-2) var(--syw-space-1) var(--syw-space-6);
+	padding: var(--syw-space-1) var(--syw-space-2) var(--syw-space-1) var(--syw-space-2);
 	color: var(--syw-color-secondary);
 	background-color: var(--syw-color-primary);
 	border-radius: var(--syw-radius-lg);
@@ -13,8 +13,12 @@
 	font-weight: var(--syw-font-weight-bold);
 	transition: all 200ms ease;
 }
+/* Toggle Provenance > Badge */
+.Syw-Cutline button.Syw-ProvenanceToggle .Syw-Badge {
+	margin-right: calc(var(--syw-space-1) * 1.5);
+}
 /* Toggle Provenance > Ornament */
-.Syw-Cutline button.Syw-ProvenanceToggle::before {
+/* .Syw-Cutline button.Syw-ProvenanceToggle::before {
 	content: '';
 	display: block;
 	width: 8px;
@@ -30,27 +34,33 @@
 	border-style: solid;
 	border-radius: 100%;
 	transition: all 200ms ease;
-}
+} */
 /* Toggle Provenance > Hovered */
-.Syw-Cutline button.Syw-ProvenanceToggle:hover
+.Syw-Cutline button.Syw-ProvenanceToggle:hover,
 .Syw-App_hovered .Syw-Cutline button.Syw-ProvenanceToggle,
 .Syw-App_hovered .Syw-Cutline button.Syw-ProvenanceToggle {
 	background-color: var(--syw-color-quaternary);
 }
+/* Toggle Provenance > Hovered > Badge */
+.Syw-Cutline button.Syw-ProvenanceToggle:hover .Syw-Badge,
+.Syw-App_hovered .Syw-Cutline button.Syw-ProvenanceToggle .Syw-Badge,
+.Syw-App_hovered .Syw-Cutline button.Syw-ProvenanceToggle .Syw-Badge {
+	color: var(--syw-color-quaternary);
+}
 /* Toggle Provenance > Hovered > Ornament */
-.Syw-Cutline button.Syw-ProvenanceToggle:hover::before,
+/* .Syw-Cutline button.Syw-ProvenanceToggle:hover::before,
 .Syw-App_hovered .Syw-Cutline button.Syw-ProvenanceToggle::before {
 	border-color: var(--syw-color-quaternary);
-}
+} */
 /* Toggle Provenance > Active */
 .Syw-App_active.Syw-App_expand .Syw-Cutline button.Syw-ProvenanceToggle {
 	color: var(--syw-color-primary);
 	background-color: var(--syw-color-secondary);
 }
 /* Toggle Provenance > Active > Ornament */
-.Syw-App_active.Syw-App_expand .Syw-Cutline button.Syw-ProvenanceToggle::before {
+/* .Syw-App_active.Syw-App_expand .Syw-Cutline button.Syw-ProvenanceToggle::before {
 	border-color: var(--syw-color-primary);
-}
+} */
 /* Toggle Provenance > Active > Hovered */
 .Syw-App_active.Syw-App_expand .Syw-Cutline button.Syw-ProvenanceToggle:hover,
 .Syw-App_active.Syw-App_expand.Syw-App_hovered .Syw-Cutline button.Syw-ProvenanceToggle {
@@ -58,8 +68,8 @@
 	background-color: var(--syw-color-secondary);
 }
 /* Toggle Provenance > Active > Hovered > Ornament */
-.Syw-App_active.Syw-App_expand .Syw-Cutline button.Syw-ProvenanceToggle:hover::before,
+/* .Syw-App_active.Syw-App_expand .Syw-Cutline button.Syw-ProvenanceToggle:hover::before,
 .Syw-App_active.Syw-App_expand.Syw-App_hovered .Syw-Cutline button.Syw-ProvenanceToggle::before {
 	background-color: var(--syw-color-quaternary);
 	border-color: var(--syw-color-quaternary);
-}
+} */

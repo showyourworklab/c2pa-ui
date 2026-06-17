@@ -18,14 +18,14 @@
 	width: 1px;
 	z-index: 2;
 	position: absolute;
-	left: calc(var(--syw-space-3) - 1.5px);
-	top: calc(var(--syw-space-4) * -1);
+	left: calc(var(--syw-space-2) + (var(--syw-size-badge) / 2) - 1.5px);
+	top: calc((var(--syw-space-3) + 2px) * -1);
 	height: 0;
 	background-color: var(--syw-color-primary);
 	border-color: var(--syw-color-secondary);
 	border-style: solid;
 	border-width: 0 1px;
-	transition: all 200ms ease;
+	transition: all 50ms ease;
 }
 /* Caption > Active */
 .Syw-App_active.Syw-App_expand .Syw-Caption {
@@ -33,7 +33,7 @@
 }
 /* Caption > Active > Expand */
 .Syw-App_active.Syw-App_expand .Syw-Caption::before {
-	height: calc(100% + var(--syw-space-9) + 2px);
+	height: calc(100% + var(--syw-space-8) + 0px);
 }
 .Syw-App_active.Syw-App_expand .Syw-Caption::after {
 	opacity: 1;
@@ -45,7 +45,7 @@
 }
 /* Caption > Inner > Active > Expand */
 .Syw-App_active.Syw-App_expand .Syw-CaptionInner {
-	transform: translateX(var(--syw-space-6));
+	transform: translateX(var(--syw-space-8));
 	/* padding-left: var(--syw-space-6); */
 }
 /* Caption > Byline */

@@ -42,7 +42,7 @@ const Badge = ({
 				)}
 			>
 				<Icon
-					type={type?.key}
+					type={type?.key ?? status}
 					className={classNames('BadgeIcon')}
 				/>
 				<span

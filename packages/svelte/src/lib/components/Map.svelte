@@ -1,6 +1,6 @@
 <script>
     import { getContext, untrack } from 'svelte';
-	import MapLibre, { AttributionControl } from 'maplibre-gl'
+	import MapLibre from 'maplibre-gl'
 	import { classNames } from 'syw-common/helpers'
 	import { getLangFromLocale } from 'syw-common/helpers/i18n'
 	import { updateMapLang } from 'syw-common/helpers/map'
@@ -23,9 +23,9 @@
 			...MAP_PROPS,
 			...mapOptions
 		})
-		.addControl(new AttributionControl({
-			// compact: true
-		}))
+		// .addControl(new AttributionControl({
+		// 	// compact: true
+		// }))
 		map = mapInstance
 		mapInstance.on('load', () => {
 			loaded = true

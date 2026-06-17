@@ -51,47 +51,44 @@
 	onkeydown={handleKeyDown}
 >
 	<div
-		class={classNames(
-			'ManifestPreviewCell',
-			'ManifestPreviewCell_badges'
-		)}
+		class={classNames('ManifestPreviewBadge')}
 	>
 		<Badge
 			type={manifest.type}
 			status={manifest.status}
-			className={classNames(
-				'ManifestPreviewCell',
-				'ManifestPreviewCell_badge'
-			)}
 		/>
 	</div>
 	<div
-		class={classNames('ManifestPreviewCell', 'ManifestPreviewCell_issuer')}
+		class={classNames('ManifestPreviewCells')}
 	>
-		{manifest.type?.key
-			? getText($locale, 'type', manifest.type?.key)
-			: MANIFEST_PREVIEW_TITLE_KEYS.filter(key => manifest[key]).map(key =>
-				manifest[key]?.value
-			).join(" ")}
-	</div>
-	<div
-		class={classNames('ManifestPreviewCell', 'ManifestPreviewCell_time')}
-	>
-		<span>{getDateString($locale, manifest?.timestamp.value) ?? ''}</span>
-	</div>
-	<div
-		role='button'
-		tabindex={0}
-		class={classNames('ManifestPreviewCell', 'ManifestPreviewCell_thumb')}
-		onmousemove={handleThumbnailMouseMove}
-		onmouseenter={handleThumbnailMouseEnter}
-		onmouseleave={handleThumbnailMouseLeave}
-	>
-		{#if manifest?.thumbnail?.value}
-			<img
-				src={manifest?.thumbnail?.value}
-				alt=''
-			/>
-		{/if}
+		<div
+			class={classNames('ManifestPreviewCell', 'ManifestPreviewCell_issuer')}
+		>
+			{manifest.type?.key
+				? getText($locale, 'type', manifest.type?.key)
+				: MANIFEST_PREVIEW_TITLE_KEYS.filter(key => manifest[key]).map(key =>
+					manifest[key]?.value
+				).join(" ")}
+		</div>
+		<div
+			class={classNames('ManifestPreviewCell', 'ManifestPreviewCell_time')}
+		>
+			<span>{getDateString($locale, manifest?.timestamp.value) ?? ''}</span>
+		</div>
+		<div
+			role='button'
+			tabindex={0}
+			class={classNames('ManifestPreviewCell', 'ManifestPreviewCell_thumb')}
+			onmousemove={handleThumbnailMouseMove}
+			onmouseenter={handleThumbnailMouseEnter}
+			onmouseleave={handleThumbnailMouseLeave}
+		>
+			{#if manifest?.thumbnail?.value}
+				<img
+					src={manifest?.thumbnail?.value}
+					alt=''
+				/>
+			{/if}
+		</div>
 	</div>
 </div>

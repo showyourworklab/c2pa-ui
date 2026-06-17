@@ -41,58 +41,53 @@ function ManifestPreview({
 			onKeyDown={onKeyDown}
 		>
 			<div
-				className={classNames(
-					'ManifestPreviewCell',
-					'ManifestPreviewCell_badges'
-				)}
+				className={classNames('ManifestPreviewBadge')}
 			>
-				{manifest.type ?
-					<Badge
-						type={manifest.type}
-						status={manifest.status}
-						className={classNames(
-							'ManifestPreviewCell',
-							'ManifestPreviewCell_badge'
-						)}
-					/>
-				: null}
-			</div>
-			<div
-				className={classNames(
-					'ManifestPreviewCell',
-					'ManifestPreviewCell_issuer'
-				)}
-			>
-				{manifest.type?.key
-					? getText("type", manifest.type?.key)
-					: MANIFEST_PREVIEW_TITLE_KEYS.filter(key => manifest[key]).map(key =>
-						manifest[key]?.value
-					).join(" ")
-				}
-			</div>
-			<div
-				className={classNames(
-					'ManifestPreviewCell',
-					'ManifestPreviewCell_time'
-				)}
-			>
-				<span>{getDateString(locale, manifest.timestamp.value)}</span>
-			</div>
-			<div
-				className={classNames(
-					'ManifestPreviewCell',
-					'ManifestPreviewCell_thumb',
-					thumbnailUrl === thumbnail
-						? 'ManifestPreviewCell_thumb_hover'
-						: null
-				)}
-				onMouseMove={onThumbnailMouseMove}
-				onMouseEnter={onThumbnailMouseEnter}
-				onMouseLeave={onThumbnailMouseLeave}
-			>
-				<img
-					src={thumbnailUrl}
+				<Badge
+					type={manifest.type}
+					status={manifest.status}
 				/>
+			</div>
+			<div
+				className={classNames('ManifestPreviewCells')}
+			>
+				<div
+					className={classNames(
+						'ManifestPreviewCell',
+						'ManifestPreviewCell_issuer'
+					)}
+				>
+					{manifest.type?.key
+						? getText("type", manifest.type?.key)
+						: MANIFEST_PREVIEW_TITLE_KEYS.filter(key => manifest[key]).map(key =>
+							manifest[key]?.value
+						).join(" ")
+					}
+				</div>
+				<div
+					className={classNames(
+						'ManifestPreviewCell',
+						'ManifestPreviewCell_time'
+					)}
+				>
+					<span>{getDateString(locale, manifest.timestamp.value)}</span>
+				</div>
+				<div
+					className={classNames(
+						'ManifestPreviewCell',
+						'ManifestPreviewCell_thumb',
+						thumbnailUrl === thumbnail
+							? 'ManifestPreviewCell_thumb_hover'
+							: null
+					)}
+					onMouseMove={onThumbnailMouseMove}
+					onMouseEnter={onThumbnailMouseEnter}
+					onMouseLeave={onThumbnailMouseLeave}
+				>
+					<img
+						src={thumbnailUrl}
+					/>
+				</div>
 			</div>
 		</div>
 	)

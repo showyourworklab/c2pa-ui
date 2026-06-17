@@ -1,12 +1,14 @@
 /* Badge */
 .Syw-Badge {
+	width: var(--syw-size-badge);
+	height: var(--syw-size-badge);
 	font-size: var(--syw-text-xs);
 	font-weight: var(--syw-font-weight-bold);
 	color: currentColor;
 	display: flex;
 	align-items: center;
-	/* padding: var(--syw-space-1) var(--syw-space-2); */
-	padding: var(--syw-space-1);
+	justify-content: center;
+	/* padding: var(--syw-space-1); */
 	border-width: 1px;
 	border-style: solid;
 	border-color: currentColor;
@@ -16,12 +18,16 @@
 }
 /* Badge > Statuses */
 .Syw-Badge.Syw-Badge_trusted {
-	color: var(--syw-color-status-trusted);
-	background-color: var(--syw-color-status-trusted-light);
+	/* color: var(--syw-color-status-trusted); */
+	/* background-color: var(--syw-color-status-trusted-light); */
+	color: var(--syw-color-primary);
+	background-color: var(--syw-color-secondary);
 }
 .Syw-Badge.Syw-Badge_valid {
-	color: var(--syw-color-status-valid);
-	background-color: var(--syw-color-status-valid-light);
+	/* color: var(--syw-color-status-valid); */
+	/* background-color: var(--syw-color-status-valid-light); */
+	color: var(--syw-color-primary);
+	background-color: var(--syw-color-secondary);
 }
 .Syw-Badge.Syw-Badge_invalid {
 	color: var(--syw-color-status-invalid);
@@ -37,12 +43,16 @@
 }
 /* Badge > Statuses > Tooltip */
 .Syw-TooltipContent.Syw-BadgeTooltipContent_trusted {
-	--syw-tooltip-text: var(--syw-color-status-trusted);
-	--syw-tooltip-background: var(--syw-color-status-trusted-light);
+	/* --syw-tooltip-text: var(--syw-color-status-trusted); */
+	/* --syw-tooltip-background: var(--syw-color-status-trusted-light); */
+	--syw-tooltip-text: var(--syw-color-primary);
+	--syw-tooltip-background: var(--syw-color-secondary);
 }
 .Syw-TooltipContent.Syw-BadgeTooltipContent_valid {
-	--syw-tooltip-text: var(--syw-color-status-valid);
-	--syw-tooltip-background: var(--syw-color-status-valid-light);
+	/* --syw-tooltip-text: var(--syw-color-status-valid); */
+	/* --syw-tooltip-background: var(--syw-color-status-valid-light); */
+	--syw-tooltip-text: var(--syw-color-primary);
+	--syw-tooltip-background: var(--syw-color-secondary);
 }
 .Syw-TooltipContent.Syw-BadgeTooltipContent_invalid {
 	--syw-tooltip-text: var(--syw-color-status-invalid);
@@ -58,6 +68,6 @@
 	border-radius: var(--syw-radius-full);
 } */
 .Syw-BadgeIcon {
-	width: var(--syw-space-3);
-	height: var(--syw-space-3);
+	width: var(--syw-size-badge-icon);
+	height: var(--syw-size-badge-icon);
 }

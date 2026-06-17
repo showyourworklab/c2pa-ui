@@ -19,14 +19,14 @@ const Cutline = () => {
 				<ProvenanceToggle />
 				<ExplainerToggle />
 			</div>
-			<div
+			{/* <div
 				className={classNames('CutlineBadges')}
 			>
 				<Badge
 					type={types[0]}
 					status={status}
 				/>
-			</div>
+			</div> */}
 		</div>
 	)
 }

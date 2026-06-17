@@ -1,13 +1,11 @@
 import { classNames } from 'syw-common/helpers'
-import { useUiContext, useI18nContext } from '$src/context'
+import { useI18nContext, useDataContext, useUiContext } from '$src/context'
+import Badge from './Badge'
 
 const ProvenanceToggle = () => {
-	const {
-		isProvenanceOpen,
-		openProvenance,
-		closeProvenance
-	} = useUiContext()
 	const { getText } = useI18nContext()
+	const { status, types } = useDataContext()
+	const { isProvenanceOpen, openProvenance, closeProvenance } = useUiContext()
 
 	const onClick = event => isProvenanceOpen
 		? closeProvenance(event)
@@ -19,7 +17,16 @@ const ProvenanceToggle = () => {
 			className={classNames('ProvenanceToggle')}
 			onClick={onClick}
 		>
-			{isProvenanceOpen ? getText('provenance', 'toggle') : getText('provenance', 'toggle')}
+			<Badge
+				// type={types[0]}
+				status={status}
+				TooltipProps={{
+					disabled: true
+				}}
+			/>
+			<span>
+				{isProvenanceOpen ? getText('provenance', 'toggle') : getText('provenance', 'toggle')}
+			</span>
 		</button>
 	)
 }
