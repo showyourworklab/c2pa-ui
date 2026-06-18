@@ -1,8 +1,9 @@
 import { classNames } from 'syw-common/helpers'
 import { MANIFEST_PRIMARY_KEYS } from 'syw-common/constants'
 import ManifestTable from './ManifestTable'
+import ManifestContentTabs from './ManifestContentTabs'
 
-function ManifestContent({ manifest }) {
+function ManifestContent({ manifest, tabKeys }) {
 	return (
 		<div
 			className={classNames('ManifestContent')}
@@ -18,19 +19,10 @@ function ManifestContent({ manifest }) {
 			<div
 				className={classNames('ManifestContentSecondary')}
 			>
-				{/* <ManifestTable
-					keys={MANIFEST_SECONDARY_KEYS}
+				<ManifestContentTabs
+					keys={tabKeys}
 					manifest={manifest}
-				/> */}
-				<div
-					className={classNames('ManifestContentThumbnail')}
-				>
-					<img
-						alt=''
-						src={manifest?.thumbnail?.value}
-						className={classNames('ManifestContentThumbnailImage')}
-					/>
-				</div>
+				/>
 			</div>
 		</div>
 	)

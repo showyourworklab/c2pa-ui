@@ -2,25 +2,28 @@
 .Syw-ManifestPreview {
 	width: 100%;
 	height: var(--syw-size-manifest-preview);
-	padding: var(--syw-space-1) var(--syw-space-1) var(--syw-space-1) var(--syw-space-9);
 	border-radius: var(--syw-radius-lg);
 	background-color: var(--syw-color-primary);
 	color: var(--syw-color-secondary);
 	position: relative;
 	opacity: 0;
-	cursor: pointer;
-	user-select: none;
-	transition: all 200ms ease;
 }
 .Syw-App_active .Syw-ManifestPreview {
 	opacity: 1;
 }
-.Syw-App_active .Syw-ManifestPreview:hover,
+.Syw-App_active .Syw-ManifestPreviewToggle:hover,
 .Syw-App_active .Syw-Manifest_open .Syw-ManifestPreview {
 	color: var(--syw-color-primary);
 	background-color: var(--syw-color-secondary);
 }
-.Syw-ManifestPreview:hover * {
+/* Manifest > Preview > Toggle */
+.Syw-ManifestPreviewToggle {
+	cursor: pointer;
+	user-select: none;
+	transition: all 200ms ease;
+	padding: var(--syw-space-1) var(--syw-space-1) var(--syw-space-1) var(--syw-space-9);
+}
+.Syw-ManifestPreviewToggle:hover * {
 	color: var(--syw-color-quaternary);
 }
 /* Manifest > Preview > Badge */

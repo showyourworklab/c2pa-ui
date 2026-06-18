@@ -31,6 +31,13 @@ export const MANIFEST_PREVIEW_TITLE_KEYS = [
 	'signator',
 	'generator'
 ]
+export const MANIFEST_CONTENT_TAB_KEYS = {
+	camera: ['thumbnail', 'location'],
+	edit: ['thumbnail', 'actions'],
+	ai: ['thumbnail', 'actions'],
+}
+
+export const MANIFEST_CONTENT_TAB_DEFAULT = 'thumbnail'
 ///////////////// Icons ////////////////
 export const ICON_DEFAULT_SIZE = 24
 export const ICON_DEFAULT_STROKE_WIDTH = 2

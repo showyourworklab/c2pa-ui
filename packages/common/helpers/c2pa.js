@@ -229,6 +229,8 @@ export const getType = manifest => {
 		// TEMP: Not exhausted list of possible news codes
 		if(iptcTypeKey === "trainedAlgorithmicMedia") {
 			typeKey = "ai"
+		} else if(iptcTypeKey === "digitalCapture") {
+			typeKey = "camera"
 		}
 	} else if(hasExif) {
 		// TEMP: Unsure if EXIF detection is a safe determinant
@@ -316,15 +318,15 @@ export const getTimestamp = (manifest, locale) => {
 		}
 	} else {
 		const exifDateTime = getExifValue(manifest, 'DateTimeOriginal')
-		const exifParsedDate = exifDateTime.split(/\D/)
-		const dateObject = new Date(
+		const exifParsedDate = exifDateTime?.split(/\D/)
+		const dateObject = exifParsedDate ? new Date(
 			exifParsedDate[0],
 			exifParsedDate[1] - 1,
 			exifParsedDate[2],
 			exifParsedDate[3],
 			exifParsedDate[4],
 			exifParsedDate[5]
-		)
+		) : null
 		return {
 			value: dateObject
 		}
@@ -338,6 +340,8 @@ export const getTimestamp = (manifest, locale) => {
  * @return {object} - Object of latitude (lat) and longitude (lng)
  */
 export const getLocation = (manifest) => {
+	// Test coordinates
+	// return { lat: 40.754544782093724, lng: -73.91208171708277 }
 	const exifLat = getExifValue(manifest, 'GPSLatitude')
 	const exifLatDir = getExifValue(manifest, 'GPSLatitudeRef')
 	const lat = isNaN(exifLat)

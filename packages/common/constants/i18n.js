@@ -38,6 +38,10 @@ export const DICTIONARY_EN_US = {
 	type_camera_definition: 'This image was captured by a camera',
 	type_ai_definition: 'This image was generated using AI',
 	type_edit_definition: 'This image was edited after it was created',
+	// Tabs
+	tab_thumbnail: "Thumbnail",
+	tab_location: "Map",
+	tab_actions: "Edits",
 	// Actions
 	action_c2pa_created: "Created",
 	action_c2pa_cropped: "Cropped",
@@ -131,6 +135,10 @@ export const DICTIONARY_NO_NO = {
 	type_camera_definition: 'Dette bildet ble tatt av et kamera',
 	type_ai_definition: 'Dette bildet ble generert ved hjelp av AI',
 	type_edit_definition: 'Dette mediet ble redigert etter at det ble opprettet',
+	// Tabs
+	tab_thumbnail: "Thumbnail",
+	tab_location: "Map",
+	tab_actions: "Edits",
 	// Actions
 	action_c2pa_created: "Opprettet",
 	action_c2pa_cropped: "Beskåret",
@@ -224,6 +232,10 @@ export const DICTIONARY_SV_SE = {
 	type_camera_definition: 'Den här bilden togs av en kamera',
 	type_ai_definition: 'Den här bilden genererades med hjälp av AI',
 	type_edit_definition: 'Detta media redigerades efter att det skapades',
+	// Tabs
+	tab_thumbnail: "Thumbnail",
+	tab_location: "Map",
+	tab_actions: "Edits",
 	// Actions
 	action_c2pa_created: "Skapad",
 	action_c2pa_cropped: "Beskuren",

@@ -18,16 +18,20 @@ const Map = ({
 	const [loaded, setLoaded] = useState(false)
 
 	useEffect(() => {
-		const mapInstance = new MapLibre({
-			container: classNames(id),
-			center: [location.lng, location.lat],
-			locale: locale,
-			// interactive: false,
-			...MAP_PROPS,
-			...mapOptions
-		})
-		setMap(mapInstance)
-		mapInstance.on('load', () => setLoaded(true))
+		try {
+			const mapInstance = new MapLibre({
+				container: classNames(id),
+				center: [location.lng, location.lat],
+				locale: locale,
+				// interactive: false,
+				...MAP_PROPS,
+				...mapOptions
+			})
+			setMap(mapInstance)
+			mapInstance.on('load', () => setLoaded(true))
+		} catch(error) {
+			console.error(error)
+		}
 	}, [id])
 
 	useEffect(() => {
