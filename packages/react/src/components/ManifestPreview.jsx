@@ -86,6 +86,7 @@ function ManifestPreview({
 				>
 					<img
 						src={thumbnailUrl}
+						alt=''
 					/>
 				</div>
 			</div>

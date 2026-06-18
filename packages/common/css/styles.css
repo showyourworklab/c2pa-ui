@@ -10,6 +10,8 @@
 @import './Figure.css';
 @import './Image.css';
 @import './Manifest.css';
+@import './ManifestPreview.css';
+@import './ManifestTable.css';
 @import './Map.css';
 @import './Modal.css';
 @import './Provenance.css';

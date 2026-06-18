@@ -7,8 +7,8 @@ export const VARIANT_KEYS = [
 export const VARIANT_DEFAULT = 'expand'
 /////////////// Manifests //////////////
 export const MANIFEST_KEYS = [
-	'producer',
 	'timestamp',
+	'producer',
 	'signator',
 	'generator',
 	'actions',
@@ -17,14 +17,15 @@ export const MANIFEST_KEYS = [
 	'location',
 ]
 export const MANIFEST_PRIMARY_KEYS = [
-	'producer',
 	'timestamp',
+	'producer',
 	'signator',
 	'generator',
 ]
 export const MANIFEST_SECONDARY_KEYS = [
 	'location',
-	'actions'
+	// 'actions',
+	'thumbnail'
 ]
 export const MANIFEST_PREVIEW_TITLE_KEYS = [
 	'signator',

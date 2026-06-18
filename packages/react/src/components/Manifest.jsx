@@ -1,12 +1,9 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { MANIFEST_PRIMARY_KEYS, MANIFEST_SECONDARY_KEYS } from 'syw-common/constants'
 import { classNames } from 'syw-common/helpers'
 import { useUiContext } from '$src/context/ui'
 import Collapse from './Collapse'
 import ManifestPreview from './ManifestPreview'
-import ManifestTable from './ManifestTable'
-import Actions from './Actions'
-import Map from './Map'
+import ManifestContent from './ManifestContent'
 
 function Manifest({ manifest, previewRef }) {
 	const [open, setOpen] = useState(false)
@@ -56,26 +53,9 @@ function Manifest({ manifest, previewRef }) {
 				<Collapse
 					open={open}
 				>
-					<div
-						className={classNames('ManifestContent')}
-					>
-						<div
-							className={classNames('ManifestContentPrimary')}
-						>
-							<ManifestTable
-								keys={MANIFEST_PRIMARY_KEYS}
-								manifest={manifest}
-							/>
-						</div>
-						<div
-							className={classNames('ManifestContentSecondary')}
-						>
-							<ManifestTable
-								keys={MANIFEST_SECONDARY_KEYS}
-								manifest={manifest}
-							/>
-						</div>
-					</div>
+					<ManifestContent
+						manifest={manifest}
+					/>
 				</Collapse>
 			</div>
 		</div>
