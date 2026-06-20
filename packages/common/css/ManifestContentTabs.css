@@ -1,0 +1,41 @@
+/* Manifest > Content > Tabs */
+.Syw-ManifestContentTabs {
+	display: flex;
+	flex-direction: column;
+	margin-top: calc(var(--syw-space-2) * -1);
+}
+/* Manifest > Content > Tabs > Content */
+.Syw-ManifestContentTabsContent {
+	outline: none;
+	margin-top: var(--syw-space-2);
+}
+.Syw-ManifestContentTabsContent:focus-visible {
+	outline: 2px solid var(--syw-color-quaternary);
+	outline-offset: -2px;
+	border-radius: 0.25rem;
+}
+.Syw-ManifestContentTabsContentInner {
+	height: 200px;
+	display: flex;
+	justify-content: flex-end;
+}
+/* Manifest > Content > Tabs > Actions */
+.Syw-ManifestContentTabsContent_actions {
+	
+}
+/* Manifest > Content > Tabs > Thumbnail */
+.Syw-ManifestContentTabsThumbnail {
+	/* width: 100%; */
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	overflow: hidden;
+	border-width: 1px;
+	border-style: solid;
+	border-color: var(--syw-color-primary);
+	border-radius: var(--syw-radius-lg);
+}
+img.Syw-ManifestContentTabsThumbnailImage {
+	width: auto;
+	height: 100%;
+}

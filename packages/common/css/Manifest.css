@@ -49,8 +49,8 @@
 .Syw-Manifest:not(.Syw-Manifest_open):hover {
 	background-color: var(--syw-color-secondary);
 }
-/* Manifest > Row */
-.Syw-ManifestRow {
+/* Manifest > Inner */
+.Syw-ManifestInner {
 	overflow: hidden;
 	position: relative;
 }

@@ -17,9 +17,9 @@
 			case 'producer':
 				return value?.map(v => v.name).join(', ')
 			case 'timestamp':
-				return getDateString($locale, value?.value)
+				return getDateString($locale, value)
 			default:
-				return value?.value || value
+				return value
 		}
 	})
 

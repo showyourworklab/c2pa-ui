@@ -6,6 +6,7 @@
 	background-color: var(--syw-color-primary);
 	color: var(--syw-color-secondary);
 	position: relative;
+	overflow: hidden;
 	opacity: 0;
 }
 .Syw-App_active .Syw-ManifestPreview {
@@ -56,7 +57,7 @@
 	text-align: right;
 	transition: opacity 50ms ease;
 }
-.Syw-ManifestRow_open .Syw-ManifestPreviewCell_time {
+.Syw-Manifest_open .Syw-ManifestPreviewCell_time {
 	opacity: 0;
 }
 /* Manifest > Preview > Cells > Thumbnail */
@@ -88,7 +89,7 @@
 	display: table;
 	object-fit: cover;
 }
-.Syw-ManifestRow_open .Syw-ManifestPreviewCell_thumb {
+.Syw-Manifest_open .Syw-ManifestPreviewCell_thumb {
 	/* transform: translateX(calc(100% + var(--syw-space-2))); */
 	transition: margin 50ms ease;
 	margin-right: calc(-45px - var(--syw-space-1));

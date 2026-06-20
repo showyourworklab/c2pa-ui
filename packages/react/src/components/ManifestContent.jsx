@@ -3,7 +3,7 @@ import { MANIFEST_PRIMARY_KEYS } from 'syw-common/constants'
 import ManifestTable from './ManifestTable'
 import ManifestContentTabs from './ManifestContentTabs'
 
-function ManifestContent({ manifest, tabKeys }) {
+function ManifestContent({ tabKeys, manifest }) {
 	return (
 		<div
 			className={classNames('ManifestContent')}

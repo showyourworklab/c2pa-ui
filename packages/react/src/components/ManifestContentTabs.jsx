@@ -1,12 +1,13 @@
 import { Tabs } from '@ark-ui/react/tabs'
 import { useI18nContext } from '$src/context'
-import { classNames, getObjectValue } from 'syw-common/helpers'
-import { MANIFEST_PRIMARY_KEYS, MANIFEST_CONTENT_TAB_KEYS } from 'syw-common/constants'
+import { classNames } from 'syw-common/helpers'
 import Map from './Map'
 import Actions from './Actions'
-import ManifestTable from './ManifestTable'
 
-function ManifestContentTabs({ manifest, keys }) {
+function ManifestContentTabs({
+	manifest,
+	keys
+}) {
 	const { getText } = useI18nContext()
 	
 	return (
@@ -31,7 +32,7 @@ function ManifestContentTabs({ manifest, keys }) {
 							>
 								<img
 									alt=''
-									src={manifest?.thumbnail?.value}
+									src={manifest?.thumbnail}
 									className={classNames('ManifestContentTabsThumbnailImage')}
 								/>
 							</div>

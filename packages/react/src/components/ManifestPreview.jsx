@@ -4,7 +4,7 @@ import { getDateString } from 'syw-common/helpers/i18n'
 import { useI18nContext } from '$src/context/i18n'
 import { useUiContext } from '$src/context/ui'
 import Badge from '$src/components/Badge'
-import ManifestContentToggle from './ManifestContentToggle'
+import ManifestContentTabsToggle from './ManifestContentTabsToggle'
 
 function ManifestPreview({
 	manifest,
@@ -15,7 +15,7 @@ function ManifestPreview({
 }) {
 	const { locale, getText } = useI18nContext()
 	const { thumbnail, openThumbnail, closeThumbnail, addThumbnail, removeThumbnail, updateThumbnailPosition } = useUiContext()
-	const thumbnailUrl = manifest?.thumbnail?.value
+	const thumbnailUrl = manifest?.thumbnail
 	
 	const onKeyDown = event => {
 		handleA11yClick(event, onToggle)
@@ -65,7 +65,7 @@ function ManifestPreview({
 						{manifest.type?.key
 							? getText("type", manifest.type?.key)
 							: MANIFEST_PREVIEW_TITLE_KEYS.filter(key => manifest[key]).map(key =>
-								manifest[key]?.value
+								manifest[key]
 							).join(" ")
 						}
 					</div>
@@ -75,7 +75,7 @@ function ManifestPreview({
 							'ManifestPreviewCell_time'
 						)}
 					>
-						<span>{getDateString(locale, manifest.timestamp.value)}</span>
+						<span>{getDateString(locale, manifest.timestamp)}</span>
 					</div>
 					<div
 						className={classNames(
@@ -96,7 +96,7 @@ function ManifestPreview({
 					</div>
 				</div>
 			</div>
-			<ManifestContentToggle
+			<ManifestContentTabsToggle
 				keys={tabKeys}
 				manifest={manifest}
 			/>

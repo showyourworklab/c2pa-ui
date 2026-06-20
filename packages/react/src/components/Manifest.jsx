@@ -7,7 +7,10 @@ import Collapse from './Collapse'
 import ManifestPreview from './ManifestPreview'
 import ManifestContent from './ManifestContent'
 
-function Manifest({ manifest, previewRef }) {
+function Manifest({
+	manifest,
+	previewRef
+}) {
 	const [open, setOpen] = useState(false)
 	const { isProvenanceOpen, openManifests, openManifest, closeManifest, removeThumbnail } = useUiContext()
 	const tabs = useTabs({
@@ -44,10 +47,7 @@ function Manifest({ manifest, previewRef }) {
 		>
 			<div
 				className={
-					classNames(
-						'ManifestRow',
-						open ? 'ManifestRow_open' : null
-					)
+					classNames('ManifestInner')
 				}
 			>
 				<Tabs.RootProvider

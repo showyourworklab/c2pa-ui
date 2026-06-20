@@ -1,0 +1,101 @@
+.Syw-ManifestContentTabsToggle {
+	position: absolute;
+	right: var(--syw-space-4);
+	top: 0;
+	height: 100%;
+    display: flex;
+    align-items: center;
+	opacity: 0;
+	transform: translateX(calc(var(--syw-space-8) * -1));
+	transition: all 200ms ease;
+	pointer-events: none;
+}
+.Syw-Manifest_open .Syw-ManifestContentTabsToggle {
+	opacity: 1;
+	transform: translateX(0);
+	pointer-events: all;
+}
+/* Manifest > Content > Tabs > List */
+.Syw-ManifestContentTabsToggleList {
+	display: inline-flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	position: relative;
+	isolation: isolate;
+	gap: 0.25rem;
+	--transition-timing-function: ease;
+}
+/* Manifest > Content > Tabs > Trigger */
+button.Syw-ManifestContentTabsToggleTrigger {
+	height: 2rem;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--syw-space-1);
+	font-weight: inherit;
+	font-family: inherit;
+	font-size: var(--syw-text-sm);
+	background: transparent;
+	border: none;
+	border-radius: 0.375rem;
+	padding: 0 var(--syw-space-2);
+	white-space: nowrap;
+	user-select: none;
+	opacity: 0.625;
+}
+button.Syw-ManifestContentTabsToggleTrigger:hover {
+	opacity: 1;
+	color: var(--syw-color-quaternary);
+}
+button.Syw-ManifestContentTabsToggleTrigger[data-selected] {
+	opacity: 1;
+	color: var(--syw-color-quaternary);
+}
+button.Syw-ManifestContentTabsToggleTrigger:focus-visible {
+	outline: 2px solid var(--syw-color-quaternary);
+	outline-offset: 2px;
+}
+button.Syw-ManifestContentTabsToggleTrigger[data-disabled] {
+	opacity: 0.25;
+	cursor: not-allowed;
+	filter: grayscale(100%);
+}
+/* Manifest > Content > Tabs > Indicator */
+button.Syw-ManifestContentTabsToggleTriggerIndicator {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	font-size: 0.875rem;
+	font-weight: 500;
+	font-family: inherit;
+	background: transparent;
+	border: none;
+	border-radius: 0.375rem;
+	padding-inline: 0.75rem;
+	height: 2rem;
+	white-space: nowrap;
+	user-select: none;
+}
+button.Syw-ManifestContentTabsToggleTriggerIndicator:focus-visible {
+	outline: 2px solid var(--syw-color-quaternary);
+	outline-offset: 2px;
+}
+
+button.Syw-ManifestContentTabsToggleTriggerIndicator[data-selected] {
+	color: var(--syw-color-primary);
+}
+/* Manifest > Content > Tabs > Indicator */
+.Syw-ManifestContentTabsToggleListIndicator {
+	height: 2rem;
+	width: var(--width);
+	position: absolute;
+	z-index: -1;
+	background: var(--syw-color-primary);
+	opacity: 0.0625;
+	/* border: 1px solid var(--syw-color-primary); */
+	border-radius: 0.375rem;
+	transition-property: width, height, left, top;
+	transition-duration: 200ms;
+	transition-timing-function: ease-out;
+}
