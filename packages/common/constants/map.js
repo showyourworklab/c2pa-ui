@@ -6,7 +6,8 @@ export const MAP_ZOOM = 5
 export const MAP_STYLE = 'https://tiles.openfreemap.org/styles/bright'
 export const MAP_PROPS = {
 	zoom: 10,
-	style: MAP_STYLE
+	style: MAP_STYLE,
+	attributionControl: false
 }
 export const MAP_LABEL_LAYERS = [
 	'label_other',
@@ -19,3 +20,5 @@ export const MAP_LABEL_LAYERS = [
 	'label_country_2',
 	'label_country_1',
 ]
+export const MAP_SOURCE_ID = 'location-source'
+export const MAP_LAYER_ID = 'location-layer'

@@ -3,8 +3,8 @@
 	import MapLibre from 'maplibre-gl'
 	import { classNames } from 'syw-common/helpers'
 	import { getLangFromLocale } from 'syw-common/helpers/i18n'
-	import { updateMapLang } from 'syw-common/helpers/map'
-	import { MAP_PROPS } from 'syw-common/constants/map';
+	import { createMapLayer, createMapSource, updateMapLang } from 'syw-common/helpers/map'
+import { MAP_PROPS, MAP_SOURCE_ID } from 'syw-common/constants/map'
 	const id = $props.id();
 	const { locale } = getContext('i18nStoreContext')
 	const { mapOptions } = getContext('uiStoreContext')
@@ -23,12 +23,16 @@
 			...MAP_PROPS,
 			...mapOptions
 		})
-		// .addControl(new AttributionControl({
-		// 	// compact: true
+		// mapInstance.addControl(new MapLibre.AttributionControl({
+		// 	compact: true
 		// }))
 		map = mapInstance
 		mapInstance.on('load', () => {
 			loaded = true
+			const mapSource = createMapSource(location.lng, location.lat)
+			const mapLayer = createMapLayer()
+			mapInstance.addSource(MAP_SOURCE_ID, mapSource)
+			mapInstance.addLayer(mapLayer)
 		})
 	})
 
