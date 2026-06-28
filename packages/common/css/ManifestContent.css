@@ -1,0 +1,29 @@
+/* Manifest > Content */
+.Syw-ManifestContent {
+	border-spacing: 0;
+	padding: var(--syw-space-5) var(--syw-space-4) var(--syw-space-4) var(--syw-space-9);
+	position: relative;
+	display: flex;
+	flex-direction: row;
+}
+.Syw-ManifestContent::before {
+	content: "";
+	width: 100%;
+	height: 1px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0.125;
+	background-color: var(--syw-color-primary);
+}
+.Syw-ManifestContentPrimary {
+	width: 50%;
+	padding-right: var(--syw-space-2);
+	display: flex;
+	flex-direction: column;
+}
+.Syw-ManifestContentSecondary {
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+}

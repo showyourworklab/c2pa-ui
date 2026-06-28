@@ -1,12 +1,24 @@
 /* Actions */
-ul.Syw-Actions {
-	list-style: none;
-	padding-left: 0;
+.Syw-Actions {
+	width: 100%;
+	max-width: 300px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: var(--syw-color-primary);
+	border-radius: var(--syw-radius-lg);
 }
-/* Actions > Item */
-li.Syw-ActionsItem {
-	padding: 0;
-	margin-bottom: 0;
-	margin-top: var(--syw-space-1);
+/* Actions > List */
+ul.Syw-ActionsList {
+	width: 100%;
+	list-style: none;
+	margin: 0;
+	padding: var(--syw-space-2) 0;
+}
+/* Actions > List > Item */
+li.Syw-ActionsListItem {
+	padding: 0 var(--syw-space-2) var(--syw-space-1) var(--syw-space-2);
+	margin-bottom: var(--syw-space-1);
+	border-bottom: 1px solid rgba(0,0,0,0.1);
 	font-size: var(--syw-text-sm);
+	
 }

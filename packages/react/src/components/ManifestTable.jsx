@@ -7,14 +7,12 @@ function ManifestTable({ keys = [], manifest }) {
 			className={classNames('ManifestTable')}
 		>
 			{keys.map(key =>
-				manifest[key] ?
-					<ManifestTableRow
-						key={key}
-						type={key}
-						value={manifest[key]}
-						manifest={manifest}
-					/>
-				: null
+				<ManifestTableRow
+					key={key}
+					type={key}
+					value={manifest[key]}
+					manifest={manifest}
+				/>
 			)}
 		</ul>
 	)

@@ -193,7 +193,7 @@ export const getProducer = manifest => {
 export const getGenerator = manifest => {
 	let generator = {}
 	if(manifest?.claim_generator_info) {
-		generator.value = manifest?.claim_generator_info?.map(d =>
+		generator = manifest?.claim_generator_info?.map(d =>
 			[d.name, d.version]
 				.filter(d => d !== null && d !== undefined)
 				.join(" ")
@@ -201,10 +201,10 @@ export const getGenerator = manifest => {
 	} else if(getExifValue(manifest, 'Make') || getExifValue(manifest, 'Model')) {
 		const exifMake = getExifValue(manifest, 'Make')
 		const exifModel = getExifValue(manifest, 'Model')
-		generator.value = [exifModel].join(' ')
+		generator = [exifModel].join(' ')
 		// return [exifMake, exifModel].join(' ')
 	} else if(manifest?.claim_generator) {
-		generator.value = manifest?.claim_generator
+		generator = manifest?.claim_generator
 	}
 	return generator
 }
@@ -229,6 +229,8 @@ export const getType = manifest => {
 		// TEMP: Not exhausted list of possible news codes
 		if(iptcTypeKey === "trainedAlgorithmicMedia") {
 			typeKey = "ai"
+		} else if(iptcTypeKey === "digitalCapture") {
+			typeKey = "camera"
 		}
 	} else if(hasExif) {
 		// TEMP: Unsure if EXIF detection is a safe determinant
@@ -297,9 +299,8 @@ export const getStatus = (manifest, provenance) => {
  * @param {object} manifest - Manifest entry
  * @return {string} - Signature issuer name
  */
-export const getSignator = manifest => ({
-	value: manifest?.signature_info?.issuer
-})
+export const getSignator = manifest =>
+	manifest?.signature_info?.issuer
 
 /**
  * Gets a localized date string from manifest entry's date
@@ -311,23 +312,19 @@ export const getSignator = manifest => ({
 export const getTimestamp = (manifest, locale) => {
 	if(manifest?.signature_info?.time) {
 		const dateObject = new Date(manifest?.signature_info?.time)
-		return {
-			value: dateObject
-		}
+		return dateObject
 	} else {
 		const exifDateTime = getExifValue(manifest, 'DateTimeOriginal')
-		const exifParsedDate = exifDateTime.split(/\D/)
-		const dateObject = new Date(
+		const exifParsedDate = exifDateTime?.split(/\D/)
+		const dateObject = exifParsedDate ? new Date(
 			exifParsedDate[0],
 			exifParsedDate[1] - 1,
 			exifParsedDate[2],
 			exifParsedDate[3],
 			exifParsedDate[4],
 			exifParsedDate[5]
-		)
-		return {
-			value: dateObject
-		}
+		) : null
+		return dateObject
 	}
 }
 
@@ -338,6 +335,8 @@ export const getTimestamp = (manifest, locale) => {
  * @return {object} - Object of latitude (lat) and longitude (lng)
  */
 export const getLocation = (manifest) => {
+	// Test coordinates
+	// return { lat: 40.754544782093724, lng: -73.91208171708277 }
 	const exifLat = getExifValue(manifest, 'GPSLatitude')
 	const exifLatDir = getExifValue(manifest, 'GPSLatitudeRef')
 	const lat = isNaN(exifLat)
@@ -392,9 +391,7 @@ export const getThumbnail = async (manifest, reader) => {
 		const bytes = await reader.resourceToBytes(thumbnail.identifier)
 		if (bytes) {
 			const blob = new Blob([bytes], { type: thumbnail.format })
-			return {
-				value: URL.createObjectURL(blob)
-			}
+			return URL.createObjectURL(blob)
 		}
 		return null
 	} catch (error) {
@@ -407,7 +404,7 @@ export const getThumbnail = async (manifest, reader) => {
  * Gets URL to CAI Verify page with image URL as parameter
  * @function
  * @param {string} src - Image URL
- * @return {string} - CAI Verify URL
+ * @return {string} - Verify site URL
  */
 export const getVerifyUrl = src => `https://${VERIFY_BASE_URL}/inspect?source=${src}`
 

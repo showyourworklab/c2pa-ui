@@ -18,7 +18,7 @@ const Map = ({
 	const [loaded, setLoaded] = useState(false)
 	useEffect(() => {
 		try {
-			const mapInstance = new MapLibre.Map({
+			const mapInstance = new MapLibre({
 				container: classNames(id),
 				center: [location.lng, location.lat],
 				locale: locale,

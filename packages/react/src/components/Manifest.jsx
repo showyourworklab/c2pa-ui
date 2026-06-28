@@ -1,16 +1,22 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { MANIFEST_PRIMARY_KEYS, MANIFEST_SECONDARY_KEYS } from 'syw-common/constants'
+import { Tabs, useTabs } from '@ark-ui/react/tabs'
 import { classNames } from 'syw-common/helpers'
+import { MANIFEST_CONTENT_TAB_DEFAULT, MANIFEST_CONTENT_TAB_KEYS } from 'syw-common/constants'
 import { useUiContext } from '$src/context/ui'
 import Collapse from './Collapse'
 import ManifestPreview from './ManifestPreview'
-import ManifestTable from './ManifestTable'
-import Actions from './Actions'
-import Map from './Map'
+import ManifestContent from './ManifestContent'
 
-function Manifest({ manifest, previewRef }) {
+function Manifest({
+	manifest,
+	previewRef
+}) {
 	const [open, setOpen] = useState(false)
 	const { isProvenanceOpen, openManifests, openManifest, closeManifest, removeThumbnail } = useUiContext()
+	const tabs = useTabs({
+		defaultValue: MANIFEST_CONTENT_TAB_DEFAULT
+	})
+	const tabKeys = MANIFEST_CONTENT_TAB_KEYS[manifest?.type?.key] ?? []
 
 	const className = useMemo(() =>
 		classNames(
@@ -41,42 +47,29 @@ function Manifest({ manifest, previewRef }) {
 		>
 			<div
 				className={
-					classNames(
-						'ManifestRow',
-						open ? 'ManifestRow_open' : null
-					)
+					classNames('ManifestInner')
 				}
 			>
-				<ManifestPreview
-					manifest={manifest}
-					toggled={open}
-					onToggle={handleToggle}
-					previewRef={previewRef}
-				/>
-				<Collapse
-					open={open}
+				<Tabs.RootProvider
+					value={tabs}
+					keys={tabKeys}
 				>
-					<div
-						className={classNames('ManifestContent')}
+					<ManifestPreview
+						manifest={manifest}
+						tabKeys={tabKeys}
+						toggled={open}
+						onToggle={handleToggle}
+						previewRef={previewRef}
+					/>
+					<Collapse
+						open={open}
 					>
-						<div
-							className={classNames('ManifestContentPrimary')}
-						>
-							<ManifestTable
-								keys={MANIFEST_PRIMARY_KEYS}
-								manifest={manifest}
-							/>
-						</div>
-						<div
-							className={classNames('ManifestContentSecondary')}
-						>
-							<ManifestTable
-								keys={MANIFEST_SECONDARY_KEYS}
-								manifest={manifest}
-							/>
-						</div>
-					</div>
-				</Collapse>
+						<ManifestContent
+							manifest={manifest}
+							tabKeys={tabKeys}
+						/>
+					</Collapse>
+				</Tabs.RootProvider>
 			</div>
 		</div>
 	)

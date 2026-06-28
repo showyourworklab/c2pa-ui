@@ -7,18 +7,22 @@ const Actions = ({
 }) => {
 	const { locale, getText } = useI18nContext()
 	return (
-		<ul
+		<div
 			className={classNames('Actions')}
 		>
-			{actions.map((action, index) =>
-				<li
-					key={index}
-					className={classNames('ActionsItem')}
-				>
-					{getText('action', action)}
-				</li>
-			)}
-		</ul>
+			<ul
+				className={classNames('ActionsList')}
+			>
+				{actions.map((action, index) =>
+					<li
+						key={index}
+						className={classNames('ActionsListItem')}
+					>
+						{getText('action', action)}
+					</li>
+				)}
+			</ul>
+		</div>
 	)
 }
 
