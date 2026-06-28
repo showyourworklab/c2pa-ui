@@ -36,7 +36,7 @@ function ManifestContentTabs({
 									className={classNames('ManifestContentTabsThumbnailImage')}
 								/>
 							</div>
-						: key === "location" ?
+						: key === "location" && manifest?.location ?
 							<Map
 								location={manifest?.location}
 							/>

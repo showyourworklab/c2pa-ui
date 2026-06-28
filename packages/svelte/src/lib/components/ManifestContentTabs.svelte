@@ -35,7 +35,7 @@
 							class={classNames('ManifestContentTabsThumbnailImage')}
 						/>
 					</div>
-				{:else if key === "location"}
+				{:else if key === "location" && manifest?.location}
 					<Map
 						location={manifest?.location}
 					/>
