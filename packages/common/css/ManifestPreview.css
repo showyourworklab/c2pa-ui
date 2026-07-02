@@ -1,7 +1,7 @@
 /* Manifest > Preview */
 .Syw-ManifestPreview {
 	width: 100%;
-	height: var(--syw-size-manifest-preview);
+	height: var(--syw-size-manifest-preview-height);
 	border-radius: var(--syw-radius-lg);
 	background-color: var(--syw-color-primary);
 	color: var(--syw-color-secondary);
@@ -19,10 +19,11 @@
 }
 /* Manifest > Preview > Toggle */
 .Syw-ManifestPreviewToggle {
+	height: 100%;
 	cursor: pointer;
 	user-select: none;
 	transition: all 200ms ease;
-	padding: var(--syw-space-1) var(--syw-space-1) var(--syw-space-1) var(--syw-space-9);
+	padding: var(--syw-space-1) var(--syw-space-1) var(--syw-space-1) var(--syw-size-manifest-preview-indent);
 }
 .Syw-ManifestPreviewToggle:hover * {
 	color: var(--syw-color-quaternary);
@@ -56,6 +57,9 @@
 	flex: 1;
 	text-align: right;
 	transition: opacity 50ms ease;
+	@media (max-width: 575px) {
+		display: none;
+	}
 }
 .Syw-Manifest_open .Syw-ManifestPreviewCell_time {
 	opacity: 0;

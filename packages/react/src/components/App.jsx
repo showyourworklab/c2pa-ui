@@ -52,7 +52,7 @@ function App({ mapOptions, onEvent }) {
 			</Figure>
 			{variant === 'expand' ? <ProvenanceExpand /> : null}
 			{variant === 'modal' ? <ProvenanceModal /> : null}
-			{isThumbnailOpen ? <Thumbnail type="hover" /> : null}
+			{/* {isThumbnailOpen ? <Thumbnail type="hover" /> : null} */}
 		</div>
 	)
 }

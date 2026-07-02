@@ -1,11 +1,13 @@
 /* Actions */
 .Syw-Actions {
 	width: 100%;
-	max-width: 300px;
 	border-width: 1px;
 	border-style: solid;
 	border-color: var(--syw-color-primary);
 	border-radius: var(--syw-radius-lg);
+	@media (min-width: 576px) {
+		max-width: 300px;
+	}
 }
 /* Actions > List */
 ul.Syw-ActionsList {

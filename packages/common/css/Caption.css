@@ -1,9 +1,9 @@
 /* Caption */
 .Syw-Caption {
 	margin: 0;
-	padding: 0;
+	padding: var(--syw-space-2) 0 0 0;
 	border: 0;
-	width: calc(100% - var(--syw-space-8));
+	width: calc(100% - var(--syw-size-caption-indent));
 	/* color: var(--syw-color-secondary-dark); */
 	border: 1px solid transparent;
 	position: relative;
@@ -11,6 +11,7 @@
 	line-height: 1.3em;
 	cursor: text;
 	transition: all 200ms ease;
+	--syw-size-caption-before-top: calc((var(--syw-space-1) + 2px));
 }
 .Syw-Caption::before {
 	content: "";
@@ -19,7 +20,7 @@
 	z-index: 2;
 	position: absolute;
 	left: calc(var(--syw-space-2) + (var(--syw-size-badge) / 2) - 1.5px);
-	top: calc((var(--syw-space-3) + 2px) * -1);
+	top: calc(var(--syw-size-caption-before-top) * -1);
 	height: 0;
 	background-color: var(--syw-color-primary);
 	border-color: var(--syw-color-secondary);
@@ -33,7 +34,9 @@
 }
 /* Caption > Active > Expand */
 .Syw-App_active.Syw-App_expand .Syw-Caption::before {
-	height: calc(100% + var(--syw-space-8) + 0px);
+	height: 100%;
+	height: calc(var(--syw-space-1) + 4px + 100% + calc(var(--syw-size-manifest-preview-height) / 2) - calc(var(--syw-size-badge) / 2));
+	/* height: calc(100% + 2px + var(--syw-space-4) + (var(--syw-size-manifest-preview-height) / 2) - (var(--syw-size-badge) / 2)); */
 }
 .Syw-App_active.Syw-App_expand .Syw-Caption::after {
 	opacity: 1;
@@ -45,7 +48,7 @@
 }
 /* Caption > Inner > Active > Expand */
 .Syw-App_active.Syw-App_expand .Syw-CaptionInner {
-	transform: translateX(var(--syw-space-8));
+	transform: translateX(var(--syw-size-caption-indent));
 	/* padding-left: var(--syw-space-6); */
 }
 /* Caption > Byline */

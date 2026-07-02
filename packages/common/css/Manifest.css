@@ -17,7 +17,7 @@
 	height: calc(100% - (var(--syw-size-badge) / 2));
 	position: absolute;
 	z-index: 2;
-	top: calc((var(--syw-size-manifest-preview) / 2) + (var(--syw-size-badge) / 2));
+	top: calc((var(--syw-size-manifest-preview-height) / 2) + (var(--syw-size-badge) / 2));
 	background-color: var(--syw-color-primary);
 	border-color: var(--syw-color-secondary);
 	border-style: solid;

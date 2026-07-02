@@ -1,11 +1,12 @@
 <script>
 	import { getContext } from 'svelte';
+    import { Tabs, useTabs } from '@ark-ui/svelte/tabs';
 	import { classNames } from 'syw-common/helpers'
-	import { MANIFEST_PRIMARY_KEYS, MANIFEST_SECONDARY_KEYS } from 'syw-common/constants'
+	import { MANIFEST_CONTENT_TAB_DEFAULT, MANIFEST_CONTENT_TAB_KEYS } from 'syw-common/constants'
 	import Collapse from './Collapse.svelte'
 	import ManifestPreview from './ManifestPreview.svelte'
-	import ManifestTable from './ManifestTable.svelte'
-
+    import ManifestContent from './ManifestContent.svelte';
+	
 	const { openManifests } = getContext('uiStoreContext');
 
 	const {
@@ -14,51 +15,42 @@
 
 	const open = $derived(manifest.id in $openManifests)
 
+	const tabs = useTabs({
+		defaultValue: MANIFEST_CONTENT_TAB_DEFAULT
+	})
+	const tabKeys = $derived(MANIFEST_CONTENT_TAB_KEYS[manifest?.type?.key] ?? [])
+
 	const classes = $derived(
 		classNames(
 			'Manifest',
 			open ? 'Manifest_open' : false,
 		)
 	)
-
 </script>
 
 <li
 	class={classes}
 >
 	<div
-		class={classNames(
-			'ManifestRow',
-			open ? 'ManifestRow_open' : null
-		)}
+		class={classNames('ManifestInner')}
 	>
-		<ManifestPreview
-			open={open}
-			manifest={manifest}
-		/>
-		<Collapse
-			open={open}
+		<Tabs.RootProvider
+			value={tabs}
+			keys={tabKeys}
 		>
-			<div
-				class={classNames('ManifestContent')}
+			<ManifestPreview
+				open={open}
+				manifest={manifest}
+				tabKeys={tabKeys}
+			/>
+			<Collapse
+				open={open}
 			>
-				<div
-					class={classNames('ManifestContentPrimary')}
-				>
-					<ManifestTable
-						keys={MANIFEST_PRIMARY_KEYS}
-						manifest={manifest}
-					/>
-				</div>
-				<div
-					class={classNames('ManifestContentSecondary')}
-				>
-					<ManifestTable
-						keys={MANIFEST_SECONDARY_KEYS}
-						manifest={manifest}
-					/>
-				</div>
-			</div>
-		</Collapse>
+				<ManifestContent
+					manifest={manifest}
+					tabKeys={tabKeys}
+				/>
+			</Collapse>
+		</Tabs.RootProvider>
 	</div>
 </li>

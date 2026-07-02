@@ -15,9 +15,9 @@
 	class={classNames('Thumbnail')}
 	style={`left:${$thumbnailPosition?.clientX}px;top:${$thumbnailPosition?.clientY}px`}
 >
-	{#if $thumbnail?.value}
+	{#if $thumbnail}
 		<img
-			src={$thumbnail?.value}
+			src={$thumbnail}
 			alt={""}
 			class={classNames('ThumbnailImg')}
 		/>

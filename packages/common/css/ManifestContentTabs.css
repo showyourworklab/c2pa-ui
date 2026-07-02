@@ -15,9 +15,11 @@
 	border-radius: 0.25rem;
 }
 .Syw-ManifestContentTabsContentInner {
-	height: 200px;
 	display: flex;
-	justify-content: flex-end;
+	@media (min-width: 576px) {
+		height: 200px;
+		justify-content: flex-end;
+	}
 }
 /* Manifest > Content > Tabs > Actions */
 .Syw-ManifestContentTabsContent_actions {
@@ -25,7 +27,7 @@
 }
 /* Manifest > Content > Tabs > Thumbnail */
 .Syw-ManifestContentTabsThumbnail {
-	/* width: 100%; */
+	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
@@ -34,8 +36,15 @@
 	border-style: solid;
 	border-color: var(--syw-color-primary);
 	border-radius: var(--syw-radius-lg);
+	@media (min-width: 576px) {
+		width: auto;
+	}
 }
 img.Syw-ManifestContentTabsThumbnailImage {
-	width: auto;
-	height: 100%;
+	width: 100%;
+	height: auto;
+	@media (min-width: 576px) {
+		width: auto;
+		height: 100%;
+	}
 }

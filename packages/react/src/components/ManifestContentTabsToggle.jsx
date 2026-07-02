@@ -5,7 +5,8 @@ import { classNames, getObjectValue } from 'syw-common/helpers'
 
 function ManifestContentTabsToggle({
 	manifest,
-	keys
+	keys,
+	className
 }) {
 	const { getText } = useI18nContext()
 	
@@ -24,7 +25,10 @@ function ManifestContentTabsToggle({
 
 	return (
 		<div
-			className={classNames('ManifestContentTabsToggle')}
+			className={classNames(
+				'ManifestContentTabsToggle',
+				className
+			)}
 		>
 			<Tabs.List
 				className={classNames('ManifestContentTabsToggleList')}

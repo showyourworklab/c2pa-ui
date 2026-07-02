@@ -30,17 +30,17 @@
 		handleA11yClick(event, handleClick)
 	}
 
-	const handleThumbnailMouseMove = event => {
-		updateThumbnailPosition(event)
-	}
-	const handleThumbnailMouseEnter = event => {
-		openThumbnail(event)
-		addThumbnail(manifest?.thumbnail, event)
-	}
-	const handleThumbnailMouseLeave = event => {
-		closeThumbnail(event)
-		removeThumbnail(event)
-	}
+	// const handleThumbnailMouseMove = event => {
+	// 	updateThumbnailPosition(event)
+	// }
+	// const handleThumbnailMouseEnter = event => {
+	// 	openThumbnail(event)
+	// 	addThumbnail(manifest?.thumbnail, event)
+	// }
+	// const handleThumbnailMouseLeave = event => {
+	// 	closeThumbnail(event)
+	// 	removeThumbnail(event)
+	// }
 
 </script>
 
@@ -67,7 +67,10 @@
 			class={classNames('ManifestPreviewCells')}
 		>
 			<div
-				class={classNames('ManifestPreviewCell', 'ManifestPreviewCell_issuer')}
+				class={classNames(
+					'ManifestPreviewCell',
+					'ManifestPreviewCell_issuer'
+				)}
 			>
 				{manifest.type?.key
 					? getText($locale, 'type', manifest.type?.key)
@@ -76,17 +79,23 @@
 					).join(" ")}
 			</div>
 			<div
-				class={classNames('ManifestPreviewCell', 'ManifestPreviewCell_time')}
+				class={classNames(
+					'ManifestPreviewCell',
+					'ManifestPreviewCell_time'
+				)}
 			>
 				<span>{getDateString($locale, manifest?.timestamp) ?? ''}</span>
 			</div>
 			<div
-				role='button'
-				tabindex={0}
-				class={classNames('ManifestPreviewCell', 'ManifestPreviewCell_thumb')}
-				onmousemove={handleThumbnailMouseMove}
-				onmouseenter={handleThumbnailMouseEnter}
-				onmouseleave={handleThumbnailMouseLeave}
+				// role='button'
+				// tabindex={0}
+				class={classNames(
+					'ManifestPreviewCell',
+					'ManifestPreviewCell_thumb'
+				)}
+				// onmousemove={handleThumbnailMouseMove}
+				// onmouseenter={handleThumbnailMouseEnter}
+				// onmouseleave={handleThumbnailMouseLeave}
 			>
 				{#if manifest?.thumbnail}
 					<img
@@ -100,5 +109,6 @@
 	<ManifestContentTabsToggle
 		keys={tabKeys}
 		manifest={manifest}
+		class={classNames('ManifestPreviewTabsToggle')}
 	/>
 </div>

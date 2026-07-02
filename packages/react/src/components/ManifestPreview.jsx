@@ -20,17 +20,17 @@ function ManifestPreview({
 	const onKeyDown = event => {
 		handleA11yClick(event, onToggle)
 	}
-	const onThumbnailMouseMove = event => {
-		updateThumbnailPosition(event)
-	}
-	const onThumbnailMouseEnter = event => {
-		openThumbnail(event)
-		addThumbnail(thumbnailUrl, event)
-	}
-	const onThumbnailMouseLeave = event => {
-		closeThumbnail(event)
-		removeThumbnail(event)
-	}
+	// const onThumbnailMouseMove = event => {
+	// 	updateThumbnailPosition(event)
+	// }
+	// const onThumbnailMouseEnter = event => {
+	// 	openThumbnail(event)
+	// 	addThumbnail(thumbnailUrl, event)
+	// }
+	// const onThumbnailMouseLeave = event => {
+	// 	closeThumbnail(event)
+	// 	removeThumbnail(event)
+	// }
 
 	return (
 		<div
@@ -81,13 +81,13 @@ function ManifestPreview({
 						className={classNames(
 							'ManifestPreviewCell',
 							'ManifestPreviewCell_thumb',
-							thumbnailUrl === thumbnail
-								? 'ManifestPreviewCell_thumb_hover'
-								: null
+							// thumbnailUrl === thumbnail
+							// 	? 'ManifestPreviewCell_thumb_hover'
+							// 	: null
 						)}
-						onMouseMove={onThumbnailMouseMove}
-						onMouseEnter={onThumbnailMouseEnter}
-						onMouseLeave={onThumbnailMouseLeave}
+						// onMouseMove={onThumbnailMouseMove}
+						// onMouseEnter={onThumbnailMouseEnter}
+						// onMouseLeave={onThumbnailMouseLeave}
 					>
 						<img
 							src={thumbnailUrl}
@@ -99,6 +99,7 @@ function ManifestPreview({
 			<ManifestContentTabsToggle
 				keys={tabKeys}
 				manifest={manifest}
+				className={classNames('ManifestPreviewTabsToggle')}
 			/>
 		</div>
 	)

@@ -1,5 +1,5 @@
 /* Image > Compare */
-.Syw-Thumbnail {
+/* .Syw-Thumbnail {
 	position: fixed;
 	z-index: 999999999;
 	display: flex;
@@ -23,4 +23,4 @@
 }
 .Syw-Thumbnail .Syw-ThumbnailMissing {
 	color: var(--syw-color-secondary);
-}
+} */

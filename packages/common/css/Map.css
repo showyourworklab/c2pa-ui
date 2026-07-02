@@ -1,6 +1,7 @@
 /* Map */
 .Syw-Map {
 	width: 100%;
+	aspect-ratio: 4 / 3;
 	margin: var(--syw-space-1) 0 0 0;
 	/* padding: var(--syw-space-1); */
 	border-radius: var(--syw-radius-lg);

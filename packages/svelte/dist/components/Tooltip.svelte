@@ -5,6 +5,7 @@
 
 	const {
 		content,
+		disabled,
 		ContentProps = {},
 		className,
 		children
@@ -12,38 +13,41 @@
 
 </script>
 
-<ArkTooltip.Root
-	openDelay={0}
-	lazyMount={true}
-	unmountOnExit={false}
-	disabled={content === undefined}
->
-	<ArkTooltip.Trigger
-		class={classNames(
-			'TooltipTrigger',
-			className,
-		)}
+{#if disabled || content === undefined}
+	{@render children?.()}
+{:else}
+	<ArkTooltip.Root
+		openDelay={0}
+		lazyMount={true}
+		unmountOnExit={false}
 	>
-		{@render children?.()}
-	</ArkTooltip.Trigger>
-	<ArkPortal>
-		<ArkTooltip.Positioner>
-			<ArkTooltip.Content
-				{...ContentProps}
-				class={classNames(
-					'TooltipContent',
-					ContentProps?.className,
-				)}
-			>
-				<ArkTooltip.Arrow
-					class={classNames('TooltipArrow')}
+		<ArkTooltip.Trigger
+			class={classNames(
+				'TooltipTrigger',
+				className,
+			)}
+		>
+			{@render children?.()}
+		</ArkTooltip.Trigger>
+		<ArkPortal>
+			<ArkTooltip.Positioner>
+				<ArkTooltip.Content
+					{...ContentProps}
+					class={classNames(
+						'TooltipContent',
+						ContentProps?.className,
+					)}
 				>
-					<ArkTooltip.ArrowTip
-						class={classNames('TooltipArrowTip')}
-					/>
-				</ArkTooltip.Arrow>
-				{content}
-			</ArkTooltip.Content>
-		</ArkTooltip.Positioner>
-	</ArkPortal>
-</ArkTooltip.Root>
+					<ArkTooltip.Arrow
+						class={classNames('TooltipArrow')}
+					>
+						<ArkTooltip.ArrowTip
+							class={classNames('TooltipArrowTip')}
+						/>
+					</ArkTooltip.Arrow>
+					{content}
+				</ArkTooltip.Content>
+			</ArkTooltip.Positioner>
+		</ArkPortal>
+	</ArkTooltip.Root>
+{/if}

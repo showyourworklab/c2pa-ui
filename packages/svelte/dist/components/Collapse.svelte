@@ -1,5 +1,4 @@
 <script>
-	import { tick } from 'svelte'
 	import {
 		Collapsible as ArkCollapsible,
 		useCollapsible as useArkCollapsible

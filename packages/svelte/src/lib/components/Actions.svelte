@@ -6,14 +6,18 @@
 	const { locale, getText } = getContext('i18nStoreContext')
 </script>
 
-<ul
+<div
 	class={classNames('Actions')}
 >
-	{#each actions as action}
-		<li
-			class={classNames('ActionsItem')}
-		>
-			{getText($locale, 'action', action)}
-		</li>
-	{/each}
-</ul>
+	<ul
+		class={classNames('ActionsList')}
+	>
+		{#each actions as action}
+			<li
+				class={classNames('ActionsListItem')}
+			>
+				{getText($locale, 'action', action)}
+			</li>
+		{/each}
+	</ul>
+</div>

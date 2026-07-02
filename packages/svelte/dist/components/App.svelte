@@ -127,8 +127,8 @@
 		{#if $_variant === 'modal'}
 			<ProvenanceModal />
 		{/if}
-		{#if $isThumbnailOpen}
+		<!-- {#if $isThumbnailOpen}
 			<Thumbnail />
-		{/if}
+		{/if} -->
 	</div>
 {/if}

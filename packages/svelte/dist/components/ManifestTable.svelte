@@ -12,12 +12,10 @@
 	class={classNames('ManifestTable')}
 >
 	{#each keys as key}
-		{#if manifest[key]}
-			<ManifestTableRow
-				type={key}
-				value={manifest[key]}
-				manifest={manifest}
-			/>
-		{/if}
+		<ManifestTableRow
+			type={key}
+			value={manifest[key]}
+			manifest={manifest}
+		/>
 	{/each}
 </ul>

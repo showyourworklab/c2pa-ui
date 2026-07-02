@@ -2,6 +2,7 @@ import { classNames } from 'syw-common/helpers'
 import { MANIFEST_PRIMARY_KEYS } from 'syw-common/constants'
 import ManifestTable from './ManifestTable'
 import ManifestContentTabs from './ManifestContentTabs'
+import ManifestContentTabsToggle from './ManifestContentTabsToggle'
 
 function ManifestContent({ tabKeys, manifest }) {
 	return (
@@ -19,6 +20,11 @@ function ManifestContent({ tabKeys, manifest }) {
 			<div
 				className={classNames('ManifestContentSecondary')}
 			>
+				<ManifestContentTabsToggle
+					keys={tabKeys}
+					manifest={manifest}
+					className={classNames('ManifestContentSecondaryTabsToggle')}
+				/>
 				<ManifestContentTabs
 					keys={tabKeys}
 					manifest={manifest}
