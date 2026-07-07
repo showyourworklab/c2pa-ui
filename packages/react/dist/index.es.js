@@ -2396,14 +2396,14 @@ BRSVhrfC71yl5i/KpA==
   // Verify
   verify_pre: "See more at"
 }, XM = {
-  producer: "Produsent",
+  producer: "Produsert av",
   timestamp: "Tidsstempel",
   signator: "Signert av",
-  generator: "Produsert med",
+  generator: "Tatt med",
   location: "Sted",
   actions: "Handlinger",
   ingredients: "Ingredienser",
-  provenance_toggle: "Se bildeopprinnelse",
+  provenance_toggle: "Se bildets opphav",
   // Explainer
   explainer_toggle: "Hva er dette?",
   explainer_toggle_close: "Lukke",
@@ -2421,16 +2421,16 @@ BRSVhrfC71yl5i/KpA==
   status_invalid_definition: "Vi fant noen ugyldige C2PA-data",
   status_unknown_definition: "Vi finner ingen C2PA-opprinnelsesdata for å validere",
   // Types
-  type_camera: "Fanget av kamera",
+  type_camera: "Tatt med kamera",
   type_ai: "AI-generert",
   type_edit: "Redigeringer gjort",
   type_camera_definition: "Dette bildet ble tatt av et kamera",
   type_ai_definition: "Dette bildet ble generert ved hjelp av AI",
   type_edit_definition: "Dette mediet ble redigert etter at det ble opprettet",
   // Tabs
-  tab_thumbnail: "Thumbnail",
-  tab_location: "Map",
-  tab_actions: "Edits",
+  tab_thumbnail: "Bilde",
+  tab_location: "Kart",
+  tab_actions: "Redigeringer",
   // Actions
   action_c2pa_created: "Opprettet",
   action_c2pa_cropped: "Beskåret",
@@ -2489,16 +2489,16 @@ BRSVhrfC71yl5i/KpA==
   // Thumbnail
   thumbnail_missing: "Ingen miniatyrbilder tilgjengelig",
   // Verify
-  verify_pre: "Se mer på"
+  verify_pre: "Les mer på"
 }, KM = {
-  producer: "Producent",
+  producer: "Producerad av",
   timestamp: "Tidsstämpel",
   signator: "Undertecknad av",
-  generator: "Producerad med",
+  generator: "Tagen med",
   location: "Plats",
   actions: "Åtgärder",
   ingredients: "Ingredienser",
-  provenance_toggle: "Visa bildens ursprung",
+  provenance_toggle: "Se bildens ursprung",
   // Explainer
   explainer_toggle: "Vad är det här?",
   explainer_toggle_close: "Stäng",
@@ -2516,16 +2516,16 @@ BRSVhrfC71yl5i/KpA==
   status_invalid_definition: "Vi hittade ogiltiga C2PA-data",
   status_unknown_definition: "Vi kan inte hitta några C2PA-proveniensdata för att validera",
   // Types
-  type_camera: "Fångad av kamera",
+  type_camera: "Tagen med kamera",
   type_ai: "AI-genererad",
   type_edit: "Gjorda redigeringar",
   type_camera_definition: "Den här bilden togs av en kamera",
   type_ai_definition: "Den här bilden genererades med hjälp av AI",
   type_edit_definition: "Detta media redigerades efter att det skapades",
   // Tabs
-  tab_thumbnail: "Thumbnail",
-  tab_location: "Map",
-  tab_actions: "Edits",
+  tab_thumbnail: "Bild",
+  tab_location: "Karta",
+  tab_actions: "Redigeringar",
   // Actions
   action_c2pa_created: "Skapad",
   action_c2pa_cropped: "Beskuren",
@@ -2584,7 +2584,7 @@ BRSVhrfC71yl5i/KpA==
   // Thumbnail
   thumbnail_missing: "Ingen miniatyrbild tillgänglig",
   // Verify
-  verify_pre: "Visa mer på"
+  verify_pre: "Läs mer på"
 }, ty = {
   en_US: JM,
   no_NO: XM,
