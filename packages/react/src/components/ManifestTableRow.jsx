@@ -4,6 +4,7 @@ import { getDateString } from 'syw-common/helpers/i18n'
 import { useI18nContext } from '$src/context/i18n'
 import Map from './Map'
 import Actions from './Actions'
+import Generator from './Generator'
 
 function ManifestTableRow({ type, value, manifest }) {
 	const { locale, getText } = useI18nContext()
@@ -43,25 +44,11 @@ function ManifestTableRow({ type, value, manifest }) {
 					/>
 				: type === 'generator' ?
 					value.map((v, index) =>
-						<div
+						<Generator
 							key={index}
-							className={classNames('ManifestTableRowValueGenerator')}
-						>
-							{v.icon ?
-								<img
-									src={v.icon}
-									className={classNames('ManifestTableRowValueGeneratorIcon')}
-								/>
-							: null}
-							<span>
-								{v.name}
-							</span>
-							{/* {v.detail ?
-								<sub>
-									{v.detail}
-								</sub>
-							: null} */}
-						</div>
+							name={v.name}
+							icon={v.icon}
+						/>
 					)
 				: formattedValue}
 			</div>

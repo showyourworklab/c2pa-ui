@@ -190,16 +190,17 @@ export const getProducer = manifest => {
  * @param {object} manifest - Manifest entry
  * @return {string} - List of generator names with version (i.e. Lightroom Classic 14.0)
  */
-export const getGenerator = async (manifest, reader) => {
+export const getGenerator = (manifest) => {
 	let generator = []
 	if(manifest?.claim_generator_info) {
-		generator = await Promise.all(
-			manifest.claim_generator_info.map(async d => ({
-				name: d.name,
-				// detail: d.version,
-				icon: await convertJumbfToDataUri(reader, d?.icon?.identifier, d?.icon?.format)
-			}))
-		)
+		generator = manifest.claim_generator_info.map(d => ({
+			name: d.name,
+			// detail: d.version,
+			icon: {
+				identifier: d?.icon?.identifier,
+				format: d?.icon?.format,
+			},
+		}))
 	} else if(getExifValue(manifest, 'Make') || getExifValue(manifest, 'Model')) {
 		const exifMake = getExifValue(manifest, 'Make')
 		const exifModel = getExifValue(manifest, 'Model')
@@ -431,7 +432,7 @@ export const prepareManifest = async ({ src, locale, manifest, provenance, reade
 		timestamp: getTimestamp(manifest),
 		producer: getProducer(manifest),
 		signator: getSignator(manifest),
-		generator: await getGenerator(manifest, reader),
+		generator: getGenerator(manifest),
 		actions: getActions(manifest),
 		// ingredients: getIngredients(manifest),
 		thumbnail: await getThumbnail(manifest, reader),

@@ -4,6 +4,7 @@
 	import { getDateString } from 'syw-common/helpers/i18n'
     import Map from './Map.svelte'
 	import Actions from './Actions.svelte'
+	import Generator from './Generator.svelte'
 
 	const { locale, getText } = getContext('i18nStoreContext');
 
@@ -46,20 +47,10 @@
 			/>
 		{:else if type === 'generator'}
 			{#each value as v}
-				<div
-					class={classNames('ManifestTableRowValueGenerator')}
-				>
-					{#if v.icon}
-						<img
-							alt=""
-							src={v.icon}
-							class={classNames('ManifestTableRowValueGeneratorIcon')}
-						/>
-					{/if}
-					<span>
-						{v.name}
-					</span>
-				</div>
+				<Generator
+					name={v.name}
+					icon={v.icon}
+				/>
 			{/each}
 		{:else}
 			{formattedValue()}
