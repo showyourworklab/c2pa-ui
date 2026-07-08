@@ -22,7 +22,7 @@
 	<article>
 		<SywSvelte
 			locale={"no_NO"}
-			src={`https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/leica-nora-syria-2.jpg`}
+			src={`https://showyourworklab.github.io/c2pa-images/leica-nora-syria-2.jpg`}
 			caption='Post mortem: Syrias rettsmedisinere skal få lik til å snakke og avdekke sannheten om hvordan de døde. Slik kan landet forhåpentligvis heles. 28 år gamle Sara Melhem ble kastet inn i en ny epoke etter årtier med systematiske løgner fra regimet.'
 			byline='Nora Savosnick'
 		/>
@@ -43,7 +43,7 @@
 
 		<SywSvelte
 			locale={"no_NO"}
-			src={`https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/leica-nora-syria-3.jpg`}
+			src={`https://showyourworklab.github.io/c2pa-images/leica-nora-syria-3.jpg`}
 			caption=''
 			byline='Nora Savosnick'
 		/>
@@ -70,7 +70,7 @@
 
 		<SywSvelte
 			locale={"no_NO"}
-			src={`https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/leica-nora-syria-7.jpg`}
+			src={`https://showyourworklab.github.io/c2pa-images/leica-nora-syria-7.jpg`}
 			caption='Spor av diktatur: To stjerner – ikke tre – var emblemet på flagget under Assads regime.'
 			byline='Nora Savosnick'
 		/>
@@ -89,7 +89,7 @@
 
 		<SywSvelte
 			locale={"no_NO"}
-			src={`https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/leica-nora-syria-12.jpg`}
+			src={`https://showyourworklab.github.io/c2pa-images/leica-nora-syria-12.jpg`}
 			caption='Familien Alsayed: Pappa Abdulghafour har reist tilbake til Damaskus fra Kristiansand. Mamma Areej og den to måneder gamle datteren Affaf kommer fra Saudi-Arabia. Nå vil de bygge et nytt liv sammen i Syria.'
 			byline='Nora Savosnick'
 		/>
@@ -104,7 +104,7 @@
 
 		<SywSvelte
 			locale={"no_NO"}
-			src={`https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/leica-nora-syria-11.jpg`}
+			src={`https://showyourworklab.github.io/c2pa-images/leica-nora-syria-11.jpg`}
 			caption='150 kilo bagasje, en halv kilo baby: På et lite hotellrom i Damaskus planlegger familien Alsayed sin nye syriske fremtid.'
 			byline='Nora Savosnick'
 		/>
@@ -127,7 +127,7 @@
 
 		<SywSvelte
 			locale={"no_NO"}
-			src={`https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/leica-nora-syria-6.jpg`}
+			src={`https://showyourworklab.github.io/c2pa-images/leica-nora-syria-6.jpg`}
 			caption='På kirkegården i al-Ghouta: Etter Assads fall er det igjen mulig for millioner av syrere å besøke sine pårørendes graver – for de som har en grav.'
 			byline='Nora Savosnick'
 		/>
@@ -154,7 +154,7 @@
 
 		<SywSvelte
 			locale={"no_NO"}
-			src={`https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/leica-nora-syria-15.jpg`}
+			src={`https://showyourworklab.github.io/c2pa-images/leica-nora-syria-15.jpg`}
 			caption='Minerydder: Anwar Amoon.'
 			byline='Nora Savosnick'
 		/>
@@ -179,7 +179,7 @@
 
 		<SywSvelte
 			locale={"no_NO"}
-			src={`https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/leica-nora-syria-4.jpg`}
+			src={`https://showyourworklab.github.io/c2pa-images/leica-nora-syria-4.jpg`}
 			caption=''
 			byline='Nora Savosnick'
 		/>
@@ -200,7 +200,7 @@
 
 		<SywSvelte
 			locale={"no_NO"}
-			src={`https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/leica-nora-syria-1.jpg`}
+			src={`https://showyourworklab.github.io/c2pa-images/leica-nora-syria-1.jpg`}
 			caption='Sporsøker: Obdusenten må også fungere som detektiv overfor pårørende.'
 			byline='Nora Savosnick'
 		/>
@@ -221,7 +221,7 @@
 
 		<SywSvelte
 			locale={"no_NO"}
-			src={`https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/leica-nora-syria-16.jpg`}
+			src={`https://showyourworklab.github.io/c2pa-images/leica-nora-syria-16.jpg`}
 			caption='Uro: Inne i kafeen i Damaskus er det fredelig. Utenfor kretser et krigsfly på himmelen.'
 			byline='Nora Savosnick'
 		/>
@@ -240,7 +240,7 @@
 
 		<SywSvelte
 			locale={"no_NO"}
-			src={`https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/leica-nora-syria-5.jpg`}
+			src={`https://showyourworklab.github.io/c2pa-images/leica-nora-syria-5.jpg`}
 			caption='Eksplosivt: Midt på den trafikkerte veien mot Damaskus oppdager minerydderne en nedgravd bombe.'
 			byline='Nora Savosnick'
 		/>
@@ -259,7 +259,7 @@
 
 		<SywSvelte
 			locale={"no_NO"}
-			src={`https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/leica-nora-syria-10.jpg`}
+			src={`https://showyourworklab.github.io/c2pa-images/leica-nora-syria-10.jpg`}
 			caption='Delt by: I dag er mange kristne redde for å vende tilbake til Maaloula, som har flere tusen års turbulent historie som kristen landsby.'
 			byline='Nora Savosnick'
 		/>
@@ -278,7 +278,7 @@
 
 		<SywSvelte
 			locale={"no_NO"}
-			src={`https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/leica-nora-syria-8.jpg`}
+			src={`https://showyourworklab.github.io/c2pa-images/leica-nora-syria-8.jpg`}
 			caption='Helomvending: Under borgerkrigen ble Fadi Al Bar Keels lillebror kidnappet og mishandlet av al-Nusra-bevegelsen. I dag er al-Nusras tidligere leder blitt Syrias president.'
 			byline='Nora Savosnick'
 		/>
@@ -307,7 +307,7 @@
 
 		<SywSvelte
 			locale={"no_NO"}
-			src={`https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/leica-nora-syria-9.jpg`}
+			src={`https://showyourworklab.github.io/c2pa-images/leica-nora-syria-9.jpg`}
 			caption='Bortført fra klosteret: Nonnen Miriam Al Haber er 65 år og har overlevd to borgerkriger og to kidnappinger – én i Libanon og én i Syria.'
 			byline='Nora Savosnick'
 		/>
@@ -363,7 +363,7 @@
 
 		<SywSvelte
 			locale={"no_NO"}
-			src={`https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/leica-nora-syria-14.jpg`}
+			src={`https://showyourworklab.github.io/c2pa-images/leica-nora-syria-14.jpg`}
 			caption='Lappeteppe: Disse guttene er mellom 18 og 21 år og har ulik bakgrunn. «Oss imellom bryr vi oss ikke om religion, men det siste året har alt handlet om religion i Syria», sier én frustrert. De vil først la seg intervjue med navn, men når de senere har snakket med familiene sine, tar frykten overhånd og oppfølgingsavtalene blir avlyst.'
 			byline='Nora Savosnick'
 		/>
@@ -382,7 +382,7 @@
 
 		<SywSvelte
 			locale={"no_NO"}
-			src={`https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/leica-nora-syria-13.jpg`}
+			src={`https://showyourworklab.github.io/c2pa-images/leica-nora-syria-13.jpg`}
 			caption=''
 			byline='Nora Savosnick'
 		/>

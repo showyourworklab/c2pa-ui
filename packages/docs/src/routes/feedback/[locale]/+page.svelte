@@ -51,7 +51,7 @@
 		<SsrFallback>
 			<SywSvelte
 				locale={locale}
-				src={`https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/leica-nora-12.jpg?v=3`}
+				src={`https://showyourworklab.github.io/c2pa-images/feedback-1.jpg`}
 				caption={dictionary?.caption}
 				byline='Nora Savosnick'
 			/>

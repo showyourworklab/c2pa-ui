@@ -24,7 +24,7 @@
 		<p>På andra: Tennessee.</p>
 		<SywSvelte
 			locale={"sv_SE"}
-			src={`https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/article-1-7.jpg`}
+			src={`https://showyourworklab.github.io/c2pa-images/article-1-7.jpg`}
 			caption='I mitten av gatan går en gul linje som markerar gränsen. På ena sidan är abort tillåtet, på den andra är det olagligt. Om du befinner dig på Tennessee-sidan finns det inga undantag – inte ens vid våldtäkt eller incest.'
 			byline='Nora Savosnick'
 		/>
@@ -34,7 +34,7 @@
 		<p>Framför allt en.</p>
 		<SywSvelte
 			locale={"sv_SE"}
-			src={`https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/article-1-8.jpg`}
+			src={`https://showyourworklab.github.io/c2pa-images/article-1-8.jpg`}
 			caption='Senare på kvällen är båda sidor livliga i den delade staden.'
 			byline='Nora Savosnick'
 		/>
@@ -46,7 +46,7 @@
 		<p>De senaste två åren har nämligen abortkliniken kastats in i det nationella strålkastarljuset på grund av sin unika gränsplacering.</p>
 		<SywSvelte
 			locale={"sv_SE"}
-			src={`https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/article-1-6.jpg`}
+			src={`https://showyourworklab.github.io/c2pa-images/article-1-6.jpg`}
 			caption='Utsikt från Karolinas kontor, som driver abortkliniken. Allt är tydligt övervakat och ofta står demonstranter utanför.'
 			byline='Nora Savosnick'
 		/>
@@ -57,7 +57,7 @@
 		<p>Och den delade småstaden Bristol – med 17 000 invånare på ena sidan och 27 000 på andra – blev en symbol för USA:s nya kluvna abortlandskap.</p>
 		<SywSvelte
 			locale={"sv_SE"}
-			src={`https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/article-1-1.jpg`}
+			src={`https://showyourworklab.github.io/c2pa-images/article-1-1.jpg`}
 			caption='Karolina Ogorek, 44, driver en abortklinik på Virginiasidan av Bristol.'
 			byline='Nora Savosnick'
 		/>
@@ -74,7 +74,7 @@
 		<p>I presidentvalet om två veckor kan allt ställas på sin spets.</p>
 		<SywSvelte
 			locale={"sv_SE"}
-			src={`https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/article-1-4.jpg`}
+			src={`https://showyourworklab.github.io/c2pa-images/article-1-4.jpg`}
 			caption='Sjuksköterskan Carrie Blackwell sitter tillsammans med Karolina Ogorek inne på sitt kontor.'
 			byline='Nora Savosnick'
 		/>
@@ -84,7 +84,7 @@
 		<p>Å ena sidan vill han ta åt sig äran för att ha avskaffat den nationella aborträtten. Å andra sidan har han erkänt att frågan blivit ett sänke för Republikanerna.</p>
 		<SywSvelte
 			locale={"sv_SE"}
-			src={`https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/article-1-17.jpg`}
+			src={`https://showyourworklab.github.io/c2pa-images/article-1-17.jpg`}
 			caption=''
 			byline='Nora Savosnick'
 		/>
@@ -93,7 +93,7 @@
 		<p>Även Joe Biden, som är katolik, har fått massiv kritik från abortförespråkare för att han klumpigt hanterat frågan som president. När han klev åt sidan och Kamala Harris tog över som Demokraternas presidentkandidat, jublade abortrörelsen. Hon har gjort abort till sin spjutspetsfråga i kampanjen, med hopp om att mobilisera unga demokratiska väljare. För kvinnor under 45 år är abort den allra viktigaste valfrågan.</p>
 		<SywSvelte
 			locale={"sv_SE"}
-			src={`https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/article-1-14.jpg`}
+			src={`https://showyourworklab.github.io/c2pa-images/article-1-14.jpg`}
 			caption=''
 			byline='Nora Savosnick'
 		/>
@@ -103,7 +103,7 @@
 		<p>Trump har svängt i sin abortpolitik, ibland på daglig basis. Han har antytt att han skulle lägga veto mot ett nationellt abortförbud som president och framhäver att det är upp till delstaterna själva att avgöra om de vill övervaka kvinnors graviditeter och straffa dem som söker abort.</p>
 		<SywSvelte
 			locale={"sv_SE"}
-			src={`https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/article-1-18.jpg`}
+			src={`https://showyourworklab.github.io/c2pa-images/article-1-18.jpg`}
 			caption='Karolina Ogorek, 44, driver en abortklinik på Virginiasidan av Bristol.'
 			byline='Nora Savosnick'
 		/>
@@ -115,7 +115,7 @@
 		<p>– Jag har ingen optimistisk syn. Vi har levt under en konstig period i vår historia där kvinnor hade rätt att välja abort i det här landet, och den togs bort. Det kommer ta lång tid innan det är tillgängligt i alla delstater igen.</p>
 		<SywSvelte
 			locale={"sv_SE"}
-			src={`https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/article-1-13.jpg`}
+			src={`https://showyourworklab.github.io/c2pa-images/article-1-13.jpg`}
 			caption=''
 			byline='Nora Savosnick'
 		/>
@@ -128,7 +128,7 @@
 		<p>– De vill veta om de gör något olagligt och riskerar fängelse. Vi försäkrar dem om att de inte bryter mot lagen genom att komma hit.</p>
 		<SywSvelte
 			locale={"sv_SE"}
-			src={`https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/article-1-19.jpg`}
+			src={`https://showyourworklab.github.io/c2pa-images/article-1-19.jpg`}
 			caption=''
 			byline='Nora Savosnick'
 		/>
@@ -144,7 +144,7 @@
 		<p>Carrie ser ofta hur rädslan sprider sig bland de patienter som kommer från grannstaterna.</p>
 		<SywSvelte
 			locale={"sv_SE"}
-			src={`https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/article-1-15.jpg`}
+			src={`https://showyourworklab.github.io/c2pa-images/article-1-15.jpg`}
 			caption='Carrie Blackwell jobbar på abortkliniken.'
 			byline='Nora Savosnick'
 		/>
@@ -153,7 +153,7 @@
 		<p>Även om kvinnorna i sig kanske inte blir åtalade, riskerar de att pressas på information om vem som hjälpt dem att genomföra aborten i en annan delstat. Varifrån fick du egentligen de här tabletterna?</p>
 		<SywSvelte
 			locale={"sv_SE"}
-			src={`https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/article-1-5.jpg`}
+			src={`https://showyourworklab.github.io/c2pa-images/article-1-5.jpg`}
 			caption=''
 			byline='Nora Savosnick'
 		/>
@@ -163,7 +163,7 @@
 		<p>– Jag anser att det förminskar den mamma som har tre barn och vet att hon inte har råd med ett fjärde. Hennes skäl är lika giltiga som dem som handlar om våldtäkt eller livshotande situationer.</p>
 		<SywSvelte
 			locale={"sv_SE"}
-			src={`https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/article-1-12.jpg`}
+			src={`https://showyourworklab.github.io/c2pa-images/article-1-12.jpg`}
 			caption=''
 			byline='Nora Savosnick'
 		/>
@@ -208,7 +208,7 @@
 		overflow: hidden;
 		background-position: center top;
 		background-size: cover;
-		background-image: url(https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/article-1-10.jpg);
+		background-image: url(https://showyourworklab.github.io/c2pa-images/article-1-10.jpg);
 	}
 	#hero:after {
 		content: "";
