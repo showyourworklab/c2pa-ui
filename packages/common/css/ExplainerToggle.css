@@ -2,6 +2,7 @@
 button.Syw-ExplainerToggle {
 	font-size: var(--syw-text-xs);
 	font-weight: var(--syw-font-weight-bold);
+	transition: all 200ms ease;
 }
 /* Cutline > Explainer > Toggle */
 .Syw-Cutline button.Syw-ExplainerToggle {
@@ -12,8 +13,15 @@ button.Syw-ExplainerToggle {
 	color: var(--syw-color-quaternary);
 }
 /* Expand > Cutline > Explainer > Toggle */
-.Syw-ProvenanceExpand button.Syw-ExplainerToggle {
+.Syw-App_expand button.Syw-ExplainerToggle {
+	color: var(--color-primary);
+}
+/* Expand > Cutline > Explainer > Toggle > Active */
+.Syw-App_expand.Syw-App_active button.Syw-ExplainerToggle {
 	color: var(--color-secondary);
+}
+.Syw-App_expand.Syw-App_active button.Syw-ExplainerToggle:hover {
+	color: var(--syw-color-tertiary);
 }
 /* Modal > Cutline > Explainer > Toggle > Active */
 .Syw-ProvenanceModal .Syw-Cutline button.Syw-ExplainerToggle {

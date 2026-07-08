@@ -43,7 +43,7 @@
 }
 /* Caption > Inner */
 .Syw-CaptionInner {
-	max-width: 85ch;
+	max-width: var(--syw-size-paragraph-max-width);
 	transition: all 200ms ease;
 }
 /* Caption > Inner > Active > Expand */

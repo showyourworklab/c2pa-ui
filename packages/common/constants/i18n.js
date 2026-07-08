@@ -28,9 +28,12 @@ export const DICTIONARY_EN_US = {
 	// Explainer
 	explainer_toggle: 'What is this?',
 	explainer_toggle_close: 'Close',
-	explainer_methods_pre: 'Read about',
-	explainer_methods_link: 'our methods',
-	explainer_methods_url: '#',
+	explainer_lede: 'This image contains verifiable information to help you better understand and trust its origin.',
+	explainer_section_1_title: 'How is it verifiable',
+	explainer_section_1_body: 'Information about how, when, and where this image was created, and how it\'s changed since, is cryptographically secured at each step using <a href="https://c2pa.org/" target="_blank">C2PA</a>, an emerging standard for making media origin traceable. This means the image or its history can\'t be edited or removed without leaving evidence.',
+	explainer_section_2_title: 'How to use this',
+	explainer_section_2_body: 'Select <strong>View Image Origin</strong> to see a summary of the file\'s history, step by step. Within each step you can see when the step occurred, what device or software was used for that step, and how it was cryptographically signed. You can see what the image looked like at that point in time in the <strong>Image</strong> tab. When available, you can also use the tabs to see where an image was captured in the <strong>Map</strong> tab, or what changes were made in the <strong>Edits</strong> tab.',
+	explainer_footer: 'Not all images carry this information, and not every step includes every detail. An incomplete record doesn\'t necessarily mean a file is fake, only that this information wasn\'t captured or made available.',
 	// Statuses
 	status_trusted: 'Trusted',
 	status_valid: 'Valid',
@@ -49,7 +52,7 @@ export const DICTIONARY_EN_US = {
 	type_ai_definition: 'This image was generated using AI',
 	type_edit_definition: 'This image was edited after it was created',
 	// Tabs
-	tab_thumbnail: "Thumbnail",
+	tab_thumbnail: "Image",
 	tab_location: "Map",
 	tab_actions: "Edits",
 	// Actions
@@ -125,9 +128,12 @@ export const DICTIONARY_NO_NO = {
 	// Explainer
 	explainer_toggle: 'Hva er dette?',
 	explainer_toggle_close: 'Lukke',
-	explainer_methods_pre: 'Les om',
-	explainer_methods_link: 'våre metoder',
-	explainer_methods_url: '#',
+	explainer_lede: 'Dette bildet inneholder verifiserbar informasjon som kan hjelpe deg med å forstå og stole på hvor det kommer fra.',
+	explainer_section_1_title: 'Hvordan er det verifiserbart',
+	explainer_section_1_body: 'Informasjon om hvordan, når og hvor dette bildet ble laget, og hvilke endringer som er gjort siden, er kryptografisk sikret i hvert trinn ved hjelp av <a href="https://c2pa.org/" target="_blank">C2PA</a>, en ny teknisk standard som gjør det mulig å dokumentere et bildes opprinnelse og historikk. Det betyr at verken bildet eller informasjonen om det kan endres eller fjernes uten at det etterlater spor.',
+	explainer_section_2_title: 'Slik bruker du dette',
+	explainer_section_2_body: 'Velg <strong>Se bildets opphav» for å se en trinnvis oversikt over bildets historikk. For hvert trinn kan du se når det fant sted, hvilket kamera, hvilken enhet eller programvare som ble brukt, og hvordan informasjonen er kryptografisk signert. I fanen <strong>Bilde</strong> kan du se hvordan bildet så ut på hvert trinn. Dersom informasjonen er tilgjengelig, kan du også bruke fanene <strong>Kart</strong> for å se hvor bildet ble tatt, og <strong>Redigeringer</strong> for å se hvilke endringer som er gjort.',
+	explainer_footer: 'Not all images carry this information, and not every step includes every detail. An incomplete record doesn\'t necessarily mean a file is fake, only that this information wasn\'t captured or made available.',
 	// Statuses
 	status_trusted: 'Pålitelig',
 	status_valid: 'Gyldig',
@@ -222,9 +228,12 @@ export const DICTIONARY_SV_SE = {
 	// Explainer
 	explainer_toggle: 'Vad är det här?',
 	explainer_toggle_close: 'Stäng',
-	explainer_methods_pre: 'Läs om',
-	explainer_methods_link: 'våra metoder',
-	explainer_methods_url: '#',
+	explainer_lede: 'Den här bilden innehåller verifierbar information som kan hjälpa dig att förstå och lita på var den kommer ifrån.',
+	explainer_section_1_title: 'Hur är det verifierbart?',
+	explainer_section_1_body: 'Information om hur, när och var bilden skapades, och vilka ändringar som har gjorts sedan dess, är kryptografiskt säkrad i varje steg med hjälp av <a href="https://c2pa.org/" target="_blank">C2PA</a>, en ny teknisk standard som gör det möjligt att dokumentera en bilds ursprung och historia. Det innebär att varken bilden eller informationen om den kan ändras eller tas bort utan att lämna spår.',
+	explainer_section_2_title: 'Hur man använder detta',
+	explainer_section_2_body: 'Välj <strong>Se bildens ursprung</strong> för att se en steg-för-steg-översikt över bildens historik. För varje steg kan du se när det ägde rum, vilken kamera, enhet eller programvara som användes och hur informationen signerades kryptografiskt. På fliken <strong>Bild</strong> kan du se hur bilden såg ut vid varje steg. Om informationen är tillgänglig kan du också använda flikarna <strong>Karta</strong> för att se var bilden togs och flikarna <strong>Redigeringar</strong> för att se vilka ändringar som har gjorts.',
+	explainer_footer: 'Not all images carry this information, and not every step includes every detail. An incomplete record doesn\'t necessarily mean a file is fake, only that this information wasn\'t captured or made available.',
 	// Statuses
 	status_trusted: 'Betrodd',
 	status_valid: 'Giltig',

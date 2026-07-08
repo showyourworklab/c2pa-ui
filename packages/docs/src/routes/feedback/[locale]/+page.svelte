@@ -7,12 +7,32 @@
 	let { locale } = $derived(params);
 	let { dictionary } = $derived(data);
 
+	const date = $derived(new Date().toLocaleDateString(locale.replace("_", "-"), {
+		year: "numeric",
+		month: "long",
+		day: "numeric",
+	}))
+
 </script>
+
+<svelte:head>
+	<title>Show Your Work Lab | {dictionary?.title}</title>
+</svelte:head>
 
 <header id="header">
 	<div id="locales">
-		<a href="./en_US">English</a>
-		<a href="./no_NO">Norsk</a>
+		<a
+			href="./en_US"
+			class={"en_US".toLocaleLowerCase() === locale.toLocaleLowerCase() ? "active" : null}
+		>
+			English
+		</a>
+		<a
+			href="./no_NO"
+			class={"no_NO".toLocaleLowerCase() === locale.toLocaleLowerCase() ? "active" : null}
+		>
+			Norsk
+		</a>
 	</div>
 </header>
 <main id="main">
@@ -20,6 +40,9 @@
 		<hgroup id="heading">
 			<h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h1>
 			<p>Duis pretium quam vel sem rhoncus, id feugiat ex eleifend. Nam suscipit, elit eu cursus lacinia, enim metus viverra massa, non egestas urna elit vel augue.</p>
+			<div>
+				Maecenas Vulputate | {date}
+			</div>
 		</hgroup>
 		<p>
 			Praesent porta justo hendrerit sollicitudin vestibulum. Pellentesque suscipit faucibus tellus, sit amet dictum diam malesuada sed. Donec at ultrices augue. Morbi ultricies vitae dui ac tempor. Integer quis urna id ante dictum condimentum non tempor tellus. Vestibulum tristique facilisis ante, commodo vehicula enim pretium vel. Phasellus sed magna eget arcu porttitor scelerisque. Aliquam ac dolor magna.
@@ -35,6 +58,9 @@
 		<p>
 			Donec et volutpat erat, vel porttitor dui. Nulla viverra mi laoreet ex tincidunt, sit amet maximus libero congue. Vestibulum id elit leo. Integer quis sapien gravida, auctor massa nec, hendrerit est. Duis finibus mauris in justo suscipit venenatis. Aliquam rhoncus mollis ligula, quis dapibus lectus tincidunt eu. Vestibulum dapibus, tellus ut rutrum suscipit, magna velit molestie nibh, eu mollis massa leo id sapien. Nullam ullamcorper enim elit, et luctus enim ullamcorper a. Nulla molestie varius orci, eu fringilla nibh tincidunt ut. Duis vehicula, risus id dictum tempor, mi nisl sodales odio, eget gravida dolor mi eu eros. Quisque in eros sagittis, finibus erat posuere, euismod elit. Quisque eu eleifend libero. Quisque volutpat efficitur ullamcorper. Donec ut auctor metus.
 		</p>
+		<center>
+			...
+		</center>
 	</article>
 </main>
 <footer id="footer">
@@ -100,6 +126,9 @@
 		grid-template-columns: repeat(2, 1fr);
 		column-gap: 8px;
 	}
+	#locales a.active {
+		font-weight: bold;
+	}
 	main#main {
 		width: 100vw;
 		height: 100vh;
@@ -118,7 +147,7 @@
 	}
 	hgroup#heading {
 		max-width: 600px;
-		margin: 0 auto 3rem auto;
+		margin: 0 auto 1rem auto;
 	}
 	hgroup#heading h1 {
 		font-size: 40px;

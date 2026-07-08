@@ -1,7 +1,6 @@
 import { classNames } from 'syw-common/helpers'
 import { useI18nContext, useUiContext, useDataContext } from '$src/context'
 import Modal from './Modal'
-import Badge from './Badge'
 import Provenance from './Provenance'
 import Explainer from './Explainer'
 import ExplainerToggle from './ExplainerToggle'
@@ -15,7 +14,6 @@ const ProvenanceModal = () => {
 		closeExplainer
 	} = useUiContext()
 	const { getText } = useI18nContext()
-	const { status, types } = useDataContext()
 
 	const handleOpenChange = (newOpen, event) => {
 		const originalEvent = event
@@ -38,10 +36,6 @@ const ProvenanceModal = () => {
 				className={classNames('ProvenanceModalToolbar')}
 			>
 				<ExplainerToggle />
-				<Badge
-					status={status}
-					type={types[0]}
-				/>
 			</div>
 			<Explainer />
 			<Provenance />

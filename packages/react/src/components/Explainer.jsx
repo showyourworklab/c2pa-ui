@@ -22,36 +22,47 @@ const Explainer = () => {
 				<div
 					className={classNames('ExplainerInner')}
 				>
-					<button
-						className={classNames('ExplainerClose')}
-						aria-pressed={isExplainerOpen}
-						onClick={onCloseClick}
-					>
-						{getText('explainer', 'toggle', 'close')}
-					</button>
-					<div>
-						<strong>
-							Consectetur adipiscing elit
-						</strong>
-					</div>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris enim nibh, rhoncus vel enim ac, luctus efficitur risus. Quisque viverra tellus vitae arcu consectetur tincidunt. Ut vel pharetra tellus. Nam posuere suscipit maximus.</p>
-					<div>
-						<strong>
-							Cras sagittis erat
-						</strong>
-					</div>
-					<p>Suspendisse a neque nulla. Cras sagittis erat sed elit tristique, a efficitur ante malesuada. Quisque dapibus pharetra dictum.</p>
 					<div
-						className={classNames('ExplainerMore')}
+						className={classNames('ExplainerBox')}
 					>
-						{getText('explainer', 'methods', 'pre')}&nbsp;
-						<a
-							href={getText('explainer', 'methods', 'url')}
-							// target='_blank'
-							// rel='noreferrer noopener'
+						<div
+							className={classNames('ExplainerHeader')}
 						>
-							{getText('explainer', 'methods', 'link')}
-						</a>
+							<button
+								className={classNames('ExplainerClose')}
+								aria-pressed={isExplainerOpen}
+								onClick={onCloseClick}
+							>
+								{getText('explainer', 'toggle', 'close')}
+							</button>
+							<p
+								className={classNames('ExplainerLede')}
+							>
+								{getText('explainer', 'lede')}
+							</p>
+						</div>
+						<dl
+							className={classNames('ExplainerSections')}
+						>
+							{[1,2].map(index =>
+								<div
+									key={index}
+									className={classNames('ExplainerSection')}
+								>
+									<dt
+										className={classNames('ExplainerSectionTitle')}
+									>
+										{getText('explainer', 'section', index, 'title')}
+									</dt>
+									<dd
+										className={classNames('ExplainerSectionBody')}
+										dangerouslySetInnerHTML={{
+											__html: getText('explainer', 'section', index, 'body')
+										}}
+									/>
+								</div>
+							)}
+						</dl>
 					</div>
 				</div>
 			</Collapse>

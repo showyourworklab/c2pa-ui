@@ -56,6 +56,7 @@
 	--syw-size-manifest-preview-height: 53px;
 	--syw-size-manifest-preview-indent: calc(var(--syw-size-badge) + var(--syw-space-4));
 	--syw-size-caption-indent: calc(var(--syw-size-badge) + var(--syw-space-5));
+	--syw-size-paragraph-max-width: 85ch;
 	/* Z Index */
 	--syw-z-modal: 9000000;
 	--syw-z-tooltip: 9000001;

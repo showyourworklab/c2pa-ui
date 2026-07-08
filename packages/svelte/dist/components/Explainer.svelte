@@ -19,36 +19,46 @@
 		<div
 			class={classNames('ExplainerInner')}
 		>
-			<button
-				class={classNames('ExplainerClose')}
-				aria-pressed={$isExplainerOpen}
-				onclick={onCloseClick}
-			>
-				{getText($locale, 'explainer', 'toggle', 'close')}
-			</button>
-			<div>
-				<strong>
-					Consectetur adipiscing elit
-				</strong>
-			</div>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris enim nibh, rhoncus vel enim ac, luctus efficitur risus. Quisque viverra tellus vitae arcu consectetur tincidunt. Ut vel pharetra tellus. Nam posuere suscipit maximus.</p>
-			<div>
-				<strong>
-					Cras sagittis erat
-				</strong>
-			</div>
-			<p>Suspendisse a neque nulla. Cras sagittis erat sed elit tristique, a efficitur ante malesuada. Quisque dapibus pharetra dictum.</p>
 			<div
-				class={classNames('ExplainerMore')}
+				class={classNames('ExplainerBox')}
 			>
-				{getText($locale, 'explainer', 'methods', 'pre')}
-				<a
-					href={getText($locale, 'explainer', 'methods', 'url')}
-					target='_blank'
-					rel='noreferrer noopener'
+				<div
+					class={classNames('ExplainerHeader')}
 				>
-					{getText($locale, 'explainer', 'methods', 'link')}
-				</a>
+					<button
+						class={classNames('ExplainerClose')}
+						aria-pressed={$isExplainerOpen}
+						onClick={onCloseClick}
+					>
+						{getText($locale, 'explainer', 'toggle', 'close')}
+					</button>
+					<p
+						class={classNames('ExplainerLede')}
+					>
+						{getText($locale, 'explainer', 'lede')}
+					</p>
+				</div>
+				<dl
+					class={classNames('ExplainerSections')}
+				>
+					{#each [1, 2] as index}
+						<div
+							key={index}
+							class={classNames('ExplainerSection')}
+						>
+							<dt
+								class={classNames('ExplainerSectionTitle')}
+							>
+								{getText($locale, 'explainer', 'section', index, 'title')}
+							</dt>
+							<dd
+								class={classNames('ExplainerSectionBody')}
+							>
+								{@html getText($locale, 'explainer', 'section', index, 'body')}
+							</dd>
+						</div>
+					{/each}
+				</dl>
 			</div>
 		</div>
 	</Collapse>
