@@ -1,5 +1,6 @@
 import { classNames } from 'syw-common/helpers'
 import { useDataContext } from '$src/context/data'
+import Markdown from './Markdown'
 
 const Caption = () => {
 	const { caption, byline } = useDataContext()
@@ -10,10 +11,9 @@ const Caption = () => {
 			<div
 				className={classNames('CaptionInner')}
 			>
-				{caption && caption.length ?
-					`${caption}`
-				: null}
-
+				<Markdown
+					content={caption}
+				/>
 				<div
 					className={classNames('CaptionByline')}
 				>

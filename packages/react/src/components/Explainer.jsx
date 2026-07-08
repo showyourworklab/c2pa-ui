@@ -3,6 +3,7 @@ import { useI18nContext } from '$src/context/i18n'
 import { useUiContext } from '$src/context/ui'
 import Collapse from './Collapse'
 import Icon from './Icon'
+import Markdown from './Markdown'
 
 const Explainer = () => {
 	const { getText } = useI18nContext()
@@ -55,11 +56,10 @@ const Explainer = () => {
 									>
 										{getText('explainer', 'section', index, 'title')}
 									</dt>
-									<dd
+									<Markdown
+										tag="dd"
 										className={classNames('ExplainerSectionBody')}
-										dangerouslySetInnerHTML={{
-											__html: getText('explainer', 'section', index, 'body')
-										}}
+										content={getText('explainer', 'section', index, 'body')}
 									/>
 								</div>
 							)}

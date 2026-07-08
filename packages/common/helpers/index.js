@@ -1,7 +1,7 @@
 /**
  * Joins keys together into a class name prefixed by namespace
- * @param  {...any} arr 
- * @returns 
+ * @param  {...any} arr
+ * @returns
  */
 export const classNames = (...arr) => arr.filter(c => c).map(c => c.startsWith(`Syw-`) ? c : `Syw-${c}`).join(' ')
 
@@ -30,7 +30,44 @@ export const getObjectValue = (key, object) => {
 			String(key).toLowerCase() === String(value).toLowerCase()
 		) : null;
 	return safeKey && object.hasOwnProperty(safeKey) ? (object)[safeKey] : null;
-};
+}
+
+/**
+ * Get media type of src
+ * @function
+ * @param {*} src - String of media source
+ * @returns {string} - Returns "image" or "video"
+ */
+export const getMediaType = (src) => {
+	// TODO: Needs less rudementary check
+	if(!src) {
+		return null
+	}
+	else if(src.endsWith("mp4")) {
+		return "video"
+	} else {
+		return "image"
+	}
+}
+
+/**
+ * Get available tabs based on manifest
+ * @function
+ * @param {...string} keys - Array of string keys
+ * @param {object} data - Manifest entry
+ * @returns {...string} - Returns array of string keys
+ */
+export const getAvailableTabs = (keys, data) =>
+	keys?.filter(key => {
+		const value = getObjectValue(key, data)
+		if(key === "actions") {
+			return value?.length
+		} else if(key === "location") {
+			return !isNaN(value?.lat) && !isNaN(value?.lng)
+		} else {
+			return true
+		}
+	})
 
 /**
  * Converts JUMBF URI to data URI for IMG src
@@ -54,32 +91,3 @@ export const convertJumbfToDataUri = async (reader, identifier, format) => {
 		return null
 	}
 }
-
-/**
- * 
- * @param {*} src - String of media source
- * @returns {string} - Returns "image" or "video"
- */
-export const getMediaType = (src) => {
-	// TODO: Needs less rudementary check
-	if(!src) {
-		return null
-	}
-	else if(src.endsWith("mp4")) {
-		return "video"
-	} else {
-		return "image"
-	}
-}
-
-export const getAvailableTabs = (keys, manifest) =>
-	keys?.filter(key => {
-		const value = getObjectValue(key, manifest)
-		if(key === "actions") {
-			return value?.length
-		} else if(key === "location") {
-			return !isNaN(value?.lat) && !isNaN(value?.lng)
-		} else {
-			return true
-		}
-	})
