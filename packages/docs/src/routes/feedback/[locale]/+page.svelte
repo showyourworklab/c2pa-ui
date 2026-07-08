@@ -14,9 +14,6 @@
 		<a href="./en_US">English</a>
 		<a href="./no_NO">Norsk</a>
 	</div>
-	<a href={dictionary?.feedback_url} target="_blank">
-		{dictionary?.feedback_prompt}
-	</a>
 </header>
 <main id="main">
 	<article id="article">
@@ -30,7 +27,7 @@
 		<SsrFallback>
 			<SywSvelte
 				locale={locale}
-				src={`https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/sony-nora-2.jpg`}
+				src={`https://raw.githubusercontent.com/showyourworklab/c2pa-images/refs/heads/main/images/leica-nora-12.jpg`}
 				caption={dictionary?.caption}
 				byline='Nora Savosnick'
 			/>
@@ -40,6 +37,11 @@
 		</p>
 	</article>
 </main>
+<footer id="footer">
+	<a href={dictionary?.feedback_url} target="_blank">
+		{dictionary?.feedback_prompt}
+	</a>
+</footer>
 
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
@@ -63,20 +65,33 @@
 	:global(.Syw-App) {
 		
 	}
-	header#header {
+	header#header,
+	footer#footer {
 		width: 100%;
 		position: fixed;
-		top: 0;
 		right: 0;
 		z-index: 2;
 		padding: 5px;
 		background-color: white;
 		display: flex;
-		justify-content: space-between;
+		justify-content: center;
+		/* justify-content: space-between; */
 		font-family: "Work Sans", Helvetica, Arial, sans-serif;
 		font-size: 12px;
+		border-style: solid;
+		border-color: currentColor;
+		border-width: 0;
 	}
-	header#header a {
+	header#header {
+		top: 0;
+		border-bottom-width: 1px;
+	}
+	footer#footer {
+		bottom: 0;
+		border-top-width: 1px;
+	}
+	header#header a,
+	footer#footer a {
 		color: black;
 		text-transform: uppercase;
 	}
@@ -92,7 +107,7 @@
 	}
 	article#article {
 		margin: auto;
-		padding: 3rem;
+		padding: 3rem 1rem;
 		max-width: 900px;
 	}
 	article#article > p {

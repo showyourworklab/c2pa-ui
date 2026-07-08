@@ -3,6 +3,8 @@ import {
 	LOCALE_DEFAULT,
 	LOCALE_DEFAULTS,
 	DICTIONARIES,
+	DATE_OPTIONS,
+	TIME_OPTIONS,
 } from '../constants/i18n.js'
 
 /**
@@ -90,20 +92,34 @@ export const getLocaleText = (locale = LOCALE_DEFAULT, ...keys) => {
 /**
  * Gets a human-readable date string for a given locale
  * @param {string} locale - 
- * @param {string} date - 
+ * @param {string} timestamp - 
  * @return {string} dateString - 
  */
-export const getDateString = (locale = LOCALE_DEFAULT, date) => {
-	const dateObj = date ? new Date(date) : null
-	// console.log(locale, date)
-	const isValidDate = dateObj instanceof Date && isFinite(dateObj.getTime())
-	const dateString = isValidDate ?
-		dateObj.toLocaleDateString(locale.replace('_', '-'), {
-			// weekday: 'long',
-			year: 'numeric',
-			month: 'long',
-			day: 'numeric',
-		})
-	: null
-	return dateString
+export const getDateString = (locale = LOCALE_DEFAULT, timestamp) => {
+	const { date, offset } = timestamp
+	const isValidDate = date && date instanceof Date && isFinite(date.getTime())
+	if(!isValidDate) return null
+	const dateOpts = { ...DATE_OPTIONS, timeZone: offset ?? undefined }
+	const timeOpts = { ...TIME_OPTIONS, timeZone: offset ?? undefined }
+	const localeOpt = locale.replace('_', '-')
+	
+	let dateString, timeString
+	try {
+		dateString = date.toLocaleDateString(localeOpt, dateOpts)
+		timeString = date.toLocaleTimeString(localeOpt, timeOpts)
+	} catch {
+		// Fallback for engines without offset-identifier support (only available ES2026 and up)
+		if(offset) {
+			const sign = offset[0] === '-' ? -1 : 1
+			const [h, m] = offset.slice(1).split(':').map(Number)
+			const shifted = new Date(date.getTime() + sign * (h * 60 + m) * 60000)
+			dateString = shifted.toLocaleDateString(localeOpt, { ...dateOpts, timeZone: 'UTC' })
+			timeString = shifted.toLocaleTimeString(localeOpt, { ...timeOpts, timeZone: 'UTC' })
+		} else {
+			return null
+		}
+	}
+	
+	return `${dateString}, ${timeString}`
+	
 }

@@ -306,26 +306,34 @@ export const getSignator = manifest =>
  * Gets a localized date string from manifest entry's date
  * @function
  * @param {object} manifest - Manifest entry
- * @param {string} locale - Active locale
  * @return {string} - Localized date string
  */
-export const getTimestamp = (manifest, locale) => {
-	if(manifest?.signature_info?.time) {
-		const dateObject = new Date(manifest?.signature_info?.time)
-		return dateObject
-	} else {
+export const getTimestamp = (manifest) => {
+	// TODO: track where the time came from (EXIF or signature) and if the offset was found (via GPS or not) and pass a source key that can properly label the assumed accuracy of the time
+	let date, offset
+	if(getExifValue(manifest, 'DateTimeOriginal')) {
 		const exifDateTime = getExifValue(manifest, 'DateTimeOriginal')
 		const exifParsedDate = exifDateTime?.split(/\D/)
-		const dateObject = exifParsedDate ? new Date(
-			exifParsedDate[0],
-			exifParsedDate[1] - 1,
-			exifParsedDate[2],
-			exifParsedDate[3],
-			exifParsedDate[4],
-			exifParsedDate[5]
-		) : null
-		return dateObject
+		const exifOffset = getExifValue(manifest, 'OffsetTimeOriginal') ?? null
+		if(exifParsedDate.length === 6) {
+			const [year, month, day, hour, minute, second] = exifParsedDate
+			date = exifOffset
+				? new Date(`${year}-${month}-${day}T${hour}:${minute}:${second}${exifOffset}`)
+				: new Date(year, month - 1, day, hour, minute, second)
+			offset = exifOffset
+		} else {
+			return null
+		}
+	} else if(manifest?.signature_info?.time) {
+		const isoString = manifest.signature_info.time
+		const offsetMatch = isoString.match(/([+-]\d{2}:\d{2})$|Z$/)
+		date = new Date(isoString)
+		offset = !offsetMatch || offsetMatch[0] === 'Z' ? '+00:00' : offsetMatch[0]
 	}
+	return date && isFinite(date.getTime()) ? {
+		date,
+		offset
+	} : null
 }
 
 /**
@@ -420,13 +428,11 @@ export const getVerifyUrl = src => `https://${VERIFY_BASE_URL}/inspect?source=${
  * @return {Promise<object>} - Prepared manifest object
  */
 export const prepareManifest = async ({ src, locale, manifest, provenance, reader }) => {
-	const safeLocale = getSafeLocale(locale)
-
 	return {
 		id: getId(manifest),
 		type: getType(manifest),
 		status: getStatus(manifest, provenance),
-		timestamp: getTimestamp(manifest, safeLocale),
+		timestamp: getTimestamp(manifest),
 		producer: getProducer(manifest),
 		signator: getSignator(manifest),
 		generator: getGenerator(manifest),
@@ -435,6 +441,7 @@ export const prepareManifest = async ({ src, locale, manifest, provenance, reade
 		thumbnail: await getThumbnail(manifest, reader),
 		location: getLocation(manifest),
 		verifyUrl: getVerifyUrl(src),
+		original: manifest
 	}
 }
 
@@ -459,9 +466,8 @@ export const prepareManifests = async ({ src, locale, provenance, reader }) => {
 			)
         )
 		preparedManifests.sort((a, b) =>
-			(a?.timestamp?.value?.getTime?.() || 0) - (b?.timestamp?.value?.getTime?.() || 0)
+			(a?.timestamp?.date?.getTime?.() || 0) - (b?.timestamp?.date?.getTime?.() || 0)
 		)
-		
         return preparedManifests
     } catch (error) {
         console.error(error)
@@ -493,7 +499,7 @@ export const prepareC2paData = async ({ c2pa, src, locale }) => {
             phase: C2PA_PHASES.READY,
             status,
             types,
-            provenance,
+            // provenance,
 			manifests,
             reader,
             error: null,
@@ -507,7 +513,9 @@ export const prepareC2paData = async ({ c2pa, src, locale }) => {
             error,
         }
     }
-	console.log(data)
+	if (import.meta.env.DEV) {
+		console.log(data)
+	}
 	return data
 };
 

@@ -6,6 +6,16 @@ export const LOCALE_DEFAULTS = {
 	sv: 'sv_SE'
 }
 
+export const DATE_OPTIONS = {
+	year: 'numeric',
+	month: 'long',
+	day: 'numeric',
+}
+
+export const TIME_OPTIONS = {
+	timeStyle: 'short',
+}
+
 export const DICTIONARY_EN_US = {
 	producer: 'Produced by',
 	timestamp: 'Timestamp',

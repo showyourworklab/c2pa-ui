@@ -23,9 +23,9 @@ const useC2pa = ({ src, locale }) => {
 
 		;(async () => {
 			const newData = await prepareData({ c2pa, src, locale })
-			if (import.meta.env.DEV) {
-				console.log({ src, ...newData })
-			}
+			// if (import.meta.env.DEV) {
+			// 	console.log({ src, ...newData })
+			// }
 			if (id === requestIdRef.current) setData(newData)
 		})()
 	}, [src, locale, c2pa])
