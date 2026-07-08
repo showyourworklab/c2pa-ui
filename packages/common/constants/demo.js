@@ -42,6 +42,7 @@ export const DEMO_IMAGE_URLS = [
 	'https://showyourworklab.github.io/c2pa-images/leica-nora-syria-16.jpg',
 	'https://showyourworklab.github.io/c2pa-images/truepic-1.mp4',
 	'https://showyourworklab.github.io/c2pa-images/sora-1.mp4',
+	'https://showyourworklab.github.io/c2pa-images/feedback-1.jpg',
 	// 'https://iptc.org/wp-content/uploads/2026/04/IMG_4143.jpg',
 	// 'https://showyourworklab.github.io/c2pa-images/sony-nora-1.jpg',
 
@@ -54,5 +55,5 @@ export const DEMO_IMAGE_URL_DEFAULT =
 	// DEMO_IMAGE_URLS[DEMO_IMAGE_URLS.length - 1]
 	// 'https://showyourworklab.github.io/c2pa-images/sony-nora-1.jpg'
 	// 'https://showyourworklab.github.io/c2pa-images/leica-nora-syria-6.jpg'
-	'https://showyourworklab.github.io/c2pa-images/leica-nora-13.jpg?v=1'
+	'https://showyourworklab.github.io/c2pa-images/feedback-1.jpg'
 	// 'https://iptc.org/wp-content/uploads/2026/04/IMG_4143.jpg'
