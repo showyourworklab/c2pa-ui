@@ -2,13 +2,11 @@ import { classNames } from 'syw-common/helpers'
 import { useI18nContext } from '$src/context/i18n'
 import { useUiContext } from '$src/context/ui'
 import Collapse from './Collapse'
+import Icon from './Icon'
 
 const Explainer = () => {
 	const { getText } = useI18nContext()
-	const {
-		isExplainerOpen,
-		closeExplainer
-	} = useUiContext()
+	const { isExplainerOpen, closeExplainer } = useUiContext()
 
 	const onCloseClick = closeExplainer
 
@@ -31,9 +29,12 @@ const Explainer = () => {
 							<button
 								className={classNames('ExplainerClose')}
 								aria-pressed={isExplainerOpen}
+								aria-label={getText('explainer', 'toggle', 'close')}
 								onClick={onCloseClick}
 							>
-								{getText('explainer', 'toggle', 'close')}
+								<Icon
+									type="close"
+								/>
 							</button>
 							<p
 								className={classNames('ExplainerLede')}

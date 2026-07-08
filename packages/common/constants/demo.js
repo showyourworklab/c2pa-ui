@@ -1,4 +1,10 @@
 // Hosted at https://github.com/showyourworklab/c2pa-images
+export const DEMO_IMAGES = [
+	{
+		
+	}
+]
+
 export const DEMO_IMAGE_URLS = [
 	'https://showyourworklab.github.io/c2pa-images/adobe-1.jpg',
 	'https://showyourworklab.github.io/c2pa-images/nikon-1.jpg',
@@ -48,5 +54,5 @@ export const DEMO_IMAGE_URL_DEFAULT =
 	// DEMO_IMAGE_URLS[DEMO_IMAGE_URLS.length - 1]
 	// 'https://showyourworklab.github.io/c2pa-images/sony-nora-1.jpg'
 	// 'https://showyourworklab.github.io/c2pa-images/leica-nora-syria-6.jpg'
-	'https://showyourworklab.github.io/c2pa-images/leica-nora-12.jpg?v=1'
+	'https://showyourworklab.github.io/c2pa-images/leica-nora-13.jpg?v=1'
 	// 'https://iptc.org/wp-content/uploads/2026/04/IMG_4143.jpg'

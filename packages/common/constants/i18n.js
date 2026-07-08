@@ -127,7 +127,7 @@ export const DICTIONARY_NO_NO = {
 	provenance_toggle: 'Se bildets opphav',
 	// Explainer
 	explainer_toggle: 'Hva er dette?',
-	explainer_toggle_close: 'Lukke',
+	explainer_toggle_close: 'Lukk',
 	explainer_lede: 'Dette bildet inneholder verifiserbar informasjon som kan hjelpe deg med å forstå og stole på hvor det kommer fra.',
 	explainer_section_1_title: 'Hvordan er det verifiserbart',
 	explainer_section_1_body: 'Informasjon om hvordan, når og hvor dette bildet ble laget, og hvilke endringer som er gjort siden, er kryptografisk sikret i hvert trinn ved hjelp av <a href="https://c2pa.org/" target="_blank">C2PA</a>, en ny teknisk standard som gjør det mulig å dokumentere et bildes opprinnelse og historikk. Det betyr at verken bildet eller informasjonen om det kan endres eller fjernes uten at det etterlater spor.',
