@@ -23,3 +23,12 @@
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
 }
+.Syw-ManifestTableRowValueGenerator {
+	display: flex;
+	align-items: center;
+}
+.Syw-ManifestTableRowValueGeneratorIcon {
+	width: 0.8em;
+	height: 0.8em;
+	margin-right: 0.25em;
+}

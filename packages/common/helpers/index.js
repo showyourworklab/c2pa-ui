@@ -33,6 +33,29 @@ export const getObjectValue = (key, object) => {
 };
 
 /**
+ * Converts JUMBF URI to data URI for IMG src
+ * @function
+ * @param {object} reader - C2PA reader instance
+ * @param {object} identifier - JUMBF URI string
+ * @param {object} format - Image format
+ * @return {string} - Image data URI
+ */
+export const convertJumbfToDataUri = async (reader, identifier, format) => {
+	if (!reader || !identifier || !format) return null
+	try {
+		const bytes = await reader.resourceToBytes(identifier)
+		if (bytes) {
+			const blob = new Blob([bytes], { type: format })
+			return URL.createObjectURL(blob)
+		}
+		return null
+	} catch (error) {
+		console.error('Failed to get thumbnail URL:', error)
+		return null
+	}
+}
+
+/**
  * 
  * @param {*} src - String of media source
  * @returns {string} - Returns "image" or "video"
@@ -48,3 +71,15 @@ export const getMediaType = (src) => {
 		return "image"
 	}
 }
+
+export const getAvailableTabs = (keys, manifest) =>
+	keys?.filter(key => {
+		const value = getObjectValue(key, manifest)
+		if(key === "actions") {
+			return value?.length
+		} else if(key === "location") {
+			return !isNaN(value?.lat) && !isNaN(value?.lng)
+		} else {
+			return true
+		}
+	})

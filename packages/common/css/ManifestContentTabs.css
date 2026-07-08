@@ -48,3 +48,9 @@ img.Syw-ManifestContentTabsThumbnailImage {
 		height: 100%;
 	}
 }
+.Syw-ManifestContentTabsThumbnail_missing {
+	aspect-ratio: 1 / 1;
+}
+.Syw-ManifestContentTabsThumbnail_missing svg {
+	margin: auto
+}

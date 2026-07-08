@@ -5,12 +5,13 @@
 	import { handleA11yClick } from 'syw-common/helpers'
 	import { getDateString } from 'syw-common/helpers/i18n'
     import Badge from './Badge.svelte';
+    import Icon from './Icon.svelte';
     import ManifestContentTabsToggle from './ManifestContentTabsToggle.svelte';
 
 	const {
+		open,
 		manifest,
 		tabKeys,
-		open,
 	} = $props()
 
 	const { locale, getText } = getContext('i18nStoreContext');
@@ -101,6 +102,10 @@
 					<img
 						src={manifest?.thumbnail}
 						alt=''
+					/>
+				{:else}
+					<Icon
+						type="missing"
 					/>
 				{/if}
 			</div>

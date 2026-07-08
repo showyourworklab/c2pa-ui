@@ -31,7 +31,7 @@ function Provenance() {
 				<div
 					className={classNames('ProvenanceList')}
 				>
-					{[...manifests].reverse().map((manifest, index) =>
+					{manifests.map((manifest, index) =>
 						<Manifest
 							key={index}
 							manifest={manifest}

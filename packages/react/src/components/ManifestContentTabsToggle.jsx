@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { Tabs } from '@ark-ui/react/tabs'
 import { useI18nContext } from '$src/context'
-import { classNames, getObjectValue } from 'syw-common/helpers'
+import { classNames, getObjectValue, getAvailableTabs } from 'syw-common/helpers'
 
 function ManifestContentTabsToggle({
 	manifest,
@@ -10,18 +10,9 @@ function ManifestContentTabsToggle({
 }) {
 	const { getText } = useI18nContext()
 	
-	const disabledTabKeys = useMemo(() =>
-		keys?.filter(key => {
-			const value = getObjectValue(key, manifest)
-			if(key === "location") {
-				return !value
-			} else if(key === "actions") {
-				return !value?.length
-			} else {
-				return false
-			}
-		})
-	, [keys, manifest]);
+	const availableTabs = useMemo(() =>
+		getAvailableTabs(keys, manifest)
+	, [keys, manifest])
 
 	return (
 		<div
@@ -37,7 +28,7 @@ function ManifestContentTabsToggle({
 					<Tabs.Trigger
 						key={key}
 						value={key}
-						disabled={disabledTabKeys.includes(key)}
+						disabled={!availableTabs.includes(key)}
 						className={classNames('ManifestContentTabsToggleTrigger')}
 					>
 						{getText("tab", key)}

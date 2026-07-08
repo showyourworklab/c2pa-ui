@@ -5,6 +5,7 @@
 	import SquarePen from '@lucide/svelte/icons/square-pen'
 	import Sparkles from '@lucide/svelte/icons/sparkles'
 	import TriangleAlert from '@lucide/svelte/icons/triangle-alert'
+	import ImageOff from '@lucide/svelte/icons/image-off'
 	import X from '@lucide/svelte/icons/x'
 	import { ICON_DEFAULT_SIZE, ICON_DEFAULT_STROKE_WIDTH } from 'syw-common/constants'
 	import { classNames } from 'syw-common/helpers'
@@ -25,6 +26,7 @@
 		camera: Camera,
 		edit: SquarePen,
 		ai: Sparkles,
+		missing: ImageOff,
 		close: X,
 	}
 

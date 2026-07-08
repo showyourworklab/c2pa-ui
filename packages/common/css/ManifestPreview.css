@@ -71,6 +71,7 @@
 	margin-left: var(--syw-space-2);
 	position: relative;
 	overflow: visible;
+	display: flex;
 	padding: var(--syw-space-1);
 	border-width: 1px;
 	border-style: solid;
@@ -92,6 +93,14 @@
 	height: 100%;
 	display: table;
 	object-fit: cover;
+}
+.Syw-ManifestPreviewCell_thumb svg {
+	width: 50%;
+	height: 50%;
+	margin: auto;
+}
+.Syw-ManifestPreviewCell_thumb svg * {
+	color: var(--syw-color-secondary) !important;
 }
 .Syw-Manifest_open .Syw-ManifestPreviewCell_thumb {
 	/* transform: translateX(calc(100% + var(--syw-space-2))); */

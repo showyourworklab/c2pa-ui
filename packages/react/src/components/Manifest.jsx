@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Tabs, useTabs } from '@ark-ui/react/tabs'
-import { classNames } from 'syw-common/helpers'
+import { classNames, getAvailableTabs } from 'syw-common/helpers'
 import { MANIFEST_CONTENT_TAB_DEFAULT, MANIFEST_CONTENT_TAB_KEYS } from 'syw-common/constants'
 import { useUiContext } from '$src/context/ui'
 import Collapse from './Collapse'
@@ -13,10 +13,18 @@ function Manifest({
 }) {
 	const [open, setOpen] = useState(false)
 	const { isProvenanceOpen, openManifests, openManifest, closeManifest, removeThumbnail } = useUiContext()
+
+	const tabKeys = useMemo(() =>
+		MANIFEST_CONTENT_TAB_KEYS[manifest?.type?.key] ?? []
+	, [manifest])
+
+	const availableTabKeys = useMemo(() =>
+		getAvailableTabs(tabKeys, manifest)
+	, [tabKeys, manifest])
+
 	const tabs = useTabs({
-		defaultValue: MANIFEST_CONTENT_TAB_DEFAULT
+		defaultValue: availableTabKeys[0]
 	})
-	const tabKeys = MANIFEST_CONTENT_TAB_KEYS[manifest?.type?.key] ?? []
 
 	const className = useMemo(() =>
 		classNames(
@@ -55,9 +63,9 @@ function Manifest({
 					keys={tabKeys}
 				>
 					<ManifestPreview
+						open={open}
 						manifest={manifest}
 						tabKeys={tabKeys}
-						toggled={open}
 						onToggle={handleToggle}
 						previewRef={previewRef}
 					/>

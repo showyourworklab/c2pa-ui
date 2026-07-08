@@ -1,7 +1,7 @@
 <script>
 	import { getContext } from 'svelte';
     import { Tabs, useTabs } from '@ark-ui/svelte/tabs';
-	import { classNames } from 'syw-common/helpers'
+	import { classNames, getAvailableTabs } from 'syw-common/helpers'
 	import { MANIFEST_CONTENT_TAB_DEFAULT, MANIFEST_CONTENT_TAB_KEYS } from 'syw-common/constants'
 	import Collapse from './Collapse.svelte'
 	import ManifestPreview from './ManifestPreview.svelte'
@@ -15,10 +15,15 @@
 
 	const open = $derived(manifest.id in $openManifests)
 
-	const tabs = useTabs({
-		defaultValue: MANIFEST_CONTENT_TAB_DEFAULT
-	})
 	const tabKeys = $derived(MANIFEST_CONTENT_TAB_KEYS[manifest?.type?.key] ?? [])
+
+	const availableTabKeys = $derived(
+		getAvailableTabs(tabKeys, manifest)
+	)
+
+	const tabs = $derived(useTabs({
+		defaultValue: availableTabKeys[0]
+	}))
 
 	const classes = $derived(
 		classNames(

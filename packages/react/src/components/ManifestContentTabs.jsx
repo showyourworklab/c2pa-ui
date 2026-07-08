@@ -1,20 +1,26 @@
+import { useMemo } from 'react'
 import { Tabs } from '@ark-ui/react/tabs'
 import { useI18nContext } from '$src/context'
-import { classNames } from 'syw-common/helpers'
+import { classNames, getAvailableTabs } from 'syw-common/helpers'
 import Map from './Map'
 import Actions from './Actions'
+import Icon from './Icon'
 
 function ManifestContentTabs({
 	manifest,
 	keys
 }) {
 	const { getText } = useI18nContext()
+
+	const availableTabs = useMemo(() =>
+		getAvailableTabs(keys, manifest)
+	, [keys, manifest])
 	
 	return (
 		<div
 			className={classNames('ManifestContentTabs')}
 		>
-			{keys?.map((key) => (
+			{availableTabs?.map((key) => (
 				<Tabs.Content
 					key={key}
 					value={key}
@@ -28,13 +34,18 @@ function ManifestContentTabs({
 					>
 						{key === "thumbnail" ?
 							<div
-								className={classNames('ManifestContentTabsThumbnail')}
+								className={classNames(
+									'ManifestContentTabsThumbnail',
+									!manifest?.thumbnail ? 'ManifestContentTabsThumbnail_missing' : null,
+								)}
 							>
-								<img
-									alt=''
-									src={manifest?.thumbnail}
-									className={classNames('ManifestContentTabsThumbnailImage')}
-								/>
+								{manifest?.thumbnail ?
+									<img
+										alt=''
+										src={manifest?.thumbnail}
+										className={classNames('ManifestContentTabsThumbnailImage')}
+									/>
+								: <Icon type="missing" />}
 							</div>
 						: key === "location" && manifest?.location ?
 							<Map

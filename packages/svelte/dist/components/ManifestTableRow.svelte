@@ -45,14 +45,22 @@
 				actions={value}
 			/>
 		{:else if type === 'generator'}
-			<div>
-				{formattedValue()}
+			{#each value as v}
 				<div
-					class={classNames('ManifestTableRowValueSub')}
+					class={classNames('ManifestTableRowValueGenerator')}
 				>
-					{getText($locale, 'actions', 'count')?.replace('{count}', value?.length)}
+					{#if v.icon}
+						<img
+							alt=""
+							src={v.icon}
+							class={classNames('ManifestTableRowValueGeneratorIcon')}
+						/>
+					{/if}
+					<span>
+						{v.name}
+					</span>
 				</div>
-			</div>
+			{/each}
 		{:else}
 			{formattedValue()}
 		{/if}

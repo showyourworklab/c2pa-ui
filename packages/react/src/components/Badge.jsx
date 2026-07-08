@@ -18,7 +18,7 @@ const Badge = ({
 	return (
 		<Tooltip
 			{...TooltipProps}
-			content={typeDefinition}
+			// content={typeDefinition}
 			ContentProps={{
 				...TooltipProps?.ContentProps,
 				className: classNames(

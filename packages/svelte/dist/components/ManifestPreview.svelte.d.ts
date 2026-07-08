@@ -4,12 +4,12 @@ type ManifestPreview = {
     $set?(props: Partial<$$ComponentProps>): void;
 };
 declare const ManifestPreview: import("svelte").Component<{
+    open: any;
     manifest: any;
     tabKeys: any;
-    open: any;
 }, {}, "">;
 type $$ComponentProps = {
+    open: any;
     manifest: any;
     tabKeys: any;
-    open: any;
 };

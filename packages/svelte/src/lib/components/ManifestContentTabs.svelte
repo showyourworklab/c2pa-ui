@@ -1,6 +1,6 @@
 <script>
 	import { Tabs } from '@ark-ui/svelte/tabs'
-	import { classNames } from 'syw-common/helpers'
+	import { classNames, getAvailableTabs } from 'syw-common/helpers'
 	import Map from './Map.svelte'
 	import Actions from './Actions.svelte'
 
@@ -9,12 +9,15 @@
 		keys = [],
 	} = $props()
 
+	const availableTabs = $derived(() =>
+		getAvailableTabs(keys, manifest)
+	)
 </script>
 
 <div
 	class={classNames('ManifestContentTabs')}
 >
-	{#each keys as key}
+	{#each availableTabs() as key}
 		<Tabs.Content
 			value={key}
 			class={classNames(
@@ -27,13 +30,20 @@
 			>
 				{#if key === "thumbnail"}
 					<div
-						class={classNames('ManifestContentTabsThumbnail')}
+						class={classNames(
+							'ManifestContentTabsThumbnail',
+							!manifest?.thumbnail ? 'ManifestContentTabsThumbnail_missing' : null,
+						)}
 					>
-						<img
-							alt=''
-							src={manifest?.thumbnail}
-							class={classNames('ManifestContentTabsThumbnailImage')}
-						/>
+						{#if manifest?.thumbnail}
+							<img
+								alt=''
+								src={manifest?.thumbnail}
+								class={classNames('ManifestContentTabsThumbnailImage')}
+							/>
+						{:else}
+							<Icon type="missing" />
+						{/if}
 					</div>
 				{:else if key === "location" && manifest?.location}
 					<Map

@@ -42,14 +42,27 @@ function ManifestTableRow({ type, value, manifest }) {
 						actions={value}
 					/>
 				: type === 'generator' ?
-					<div>
-						{formattedValue}
+					value.map((v, index) =>
 						<div
-							className={classNames('ManifestTableRowValueSub')}
+							key={index}
+							className={classNames('ManifestTableRowValueGenerator')}
 						>
-							{getText('actions', 'count')?.replace('{count}', value?.length)}
+							{v.icon ?
+								<img
+									src={v.icon}
+									className={classNames('ManifestTableRowValueGeneratorIcon')}
+								/>
+							: null}
+							<span>
+								{v.name}
+							</span>
+							{/* {v.detail ?
+								<sub>
+									{v.detail}
+								</sub>
+							: null} */}
 						</div>
-					</div>
+					)
 				: formattedValue}
 			</div>
 		</li>

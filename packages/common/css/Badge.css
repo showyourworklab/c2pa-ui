@@ -30,16 +30,22 @@
 	background-color: var(--syw-color-secondary);
 }
 .Syw-Badge.Syw-Badge_invalid {
-	color: var(--syw-color-status-invalid);
-	background-color: var(--syw-color-status-invalid-light);
+	/* color: var(--syw-color-status-invalid);
+	background-color: var(--syw-color-status-invalid-light); */
+	color: var(--syw-color-primary);
+	background-color: var(--syw-color-secondary);
 }
 .Syw-Badge.Syw-Badge_unknown {
-	color: var(--syw-color-status-unknown);
-	background-color: var(--syw-color-status-unknown-light);
+	/* color: var(--syw-color-status-unknown);
+	background-color: var(--syw-color-status-unknown-light); */
+	color: var(--syw-color-primary);
+	background-color: var(--syw-color-secondary);
 }
 .Syw-App_active .Syw-Badge_unknown {
-	color: var(--syw-color-status-unknown-light);
-	background-color: var(--syw-color-status-unknown);
+	/* color: var(--syw-color-status-unknown-light);
+	background-color: var(--syw-color-status-unknown); */
+	color: var(--syw-color-primary);
+	background-color: var(--syw-color-secondary);
 }
 /* Badge > Statuses > Tooltip */
 .Syw-TooltipContent.Syw-BadgeTooltipContent_trusted {

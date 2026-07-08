@@ -2,7 +2,7 @@ import { createC2pa } from '@contentauth/c2pa-web'
 import TRUST_LISTS from 'syw-common/trustlists'
 import { VERIFY_BASE_URL } from 'syw-common/constants/index.js'
 import { C2PA_PHASES, C2PA_DATA_DEFAULT, C2PA_STATUSES, C2PA_WEB_WASM_CDN_URL } from 'syw-common/constants/c2pa.js'
-import { getMediaType } from './index.js'
+import { convertJumbfToDataUri, getMediaType } from './index.js'
 import { getSafeLocale } from './i18n.js'
 import { getIptcNewsCode, getIptcNewsCodeDefinition, getIptcNewsCodeKey, getIptcNewsCodeLabel } from './iptc.js'
 
@@ -190,21 +190,27 @@ export const getProducer = manifest => {
  * @param {object} manifest - Manifest entry
  * @return {string} - List of generator names with version (i.e. Lightroom Classic 14.0)
  */
-export const getGenerator = manifest => {
-	let generator = {}
+export const getGenerator = async (manifest, reader) => {
+	let generator = []
 	if(manifest?.claim_generator_info) {
-		generator = manifest?.claim_generator_info?.map(d =>
-			[d.name, d.version]
-				.filter(d => d !== null && d !== undefined)
-				.join(" ")
-		).join(", ")
+		generator = await Promise.all(
+			manifest.claim_generator_info.map(async d => ({
+				name: d.name,
+				// detail: d.version,
+				icon: await convertJumbfToDataUri(reader, d?.icon?.identifier, d?.icon?.format)
+			}))
+		)
 	} else if(getExifValue(manifest, 'Make') || getExifValue(manifest, 'Model')) {
 		const exifMake = getExifValue(manifest, 'Make')
 		const exifModel = getExifValue(manifest, 'Model')
-		generator = [exifModel].join(' ')
-		// return [exifMake, exifModel].join(' ')
+		generator = [{
+			name: exifModel,
+			// detail: exifMake,
+		}]
 	} else if(manifest?.claim_generator) {
-		generator = manifest?.claim_generator
+		generator = [{
+			name: manifest?.claim_generator
+		}]
 	}
 	return generator
 }
@@ -235,11 +241,12 @@ export const getType = manifest => {
 	} else if(hasExif) {
 		// TEMP: Unsure if EXIF detection is a safe determinant
 		typeKey = "camera"
-		// typeLabel = "Camera"
 	} else if(manifest?.signature_info?.issuer === "Adobe Inc.") {
-		// TEMP: Unsure if "Adobe Inc."" detection is a safe determinant
+		// TEMP: Unsure if "Adobe Inc." detection is a safe determinant
 		typeKey = "edit"
-		// typeLabel = "Camera"
+	} else if(manifest?.signature_info?.issuer === "Camera Bits, Inc.") {
+		// TEMP: Unsure if "Camera Bits, Inc." detection is a safe determinant
+		typeKey = "edit"
 	}
 	// console.log({
 	// 	iptcNewsCodeUri,
@@ -386,7 +393,7 @@ export const getActions = manifest => {
 }
 
 /**
- * Gets latitude and longitude
+ * Gets thumbnail data URI from manifest
  * @function
  * @param {object} manifest - Manifest entry
  * @param {object} reader - C2PA reader instance
@@ -394,18 +401,7 @@ export const getActions = manifest => {
  */
 export const getThumbnail = async (manifest, reader) => {
 	const thumbnail = manifest?.thumbnail
-	if (!thumbnail || !reader) return null
-	try {
-		const bytes = await reader.resourceToBytes(thumbnail.identifier)
-		if (bytes) {
-			const blob = new Blob([bytes], { type: thumbnail.format })
-			return URL.createObjectURL(blob)
-		}
-		return null
-	} catch (error) {
-		console.error('Failed to get thumbnail URL:', error)
-		return null
-	}
+	return await convertJumbfToDataUri(reader, thumbnail?.identifier, thumbnail?.format)
 }
 
 /**
@@ -435,7 +431,7 @@ export const prepareManifest = async ({ src, locale, manifest, provenance, reade
 		timestamp: getTimestamp(manifest),
 		producer: getProducer(manifest),
 		signator: getSignator(manifest),
-		generator: getGenerator(manifest),
+		generator: await getGenerator(manifest, reader),
 		actions: getActions(manifest),
 		// ingredients: getIngredients(manifest),
 		thumbnail: await getThumbnail(manifest, reader),
@@ -466,7 +462,7 @@ export const prepareManifests = async ({ src, locale, provenance, reader }) => {
 			)
         )
 		preparedManifests.sort((a, b) =>
-			(b?.timestamp?.date?.getTime?.() || 0) - (a?.timestamp?.date?.getTime?.() || 0)
+			(a?.timestamp?.date?.getTime?.() || 0) - (b?.timestamp?.date?.getTime?.() || 0)
 		)
         return preparedManifests
     } catch (error) {

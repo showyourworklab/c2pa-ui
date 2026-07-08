@@ -4,12 +4,13 @@ import { getDateString } from 'syw-common/helpers/i18n'
 import { useI18nContext } from '$src/context/i18n'
 import { useUiContext } from '$src/context/ui'
 import Badge from '$src/components/Badge'
+import Icon from '$src/components/Icon'
 import ManifestContentTabsToggle from './ManifestContentTabsToggle'
 
 function ManifestPreview({
+	open,
 	manifest,
 	tabKeys,
-	toggled,
 	onToggle,
 	previewRef
 }) {
@@ -40,7 +41,7 @@ function ManifestPreview({
 			<div
 				role='button'
 				tabIndex={0}
-				aria-pressed={toggled}
+				aria-pressed={open}
 				className={classNames('ManifestPreviewToggle')}
 				onClick={onToggle}
 				onKeyDown={onKeyDown}
@@ -89,10 +90,12 @@ function ManifestPreview({
 						// onMouseEnter={onThumbnailMouseEnter}
 						// onMouseLeave={onThumbnailMouseLeave}
 					>
-						<img
-							src={thumbnailUrl}
-							alt=''
-						/>
+						{thumbnailUrl ?
+							<img
+								src={thumbnailUrl}
+								alt=''
+							/>
+						: <Icon type="missing" />}
 					</div>
 				</div>
 			</div>

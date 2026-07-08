@@ -17,6 +17,7 @@
 
 <svelte:head>
 	<title>Show Your Work Lab | {dictionary?.title}</title>
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/> -->
 </svelte:head>
 
 <header id="header">
@@ -39,13 +40,13 @@
 	<article id="article">
 		<hgroup id="heading">
 			<h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h1>
-			<p>Duis pretium quam vel sem rhoncus, id feugiat ex eleifend. Nam suscipit, elit eu cursus lacinia, enim metus viverra massa, non egestas urna elit vel augue.</p>
+			<p>Duis pretium quam vel sem rhoncus, id feugiat ex eleifend. Nam suscipit, elit eu cursus lacinia, enim metus viverra massa.</p>
 			<div>
 				Maecenas Vulputate | {date}
 			</div>
 		</hgroup>
 		<p>
-			Praesent porta justo hendrerit sollicitudin vestibulum. Pellentesque suscipit faucibus tellus, sit amet dictum diam malesuada sed. Donec at ultrices augue. Morbi ultricies vitae dui ac tempor. Integer quis urna id ante dictum condimentum non tempor tellus. Vestibulum tristique facilisis ante, commodo vehicula enim pretium vel. Phasellus sed magna eget arcu porttitor scelerisque. Aliquam ac dolor magna.
+			Praesent porta justo hendrerit sollicitudin vestibulum. Pellentesque suscipit faucibus tellus, sit amet dictum diam malesuada sed. Donec at ultrices augue. Morbi ultricies vitae dui ac tempor. Integer quis urna id ante dictum condimentum non tempor tellus. Vestibulum tristique facilisis ante.
 		</p>
 		<SsrFallback>
 			<SywSvelte
@@ -89,7 +90,7 @@
 		flex-direction: column;
 	}
 	:global(.Syw-App) {
-		
+		margin-bottom: 1.25em;
 	}
 	header#header,
 	footer#footer {
@@ -141,20 +142,29 @@
 	}
 	article#article > p {
 		max-width: 600px;
-		margin: 1rem auto;
-		font-size: 20px;
-		line-height: 28px;
+		margin: 0 auto 1.25em auto;
+		font-size: 18px;
+		line-height: 1.4em;
+		@media (min-width: 740px) {
+			font-size: 20px;
+		}
 	}
 	hgroup#heading {
 		max-width: 600px;
 		margin: 0 auto 1rem auto;
 	}
 	hgroup#heading h1 {
-		font-size: 40px;
-		line-height: 45px;
+		font-size: 35px;
+		line-height: 0.9em;
+		@media (min-width: 740px) {
+			font-size: 40px;
+		}
 	}
 	hgroup#heading p {
-		font-size: 23px;
-		line-height: 28px;
+		font-size: 20px;
+		line-height: 1.2em;
+		@media (min-width: 740px) {
+			font-size: 23px;
+		}
 	}
 </style>
