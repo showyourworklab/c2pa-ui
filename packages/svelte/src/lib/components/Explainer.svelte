@@ -2,12 +2,13 @@
 	import { getContext } from 'svelte';
 	import { classNames } from 'syw-common/helpers'
 	import Collapse from './Collapse.svelte'
+    import Icon from './Icon.svelte';
 
 	const { locale, getText } = getContext('i18nStoreContext');
 	const { isExplainerOpen, closeExplainer } = getContext('uiStoreContext');
 
-	const onCloseClick = (event) => closeExplainer(event)
-
+	const onCloseClick = closeExplainer
+	
 </script>
 
 <div
@@ -28,9 +29,12 @@
 					<button
 						class={classNames('ExplainerClose')}
 						aria-pressed={$isExplainerOpen}
-						onClick={onCloseClick}
+						aria-label={getText($locale, 'explainer', 'toggle', 'close')}
+						onclick={onCloseClick}
 					>
-						{getText($locale, 'explainer', 'toggle', 'close')}
+						<Icon
+							type="close"
+						/>
 					</button>
 					<p
 						class={classNames('ExplainerLede')}
