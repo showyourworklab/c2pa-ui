@@ -411,7 +411,7 @@ export const getThumbnail = async (manifest, reader) => {
  * @param {string} src - Image URL
  * @return {string} - Verify site URL
  */
-export const getVerifyUrl = src => `https://${VERIFY_BASE_URL}/inspect?source=${src}`
+export const getVerifyUrl = src => `https://${VERIFY_BASE_URL}?source=${src}`
 
 /**
  * Prepares a manifest object with extracted and formatted data
