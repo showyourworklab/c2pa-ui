@@ -57,7 +57,7 @@ const Demo = () => {
 				<h2>
 					<var>syw-react</var>
 				</h2>
-				<p><strong><a href="./react">React</a></strong> and <strong><a href="../svelte">Svelte</a></strong> component to embed images with their C2PA data in a user-friendly interface</p>
+				<p><strong><a href="../react">React</a></strong> and <strong><a href="../svelte">Svelte</a></strong> component to embed images with their C2PA data in a user-friendly interface</p>
 				<p>
 					<a
 						href="https://github.com/showyourworklab/syw/"

@@ -16,6 +16,10 @@ const config = {
 	compilerOptions: {
 		runes: true,
 	},
+	onwarn: (warning, handler) => {
+		if (warning.code === 'css_unused_selector') return
+		handler(warning)
+	},
 	kit: {
 		alias: {
 			// $src: 'src',

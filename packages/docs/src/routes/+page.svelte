@@ -1,5 +1,4 @@
 <script>
-	import { base } from '$app/paths'
 	import 'syw-common/css/globals.css'
 	import SywSvelte from 'syw-svelte'
 	import Header from '$lib/components/Header.svelte'
@@ -7,6 +6,11 @@
 	import Preview from '$lib/components/Preview.svelte'
 	import SsrFallback from '$lib/components/SsrFallback.svelte'
 	import '$src/styles.css'
+
+	const reactUrl = import.meta.env.PROD ? '/syw/react' : '/react'
+	const svelteUrl = import.meta.env.PROD ? '/syw/svelte' : '/svelte'
+	const morgenbladetUrl = import.meta.env.PROD ? '/syw/article/morgenbladet' : '/article/morgenbladet'
+	const aftonbladetUrl = import.meta.env.PROD ? '/syw/article/aftonbladet' : '/article/aftonbladet'
 </script>
 
 <main>
@@ -26,7 +30,7 @@
 			<li>
 				<strong>Morgenbladet:</strong>&nbsp;
 				<a
-					href="/syw/article/morgenbladet"
+					href={morgenbladetUrl}
 					class="button"
 				>
 					Livene våre er blitt brikker i klanenes kamp
@@ -35,7 +39,7 @@
 			<li>
 				<strong>Aftonbladet:</strong>&nbsp;
 				<a
-					href="/syw/article/aftonbladet"
+					href={aftonbladetUrl}
 					class="button"
 				>
 					Delade staden: "Folk är rädda för att åka hit"
@@ -65,7 +69,7 @@
 		</pre>
 		<p>
 			<a
-				href="{base}/svelte"
+				href={svelteUrl}
 				class="button"
 			>
 				Check out the demo
@@ -102,7 +106,7 @@ return (
 		</code>
 		<p>
 			<a
-				href="{base}/react"
+				href={reactUrl}
 				class="button"
 			>
 				Check out the demo

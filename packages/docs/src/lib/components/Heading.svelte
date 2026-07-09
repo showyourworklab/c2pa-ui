@@ -1,6 +1,8 @@
 <script>
-	import { base } from '$app/paths'
-	const { type } = $props();
+	const { type } = $props()
+
+	const reactUrl = import.meta.env.PROD ? '/syw/react' : '/react'
+	const svelteUrl = import.meta.env.PROD ? '/syw/svelte' : '/svelte'
 </script>
 
 <hgroup>
@@ -10,7 +12,7 @@
 	{#if type}
 		<h2><var>syw-{type}</var></h2>
 	{/if}
-	<p><strong><a href="{base}/react">React</a></strong> and <strong><a href="{base}/svelte">Svelte</a></strong> component to embed images with their C2PA data in a user-friendly interface</p>
+	<p><strong><a href="{reactUrl}">React</a></strong> and <strong><a href="{svelteUrl}">Svelte</a></strong> component to embed images with their C2PA data in a user-friendly interface</p>
 	<p>
 		<a
 			href="https://github.com/showyourworklab/syw/"
