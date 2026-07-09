@@ -12,7 +12,14 @@
 		open,
 		manifest,
 		tabKeys,
+		previewRef,
 	} = $props()
+
+	let toggleEl = $state(null)
+
+	$effect(() => {
+		if(previewRef) previewRef(toggleEl)
+	})
 
 	const { locale, getText } = getContext('i18nStoreContext');
 	const {
@@ -20,6 +27,7 @@
 	} = getContext('uiStoreContext');
 
 	const handleClick = (event => {
+		removeThumbnail()
 		if(open) {
 			closeManifest(event, manifest)
 		} else {
@@ -49,6 +57,7 @@
 	class={classNames('ManifestPreview')}
 >
 	<div
+		bind:this={toggleEl}
 		role='button'
 		tabindex={0}
 		aria-pressed={open}

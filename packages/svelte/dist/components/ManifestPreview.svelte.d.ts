@@ -7,9 +7,11 @@ declare const ManifestPreview: import("svelte").Component<{
     open: any;
     manifest: any;
     tabKeys: any;
+    previewRef: any;
 }, {}, "">;
 type $$ComponentProps = {
     open: any;
     manifest: any;
     tabKeys: any;
+    previewRef: any;
 };

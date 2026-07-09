@@ -5,7 +5,9 @@ type Manifest = {
 };
 declare const Manifest: import("svelte").Component<{
     manifest?: Record<string, any>;
+    previewRef: any;
 }, {}, "">;
 type $$ComponentProps = {
     manifest?: Record<string, any>;
+    previewRef: any;
 };

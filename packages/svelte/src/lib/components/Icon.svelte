@@ -1,4 +1,5 @@
 <script>
+    import BadgeInfo from '@lucide/svelte/icons/badge-info';
 	import Camera from '@lucide/svelte/icons/camera'
 	import Check from '@lucide/svelte/icons/check'
 	import Ellipsis from '@lucide/svelte/icons/ellipsis'
@@ -18,6 +19,7 @@
 	} = $props()
 
 	export const ICONS = {
+		origin: BadgeInfo,
 		validating: Ellipsis,
 		trusted: Check,
 		valid: Check,

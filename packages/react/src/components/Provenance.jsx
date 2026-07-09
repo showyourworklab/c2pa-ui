@@ -28,7 +28,7 @@ function Provenance() {
 			className={classNames('Provenance')}
 		>
 			{manifests && manifests.length ?
-				<div
+				<ul
 					className={classNames('ProvenanceList')}
 				>
 					{manifests.map((manifest, index) =>
@@ -38,7 +38,7 @@ function Provenance() {
 							previewRef={index === 0 ? firstPreviewRef : null}
 						/>
 					)}
-				</div>
+				</ul>
 			: null}
 			{!manifests || !manifests.length ?
 				<div

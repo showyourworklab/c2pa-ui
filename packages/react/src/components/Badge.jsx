@@ -33,7 +33,7 @@ const Badge = ({
 				TooltipProps?.className,
 			)}
 		>
-			<div
+			<span
 				className={classNames(
 					'Badge',
 					className,
@@ -50,7 +50,7 @@ const Badge = ({
 				>
 					{children}
 				</span>
-			</div>
+			</span>
 		</Tooltip>
 	)
 }

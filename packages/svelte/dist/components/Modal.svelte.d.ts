@@ -4,7 +4,7 @@ type Modal = {
     $set?(props: Partial<$$ComponentProps>): void;
 };
 declare const Modal: import("svelte").Component<{
-    open: any;
+    open?: boolean;
     title: any;
     description: any;
     onOpenChange: any;
@@ -12,7 +12,7 @@ declare const Modal: import("svelte").Component<{
     children: any;
 }, {}, "">;
 type $$ComponentProps = {
-    open: any;
+    open?: boolean;
     title: any;
     description: any;
     onOpenChange: any;

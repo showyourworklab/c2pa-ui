@@ -25,9 +25,9 @@
 				<!-- svelte-ignore a11y_media_has_caption -->
 				<video
 					src={$src}
-					title={$alt}
+					aria-label={$alt}
 					slot="media"
-					class={classNames('VideoVideo')}
+					class={classNames('Video')}
 				>
 					<!-- <track kind="captions"> -->
 				</video>

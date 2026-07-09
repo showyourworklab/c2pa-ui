@@ -18,7 +18,7 @@
 </script>
 
 <button
-	aria-pressed={true}
+	aria-pressed={$isProvenanceOpen}
 	class={classNames('ProvenanceToggle')}
 	onclick={handleClick}
 >

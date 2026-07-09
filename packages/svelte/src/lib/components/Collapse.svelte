@@ -21,12 +21,11 @@
 	id={id}
 	class={classes}
 	value={arkCollapsible}
+	aria-expanded={open}
 >
-	<ArkCollapsible.Content>
-		<div
-			class={classNames('CollapseInner')}
-		>
-			{@render children()}
-		</div>
+	<ArkCollapsible.Content
+		class={classNames('CollapseInner')}
+	>
+		{@render children()}
 	</ArkCollapsible.Content>
 </ArkCollapsible.RootProvider>

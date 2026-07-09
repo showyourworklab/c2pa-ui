@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useRef } from 'react'
 import 'syw-common/css/styles.css'
-import { classNames, getMediaType } from 'syw-common/helpers'
-import { useDataContext } from '$src/context/data'
+import { classNames } from 'syw-common/helpers'
 import { useUiContext } from '$src/context/ui'
 import Figure from './Figure'
 import Cutline from './Cutline'
@@ -14,8 +13,9 @@ import Media from './Media'
 
 function App({ mapOptions, onEvent }) {
 	const ref = useRef(null)
-	const { src } = useDataContext()
-	const { variant, isHoverImage, isProvenanceOpen, isThumbnailOpen, setElem, setMapOptions, eventHandler } = useUiContext()
+	const {
+		variant, isHoverImage, isProvenanceOpen, isThumbnailOpen, setElem, setMapOptions, eventHandler
+	} = useUiContext()
 
 	const className = useMemo(() =>
 		classNames(
@@ -25,10 +25,6 @@ function App({ mapOptions, onEvent }) {
 			isProvenanceOpen ? 'App_active' : false
 		)
 	, [variant, isHoverImage, isProvenanceOpen])
-
-	const mediaType = useMemo(() =>
-		getMediaType(src)
-	, [src])
 
 	useEffect(() => {
 		setElem(ref.current)
@@ -45,14 +41,13 @@ function App({ mapOptions, onEvent }) {
 	return (
 		<div ref={ref} className={className}>
 			<Figure>
-				<Media type={mediaType} />
+				<Media />
 				{variant === 'expand' ? <Explainer /> : null}
 				<Cutline />
 				<Caption />
 			</Figure>
 			{variant === 'expand' ? <ProvenanceExpand /> : null}
 			{variant === 'modal' ? <ProvenanceModal /> : null}
-			{/* {isThumbnailOpen ? <Thumbnail type="hover" /> : null} */}
 		</div>
 	)
 }

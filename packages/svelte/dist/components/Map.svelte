@@ -21,7 +21,7 @@ import { MAP_PROPS, MAP_SOURCE_ID } from 'syw-common/constants/map'
 			locale: $locale,
 			// interactive: false,
 			...MAP_PROPS,
-			...mapOptions
+			...$mapOptions
 		})
 		// mapInstance.addControl(new MapLibre.AttributionControl({
 		// 	compact: true

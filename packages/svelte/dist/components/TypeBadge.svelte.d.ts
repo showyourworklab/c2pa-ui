@@ -5,7 +5,9 @@ type TypeBadge = {
 };
 declare const TypeBadge: import("svelte").Component<{
     value: any;
+    status: any;
 }, {}, "">;
 type $$ComponentProps = {
     value: any;
+    status: any;
 };

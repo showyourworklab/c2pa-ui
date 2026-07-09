@@ -8,25 +8,41 @@
 
 	const { src, manifests } = getContext('dataStoreContext');
 	const { locale, getText } = getContext('i18nStoreContext');
+	const { isProvenanceOpen } = getContext('uiStoreContext');
 
 	const verifyUrl = $derived(getVerifyUrl($src))
+
+	let firstPreviewEl = $state(null)
+
+	$effect(() => {
+		if($isProvenanceOpen && firstPreviewEl) firstPreviewEl.focus()
+	})
 
 </script>
 
 <div
 	class={classNames('Provenance')}
 >
-	<ul
-		class={classNames('ProvenanceList')}
-	>
-		{#each $manifests as manifest}
-			<Manifest
-				manifest={manifest}
-			/>
-		{/each}
-	</ul>
+	{#if $manifests && $manifests.length}
+		<ul
+			class={classNames('ProvenanceList')}
+		>
+			{#each $manifests as manifest, index}
+				<Manifest
+					manifest={manifest}
+					previewRef={index === 0 ? (el) => firstPreviewEl = el : null}
+				/>
+			{/each}
+		</ul>
+	{:else}
+		<div
+			class={classNames('ProvenanceNone')}
+		>
+			No provenance found
+		</div>
+	{/if}
 	<div class={classNames('ProvenanceVerify')}>
-		{getText($locale, 'verify', 'pre')}
+		{getText($locale, 'verify', 'pre')}&nbsp;
 		<a
 			href={verifyUrl}
 			target='_blank'

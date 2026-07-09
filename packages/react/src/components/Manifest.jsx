@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Tabs, useTabs } from '@ark-ui/react/tabs'
 import { classNames, getAvailableTabs } from 'syw-common/helpers'
-import { MANIFEST_CONTENT_TAB_DEFAULT, MANIFEST_CONTENT_TAB_KEYS } from 'syw-common/constants'
+import { MANIFEST_CONTENT_TAB_KEYS } from 'syw-common/constants'
 import { useUiContext } from '$src/context/ui'
 import Collapse from './Collapse'
 import ManifestPreview from './ManifestPreview'
@@ -50,7 +50,7 @@ function Manifest({
 	}, [isProvenanceOpen])
 
 	return (
-		<div
+		<li
 			className={className}
 		>
 			<div
@@ -79,7 +79,7 @@ function Manifest({
 					</Collapse>
 				</Tabs.RootProvider>
 			</div>
-		</div>
+		</li>
 	)
 }
 

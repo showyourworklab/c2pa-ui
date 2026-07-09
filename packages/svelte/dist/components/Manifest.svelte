@@ -2,7 +2,7 @@
 	import { getContext } from 'svelte';
     import { Tabs, useTabs } from '@ark-ui/svelte/tabs';
 	import { classNames, getAvailableTabs } from 'syw-common/helpers'
-	import { MANIFEST_CONTENT_TAB_DEFAULT, MANIFEST_CONTENT_TAB_KEYS } from 'syw-common/constants'
+	import { MANIFEST_CONTENT_TAB_KEYS } from 'syw-common/constants'
 	import Collapse from './Collapse.svelte'
 	import ManifestPreview from './ManifestPreview.svelte'
     import ManifestContent from './ManifestContent.svelte';
@@ -10,7 +10,8 @@
 	const { openManifests } = getContext('uiStoreContext');
 
 	const {
-		manifest = {}
+		manifest = {},
+		previewRef,
 	} = $props()
 
 	const open = $derived(manifest.id in $openManifests)
@@ -47,6 +48,7 @@
 				open={open}
 				manifest={manifest}
 				tabKeys={tabKeys}
+				previewRef={previewRef}
 			/>
 			<Collapse
 				open={open}

@@ -1,21 +1,20 @@
 <script>
 	import { onMount, setContext } from 'svelte'
 	import 'syw-common/css/styles.css'
-	import { classNames, getMediaType } from 'syw-common/helpers'
+	import { classNames } from 'syw-common/helpers'
 	import { VARIANT_DEFAULT } from 'syw-common/constants'
+	import { C2PA_PHASES } from 'syw-common/constants/c2pa'
 	import createC2paStore from '$lib/store/c2pa.js'
 	import createDataStore from '$lib/store/data.js'
 	import createI18nStore from '$lib/store/i18n.js'
 	import createUiStore from '$lib/store/ui.js'
 	import Figure from './Figure.svelte'
-	import Image from './Image.svelte'
-	import Video from './Video.svelte'
+	import Media from './Media.svelte'
 	import Explainer from './Explainer.svelte'
 	import Cutline from './Cutline.svelte'
 	import Caption from './Caption.svelte'
 	import ProvenanceModal from './ProvenanceModal.svelte'
 	import ProvenanceExpand from './ProvenanceExpand.svelte'
-	import Thumbnail from './Thumbnail.svelte'
 
 	const {
 		variant = VARIANT_DEFAULT,
@@ -24,6 +23,7 @@
 		caption = '',
 		byline = '',
 		locale = '',
+		mapOptions = null,
 		onEvent = null
 	} = $props()
 
@@ -45,10 +45,8 @@
 	const { c2pa } = c2paStore
 	const { lang } = i18nStore
 	const {
-		variant: _variant,
 		isImageHover,
 		isProvenanceOpen,
-		isThumbnailOpen
 	} = uiStore
 
 	const classes = $derived(
@@ -59,8 +57,6 @@
 			$isProvenanceOpen ? 'App_active' : false
 		)
 	)
-
-	const mediaType = $derived(getMediaType(src))
 
 	$effect(() => {
 		dataStore.setSrc(src)
@@ -73,6 +69,7 @@
 		uiStore.setElem(elemRef)
 		uiStore.setEventHandler(onEvent)
 		uiStore.setVariant(variant)
+		uiStore.setMapOptions(mapOptions)
 	})
 
 	$effect(() => {
@@ -86,6 +83,7 @@
 		prevLocale = locale
 
 		;(async () => {
+			dataStore.setPhase(C2PA_PHASES.LOADING)
 			let c2paInstance = $c2pa
 			if (!c2paInstance) c2paInstance = await c2paStore.init()
 			const newData = await c2paStore.read({ src, locale })
@@ -101,34 +99,24 @@
 	})
 </script>
 
-{#if mounted}
-	<div
-		lang={$lang}
-		class={classes}
-		bind:this={elemRef}
-	>
-		<Figure>
-			{#if mediaType === 'image'}
-				<Image />
-			{/if}
-			{#if mediaType === 'video'}
-				<Video />
-			{/if}
-			{#if $_variant === 'expand'}
-				<Explainer />
-			{/if}
-			<Cutline />
-			<Caption />
-		</Figure>
+<div
+	lang={$lang}
+	class={classes}
+	bind:this={elemRef}
+>
+	<Figure>
+		<Media />
+		{#if variant === 'expand'}
+			<Explainer />
+		{/if}
+		<Cutline />
+		<Caption />
+	</Figure>
 
-		{#if $_variant === 'expand'}
-			<ProvenanceExpand />
-		{/if}
-		{#if $_variant === 'modal'}
-			<ProvenanceModal />
-		{/if}
-		<!-- {#if $isThumbnailOpen}
-			<Thumbnail />
-		{/if} -->
-	</div>
-{/if}
+	{#if variant === 'expand'}
+		<ProvenanceExpand />
+	{/if}
+	{#if variant === 'modal'}
+		<ProvenanceModal />
+	{/if}
+</div>

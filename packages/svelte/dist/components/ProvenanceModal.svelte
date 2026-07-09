@@ -33,14 +33,10 @@
 	className='ProvenanceModal'
 >
 	<div
-		class={classNames('ProvenanceModalExplainer')}
+		class={classNames('ProvenanceModalToolbar')}
 	>
-		<div
-			class={classNames('ProvenanceModalToolbar')}
-		>
-			<ExplainerToggle />
-		</div>
-		<Explainer />
+		<ExplainerToggle />
 	</div>
+	<Explainer />
 	<Provenance />
 </Modal>

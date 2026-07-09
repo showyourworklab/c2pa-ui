@@ -26,34 +26,36 @@
 
 </script>
 
-<li
-	class={classNames('ManifestTableRow')}
->
-	<div
-		class={classNames('ManifestTableRowLabel')}
+{#if formattedValue() !== null && formattedValue() !== undefined && formattedValue() !== ""}
+	<li
+		class={classNames('ManifestTableRow')}
 	>
-		{type ? getText($locale, type) : ''}
-	</div>
-	<div
-		class={classNames('ManifestTableRowValue')}
-	>
-		{#if type === 'location'}
-			<Map
-				location={value}
-			/>
-		{:else if type === 'actions'}
-			<Actions
-				actions={value}
-			/>
-		{:else if type === 'generator'}
-			{#each value as v}
-				<Generator
-					name={v.name}
-					icon={v.icon}
+		<div
+			class={classNames('ManifestTableRowLabel')}
+		>
+			{type ? getText($locale, type) : ''}
+		</div>
+		<div
+			class={classNames('ManifestTableRowValue')}
+		>
+			{#if type === 'location'}
+				<Map
+					location={value}
 				/>
-			{/each}
-		{:else}
-			{formattedValue()}
-		{/if}
-	</div>
-</li>
+			{:else if type === 'actions'}
+				<Actions
+					actions={value}
+				/>
+			{:else if type === 'generator'}
+				{#each value as v}
+					<Generator
+						name={v.name}
+						icon={v.icon}
+					/>
+				{/each}
+			{:else}
+				{formattedValue()}
+			{/if}
+		</div>
+	</li>
+{/if}

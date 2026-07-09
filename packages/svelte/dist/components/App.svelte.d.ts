@@ -10,6 +10,7 @@ declare const App: import("svelte").Component<{
     caption?: string;
     byline?: string;
     locale?: string;
+    mapOptions?: any;
     onEvent?: any;
 }, {}, "">;
 type $$ComponentProps = {
@@ -19,5 +20,6 @@ type $$ComponentProps = {
     caption?: string;
     byline?: string;
     locale?: string;
+    mapOptions?: any;
     onEvent?: any;
 };

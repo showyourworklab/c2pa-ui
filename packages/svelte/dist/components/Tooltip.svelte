@@ -19,7 +19,7 @@
 	<ArkTooltip.Root
 		openDelay={0}
 		lazyMount={true}
-		unmountOnExit={false}
+		unmountOnExit={true}
 	>
 		<ArkTooltip.Trigger
 			class={classNames(
@@ -30,7 +30,9 @@
 			{@render children?.()}
 		</ArkTooltip.Trigger>
 		<ArkPortal>
-			<ArkTooltip.Positioner>
+			<ArkTooltip.Positioner
+				class={classNames('TooltipPositioner')}
+			>
 				<ArkTooltip.Content
 					{...ContentProps}
 					class={classNames(

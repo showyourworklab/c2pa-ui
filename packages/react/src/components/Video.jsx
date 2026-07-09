@@ -25,7 +25,7 @@ const Video = ({
 				>
 					<VideoJs
 						src={src}
-						alt={alt}
+						aria-label={alt}
 						playsInline
 						className={classNames('Video')}
 					/>

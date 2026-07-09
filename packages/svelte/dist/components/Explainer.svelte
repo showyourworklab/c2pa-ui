@@ -3,6 +3,7 @@
 	import { classNames } from 'syw-common/helpers'
 	import Collapse from './Collapse.svelte'
     import Icon from './Icon.svelte';
+	import Markdown from './Markdown.svelte'
 
 	const { locale, getText } = getContext('i18nStoreContext');
 	const { isExplainerOpen, closeExplainer } = getContext('uiStoreContext');
@@ -55,11 +56,11 @@
 							>
 								{getText($locale, 'explainer', 'section', index, 'title')}
 							</dt>
-							<dd
+							<Markdown
+								tag="dd"
 								class={classNames('ExplainerSectionBody')}
-							>
-								{@html getText($locale, 'explainer', 'section', index, 'body')}
-							</dd>
+								content={getText($locale, 'explainer', 'section', index, 'body')}
+							/>
 						</div>
 					{/each}
 				</dl>

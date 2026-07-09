@@ -5,6 +5,8 @@
 	const { locale, getText } = getContext('i18nStoreContext');
 	const { variant, isExplainerOpen, openExplainer, closeExplainer, openProvenance } = getContext('uiStoreContext');
 
+	const { class: className } = $props()
+
 	const handleClick = (event) => {
 		// Toggle explainer based on current state
 		if($isExplainerOpen) {
@@ -21,7 +23,7 @@
 
 <button
 	aria-pressed={$isExplainerOpen}
-	class={classNames('ExplainerToggle')}
+	class={classNames('ExplainerToggle', className)}
 	onclick={handleClick}
 >
 	{getText($locale, 'explainer', 'toggle')}

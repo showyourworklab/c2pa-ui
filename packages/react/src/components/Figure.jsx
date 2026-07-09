@@ -1,6 +1,4 @@
-import { useCallback } from 'react'
-import { classNames, handleA11yClick } from 'syw-common/helpers'
-import { useUiContext } from '$src/context/ui'
+import { classNames } from 'syw-common/helpers'
 
 const Figure = ({
 	children

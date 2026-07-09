@@ -35,10 +35,10 @@ function ManifestPreview({
 
 	return (
 		<div
-			ref={previewRef}
 			className={classNames('ManifestPreview')}
 		>
 			<div
+				ref={previewRef}
 				role='button'
 				tabIndex={0}
 				aria-pressed={open}
