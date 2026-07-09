@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { createRoot } from 'react-dom/client';
-import { DEMO_IMAGE_URLS, DEMO_IMAGE_URL_DEFAULT } from 'syw-common/constants/demo'
+import { DEMO_IMAGES } from 'syw-common/constants/demo'
 import { LOCALE_DEFAULT, DICTIONARIES } from 'syw-common/constants/i18n'
 import { VARIANT_KEYS, VARIANT_DEFAULT } from 'syw-common/constants'
 import SywLogo from 'syw-common/images/logo-dark.svg'
@@ -12,7 +12,8 @@ import C2PA_INTERIM_TRUST_LIST from '../../common/trustlists/c2pa-interim';
 const Demo = () => {
 	const [locale, setLocale] = useState(LOCALE_DEFAULT)
 	const [variant, setVariant] = useState(VARIANT_DEFAULT)
-	const [demoImage, setDemoImage] = useState(DEMO_IMAGE_URL_DEFAULT)
+	const [demoImage, setDemoImage] = useState(DEMO_IMAGES[0])
+	const [demoImageIndex, setDemoImageIndex] = useState(0)
 
 	const handleLocaleChange = e => {
 		const { value } = e.target
@@ -26,7 +27,8 @@ const Demo = () => {
 
 	const handleImageChange = e => {
 		const { value } = e.target
-		setDemoImage(value)
+		setDemoImage(DEMO_IMAGES[Number(value)])
+		setDemoImageIndex(Number(value))
 	}
 
 	const handleEvent = (type, event, manifest) => {
@@ -79,15 +81,15 @@ const Demo = () => {
 						</label>
 						<select
 							id="select-image"
-							value={demoImage}
+							value={demoImageIndex}
 							onChange={handleImageChange}
 						>
-							{DEMO_IMAGE_URLS.map(key =>
+							{DEMO_IMAGES.map((image, inex) =>
 								<option
-									key={key}
-									value={key}
+									key={inex}
+									value={inex}
 								>
-									{key.substring(key.lastIndexOf('/') + 1)}
+									{image?.title?.[locale]}
 								</option>
 							)}
 						</select>
@@ -137,10 +139,9 @@ const Demo = () => {
 				</header>
 				<SywReact
 					locale={locale}
-					// src={`${DEMO_IMAGE_URL_BASE}/${demoImage}`}
-					src={demoImage}
-					caption='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis est ut enim imperdiet lacinia. Etiam vitae volutpat eros. Cras sagittis condimentum lacus, sit amet mattis mauris convallis id.'
-					byline='Lectus Vitae / Tristique Imperdiet'
+					src={demoImage?.src}
+					caption={demoImage?.caption?.[locale]}
+					byline={demoImage?.byline}
 					variant={variant}
 					mapOptions={{
 						// style: 'https://tiles.openfreemap.org/styles/positron'

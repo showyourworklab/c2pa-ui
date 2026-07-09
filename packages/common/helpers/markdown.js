@@ -20,7 +20,9 @@ if(typeof window !== 'undefined') {
  * @return {string} - HTML string
  */
 const unwrapSingleParagraph = (html) => {
-	const match = html.trim().match(/^<p>([\s\S]*)<\/p>$/)
+	const trimmed = html.trim()
+	const paragraphCount = (trimmed.match(/<p>/g) || []).length
+	const match = paragraphCount === 1 && trimmed.match(/^<p>([\s\S]*)<\/p>$/)
 	return match ? match[1] : html
 }
 

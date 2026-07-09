@@ -1,7 +1,7 @@
 <script>
 	import 'syw-common/css/globals.css'
 	import 'syw-docs/src/styles.css'
-	import { DEMO_IMAGE_URLS, DEMO_IMAGE_URL_DEFAULT } from 'syw-common/constants/demo'
+	import { DEMO_IMAGES } from 'syw-common/constants/demo'
 	import { LOCALE_DEFAULT, DICTIONARIES } from 'syw-common/constants/i18n'
 	import { VARIANT_DEFAULT, VARIANT_KEYS } from 'syw-common/constants'
 	const locales = Object.keys(DICTIONARIES)
@@ -9,7 +9,8 @@
 	const { SywSvelte } = $props();
 	let variant = $state(VARIANT_DEFAULT)
 	let locale = $state(LOCALE_DEFAULT)
-	let demoImage = $state(DEMO_IMAGE_URL_DEFAULT);
+	let demoImage = $state(DEMO_IMAGES[0]);
+	let demoImageIndex = $state(0);
 
 	const onLocaleChange = e => {
 		const { value } = e.target
@@ -23,7 +24,8 @@
 
 	const onImageChange = e => {
 		const { value } = e.target
-		demoImage = value
+		demoImage = DEMO_IMAGES[Number(value)]
+		demoImageIndex = Number(value)
 	}
 
 	const handleEvent = (type, event, manifest) => {
@@ -41,14 +43,14 @@
 			</label>
 			<select
 				id="select-image"
-				value={demoImage}
+				value={demoImageIndex}
 				onchange={onImageChange}
 			>
-				{#each DEMO_IMAGE_URLS as value}
+				{#each DEMO_IMAGES as image, index}
 					<option
-						value={value}
+						value={index}
 					>
-						{value.substring(value.lastIndexOf('/') + 1)}
+						{image?.title?.[locale]}
 					</option>
 				{/each}
 			</select>
@@ -97,9 +99,9 @@
 	<SywSvelte
 		variant={variant}
 		locale={locale}
-		src={demoImage}
-		caption='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis est ut enim imperdiet lacinia. Etiam vitae volutpat eros. Cras sagittis condimentum lacus, sit amet mattis mauris convallis id.'
-		byline='Lectus Vitae / Tristique Imperdiet'
+		src={demoImage?.src}
+		caption={demoImage?.caption?.[locale]}
+		byline={demoImage?.byline}
 		c2paOptions={{
 			// wasmSrc
 			// trustLists: "c2pa"

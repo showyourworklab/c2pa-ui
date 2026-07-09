@@ -1,6 +1,7 @@
 <script>
 	import { getContext } from 'svelte';
 	import { classNames } from 'syw-common/helpers'
+    import Markdown from './Markdown.svelte';
 	const { caption, byline } = getContext('dataStoreContext');
 </script>
 
@@ -12,9 +13,9 @@
 		<div
 			class={classNames('CaptionInner')}
 		>
-			{#if $caption && $caption.length}
-				{$caption}&nbsp;
-			{/if}
+			<Markdown
+				content={$caption}
+			/>
 			<div
 				class={classNames('CaptionByline')}
 			>

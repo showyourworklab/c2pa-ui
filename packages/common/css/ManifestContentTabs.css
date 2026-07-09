@@ -36,6 +36,7 @@
 	border-style: solid;
 	border-color: var(--syw-color-primary);
 	border-radius: var(--syw-radius-lg);
+	background-color: var(--syw-color-tertiary);
 	@media (min-width: 576px) {
 		width: auto;
 	}

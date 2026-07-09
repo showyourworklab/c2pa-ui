@@ -3,6 +3,7 @@
 	import { classNames, getAvailableTabs } from 'syw-common/helpers'
 	import Map from './Map.svelte'
 	import Actions from './Actions.svelte'
+	import Icon from './Icon.svelte'
 
 	const {
 		manifest = {},

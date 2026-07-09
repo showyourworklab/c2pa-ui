@@ -14,7 +14,7 @@
 			class={classNames('CaptionInner')}
 		>
 			<Markdown
-				content={caption}
+				content={$caption}
 			/>
 			<div
 				class={classNames('CaptionByline')}
