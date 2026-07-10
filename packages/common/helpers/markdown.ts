@@ -19,7 +19,7 @@ if(typeof window !== 'undefined') {
  * @param {string} html - HTML string
  * @return {string} - HTML string
  */
-const unwrapSingleParagraph = (html) => {
+const unwrapSingleParagraph = (html: string): string => {
 	const trimmed = html.trim()
 	const paragraphCount = (trimmed.match(/<p>/g) || []).length
 	const match = paragraphCount === 1 && trimmed.match(/^<p>([\s\S]*)<\/p>$/)
@@ -32,7 +32,7 @@ const unwrapSingleParagraph = (html) => {
  * @param {string} content - Markdown or HTML content
  * @return {string} - Sanitized HTML string
  */
-export const convertMarkupToSafeHtml = (content) => {
+export const convertMarkupToSafeHtml = (content: string | null | undefined): string => {
 	if(!content) return ''
 	const html = unwrapSingleParagraph(marked.parse(content, { async: false }))
 	// Don't allow DOMPurify outside of the browser, return empty if serverside

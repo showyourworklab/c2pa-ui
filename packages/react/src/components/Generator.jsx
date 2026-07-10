@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
-import { classNames } from 'syw-common/helpers'
-import { convertJumbfToDataUri } from 'syw-common/helpers'
+import { classNames, convertJumbfToDataUri } from 'syw-common/helpers'
 import { useDataContext } from '$src/context/data'
 
 function Generator({ name, icon }) {

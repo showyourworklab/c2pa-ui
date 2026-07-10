@@ -38,8 +38,8 @@ export default defineConfig({
 		cssCodeSplit: false
 	},
 	esbuild: {
-		loader: 'jsx',
-		include: /src\/.*\.jsx?$/,
+		loader: 'tsx',
+		include: /(src\/.*\.jsx?$)|(\.tsx?$)/,
 		exclude: [],
 	},
 	optimizeDeps: {

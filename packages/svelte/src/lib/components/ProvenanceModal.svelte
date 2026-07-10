@@ -5,14 +5,15 @@
 	import Provenance from './Provenance.svelte'
 	import Explainer from './Explainer.svelte'
 	import ExplainerToggle from './ExplainerToggle.svelte'
-	
+	import { getI18nContext } from '$lib/store/i18n.js'
+
 	const {
 		isProvenanceOpen,
 		openProvenance,
 		closeProvenance,
 		closeExplainer
 	} = getContext('uiStoreContext')
-	const { locale, getText } = getContext('i18nStoreContext')
+	const { locale, getText } = getI18nContext()
 
 	const handleOpenChange = (newOpen, event) => {
 		const originalEvent = event

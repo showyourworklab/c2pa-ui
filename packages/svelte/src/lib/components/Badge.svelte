@@ -1,6 +1,6 @@
 <script>
-	import { getContext } from 'svelte'
 	import { classNames } from 'syw-common/helpers'
+	import { getI18nContext } from '$lib/store/i18n.js'
     import Tooltip from './Tooltip.svelte'
     import Icon from './Icon.svelte'
 
@@ -11,7 +11,7 @@
 		children,
 		className
 	} = $props()
-	const { locale, getText } = getContext('i18nStoreContext');
+	const { locale, getText } = getI18nContext();
 	const typeLabel = $derived(() => type?.label ?? getText($locale, "type", type?.key))
 	const typeDefinition = $derived(() => type?.definition ?? getText($locale, "type", type?.key, "definition"))
 	const statusLabel = $derived(() => getText($locale, "status", status))

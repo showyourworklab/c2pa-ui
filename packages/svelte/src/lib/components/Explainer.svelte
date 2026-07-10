@@ -4,8 +4,9 @@
 	import Collapse from './Collapse.svelte'
     import Icon from './Icon.svelte';
 	import Markdown from './Markdown.svelte'
+	import { getI18nContext } from '$lib/store/i18n.js'
 
-	const { locale, getText } = getContext('i18nStoreContext');
+	const { locale, getText } = getI18nContext();
 	const { isExplainerOpen, closeExplainer } = getContext('uiStoreContext');
 
 	const onCloseClick = closeExplainer

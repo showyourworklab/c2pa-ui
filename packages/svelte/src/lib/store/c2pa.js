@@ -1,6 +1,6 @@
 import { writable, get } from 'svelte/store'
 import { createC2pa } from '@contentauth/c2pa-web'
-import { C2PA_DATA_DEFAULT, C2PA_PHASES, C2PA_STATUSES } from 'syw-common/constants/c2pa.js'
+import { C2PA_DATA_DEFAULT, C2PA_PHASES, C2PA_STATUSES } from 'syw-common/constants/c2pa'
 import { getC2paConfig, prepareData } from 'syw-common/helpers/c2pa'
 
 const createC2paStore = () => {

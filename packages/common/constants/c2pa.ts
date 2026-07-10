@@ -1,3 +1,5 @@
+import type { SywData } from '#types/c2pa'
+
 export const C2PA_WEB_VERSION = '0.6.1'
 export const C2PA_WEB_WASM_CDN_URL = `https://cdn.jsdelivr.net/npm/@contentauth/c2pa-web@${C2PA_WEB_VERSION}/dist/resources/c2pa_bg.wasm`
 export const C2PA_CREATED_IPTC = [
@@ -8,15 +10,15 @@ export const C2PA_PHASES = {
 	LOADING: 'loading',
 	READY: 'ready',
 	ERROR: 'error',
-}
+} as const
 export const C2PA_STATUSES = {
 	VALIDATING: 'validating',
 	UNKNOWN: 'unknown',
 	TRUSTED: 'trusted',
 	VALID: 'valid',
 	INVALID: 'invalid',
-}
-export const C2PA_DATA_DEFAULT = {
+} as const
+export const C2PA_DATA_DEFAULT: SywData = {
 	phase: C2PA_PHASES.IDLE,
 	status: C2PA_STATUSES.VALIDATING,
 	manifests: [],
@@ -25,7 +27,7 @@ export const C2PA_DATA_DEFAULT = {
 	reader: null,
 	error: null,
 }
-export const C2PA_ADOBE_ACTIONS = {
+export const C2PA_ADOBE_ACTIONS: Record<string, Record<string, string>> = {
 	"c2pa.color_adjustments": {
 		"Curve": "color_adjustments",
 		"Masking": "color_adjustments",
@@ -76,7 +78,12 @@ export const C2PA_ADOBE_ACTIONS = {
 
 	}
 }
-const LIGHTROOM_ACTIONS = [
+interface LightroomAction {
+	action: string
+	parameters: Record<string, string>
+}
+
+const LIGHTROOM_ACTIONS: LightroomAction[] = [
 	{
 	"action": "c2pa.color_adjustments",
 	"parameters": {

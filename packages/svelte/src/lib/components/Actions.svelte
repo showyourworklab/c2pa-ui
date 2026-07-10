@@ -1,9 +1,10 @@
-<script>
-	import { getContext } from 'svelte';
+<script lang="ts">
 	import { classNames } from 'syw-common/helpers'
+	import type { ActionsProps } from 'syw-common/types/components'
+	import { getI18nContext } from '$lib/store/i18n.js'
 
-	const { actions } = $props()
-	const { locale, getText } = getContext('i18nStoreContext')
+	const { actions }: ActionsProps = $props()
+	const { locale, getText } = getI18nContext()
 </script>
 
 <div

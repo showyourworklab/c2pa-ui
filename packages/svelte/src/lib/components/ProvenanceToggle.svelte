@@ -2,8 +2,9 @@
 	import { getContext } from 'svelte';
 	import { classNames } from 'syw-common/helpers'
 	import Badge from './Badge.svelte';
+	import { getI18nContext } from '$lib/store/i18n.js'
 
-	const { locale, getText } = getContext('i18nStoreContext');
+	const { locale, getText } = getI18nContext();
 	const { status, types } = getContext('dataStoreContext');
 	const { isProvenanceOpen, openProvenance, closeProvenance } = getContext('uiStoreContext');
 

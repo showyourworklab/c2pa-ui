@@ -5,8 +5,9 @@
 	import { getLangFromLocale } from 'syw-common/helpers/i18n'
 	import { createMapLayer, createMapSource, updateMapLang } from 'syw-common/helpers/map'
 import { MAP_PROPS, MAP_SOURCE_ID } from 'syw-common/constants/map'
+	import { getI18nContext } from '$lib/store/i18n.js'
 	const id = $props.id();
-	const { locale } = getContext('i18nStoreContext')
+	const { locale } = getI18nContext()
 	const { mapOptions } = getContext('uiStoreContext')
 	let map = $state(null)
 	let loaded = $state(false)

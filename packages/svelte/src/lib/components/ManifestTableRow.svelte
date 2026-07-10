@@ -1,12 +1,12 @@
 <script>
-	import { getContext } from 'svelte';
 	import { classNames } from 'syw-common/helpers'
 	import { getDateString } from 'syw-common/helpers/i18n'
+	import { getI18nContext } from '$lib/store/i18n.js'
     import Map from './Map.svelte'
 	import Actions from './Actions.svelte'
 	import Generator from './Generator.svelte'
 
-	const { locale, getText } = getContext('i18nStoreContext');
+	const { locale, getText } = getI18nContext();
 
 	const {
 		type,

@@ -1,9 +1,9 @@
 <script>
-	import { getContext } from 'svelte';
 	import { classNames } from 'syw-common/helpers'
+	import { getI18nContext } from '$lib/store/i18n.js'
     import Badge from './Badge.svelte';
 
-	const { locale, getText } = getContext('i18nStoreContext');
+	const { locale, getText } = getI18nContext();
 
 	const { value, status } = $props()
 

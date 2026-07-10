@@ -6,7 +6,7 @@
 	import { C2PA_PHASES } from 'syw-common/constants/c2pa'
 	import createC2paStore from '$lib/store/c2pa.js'
 	import createDataStore from '$lib/store/data.js'
-	import createI18nStore from '$lib/store/i18n.js'
+	import createI18nStore, { setI18nContext } from '$lib/store/i18n.js'
 	import createUiStore from '$lib/store/ui.js'
 	import Figure from './Figure.svelte'
 	import Media from './Media.svelte'
@@ -39,7 +39,7 @@
 
 	setContext('c2paStoreContext', c2paStore)
 	setContext('dataStoreContext', dataStore)
-	setContext('i18nStoreContext', i18nStore)
+	setI18nContext(i18nStore)
 	setContext('uiStoreContext', uiStore)
 
 	const { c2pa } = c2paStore

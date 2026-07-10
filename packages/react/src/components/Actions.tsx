@@ -1,11 +1,11 @@
-import { useEffect, useId, useState } from 'react'
-import { classNames } from 'syw-common/helpers'
+import type { ActionsProps } from 'syw-common/types/components'
 import { useI18nContext } from '$src/context/i18n'
-// import { getLangFromLocale } from 'syw-common/helpers/i18n'
+import { classNames } from 'syw-common/helpers'
+
 const Actions = ({
 	actions
-}) => {
-	const { locale, getText } = useI18nContext()
+}: ActionsProps) => {
+	const { getText } = useI18nContext()
 	return (
 		<div
 			className={classNames('Actions')}

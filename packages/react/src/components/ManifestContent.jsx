@@ -1,6 +1,6 @@
+import ManifestTable from './ManifestTable'
 import { classNames } from 'syw-common/helpers'
 import { MANIFEST_PRIMARY_KEYS } from 'syw-common/constants'
-import ManifestTable from './ManifestTable'
 import ManifestContentTabs from './ManifestContentTabs'
 import ManifestContentTabsToggle from './ManifestContentTabsToggle'
 

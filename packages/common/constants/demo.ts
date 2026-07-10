@@ -1,5 +1,14 @@
+import type { Locale } from '#types/i18n'
+
+interface DemoImage {
+	src: string
+	title: Record<Locale, string>
+	caption: Record<Locale, string>
+	byline: string
+}
+
 // Hosted at https://github.com/showyourworklab/c2pa-images
-export const DEMO_IMAGES = [
+export const DEMO_IMAGES: DemoImage[] = [
 	{
 		src: 'https://showyourworklab.github.io/c2pa-images/feedback-1.jpg',
 		title: {

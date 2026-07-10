@@ -1,6 +1,19 @@
+export interface IptcNewsCode {
+	uri: string
+	qcode: string
+	type: string[]
+	inScheme: string[]
+	modified: string
+	retired?: string
+	prefLabel: Record<string, string>
+	definition: Record<string, string>
+	note?: Record<string, string>
+	created: string
+}
+
 export const IPTC_NEWS_CODES_BASE_URI = "http://cv.iptc.org/newscodes/digitalsourcetype";
 
-export const IPTC_NEWS_CODES = [
+export const IPTC_NEWS_CODES: IptcNewsCode[] = [
 	{
 		"uri": "http://cv.iptc.org/newscodes/digitalsourcetype/digitalCapture",
 		"qcode": "digsrctype:digitalCapture",

@@ -1,9 +1,10 @@
-import { MAP_LAYER_ID, MAP_SOURCE_ID } from "../constants/map"
+import type { Map as MapLibreMap, GeoJSONSourceSpecification, LayerSpecification } from 'maplibre-gl'
+import { MAP_LAYER_ID, MAP_SOURCE_ID } from "#constants/map"
 
 /**
  * Creates a map source object
  */
-export const createMapSource = (lat, lng) => ({
+export const createMapSource = (lat: number, lng: number): GeoJSONSourceSpecification => ({
 	'type': 'geojson',
 	'data': {
 		'type': 'Point',
@@ -14,7 +15,7 @@ export const createMapSource = (lat, lng) => ({
 /**
  * Creates a map layer object
  */
-export const createMapLayer = () => ({
+export const createMapLayer = (): LayerSpecification => ({
 	'id': MAP_LAYER_ID,
 	'source': MAP_SOURCE_ID,
 	'type': 'circle',
@@ -28,10 +29,10 @@ export const createMapLayer = () => ({
 
 /**
  * Changes the map symbol language
- * @param {object} map - MapLibre instance
- * @param {string} lang - ISO language code (i.e. en)
+ * @param map - MapLibre instance
+ * @param lang - ISO language code (i.e. en)
  */
-export const updateMapLang = (map, lang) => {
+export const updateMapLang = (map: MapLibreMap | null | undefined, lang: string | undefined) => {
 	if(!map || !lang) return
 	// Creates an array of all symbol layer IDs
 	// console.log(map)

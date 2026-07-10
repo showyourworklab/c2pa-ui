@@ -1,3 +1,4 @@
+import type { Locale, Lang, DictionaryKey } from '#types/i18n'
 import {
 	LANG_DEFAULT,
 	LOCALE_DEFAULT,
@@ -5,14 +6,30 @@ import {
 	DICTIONARIES,
 	DATE_OPTIONS,
 	TIME_OPTIONS,
-} from '../constants/i18n.js'
+} from '#constants/i18n'
+
+/**
+ * Check if input is an ISO language code (i.e. en)
+ * @param input
+ * @returns boolean
+ */
+const isLang = (input: string): input is Lang =>
+	LOCALE_DEFAULTS.hasOwnProperty(input)
+
+/**
+ * Check if input is an ISO locale code (i.e. en_US)
+ * @param input
+ * @returns boolean
+ */
+const isLocale = (input: string): input is Locale =>
+	DICTIONARIES.hasOwnProperty(input)
 
 /**
  * Gets the language code from a locale code
- * @param {string} locale - ISO locale code (i.e. en_US)
- * @return {string} lang - ISO language code (i.e. en)
+ * @param locale - ISO locale code (i.e. en_US)
+ * @returns ISO language code (i.e. en)
  */
-export const getLangFromLocale = (locale = LOCALE_DEFAULT) => {
+export const getLangFromLocale = (locale: string): string => {
 	const localeSplit = locale?.split('_')
 	const lang = localeSplit && localeSplit[0]
 	return lang
@@ -20,11 +37,11 @@ export const getLangFromLocale = (locale = LOCALE_DEFAULT) => {
 
 /**
  * Gets the default locale code from a language code
- * @param {string} lang - ISO language code (i.e. en)
- * @return {string} locale - ISO locale code (i.e. en_US)
+ * @param lang - ISO language code (i.e. en)
+ * @returns ISO locale code (i.e. en_US)
  */
-export const getDefaultLocaleFromLang = (lang = LANG_DEFAULT) => {
-	const locale = LOCALE_DEFAULTS.hasOwnProperty(lang)
+export const getDefaultLocaleFromLang = (lang: string): Locale => {
+	const locale = isLang(lang)
 		? LOCALE_DEFAULTS[lang]
 		: LOCALE_DEFAULTS[LANG_DEFAULT]
 	return locale
@@ -33,10 +50,10 @@ export const getDefaultLocaleFromLang = (lang = LANG_DEFAULT) => {
 /**
  * Gets the default locale code using the language code of another locale code
  * This can be used to find an alternative locale code in the same language when the given locale is not available
- * @param {string} locale - ISO locale code (i.e. en_ZA)
- * @return {string} defaultLocale - ISO locale code (i.e. en_US)
+ * @param locale - ISO locale code (i.e. en_ZA)
+ * @returns ISO locale code (i.e. en_US)
  */
-export const getDefaultLocaleFromLocale = (locale = LOCALE_DEFAULT) => {
+export const getDefaultLocaleFromLocale = (locale: string): Locale => {
 	const lang = getLangFromLocale(locale)
 	const defaultLocale = getDefaultLocaleFromLang(lang)
 	return defaultLocale
@@ -47,18 +64,18 @@ export const getDefaultLocaleFromLocale = (locale = LOCALE_DEFAULT) => {
  * If passed locale is valid, it will be returned
  * If it doesn't exist, but another locale with that lang, that locale will be returned
  * Otherwise, the default locale will be returned
- * @param {string} locale - ISO locale code (i.e. en_US)
- * @return {string} locale - ISO locale code (i.e. en_US)
+ * @param locale - ISO locale code (i.e. en_US)
+ * @returns ISO locale code (i.e. en_US)
  */
-export const getSafeLocale = (locale = LOCALE_DEFAULT) => {
-	let safeLocale
+export const getSafeLocale = (locale: string): Locale => {
+	let safeLocale: Locale
 	// Does this locale exist?
-	if(DICTIONARIES.hasOwnProperty(locale)) {
+	if(isLocale(locale)) {
 		safeLocale = locale
 	} else {
 		// Does this locale's language have a default locale available?
 		const defaultLocale = getDefaultLocaleFromLocale(locale)
-		if(DICTIONARIES.hasOwnProperty(defaultLocale)) {
+		if(isLocale(defaultLocale)) {
 			safeLocale = defaultLocale
 		} else {
 			safeLocale = LOCALE_DEFAULT
@@ -69,10 +86,10 @@ export const getSafeLocale = (locale = LOCALE_DEFAULT) => {
 
 /**
  * Gets the text dictionary for the given locale code
- * @param {string} locale - ISO locale code (i.e. en_US)
- * @return {object} dictionary - Dictionary of text strings for given locale
+ * @param locale - ISO locale code (i.e. en_US)
+ * @returns Dictionary of text strings for given locale
  */
-export const getDictionary = (locale = LOCALE_DEFAULT) => {
+export const getDictionary = (locale: string): Record<string, string> => {
 	const safeLocale = getSafeLocale(locale)
 	const dictionary = DICTIONARIES[safeLocale]
 	return dictionary
@@ -80,10 +97,10 @@ export const getDictionary = (locale = LOCALE_DEFAULT) => {
 
 /**
  * Parses a locale code for its language code
- * @param {...string} keys - An array spread of strings to be joined with underscores and used as a key in the dictionary (i.e. x, y, z becomes x_y_z)
- * @return {string} text - The string from the dictionary
+ * @param keys - An array spread of strings to be joined with underscores and used as a key in the dictionary (i.e. x, y, z becomes x_y_z)
+ * @returns The string from the dictionary
  */
-export const getLocaleText = (locale = LOCALE_DEFAULT, ...keys) => {
+export const getLocaleText = (locale: string, ...keys: DictionaryKey[]): string => {
 	const dictionary = getDictionary(locale)
 	const text = dictionary[keys.join('_')]
 	return text
@@ -91,18 +108,24 @@ export const getLocaleText = (locale = LOCALE_DEFAULT, ...keys) => {
 
 /**
  * Gets a human-readable date string for a given locale
- * @param {string} locale - 
- * @param {string} timestamp - 
- * @return {string} dateString - 
+ * @param locale -
+ * @param timestamp -
+ * @returns dateString
  */
-export const getDateString = (locale = LOCALE_DEFAULT, timestamp) => {
+export const getDateString = (
+	locale: string,
+	timestamp: {
+		date?: Date,
+		offset?: string
+	}
+): string | null => {
 	const { date, offset } = timestamp
 	const isValidDate = date && date instanceof Date && isFinite(date.getTime())
 	if(!isValidDate) return null
 	const dateOpts = { ...DATE_OPTIONS, timeZone: offset ?? undefined }
 	const timeOpts = { ...TIME_OPTIONS, timeZone: offset ?? undefined }
 	const localeOpt = locale.replace('_', '-')
-	
+
 	let dateString, timeString
 	try {
 		dateString = date.toLocaleDateString(localeOpt, dateOpts)
@@ -119,7 +142,5 @@ export const getDateString = (locale = LOCALE_DEFAULT, timestamp) => {
 			return null
 		}
 	}
-	
 	return `${dateString}, ${timeString}`
-	
 }

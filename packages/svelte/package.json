@@ -35,7 +35,8 @@
 		"package": "svelte-kit sync && svelte-package --preserve-output true",
 		"preview": "vite preview",
 		"publish": "npm publish --access=public",
-		"lint": "eslint ."
+		"lint": "eslint .",
+		"typecheck": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
 	},
 	"dependencies": {
 		"@ark-ui/svelte": "^5.21.2",
@@ -57,6 +58,7 @@
 		"publint": "^0.1.9",
 		"sass": "^1.89.2",
 		"svelte": "^5.34.1",
+		"svelte-check": "^4.1.1",
 		"svelte-preprocess": "^6.0.3",
 		"tslib": "^2.4.1",
 		"typescript": "^5.9.3",

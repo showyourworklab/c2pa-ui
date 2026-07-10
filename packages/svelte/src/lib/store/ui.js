@@ -1,5 +1,5 @@
 import { writable, get } from 'svelte/store'
-import { VARIANT_DEFAULT } from 'syw-common/constants/index.js'
+import { VARIANT_DEFAULT } from 'syw-common/constants/index'
 
 export default function createUiStore() {
 	

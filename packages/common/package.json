@@ -5,29 +5,54 @@
   "private": true,
   "type": "module",
   "exports": {
-    "./constants": {
-      "types": "./constants/index.d.ts",
-      "default": "./constants/index.js"
-    },
-    "./constants/*": "./constants/*",
-    "./helpers": {
-      "types": "./helpers/index.d.ts",
-      "default": "./helpers/index.js"
-    },
-    "./helpers/*": "./helpers/*",
-    "./trustlists": {
-      "types": "./trustlists/index.d.ts",
-      "default": "./trustlists/index.js"
-    },
-    "./trustlists/*": "./trustlists/*",
+    "./constants": "./constants/index.ts",
+    "./constants/index": "./constants/index.ts",
+    "./constants/c2pa": "./constants/c2pa.ts",
+    "./constants/demo": "./constants/demo.ts",
+    "./constants/i18n": "./constants/i18n.ts",
+    "./constants/iptc": "./constants/iptc.ts",
+    "./constants/map": "./constants/map.ts",
+    "./helpers": "./helpers/index.ts",
+    "./helpers/index": "./helpers/index.ts",
+    "./helpers/c2pa": "./helpers/c2pa.ts",
+    "./helpers/i18n": "./helpers/i18n.ts",
+    "./helpers/iptc": "./helpers/iptc.ts",
+    "./helpers/map": "./helpers/map.ts",
+    "./helpers/markdown": "./helpers/markdown.ts",
+    "./trustlists": "./trustlists/index.js",
+    "./types": "./types/index.ts",
+    "./types/index": "./types/index.ts",
+    "./types/c2pa": "./types/c2pa.ts",
+    "./types/components": "./types/components.ts",
+    "./types/i18n": "./types/i18n.ts",
     "./css": "./css/index.css",
     "./css/*": "./css/*",
     "./images/*": "./images/*"
+  },
+  "imports": {
+    "#constants/index": "./constants/index.ts",
+    "#constants/c2pa": "./constants/c2pa.ts",
+    "#constants/demo": "./constants/demo.ts",
+    "#constants/i18n": "./constants/i18n.ts",
+    "#constants/iptc": "./constants/iptc.ts",
+    "#constants/map": "./constants/map.ts",
+    "#helpers/index": "./helpers/index.ts",
+    "#helpers/c2pa": "./helpers/c2pa.ts",
+    "#helpers/i18n": "./helpers/i18n.ts",
+    "#helpers/iptc": "./helpers/iptc.ts",
+    "#helpers/map": "./helpers/map.ts",
+    "#helpers/markdown": "./helpers/markdown.ts",
+    "#trustlists": "./trustlists/index.js",
+    "#types/index": "./types/index.ts",
+    "#types/c2pa": "./types/c2pa.ts",
+    "#types/components": "./types/components.ts",
+    "#types/i18n": "./types/i18n.ts"
   },
   "scripts": {
     "publish": "npm publish"
   },
   "dependencies": {
+    "@contentauth/c2pa-web": "^0.6.1",
     "dompurify": "^3.2.4",
     "marked": "^15.0.7"
   }

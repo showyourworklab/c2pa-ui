@@ -4,18 +4,7 @@ export const LOCALE_DEFAULTS = {
 	en: 'en_US',
 	no: 'no_NO',
 	sv: 'sv_SE'
-}
-
-export const DATE_OPTIONS = {
-	year: 'numeric',
-	month: 'long',
-	day: 'numeric',
-}
-
-export const TIME_OPTIONS = {
-	timeStyle: 'short',
-}
-
+} as const
 export const DICTIONARY_EN_US = {
 	producer: 'Produced by',
 	timestamp: 'Timestamp',
@@ -315,11 +304,17 @@ export const DICTIONARY_SV_SE = {
 	// Verify
 	verify_pre: 'Läs mer på',
 }
-
 export const DICTIONARY_DEFAULT = DICTIONARY_EN_US
-
 export const DICTIONARIES = {
 	en_US: DICTIONARY_EN_US,
 	no_NO: DICTIONARY_NO_NO,
 	sv_SE: DICTIONARY_SV_SE
+}
+export const DATE_OPTIONS: Intl.DateTimeFormatOptions = {
+	year: 'numeric',
+	month: 'long',
+	day: 'numeric',
+}
+export const TIME_OPTIONS: Intl.DateTimeFormatOptions = {
+	timeStyle: 'short',
 }

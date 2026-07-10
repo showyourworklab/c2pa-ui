@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { Tabs } from '@ark-ui/react/tabs'
-import { useI18nContext } from '$src/context'
 import { classNames, getAvailableTabs } from 'syw-common/helpers'
+import { useI18nContext } from '$src/context'
 import Map from './Map'
 import Actions from './Actions'
 import Icon from './Icon'

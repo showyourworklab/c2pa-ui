@@ -1,8 +1,9 @@
 <script>
 	import { getContext } from 'svelte';
 	import { classNames } from 'syw-common/helpers'
+	import { getI18nContext } from '$lib/store/i18n.js'
 
-	const { locale, getText } = getContext('i18nStoreContext');
+	const { locale, getText } = getI18nContext();
 	const { variant, isExplainerOpen, openExplainer, closeExplainer, openProvenance } = getContext('uiStoreContext');
 
 	const { class: className } = $props()

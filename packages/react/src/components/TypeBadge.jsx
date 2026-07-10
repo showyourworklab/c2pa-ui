@@ -1,5 +1,5 @@
-import { useI18nContext } from '$src/context/i18n'
 import { classNames } from 'syw-common/helpers'
+import { useI18nContext } from '$src/context/i18n'
 import Badge from './Badge'
 import Icon from './Icon'
 

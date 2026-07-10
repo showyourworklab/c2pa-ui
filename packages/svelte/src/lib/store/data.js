@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store'
-import { C2PA_DATA_DEFAULT } from 'syw-common/constants/c2pa.js'
+import { C2PA_DATA_DEFAULT } from 'syw-common/constants/c2pa'
 
 export default function createDataStore() {
 	const src = writable(C2PA_DATA_DEFAULT.src)

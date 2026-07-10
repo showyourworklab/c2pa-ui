@@ -4,6 +4,7 @@
 	import { MANIFEST_PREVIEW_TITLE_KEYS } from 'syw-common/constants'
 	import { handleA11yClick } from 'syw-common/helpers'
 	import { getDateString } from 'syw-common/helpers/i18n'
+	import { getI18nContext } from '$lib/store/i18n.js'
     import Badge from './Badge.svelte';
     import Icon from './Icon.svelte';
     import ManifestContentTabsToggle from './ManifestContentTabsToggle.svelte';
@@ -21,7 +22,7 @@
 		if(previewRef) previewRef(toggleEl)
 	})
 
-	const { locale, getText } = getContext('i18nStoreContext');
+	const { locale, getText } = getI18nContext();
 	const {
 		openManifest, closeManifest, updateThumbnailPosition, openThumbnail, closeThumbnail, addThumbnail, removeThumbnail
 	} = getContext('uiStoreContext');

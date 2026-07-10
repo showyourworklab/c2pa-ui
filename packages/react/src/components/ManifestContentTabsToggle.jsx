@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { Tabs } from '@ark-ui/react/tabs'
-import { useI18nContext } from '$src/context'
 import { classNames, getObjectValue, getAvailableTabs } from 'syw-common/helpers'
+import { useI18nContext } from '$src/context'
 
 function ManifestContentTabsToggle({
 	manifest,

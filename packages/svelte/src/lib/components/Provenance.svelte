@@ -3,11 +3,12 @@
 	import { classNames } from 'syw-common/helpers'
 	import { getVerifyUrl } from 'syw-common/helpers/c2pa'
 	import { VERIFY_BASE_URL } from 'syw-common/constants'
+	import { getI18nContext } from '$lib/store/i18n.js'
 
 	import Manifest from './Manifest.svelte'
 
 	const { src, manifests } = getContext('dataStoreContext');
-	const { locale, getText } = getContext('i18nStoreContext');
+	const { locale, getText } = getI18nContext();
 	const { isProvenanceOpen } = getContext('uiStoreContext');
 
 	const verifyUrl = $derived(getVerifyUrl($src))
