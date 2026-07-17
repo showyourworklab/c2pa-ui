@@ -1,2 +1,4 @@
-export const entries = () => ["en_US", "no_NO"].map(locale => ({ locale }));
+import { DICTIONARIES } from "./constants";
+
+export const entries = () => Object.keys(DICTIONARIES).map(locale => ({ locale }));
 export const prerender = true;
