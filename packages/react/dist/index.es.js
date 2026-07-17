@@ -2261,7 +2261,7 @@ BRSVhrfC71yl5i/KpA==
   c2pa: AC,
   "c2pa-interim": EC,
   iptc: TC
-}, Y1 = "originverify.iptc.org", Z1 = "expand", IC = [
+}, Y1 = "verify.contentauthenticity.org", Z1 = "expand", IC = [
   "timestamp",
   "producer",
   "signator",
