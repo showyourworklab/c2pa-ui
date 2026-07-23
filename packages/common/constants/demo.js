@@ -55,58 +55,19 @@ export const DEMO_IMAGES = [
 			sv_SE: 'AI-genererad video av pro-ryska valsedlar som förstörs i Moldavien.',
 		},
 		byline: 'Nora Savosnick'
-	}
-]
-
-export const DEMO_IMAGE_URLS = [
-	'https://showyourworklab.github.io/c2pa-images/adobe-1.jpg',
-	'https://showyourworklab.github.io/c2pa-images/nikon-1.jpg',
-	'https://showyourworklab.github.io/c2pa-images/truepic-1.jpg',
-	'https://showyourworklab.github.io/c2pa-images/truepic-2.jpg',
-	'https://showyourworklab.github.io/c2pa-images/truepic-3.jpg',
-	'https://showyourworklab.github.io/c2pa-images/leica-1.jpg',
-	'https://showyourworklab.github.io/c2pa-images/leica-nora-1.jpg',
-	'https://showyourworklab.github.io/c2pa-images/leica-nora-2.jpg',
-	'https://showyourworklab.github.io/c2pa-images/leica-nora-3.jpg',
-	'https://showyourworklab.github.io/c2pa-images/leica-nora-4.jpg',
-	'https://showyourworklab.github.io/c2pa-images/leica-nora-5.jpg',
-	'https://showyourworklab.github.io/c2pa-images/leica-nora-6.jpg',
-	'https://showyourworklab.github.io/c2pa-images/leica-nora-7.jpg',
-	'https://showyourworklab.github.io/c2pa-images/leica-nora-8.jpg',
-	'https://showyourworklab.github.io/c2pa-images/leica-nora-9.jpg',
-	'https://showyourworklab.github.io/c2pa-images/leica-nora-10.jpg',
-	'https://showyourworklab.github.io/c2pa-images/leica-nora-11.jpg',
-	'https://showyourworklab.github.io/c2pa-images/leica-nora-12.jpg',
-	'https://showyourworklab.github.io/c2pa-images/leica-nora-syria-1.jpg',
-	'https://showyourworklab.github.io/c2pa-images/leica-nora-syria-2.jpg',
-	'https://showyourworklab.github.io/c2pa-images/leica-nora-syria-3.jpg',
-	'https://showyourworklab.github.io/c2pa-images/leica-nora-syria-4.jpg',
-	'https://showyourworklab.github.io/c2pa-images/leica-nora-syria-5.jpg',
-	'https://showyourworklab.github.io/c2pa-images/leica-nora-syria-6.jpg',
-	'https://showyourworklab.github.io/c2pa-images/leica-nora-syria-7.jpg',
-	'https://showyourworklab.github.io/c2pa-images/leica-nora-syria-8.jpg',
-	'https://showyourworklab.github.io/c2pa-images/leica-nora-syria-9.jpg',
-	'https://showyourworklab.github.io/c2pa-images/leica-nora-syria-10.jpg',
-	'https://showyourworklab.github.io/c2pa-images/leica-nora-syria-11.jpg',
-	'https://showyourworklab.github.io/c2pa-images/leica-nora-syria-12.jpg',
-	'https://showyourworklab.github.io/c2pa-images/leica-nora-syria-13.jpg',
-	'https://showyourworklab.github.io/c2pa-images/leica-nora-syria-14.jpg',
-	'https://showyourworklab.github.io/c2pa-images/leica-nora-syria-15.jpg',
-	'https://showyourworklab.github.io/c2pa-images/leica-nora-syria-16.jpg',
-	'https://showyourworklab.github.io/c2pa-images/truepic-1.mp4',
-	'https://showyourworklab.github.io/c2pa-images/sora-1.mp4',
-	'https://showyourworklab.github.io/c2pa-images/feedback-1.jpg',
-	// 'https://iptc.org/wp-content/uploads/2026/04/IMG_4143.jpg',
-	// 'https://showyourworklab.github.io/c2pa-images/sony-nora-1.jpg',
-
-	// 'https://iptc.org/std/videometadatahub/examples/c2pa/park-bench-sunset-c2pa-max-vmh.mp4',
-	// 'https://stream.mux.com/BV3YZtogl89mg9VcNBhhnHm02Y34zI1nlMuMQfAbl3dM/highest.mp4',
-]
-
-export const DEMO_IMAGE_URL_DEFAULT =
-	// DEMO_IMAGE_URLS[0]
-	// DEMO_IMAGE_URLS[DEMO_IMAGE_URLS.length - 1]
-	// 'https://showyourworklab.github.io/c2pa-images/sony-nora-1.jpg'
-	// 'https://showyourworklab.github.io/c2pa-images/leica-nora-syria-6.jpg'
-	'https://showyourworklab.github.io/c2pa-images/feedback-1.jpg'
-	// 'https://iptc.org/wp-content/uploads/2026/04/IMG_4143.jpg'
+	},
+	// {
+	// 	src: 'https://showyourworklab.github.io/c2pa-images/sony-nora-1.jpg',
+	// 	title: {
+	// 		en_US: 'Roshni (Sony)',
+	// 		no_NO: 'Roshni (Sony)',
+	// 		sv_SE: 'Roshni (Sony)',
+	// 	},
+	// 	caption: {
+	// 		en_US: '',
+	// 		no_NO: '',
+	// 		sv_SE: '',
+	// 	},
+	// 	byline: 'Nora Savosnick'
+	// },
+];
