@@ -8,6 +8,7 @@ import Caption from './Caption'
 import Explainer from './Explainer'
 import ProvenanceExpand from './ProvenanceExpand'
 import ProvenanceModal from './ProvenanceModal'
+import ProvenanceDrawer from './ProvenanceDrawer'
 import Thumbnail from './Thumbnail'
 import Media from './Media'
 
@@ -48,6 +49,9 @@ function App({ mapOptions, onEvent }) {
 			</Figure>
 			{variant === 'expand' ? <ProvenanceExpand /> : null}
 			{variant === 'modal' ? <ProvenanceModal /> : null}
+			{variant === 'drawer-left' ? <ProvenanceDrawer direction='left' /> : null}
+			{variant === 'drawer-right' ? <ProvenanceDrawer direction='right' /> : null}
+			{variant === 'drawer-bottom' ? <ProvenanceDrawer direction='bottom' /> : null}
 		</div>
 	)
 }

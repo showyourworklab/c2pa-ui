@@ -5,6 +5,7 @@
 @import './Caption.css';
 @import './Collapse.css';
 @import './Cutline.css';
+@import './Drawer.css';
 @import './Explainer.css';
 @import './ExplainerToggle.css';
 @import './Figure.css';
@@ -20,6 +21,7 @@
 @import './Map.css';
 @import './Modal.css';
 @import './Provenance.css';
+@import './ProvenanceDrawer.css';
 @import './ProvenanceModal.css';
 @import './ProvenanceToggle.css';
 @import './Thumbnail.css';

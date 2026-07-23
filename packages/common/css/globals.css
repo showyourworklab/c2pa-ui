@@ -57,6 +57,11 @@
 	--syw-size-manifest-preview-indent: calc(var(--syw-size-badge) + var(--syw-space-4));
 	--syw-size-caption-indent: calc(var(--syw-size-badge) + var(--syw-space-5));
 	--syw-size-paragraph-max-width: 85ch;
+	--syw-size-drawer-grabber-size: 36px;
+	--syw-size-drawer-grabber-indicator-length: 40px;
+	--syw-size-drawer-grabber-indicator-thickness: 4px;
+	/* Radii */
+	--syw-radius-drawer: var(--syw-space-6);
 	/* Z Index */
 	--syw-z-modal: 9000000;
 	--syw-z-tooltip: 9000001;

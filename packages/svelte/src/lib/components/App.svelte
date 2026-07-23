@@ -15,6 +15,7 @@
 	import Caption from './Caption.svelte'
 	import ProvenanceModal from './ProvenanceModal.svelte'
 	import ProvenanceExpand from './ProvenanceExpand.svelte'
+	import ProvenanceDrawer from './ProvenanceDrawer.svelte'
 
 	const {
 		variant = VARIANT_DEFAULT,
@@ -87,9 +88,9 @@
 			let c2paInstance = $c2pa
 			if (!c2paInstance) c2paInstance = await c2paStore.init()
 			const newData = await c2paStore.read({ src, locale })
-			if (import.meta.env.DEV) {
-				console.log({ src, alt, caption, byline, ...newData })
-			}
+			// if (import.meta.env.DEV) {
+			// 	console.log({ src, alt, caption, byline, ...newData })
+			// }
 			dataStore.setC2paData(newData)
 		})()
 	})
@@ -115,8 +116,13 @@
 
 	{#if variant === 'expand'}
 		<ProvenanceExpand />
-	{/if}
-	{#if variant === 'modal'}
+	{:else if variant === 'modal'}
 		<ProvenanceModal />
+	{:else if variant === 'drawer-left'}
+		<ProvenanceDrawer direction='left' />
+	{:else if variant === 'drawer-right'}
+		<ProvenanceDrawer direction='right' />
+	{:else if variant === 'drawer-bottom'}
+		<ProvenanceDrawer direction='bottom' />
 	{/if}
 </div>
