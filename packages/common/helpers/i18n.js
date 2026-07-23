@@ -96,6 +96,7 @@ export const getLocaleText = (locale = LOCALE_DEFAULT, ...keys) => {
  * @return {string} dateString - 
  */
 export const getDateString = (locale = LOCALE_DEFAULT, timestamp) => {
+	if(!timestamp) return
 	const { date, offset } = timestamp
 	const isValidDate = date && date instanceof Date && isFinite(date.getTime())
 	if(!isValidDate) return null
