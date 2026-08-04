@@ -6,7 +6,7 @@ export default function createUiStore() {
 	const elem = writable(null)
 	const variant = writable(VARIANT_DEFAULT)
 	const mapOptions = writable(null)
-	const isImageHover = writable(false)
+	const isHoverImage = writable(false)
 	const isProvenanceOpen = writable(false)
 	const isExplainerOpen = writable(false)
 	const isThumbnailOpen = writable(false)
@@ -33,11 +33,11 @@ export default function createUiStore() {
 	}
 
 	const hoverImage = (event) => {
-		isImageHover.set(true)
+		isHoverImage.set(true)
 		handleEvent("image.hover", event)
 	}
 	const unhoverImage = (event) => {
-		isImageHover.set(false)
+		isHoverImage.set(false)
 		handleEvent("image.unhover", event)
 	}
 
@@ -102,7 +102,7 @@ export default function createUiStore() {
 		elem,
 		variant,
 		mapOptions,
-		isImageHover,
+		isHoverImage,
 		isProvenanceOpen,
 		isExplainerOpen,
 		isThumbnailOpen,

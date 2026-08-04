@@ -16,6 +16,7 @@ import type {
 	ManifestLocation,
 	ManifestTimestamp,
 	ManifestType,
+	ManifestTypeKey,
 	Manifest,
 } from '#types/c2pa'
 
@@ -148,7 +149,7 @@ const convertDmsToDd = (dms: string | null | undefined, dir: string | null | und
     const minutes = parseFloat(dmsParts[1])
     const seconds = parseFloat(dmsParts[2])
     let decimalDegrees = degrees + (minutes / 60) + (seconds / 3600)
-    if (dir == "S" || dir == "W") {
+    if(dir == "S" || dir == "W") {
         decimalDegrees = decimalDegrees * -1
     }
     return decimalDegrees
@@ -236,7 +237,7 @@ export const getGenerator = (manifest: C2paManifest | null | undefined): Manifes
 export const getType = (manifest: C2paManifest | null | undefined): ManifestType | null => {
 	const hasExif = ifHasExif(manifest)
 	const createdAction = getC2paActions(manifest)?.find(a => a?.action === "c2pa.created")
-	let typeKey, typeLabel, typeDefinition
+	let typeKey: ManifestTypeKey | undefined, typeLabel, typeDefinition
 	let iptcTypeKey, iptcTypeLabel, iptcTypeDefinition
 	if(createdAction) {
 		const iptcNewsCodeUri = createdAction?.digitalSourceType
@@ -293,7 +294,7 @@ export const getStatus = (manifest: C2paManifest, provenance: C2paProvenance | n
 	const { validation_results, active_manifest } = provenance?.manifestStore ?? {};
 	let validation;
 
-	if (manifest.label === active_manifest) {
+	if(manifest.label === active_manifest) {
 		validation = validation_results?.activeManifest ?? null;
 	} else {
 		const ingredientDelta = validation_results?.ingredientDeltas?.find(
@@ -478,7 +479,7 @@ export const prepareManifests = async ({ src, locale, provenance, reader }: {
 	reader: Reader | null | undefined
 }): Promise<Manifest[]> => {
 	try {
-        if (!provenance?.manifestStore) return []
+        if(!provenance?.manifestStore) return []
         const manifests = Object.values(provenance.manifestStore.manifests ?? {})
         const preparedManifests = await Promise.all(
             manifests.map(manifest =>
@@ -510,7 +511,7 @@ export const prepareC2paData = async ({ c2pa, src, locale }: {
 	src: string
 	locale: string
 }): Promise<SywData> => {
-    if (!c2pa || !src) return C2PA_DATA_DEFAULT
+    if(!c2pa || !src) return C2PA_DATA_DEFAULT
 	let data: SywData
     try {
         const c2paData = await readC2paFromUrl(c2pa, src)
@@ -549,15 +550,24 @@ export const prepareData = async ({
 	src: string
 	locale: string
 }): Promise<SywData> => {
-	if (!src) return C2PA_DATA_DEFAULT
-	return await prepareC2paData({ c2pa, src, locale })
+	if(!src) return C2PA_DATA_DEFAULT
+	const preparedData = await prepareC2paData({ c2pa, src, locale })
+	console.log(preparedData)
+	return preparedData;
 }
 
 let cachedC2pa: C2paSdk | null = null
-export const parseSywData = async (src: string, options: { locale?: string, c2paOptions?: C2paOptions } = {}): Promise<SywData> => {
-	if (!src) return C2PA_DATA_DEFAULT
-	if (typeof Worker === 'undefined') return C2PA_DATA_DEFAULT
+export const parseSywData = async (
+	src: string,
+	options: {
+		locale?: string,
+		c2paOptions?: C2paOptions
+	} = {}
+): Promise<SywData> => {
+	if(!src) return C2PA_DATA_DEFAULT
+	if(typeof Worker === 'undefined') return C2PA_DATA_DEFAULT
 	const { locale = '', c2paOptions = {} } = options
-	if (!cachedC2pa) cachedC2pa = await createC2pa(getC2paConfig(c2paOptions))
-	return prepareData({ c2pa: cachedC2pa, src, locale })
+	if(!cachedC2pa) cachedC2pa = await createC2pa(getC2paConfig(c2paOptions))
+	const preparedData = prepareData({ c2pa: cachedC2pa, src, locale })
+	return preparedData
 }

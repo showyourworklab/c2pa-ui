@@ -1,3 +1,5 @@
+import { Manifest } from '#types/c2pa'
+import { MediaType } from '#types/ui'
 import type { Reader } from '@contentauth/c2pa-web'
 
 interface A11yClickEvent {
@@ -45,7 +47,7 @@ export const getObjectValue = (key: string | null | undefined, object: Record<st
  * @param src - String of media source
  * @returns Returns "image" or "video"
  */
-export const getMediaType = (src: string | null | undefined): 'image' | 'video' | null => {
+export const getMediaType = (src: string | null | undefined): MediaType | null => {
 	// TODO: Needs less rudementary check
 	if(!src) {
 		return null
@@ -64,9 +66,9 @@ export const getMediaType = (src: string | null | undefined): 'image' | 'video' 
  * @param data - Manifest entry
  * @returns Returns array of string keys
  */
-export const getAvailableTabs = (keys: readonly string[] | undefined, data: Record<string, unknown>) =>
+export const getAvailableTabs = (keys: readonly string[] | undefined, data: Manifest) =>
 	keys?.filter(key => {
-		const value = getObjectValue(key, data) as { length?: number, lat?: number, lng?: number } | null | undefined
+		const value = getObjectValue(key, data as any) as any
 		if(key === "actions") {
 			return value?.length
 		} else if(key === "location") {

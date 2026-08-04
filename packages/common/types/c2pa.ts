@@ -15,8 +15,10 @@ export interface C2paProvenance {
 
 export type ManifestId = string
 
+export type ManifestTypeKey = 'camera' | 'edit' | 'ai'
+
 export interface ManifestType {
-	key: string
+	key: ManifestTypeKey
 	iptc: ManifestTypeIptc
 }
 
@@ -57,6 +59,8 @@ export interface ManifestLocation {
 
 export type ManifestVerifyUrl = string
 
+export type ManifestFieldKey = 'timestamp' | 'producer' | 'signator' | 'generator' | 'actions' | 'thumbnail' | 'location'
+
 export interface Manifest {
 	id?: ManifestId
 	type: ManifestType | null
@@ -80,4 +84,11 @@ export interface SywData {
 	provenance?: C2paProvenance | null
 	reader: Reader | null
 	error: Error | null
+}
+
+export interface SywMediaData extends SywData {
+	src: string | null
+	alt: string | null
+	caption: string | null
+	byline: string | null
 }

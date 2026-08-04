@@ -45,7 +45,7 @@
 	const { c2pa } = c2paStore
 	const { lang } = i18nStore
 	const {
-		isImageHover,
+		isHoverImage,
 		isProvenanceOpen,
 	} = uiStore
 
@@ -53,7 +53,7 @@
 		classNames(
 			'App',
 			`App_${variant}`,
-			$isImageHover ? 'App_hovered' : false,
+			$isHoverImage ? 'App_hovered' : false,
 			$isProvenanceOpen ? 'App_active' : false
 		)
 	)
@@ -87,9 +87,6 @@
 			let c2paInstance = $c2pa
 			if (!c2paInstance) c2paInstance = await c2paStore.init()
 			const newData = await c2paStore.read({ src, locale })
-			if (import.meta.env.DEV) {
-				console.log({ src, alt, caption, byline, ...newData })
-			}
 			dataStore.setC2paData(newData)
 		})()
 	})

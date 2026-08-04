@@ -114,9 +114,9 @@ export const getLocaleText = (locale: string, ...keys: DictionaryKey[]): string 
  */
 export const getDateString = (
 	locale: string,
-	timestamp: {
+	timestamp?: {
 		date?: Date,
-		offset?: string
+		offset?: string | null
 	}
 ): string | null => {
 	if(!timestamp) return null

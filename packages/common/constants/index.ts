@@ -16,22 +16,22 @@ export const MANIFEST_KEYS = [
 	// 'ingredients',
 	// 'verify',
 	'location',
-]
+] as const
 export const MANIFEST_PRIMARY_KEYS = [
 	'timestamp',
 	'producer',
 	'signator',
 	'generator',
-]
+] as const
 export const MANIFEST_SECONDARY_KEYS = [
 	'location',
 	// 'actions',
 	'thumbnail'
-]
+] as const
 export const MANIFEST_PREVIEW_TITLE_KEYS = [
 	'signator',
 	'generator'
-]
+] as const
 export const MANIFEST_CONTENT_TAB_KEYS = {
 	camera: ['thumbnail', 'location'],
 	edit: ['thumbnail', 'actions'],

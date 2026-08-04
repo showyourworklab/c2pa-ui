@@ -19,12 +19,14 @@
     "./helpers/iptc": "./helpers/iptc.ts",
     "./helpers/map": "./helpers/map.ts",
     "./helpers/markdown": "./helpers/markdown.ts",
-    "./trustlists": "./trustlists/index.js",
+    "./trustlists": "./trustlists/index.ts",
     "./types": "./types/index.ts",
     "./types/index": "./types/index.ts",
     "./types/c2pa": "./types/c2pa.ts",
     "./types/components": "./types/components.ts",
     "./types/i18n": "./types/i18n.ts",
+    "./types/trustlists": "./types/trustlists.ts",
+    "./types/ui": "./types/ui.ts",
     "./css": "./css/index.css",
     "./css/*": "./css/*",
     "./images/*": "./images/*"
@@ -42,11 +44,13 @@
     "#helpers/iptc": "./helpers/iptc.ts",
     "#helpers/map": "./helpers/map.ts",
     "#helpers/markdown": "./helpers/markdown.ts",
-    "#trustlists": "./trustlists/index.js",
+    "#trustlists": "./trustlists/index.ts",
     "#types/index": "./types/index.ts",
     "#types/c2pa": "./types/c2pa.ts",
     "#types/components": "./types/components.ts",
-    "#types/i18n": "./types/i18n.ts"
+    "#types/i18n": "./types/i18n.ts",
+    "#types/trustlists": "./types/trustlists.ts",
+    "#types/ui": "./types/ui.ts"
   },
   "scripts": {
     "publish": "npm publish"
