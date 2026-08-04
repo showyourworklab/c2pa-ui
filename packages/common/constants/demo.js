@@ -17,14 +17,14 @@ export const DEMO_IMAGES = [
 	{
 		src: 'https://showyourworklab.github.io/c2pa-images/leica-nora-6.jpg',
 		title: {
-			en_US: 'Abortion clinic (Leica)',
-			no_NO: 'Abortion clinic (Leica)',
-			sv_SE: 'Abortion clinic (Leica)',
+			en_US: 'Opioids in Tennessee (Leica)',
+			no_NO: 'Opioids in Tennessee (Leica)',
+			sv_SE: 'Opioids in Tennessee (Leica)',
 		},
 		caption: {
-			en_US: 'Karolina Ogorek, 44, runs an abortion clinic on the Virginia side of Bristol.',
-			no_NO: 'Karolina Ogorek, 44, driver en abortklinikk på Virginia-siden av Bristol.',
-			sv_SE: 'Karolina Ogorek, 44, driver en abortklinik på Virginiasidan av Bristol.',
+			en_US: 'Deputy Zach Whaley, 27, along with several other officers, are searching for a suspect they have heard is in the motel room they are outside of.',
+			no_NO: 'Politibetjent Zach Whaley (27) og flere andre betjenter leter etter en mistenkt de har hørt befinner seg på motellrommet de står utenfor.',
+			sv_SE: 'Deputy Zach Whaley, 27, tillsammans med flera andra poliser letar efter en misstänkt som de har hört ska befinna sig i det här motellrummet som de står utanför.',
 		},
 		byline: 'Nora Savosnick / Aftonbladet'
 	},
@@ -54,7 +54,7 @@ export const DEMO_IMAGES = [
 			no_NO: 'AI-generert video av pro-russiske stemmesedler som blir ødelagt i Moldova.',
 			sv_SE: 'AI-genererad video av pro-ryska valsedlar som förstörs i Moldavien.',
 		},
-		byline: 'Nora Savosnick'
+		byline: 'NewsGuard'
 	},
 	// {
 	// 	src: 'https://showyourworklab.github.io/c2pa-images/sony-nora-1.jpg',
