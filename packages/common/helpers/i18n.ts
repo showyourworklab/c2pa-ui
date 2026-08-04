@@ -119,6 +119,7 @@ export const getDateString = (
 		offset?: string
 	}
 ): string | null => {
+	if(!timestamp) return null
 	const { date, offset } = timestamp
 	const isValidDate = date && date instanceof Date && isFinite(date.getTime())
 	if(!isValidDate) return null

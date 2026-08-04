@@ -2,6 +2,7 @@
     import SsrFallback from '$src/lib/components/SsrFallback.svelte';
 	import SywSvelte from 'syw-svelte'
 	import 'syw-common/css/globals.css'
+	import { DICTIONARIES } from './constants.js'
 
 	let { params, data } = $props();
 	let { locale } = $derived(params);
@@ -17,23 +18,18 @@
 
 <svelte:head>
 	<title>Show Your Work Lab | {dictionary?.title}</title>
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/> -->
 </svelte:head>
 
 <header id="header">
 	<div id="locales">
-		<a
-			href="./en_US"
-			class={"en_US".toLocaleLowerCase() === locale.toLocaleLowerCase() ? "active" : null}
-		>
-			English
-		</a>
-		<a
-			href="./no_NO"
-			class={"no_NO".toLocaleLowerCase() === locale.toLocaleLowerCase() ? "active" : null}
-		>
-			Norsk
-		</a>
+		{#each Object.keys(DICTIONARIES) as locale}
+			<a
+				href={`./${locale}`}
+				class={locale.toLocaleLowerCase() === locale.toLocaleLowerCase() ? "active" : null}
+			>
+				{DICTIONARIES[locale]?.endonym}
+			</a>
+		{/each}
 	</div>
 </header>
 <main id="main">
@@ -123,9 +119,10 @@
 		text-transform: uppercase;
 	}
 	#locales {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		column-gap: 8px;
+		display: flex;
+	}
+	#locales a {
+		margin: 0 5px;
 	}
 	#locales a.active {
 		font-weight: bold;

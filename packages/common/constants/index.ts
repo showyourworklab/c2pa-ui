@@ -1,4 +1,5 @@
-export const VERIFY_BASE_URL = 'originverify.iptc.org'
+// export const VERIFY_BASE_URL = 'originverify.iptc.org'
+export const VERIFY_BASE_URL = 'verify.contentauthenticity.org'
 //////////////// Variants ///////////////
 export const VARIANT_KEYS = [
 	'expand',

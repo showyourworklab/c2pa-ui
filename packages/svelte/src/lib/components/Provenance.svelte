@@ -43,7 +43,7 @@
 		</div>
 	{/if}
 	<div class={classNames('ProvenanceVerify')}>
-		{getText($locale, 'verify', 'pre')}&nbsp;
+		{getText($locale, 'verify', 'pre')}
 		<a
 			href={verifyUrl}
 			target='_blank'
