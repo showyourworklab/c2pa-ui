@@ -4,7 +4,9 @@
 	import SywSvelte from 'syw-svelte'
 </script>
 
-<main>
+<main
+	id="article-morgenbladet"
+>
 	<div
 		id="hero"
 	>
@@ -400,14 +402,20 @@
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 	:global(body) {
+		overflow-y: scroll;
+		overflow-x: hidden;
+	}
+	#article-morgenbladet {
+		width: 100%;
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
 		margin: auto;
 		font-family: var(--font-serif);
 		font-size: var(--text-base);
-		overflow-y: scroll;
-		overflow-x: hidden;
 		color: var(--color-primary);
 		background-color: var(--color-secondary);
-	
+
 		--text-base: 18px;
 		--font-serif: "Libre Baskerville", "Times New Roman", times, serif;
 		--font-sans-serif: "Rubik", Arial, Helvetica, sans-serif;
@@ -423,15 +431,6 @@
 		--syw-color-tertiary: rgba(255,229,217,1);
 		--syw-color-quaternary: rgba(153,1,1,1);
 		--syw-color-quaternary-light: rgba(250,246,245,1);
-	}
-	:global(#root) {
-		width: 100%;
-		min-height: 100vh;
-		display: flex;
-		flex-direction: column;
-	}
-	html {
-		background-color: #FFFFFD;
 	}
 	#hero {
 		max-width: 900px;
@@ -517,7 +516,7 @@
 	/* :global(.Syw-ManifestPreviewCell_thumb img) {
 		height: unset;
 	} */
-	:global(.Syw-App .Syw-Caption) {
+	article :global(.Syw-App .Syw-Caption) {
 		font-family: var(--font-serif);
 	}
 </style>

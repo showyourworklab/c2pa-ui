@@ -3,7 +3,9 @@
 	import SywSvelte from 'syw-svelte'
 </script>
 
-<main>
+<main
+	id="article-aftonbladet"
+>
 	<div
 		id="hero"
 	>
@@ -179,25 +181,24 @@
 
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
-	:global(html) {
-		--color-primary: #060035;
-		--color-secondary: hsl(213, 48%, 99%);
-		--color-ui: #E2E5F1;
-	}
 	:global(body) {
-		margin: auto;
-		font-family: "Libre Baskerville", Arial, Helvetica, sans-serif;
-		font-size: 18px;
 		overflow-y: scroll;
 		overflow-x: hidden;
-		color: var(--color-primary);
-		background-color: var(--color-secondary);
 	}
-	:global(#root) {
+	#article-aftonbladet {
 		width: 100%;
 		min-height: 100vh;
 		display: flex;
 		flex-direction: column;
+		margin: auto;
+		font-family: "Libre Baskerville", Arial, Helvetica, sans-serif;
+		font-size: 18px;
+		color: var(--color-primary);
+		background-color: var(--color-secondary);
+
+		--color-primary: #060035;
+		--color-secondary: hsl(213, 48%, 99%);
+		--color-ui: #E2E5F1;
 	}
 	#hero {
 		margin: 0 -2em 2em -2em;
@@ -262,7 +263,7 @@
 		max-width: 900px;
 		margin: 4em auto;
 	}
-	:global(.Syw-ManifestPreviewCell_thumb img) {
+	main :global(.Syw-ManifestPreviewCell_thumb img) {
 		height: unset;
 	}
 </style>
