@@ -7,7 +7,9 @@
 	import SywSvelte from '$lib/components/App.svelte'
 </script>
 
-<main>
+<main
+	id="docs"
+>
 	<Header />
 	<Heading type="svelte" />
 	<Preview SywSvelte={SywSvelte} />
