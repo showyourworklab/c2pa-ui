@@ -402,6 +402,7 @@
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 	:global(body) {
+		margin: 0;
 		overflow-y: scroll;
 		overflow-x: hidden;
 	}

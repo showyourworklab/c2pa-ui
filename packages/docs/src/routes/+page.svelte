@@ -13,7 +13,9 @@
 	const aftonbladetUrl = import.meta.env.PROD ? '/syw/article/aftonbladet' : '/article/aftonbladet'
 </script>
 
-<main>
+<main
+	id="docs"
+>
 	<Header />
 	
 	<Heading />

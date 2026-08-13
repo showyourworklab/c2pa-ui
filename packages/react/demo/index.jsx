@@ -36,7 +36,9 @@ const Demo = () => {
 	}
 
 	return (
-		<main>
+		<main
+			id="docs"
+		>
 			<header>
 				<a
 					href="https://showyourworklab.org"
