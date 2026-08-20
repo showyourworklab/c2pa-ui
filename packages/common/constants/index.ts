@@ -4,7 +4,7 @@ export const VERIFY_BASE_URL = 'verify.contentauthenticity.org'
 export const VARIANT_KEYS = [
 	'expand',
 	'modal'
-]
+] as const
 export const VARIANT_DEFAULT = 'expand'
 /////////////// Manifests //////////////
 export const MANIFEST_KEYS = [

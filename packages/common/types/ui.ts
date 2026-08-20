@@ -1,8 +1,11 @@
+import type { VARIANT_KEYS } from '#constants/index'
 import type { C2paStatus, Manifest, ManifestThumbnail, ManifestTypeKey } from './c2pa'
 
 export type MediaType = 'image' | 'video'
 
 export type IconType = C2paStatus | ManifestTypeKey | 'origin' | 'missing' | 'close'
+
+export type Variant = typeof VARIANT_KEYS[number]
 
 export interface ThumbnailPosition {
 	clientX: number
@@ -10,7 +13,7 @@ export interface ThumbnailPosition {
 }
 
 export interface UiState {
-	variant: string
+	variant: Variant | string
 	elem: HTMLElement | null
 	mapOptions: Record<string, unknown> | null
 	isHoverImage: boolean
@@ -22,4 +25,18 @@ export interface UiState {
 	thumbnailPosition: ThumbnailPosition | null
 }
 
-export type UiEventHandler = (type: string, event: unknown, ...args: unknown[]) => void
+export type UiEventType =
+	| 'image.hover'
+	| 'image.unhover'
+	| 'provenance.open'
+	| 'provenance.close'
+	| 'explainer.open'
+	| 'explainer.close'
+	| 'manifest.open'
+	| 'manifest.close'
+	| 'manifest.thumbnail.open'
+	| 'manifest.thumbnail.close'
+	| 'manifest.thumbnail.add'
+	| 'manifest.thumbnail.remove'
+
+export type UiEventHandler = (type: UiEventType | string, event: unknown, ...args: unknown[]) => void

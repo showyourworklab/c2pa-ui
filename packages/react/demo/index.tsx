@@ -1,38 +1,41 @@
-import React, { useState } from 'react'
-import { createRoot } from 'react-dom/client';
+import { useState } from 'react'
+import type { ChangeEvent } from 'react'
+import { createRoot } from 'react-dom/client'
 import { DEMO_IMAGES } from 'syw-common/constants/demo'
 import { LOCALE_DEFAULT, DICTIONARIES } from 'syw-common/constants/i18n'
 import { VARIANT_KEYS, VARIANT_DEFAULT } from 'syw-common/constants'
 import SywLogo from 'syw-common/images/logo-dark.svg'
+import C2PA_INTERIM_TRUST_LIST from '../../common/trustlists/c2pa-interim'
 import SywReact from '$src/index'
+import type { Locale } from 'syw-common/types/i18n'
+import type { UiEventHandler } from 'syw-common/types/ui'
 import 'syw-common/css/globals.css'
 import 'syw-docs/src/styles.css'
-import C2PA_INTERIM_TRUST_LIST from '../../common/trustlists/c2pa-interim';
 
 const Demo = () => {
-	const [locale, setLocale] = useState(LOCALE_DEFAULT)
-	const [variant, setVariant] = useState(VARIANT_DEFAULT)
+	const [locale, setLocale] = useState<Locale>(LOCALE_DEFAULT)
+	const [variant, setVariant] = useState<string>(VARIANT_DEFAULT)
 	const [demoImage, setDemoImage] = useState(DEMO_IMAGES[0])
 	const [demoImageIndex, setDemoImageIndex] = useState(0)
 
-	const handleLocaleChange = e => {
-		const { value } = e.target
+	const handleLocaleChange = (e: ChangeEvent<HTMLSelectElement>) => {
+		const { value } = e.target as { value: Locale }
 		setLocale(value)
 	}
 
-	const handleVariantChange = e => {
+	const handleVariantChange = (e: ChangeEvent<HTMLSelectElement>) => {
 		const { value } = e.target
 		setVariant(value)
 	}
 
-	const handleImageChange = e => {
+	const handleImageChange = (e: ChangeEvent<HTMLSelectElement>) => {
 		const { value } = e.target
 		setDemoImage(DEMO_IMAGES[Number(value)])
 		setDemoImageIndex(Number(value))
 	}
 
-	const handleEvent = (type, event, manifest) => {
-		// console.log(type, event, manifest)
+	const handleEvent: UiEventHandler = (type, event, ...args) => {
+		// console.log(type, event, ...args)
 	}
 
 	return (
@@ -122,7 +125,7 @@ const Demo = () => {
 							htmlFor="select-locale"
 						>
 							Select language of component:
-						</label>					
+						</label>
 						<select
 							id="select-locale"
 							value={locale}
@@ -149,7 +152,11 @@ const Demo = () => {
 						// style: 'https://tiles.openfreemap.org/styles/positron'
 					}}
 					c2paOptions={{
-						trustLists: [C2PA_INTERIM_TRUST_LIST]
+						settings: {
+							trust: {
+								trustAnchors: C2PA_INTERIM_TRUST_LIST
+							}
+						}
 					}}
 					onEvent={handleEvent}
 				/>
@@ -158,6 +165,6 @@ const Demo = () => {
 	)
 }
 
-const container = document.getElementById('root');
-const root = createRoot(container);
-root.render(<Demo />);
+const container = document.getElementById('root') as HTMLElement
+const root = createRoot(container)
+root.render(<Demo />)

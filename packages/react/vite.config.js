@@ -1,6 +1,7 @@
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import dts from 'vite-plugin-dts'
 
 export default defineConfig({
 	publicDir: 'public',
@@ -15,7 +16,7 @@ export default defineConfig({
 		copyPublicDir: false,
 		lib: {
 			name: 'SywReact',
-			entry: resolve(__dirname, 'src/index.jsx'),
+			entry: resolve(__dirname, 'src/index.ts'),
 			formats: ['es', 'umd'],
 			fileName: (format) =>
 				`index.${format}.js`
@@ -61,6 +62,11 @@ export default defineConfig({
 			// Disabling this since to stop re-registration custom element error when
 			// hot-reloading web components
 			// fastRefresh: false,
+		}),
+		dts({
+			entryRoot: 'src',
+			include: ['src'],
+			insertTypesEntry: true,
 		}),
 	],
 	server: {

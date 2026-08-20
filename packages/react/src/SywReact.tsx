@@ -1,16 +1,20 @@
+import type { FC } from 'react'
+import { LOCALE_DEFAULT } from 'syw-common/constants/i18n'
 import { C2paProvider, I18nProvider, DataProvider, UiProvider } from './providers'
 import App from './components/App'
+import type { SywReactProps } from './types'
 
-function SywReact({
-	locale,
+const SywReact: FC<SywReactProps> = ({
+	locale = LOCALE_DEFAULT,
 	src,
-	alt,
-	caption,
-	byline,
+	alt = null,
+	caption = null,
+	byline = null,
 	variant,
 	c2paOptions,
+	mapOptions = null,
 	...props
-}) {
+}) => {
 
 	return (
 		<C2paProvider
@@ -28,7 +32,7 @@ function SywReact({
 					<UiProvider
 						variant={variant}
 					>
-						<App { ...props } />
+						<App mapOptions={mapOptions} { ...props } />
 					</UiProvider>
 				</DataProvider>
 			</I18nProvider>

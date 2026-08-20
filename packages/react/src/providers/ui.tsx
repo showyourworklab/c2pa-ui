@@ -2,11 +2,10 @@ import { useRef, useState } from 'react'
 import type { ReactNode } from 'react'
 import { VARIANT_DEFAULT } from 'syw-common/constants'
 import type { Manifest } from 'syw-common/types/c2pa'
-import type { ThumbnailPosition, UiEventHandler } from 'syw-common/types/ui'
+import type { ThumbnailPosition, UiEventHandler, UiState } from 'syw-common/types/ui'
 import { UiContext } from '$src/context/ui'
 
-interface UiProviderProps {
-	variant?: string
+interface UiProviderProps extends Pick<Partial<UiState>, 'variant'> {
 	children: ReactNode
 }
 
