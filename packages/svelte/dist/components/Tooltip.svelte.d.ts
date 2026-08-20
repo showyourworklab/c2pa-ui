@@ -1,19 +1,12 @@
+import type { ComponentProps, Snippet } from 'svelte';
+import { Tooltip as ArkTooltip } from '@ark-ui/svelte/tooltip';
+export interface TooltipProps {
+    content?: string;
+    disabled?: boolean;
+    ContentProps?: ComponentProps<typeof ArkTooltip.Content>;
+    className?: string;
+    children?: Snippet;
+}
+declare const Tooltip: import("svelte").Component<TooltipProps, {}, "">;
+type Tooltip = ReturnType<typeof Tooltip>;
 export default Tooltip;
-type Tooltip = {
-    $on?(type: string, callback: (e: any) => void): () => void;
-    $set?(props: Partial<$$ComponentProps>): void;
-};
-declare const Tooltip: import("svelte").Component<{
-    content: any;
-    disabled: any;
-    ContentProps?: Record<string, any>;
-    className: any;
-    children: any;
-}, {}, "">;
-type $$ComponentProps = {
-    content: any;
-    disabled: any;
-    ContentProps?: Record<string, any>;
-    className: any;
-    children: any;
-};

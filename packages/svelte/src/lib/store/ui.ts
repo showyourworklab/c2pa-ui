@@ -1,100 +1,105 @@
+import { getContext, setContext } from 'svelte'
 import { writable, get } from 'svelte/store'
 import { VARIANT_DEFAULT } from 'syw-common/constants/index'
+import type { Manifest, ManifestThumbnail } from 'syw-common/types/c2pa'
+import type { ThumbnailPosition, UiEventHandler, Variant } from 'syw-common/types/ui'
+
+const UI_CONTEXT_KEY = Symbol('ui')
 
 export default function createUiStore() {
-	
-	const elem = writable(null)
-	const variant = writable(VARIANT_DEFAULT)
-	const mapOptions = writable(null)
+
+	const elem = writable<HTMLElement | null>(null)
+	const variant = writable<Variant | string>(VARIANT_DEFAULT)
+	const mapOptions = writable<Record<string, unknown> | null>(null)
 	const isHoverImage = writable(false)
 	const isProvenanceOpen = writable(false)
 	const isExplainerOpen = writable(false)
 	const isThumbnailOpen = writable(false)
-	const openManifests = writable({})
-	const thumbnail = writable(null)
-	const thumbnailPosition = writable(null)
-	const eventHandler = writable(null)
+	const openManifests = writable<Record<string, Manifest>>({})
+	const thumbnail = writable<ManifestThumbnail>(null)
+	const thumbnailPosition = writable<ThumbnailPosition | null>(null)
+	const eventHandler = writable<UiEventHandler | null>(null)
 
-	const setElem = (value) => {
+	const setElem = (value: HTMLElement | null) => {
 		elem.set(value)
 	}
 
-	const setVariant = (value) => {
+	const setVariant = (value: Variant | string) => {
 		variant.set(value)
 	}
 
-	const setMapOptions = (value) => {
+	const setMapOptions = (value: Record<string, unknown> | null) => {
 		mapOptions.set(value)
 	}
 
-	const handleEvent = (type, event, ...args) => {
+	const handleEvent: UiEventHandler = (type, event, ...args) => {
 		const eventHandlerFunc = get(eventHandler)
 		if(typeof eventHandlerFunc === "function") eventHandlerFunc(type, event, ...args)
 	}
 
-	const hoverImage = (event) => {
+	const hoverImage = (event?: unknown) => {
 		isHoverImage.set(true)
 		handleEvent("image.hover", event)
 	}
-	const unhoverImage = (event) => {
+	const unhoverImage = (event?: unknown) => {
 		isHoverImage.set(false)
 		handleEvent("image.unhover", event)
 	}
 
-	const openProvenance = (event) => {
+	const openProvenance = (event?: unknown) => {
 		isProvenanceOpen.set(true)
 		handleEvent("provenance.open", event)
 	}
-	const closeProvenance = (event) => {
+	const closeProvenance = (event?: unknown) => {
 		isProvenanceOpen.set(false)
 		openManifests.set({})
 		handleEvent("provenance.close", event)
 	}
 
-	const openExplainer = (event) => {
+	const openExplainer = (event?: unknown) => {
 		isExplainerOpen.set(true)
 		handleEvent("explainer.open", event)
 	}
-	const closeExplainer = (event) => {
+	const closeExplainer = (event?: unknown) => {
 		isExplainerOpen.set(false)
 		handleEvent("explainer.close", event)
 	}
 
-	const openManifest = (event, manifest) => {
+	const openManifest = (event: unknown, manifest: Manifest) => {
 		const newOpenManifests = Object.assign(get(openManifests), {})
-		newOpenManifests[manifest.id] = manifest
+		newOpenManifests[String(manifest.id)] = manifest
 		openManifests.set(newOpenManifests)
 		handleEvent("manifest.open", event, manifest)
 	}
-	const closeManifest = (event, manifest) => {
+	const closeManifest = (event: unknown, manifest: Manifest) => {
 		const newOpenManifests = Object.assign(get(openManifests), {})
-		delete newOpenManifests[manifest.id]
+		delete newOpenManifests[String(manifest.id)]
 		openManifests.set(newOpenManifests)
 		handleEvent("manifest.close", event, manifest)
 	}
 
-	const openThumbnail = (event) => {
+	const openThumbnail = (event?: unknown) => {
 		isThumbnailOpen.set(true)
 		handleEvent("manifest.thumbnail.open", event)
 	}
-	const closeThumbnail = (event) => {
+	const closeThumbnail = (event?: unknown) => {
 		isThumbnailOpen.set(false)
 		handleEvent("manifest.thumbnail.close", event)
 	}
-	const addThumbnail = (value, event) => {
+	const addThumbnail = (value: ManifestThumbnail, event?: unknown) => {
 		thumbnail.set(value)
 		handleEvent("manifest.thumbnail.add", event)
 	}
-	const removeThumbnail = (event) => {
+	const removeThumbnail = (event?: unknown) => {
 		thumbnail.set(null)
 		handleEvent("manifest.thumbnail.remove", event)
 	}
-	const updateThumbnailPosition = (event) => {
+	const updateThumbnailPosition = (event: ThumbnailPosition) => {
 		const position = event
 		thumbnailPosition.set(position)
 	}
 
-	const setEventHandler = val => {
+	const setEventHandler = (val: UiEventHandler | null) => {
 		eventHandler.set(val)
 	}
 
@@ -129,3 +134,8 @@ export default function createUiStore() {
 		setEventHandler,
 	}
 }
+
+export type UiStore = ReturnType<typeof createUiStore>
+
+export const setUiContext = (store: UiStore) => setContext(UI_CONTEXT_KEY, store)
+export const getUiContext = () => getContext<UiStore>(UI_CONTEXT_KEY)

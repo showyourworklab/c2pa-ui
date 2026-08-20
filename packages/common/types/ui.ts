@@ -1,5 +1,5 @@
 import type { VARIANT_KEYS } from '#constants/index'
-import type { C2paStatus, Manifest, ManifestThumbnail, ManifestTypeKey } from './c2pa'
+import type { C2paStatus, Manifest, ManifestThumbnail, ManifestTypeKey } from './c2pa.js'
 
 export type MediaType = 'image' | 'video'
 

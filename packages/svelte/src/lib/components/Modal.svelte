@@ -1,6 +1,7 @@
-<script>
+<script lang="ts">
 	import { Dialog } from '@ark-ui/svelte/dialog'
 	import { classNames } from 'syw-common/helpers'
+	import type { ModalProps } from 'syw-common/types/components'
 	import Icon from './Icon.svelte'
 
 	let {
@@ -10,9 +11,9 @@
 		onOpenChange,
 		className,
 		children
-	} = $props()
+	}: ModalProps = $props()
 
-	const handleOpenChange = (event) => {
+	const handleOpenChange = (event: { open: boolean }) => {
 		onOpenChange(event.open)
 	}
 </script>

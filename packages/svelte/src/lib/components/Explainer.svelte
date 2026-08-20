@@ -1,16 +1,16 @@
-<script>
-	import { getContext } from 'svelte';
+<script lang="ts">
 	import { classNames } from 'syw-common/helpers'
 	import Collapse from './Collapse.svelte'
     import Icon from './Icon.svelte';
 	import Markdown from './Markdown.svelte'
 	import { getI18nContext } from '$lib/store/i18n.js'
+	import { getUiContext } from '$lib/store/ui.js'
 
 	const { locale, getText } = getI18nContext();
-	const { isExplainerOpen, closeExplainer } = getContext('uiStoreContext');
+	const { isExplainerOpen, closeExplainer } = getUiContext();
 
 	const onCloseClick = closeExplainer
-	
+
 </script>
 
 <div
@@ -49,7 +49,6 @@
 				>
 					{#each [1, 2] as index}
 						<div
-							key={index}
 							class={classNames('ExplainerSection')}
 						>
 							<dt

@@ -1,25 +1,5 @@
+import 'syw-common/css/styles.css';
+import type { SywEmbedProps } from 'syw-common/types/embed';
+declare const App: import("svelte").Component<SywEmbedProps, {}, "">;
+type App = ReturnType<typeof App>;
 export default App;
-type App = {
-    $on?(type: string, callback: (e: any) => void): () => void;
-    $set?(props: Partial<$$ComponentProps>): void;
-};
-declare const App: import("svelte").Component<{
-    variant?: typeof VARIANT_DEFAULT;
-    src?: string;
-    alt?: string;
-    caption?: string;
-    byline?: string;
-    locale?: string;
-    mapOptions?: any;
-    onEvent?: any;
-}, {}, "">;
-type $$ComponentProps = {
-    variant?: typeof VARIANT_DEFAULT;
-    src?: string;
-    alt?: string;
-    caption?: string;
-    byline?: string;
-    locale?: string;
-    mapOptions?: any;
-    onEvent?: any;
-};

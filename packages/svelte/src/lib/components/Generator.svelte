@@ -1,16 +1,16 @@
-<script>
-	import { getContext } from 'svelte'
-	import { classNames } from 'syw-common/helpers'
-	import { convertJumbfToDataUri } from 'syw-common/helpers'
+<script lang="ts">
+	import { classNames, convertJumbfToDataUri } from 'syw-common/helpers'
+	import type { ManifestGeneratorEntry } from 'syw-common/types/c2pa'
+	import { getDataContext } from '$lib/store/data.js'
 
-	const { reader } = getContext('dataStoreContext')
+	const { reader } = getDataContext()
 
 	const {
 		name,
 		icon,
-	} = $props()
+	}: ManifestGeneratorEntry = $props()
 
-	let src = $state(null)
+	let src: string | null = $state(null)
 
 	$effect(() => {
 		let cancelled = false

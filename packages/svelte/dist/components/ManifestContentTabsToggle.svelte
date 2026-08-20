@@ -1,15 +1,16 @@
-<script>
-    import { getContext } from 'svelte';
+<script lang="ts">
 	import { Tabs } from '@ark-ui/svelte/tabs'
 	import { classNames, getAvailableTabs } from 'syw-common/helpers'
+	import type { ManifestContentTabsToggleProps } from 'syw-common/types/components'
+	import { getI18nContext } from '../store/i18n.js'
 
 	const {
 		keys = [],
-		manifest = {},
+		manifest,
 		class: className
-	} = $props()
+	}: ManifestContentTabsToggleProps & { class?: string | null } = $props()
 
-	const { locale, getText } = getContext('i18nStoreContext')
+	const { locale, getText } = getI18nContext()
 
 	const availableTabs = $derived(() =>
 		getAvailableTabs(keys, manifest)

@@ -1,9 +1,10 @@
-<script>
-	import { onMount, getContext } from 'svelte';
+<script lang="ts">
+	import { onMount } from 'svelte';
 	import { classNames } from 'syw-common/helpers'
+	import { getDataContext } from '$lib/store/data.js'
 
 	let mounted = $state(false);
-	const { src, alt } = getContext('dataStoreContext')
+	const { src, alt } = getDataContext()
 
 	onMount(async () => {
 		await import('@videojs/html/video/player');

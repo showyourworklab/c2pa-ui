@@ -1,5 +1,5 @@
-import type { C2paStatus, Manifest, ManifestFieldKey, ManifestLocation, ManifestType } from './c2pa'
-import { IconType } from './ui'
+import type { C2paStatus, Manifest, ManifestFieldKey, ManifestLocation, ManifestType } from './c2pa.js'
+import type { IconType } from './ui.js'
 
 export interface ComponentProps {
 	className?: string | null

@@ -1,13 +1,14 @@
-<script>
-	import { getContext } from 'svelte';
+<script lang="ts">
 	import { classNames } from 'syw-common/helpers'
-	
+	import { getI18nContext } from '../store/i18n.js'
+	import { getUiContext } from '../store/ui.js'
+
 	const {
 		thumbnail,
 		thumbnailPosition
-	} = getContext('uiStoreContext')
+	} = getUiContext()
 
-	const { locale, getText } = getContext('i18nStoreContext');
+	const { locale, getText } = getI18nContext();
 
 </script>
 

@@ -1,17 +1,7 @@
+import type { ManifestPreviewProps } from 'syw-common/types/components';
+type $$ComponentProps = Pick<ManifestPreviewProps, 'open' | 'manifest' | 'tabKeys'> & {
+    previewRef?: ((el: HTMLElement | null) => void) | null;
+};
+declare const ManifestPreview: import("svelte").Component<$$ComponentProps, {}, "">;
+type ManifestPreview = ReturnType<typeof ManifestPreview>;
 export default ManifestPreview;
-type ManifestPreview = {
-    $on?(type: string, callback: (e: any) => void): () => void;
-    $set?(props: Partial<$$ComponentProps>): void;
-};
-declare const ManifestPreview: import("svelte").Component<{
-    open: any;
-    manifest: any;
-    tabKeys: any;
-    previewRef: any;
-}, {}, "">;
-type $$ComponentProps = {
-    open: any;
-    manifest: any;
-    tabKeys: any;
-    previewRef: any;
-};

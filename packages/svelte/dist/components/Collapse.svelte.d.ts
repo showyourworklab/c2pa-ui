@@ -1,13 +1,8 @@
+import type { Snippet } from 'svelte';
+import type { CollapseProps } from 'syw-common/types/components';
+type $$ComponentProps = Pick<CollapseProps, 'open'> & {
+    children: Snippet;
+};
+declare const Collapse: import("svelte").Component<$$ComponentProps, {}, "">;
+type Collapse = ReturnType<typeof Collapse>;
 export default Collapse;
-type Collapse = {
-    $on?(type: string, callback: (e: any) => void): () => void;
-    $set?(props: Partial<$$ComponentProps>): void;
-};
-declare const Collapse: import("svelte").Component<{
-    open: any;
-    children: any;
-}, {}, "">;
-type $$ComponentProps = {
-    open: any;
-    children: any;
-};

@@ -1,13 +1,4 @@
+import type { ManifestTableRowProps } from 'syw-common/types/components';
+declare const ManifestTableRow: import("svelte").Component<Pick<ManifestTableRowProps, "type" | "value">, {}, "">;
+type ManifestTableRow = ReturnType<typeof ManifestTableRow>;
 export default ManifestTableRow;
-type ManifestTableRow = {
-    $on?(type: string, callback: (e: any) => void): () => void;
-    $set?(props: Partial<$$ComponentProps>): void;
-};
-declare const ManifestTableRow: import("svelte").Component<{
-    type: any;
-    value: any;
-}, {}, "">;
-type $$ComponentProps = {
-    type: any;
-    value: any;
-};

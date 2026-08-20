@@ -1,14 +1,14 @@
-<script>
-	import { getContext } from 'svelte';
+<script lang="ts">
 	import { classNames } from 'syw-common/helpers'
 	import { getI18nContext } from '$lib/store/i18n.js'
+	import { getUiContext } from '$lib/store/ui.js'
 
 	const { locale, getText } = getI18nContext();
-	const { variant, isExplainerOpen, openExplainer, closeExplainer, openProvenance } = getContext('uiStoreContext');
+	const { variant, isExplainerOpen, openExplainer, closeExplainer, openProvenance } = getUiContext();
 
-	const { class: className } = $props()
+	const { class: className }: { class?: string } = $props()
 
-	const handleClick = (event) => {
+	const handleClick = (event: MouseEvent) => {
 		// Toggle explainer based on current state
 		if($isExplainerOpen) {
 			closeExplainer(event)

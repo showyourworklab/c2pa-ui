@@ -1,19 +1,8 @@
+import type { BadgeProps } from 'syw-common/types/components';
+import type { TooltipProps } from './Tooltip.svelte';
+interface Props extends BadgeProps {
+    TooltipProps?: Omit<TooltipProps, 'children'>;
+}
+declare const Badge: import("svelte").Component<Props, {}, "">;
+type Badge = ReturnType<typeof Badge>;
 export default Badge;
-type Badge = {
-    $on?(type: string, callback: (e: any) => void): () => void;
-    $set?(props: Partial<$$ComponentProps>): void;
-};
-declare const Badge: import("svelte").Component<{
-    type: any;
-    status: any;
-    TooltipProps?: Record<string, any>;
-    children: any;
-    className: any;
-}, {}, "">;
-type $$ComponentProps = {
-    type: any;
-    status: any;
-    TooltipProps?: Record<string, any>;
-    children: any;
-    className: any;
-};

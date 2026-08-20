@@ -1,18 +1,20 @@
-<script>
-	import { getContext } from 'svelte'
+<script lang="ts">
 	import { classNames } from 'syw-common/helpers'
 	import { getVerifyUrl } from 'syw-common/helpers/c2pa'
 	import { VERIFY_BASE_URL } from 'syw-common/constants'
+	import { getDataContext } from '../store/data.js'
+	import { getI18nContext } from '../store/i18n.js'
+	import { getUiContext } from '../store/ui.js'
 
 	import Manifest from './Manifest.svelte'
 
-	const { src, manifests } = getContext('dataStoreContext');
-	const { locale, getText } = getContext('i18nStoreContext');
-	const { isProvenanceOpen } = getContext('uiStoreContext');
+	const { src, manifests } = getDataContext();
+	const { locale, getText } = getI18nContext();
+	const { isProvenanceOpen } = getUiContext();
 
-	const verifyUrl = $derived(getVerifyUrl($src))
+	const verifyUrl = $derived(getVerifyUrl($src ?? ''))
 
-	let firstPreviewEl = $state(null)
+	let firstPreviewEl: HTMLElement | null = $state(null)
 
 	$effect(() => {
 		if($isProvenanceOpen && firstPreviewEl) firstPreviewEl.focus()

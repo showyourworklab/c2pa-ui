@@ -1,11 +1,7 @@
-export default Figure;
-type Figure = {
-    $on?(type: string, callback: (e: any) => void): () => void;
-    $set?(props: Partial<$$ComponentProps>): void;
-};
-declare const Figure: import("svelte").Component<{
-    children: any;
-}, {}, "">;
+import type { Snippet } from 'svelte';
 type $$ComponentProps = {
-    children: any;
+    children: Snippet;
 };
+declare const Figure: import("svelte").Component<$$ComponentProps, {}, "">;
+type Figure = ReturnType<typeof Figure>;
+export default Figure;

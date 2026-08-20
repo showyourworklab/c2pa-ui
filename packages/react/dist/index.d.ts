@@ -120,16 +120,20 @@ type UiEventType =
 
 type UiEventHandler = (type: UiEventType | string, event: unknown, ...args: unknown[]) => void
 
-interface SywReactProps {
-    locale?: string;
-    src: string;
-    alt?: string;
-    caption?: string;
-    byline?: string;
-    variant?: Variant | string;
-    c2paOptions?: C2paOptions;
-    mapOptions?: Record<string, unknown> | null;
-    onEvent?: UiEventHandler;
+/** The public embed contract shared by syw-react's <SywReact> and syw-svelte's <App>. */
+interface SywEmbedProps {
+	locale?: string
+	src: string
+	alt?: string
+	caption?: string
+	byline?: string
+	variant?: Variant | string
+	c2paOptions?: C2paOptions
+	mapOptions?: Record<string, unknown> | null
+	onEvent?: UiEventHandler
+}
+
+interface SywReactProps extends SywEmbedProps {
 }
 
 declare const SywReact: FC<SywReactProps>;

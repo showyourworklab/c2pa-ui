@@ -1,14 +1,3 @@
-import type { C2paOptions } from 'syw-common/types/c2pa'
-import type { UiEventHandler, Variant } from 'syw-common/types/ui'
+import type { SywEmbedProps } from 'syw-common/types/embed'
 
-export interface SywReactProps {
-	locale?: string
-	src: string
-	alt?: string
-	caption?: string
-	byline?: string
-	variant?: Variant | string
-	c2paOptions?: C2paOptions
-	mapOptions?: Record<string, unknown> | null
-	onEvent?: UiEventHandler
-}
+export interface SywReactProps extends SywEmbedProps {}

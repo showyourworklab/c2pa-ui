@@ -1,11 +1,4 @@
+import type { StatusBadgeProps } from 'syw-common/types/components';
+declare const StatusBadge: import("svelte").Component<StatusBadgeProps, {}, "">;
+type StatusBadge = ReturnType<typeof StatusBadge>;
 export default StatusBadge;
-type StatusBadge = {
-    $on?(type: string, callback: (e: any) => void): () => void;
-    $set?(props: Partial<$$ComponentProps>): void;
-};
-declare const StatusBadge: import("svelte").Component<{
-    value: any;
-}, {}, "">;
-type $$ComponentProps = {
-    value: any;
-};

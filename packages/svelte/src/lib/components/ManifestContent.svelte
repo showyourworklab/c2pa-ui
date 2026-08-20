@@ -1,14 +1,15 @@
-<script>
+<script lang="ts">
 	import { classNames } from 'syw-common/helpers'
 	import { MANIFEST_PRIMARY_KEYS } from 'syw-common/constants'
+	import type { ManifestContentProps } from 'syw-common/types/components'
 	import ManifestTable from './ManifestTable.svelte'
 	import ManifestContentTabs from './ManifestContentTabs.svelte'
 	import ManifestContentTabsToggle from './ManifestContentTabsToggle.svelte'
 
 	const {
 		tabKeys = [],
-		manifest = {},
-	} = $props()
+		manifest,
+	}: ManifestContentProps = $props()
 </script>
 
 <div

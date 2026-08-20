@@ -1,15 +1,8 @@
+import type { MarkdownProps } from 'syw-common/types/components';
+type $$ComponentProps = Pick<MarkdownProps, 'content'> & {
+    tag?: string;
+    class?: string | null;
+};
+declare const Markdown: import("svelte").Component<$$ComponentProps, {}, "">;
+type Markdown = ReturnType<typeof Markdown>;
 export default Markdown;
-type Markdown = {
-    $on?(type: string, callback: (e: any) => void): () => void;
-    $set?(props: Partial<$$ComponentProps>): void;
-};
-declare const Markdown: import("svelte").Component<{
-    content: any;
-    tag?: string;
-    class: any;
-}, {}, "">;
-type $$ComponentProps = {
-    content: any;
-    tag?: string;
-    class: any;
-};

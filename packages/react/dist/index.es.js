@@ -2724,14 +2724,14 @@ qozPYPP47f5XY2KfAnx5rV0mhVXIbQ==
   provenance: null,
   reader: null,
   error: null
-}, ot = (...i) => i.filter((a) => !!a).map((a) => a.startsWith("Syw-") ? a : `Syw-${a}`).join(" "), H1 = (i, a) => {
+}, st = (...i) => i.filter((a) => !!a).map((a) => a.startsWith("Syw-") ? a : `Syw-${a}`).join(" "), H1 = (i, a) => {
   (i.key === "Enter" || i.key === " ") && (i.preventDefault(), a && a(i));
 }, GC = (i, a) => {
   const h = i && a ? Object.keys(a).find(
     (_, b) => String(i).toLowerCase() === String(_).toLowerCase()
   ) : null;
   return h && (a != null && a.hasOwnProperty(h)) ? a[h] : null;
-}, q1 = (i) => i ? i.endsWith("mp4") ? "video" : "image" : null, T0 = (i, a) => i == null ? void 0 : i.filter((h) => {
+}, q1 = (i) => i ? i.endsWith("mp4") ? "video" : "image" : null, T0 = (i, a) => (i ?? []).filter((h) => {
   const _ = GC(h, a);
   return h === "actions" ? _ == null ? void 0 : _.length : h === "location" ? !isNaN(_ == null ? void 0 : _.lat) && !isNaN(_ == null ? void 0 : _.lng) : !0;
 }), X1 = async (i, a, h) => {
@@ -4118,7 +4118,7 @@ const $ = M0.jsx, _t = M0.jsxs, Zy = M0.Fragment, vB = ({
 }, SB = ({
   children: i
 }) => /* @__PURE__ */ $("figure", {
-  className: ot("Figure"),
+  className: st("Figure"),
   children: i
 });
 var rl = (i, a = []) => ({
@@ -7607,18 +7607,18 @@ const lR = ({
   lazyMount: !0,
   unmountOnExit: !0,
   children: [/* @__PURE__ */ $(Xu.Trigger, {
-    className: ot("TooltipTrigger", b),
+    className: st("TooltipTrigger", b),
     children: _
   }), /* @__PURE__ */ $(oR, {
     children: /* @__PURE__ */ $(Xu.Positioner, {
-      className: ot("TooltipPositioner"),
+      className: st("TooltipPositioner"),
       children: /* @__PURE__ */ _t(Xu.Content, {
         ...h,
-        className: ot("TooltipContent", h == null ? void 0 : h.className),
+        className: st("TooltipContent", h == null ? void 0 : h.className),
         children: [/* @__PURE__ */ $(Xu.Arrow, {
-          className: ot("TooltipArrow"),
+          className: st("TooltipArrow"),
           children: /* @__PURE__ */ $(Xu.ArrowTip, {
-            className: ot("TooltipArrowTip")
+            className: st("TooltipArrowTip")
           })
         }), i]
       })
@@ -7890,7 +7890,7 @@ const SR = [
   return b ? /* @__PURE__ */ $(b, {
     size: a,
     strokeWidth: h,
-    className: ot("Icon", `Icon_${i}`, _)
+    className: st("Icon", `Icon_${i}`, _)
   }) : null;
 }, rE = ({
   type: i,
@@ -7904,14 +7904,14 @@ const SR = [
     ...h,
     ContentProps: {
       ...h == null ? void 0 : h.ContentProps,
-      className: ot((M = h == null ? void 0 : h.ContentProps) == null ? void 0 : M.className, "BadgeTooltipContent", i != null && i.key ? `BadgeTooltipContent_${i == null ? void 0 : i.key}` : null, a ? `BadgeTooltipContent_${a}` : null)
+      className: st((M = h == null ? void 0 : h.ContentProps) == null ? void 0 : M.className, "BadgeTooltipContent", i != null && i.key ? `BadgeTooltipContent_${i == null ? void 0 : i.key}` : null, a ? `BadgeTooltipContent_${a}` : null)
     },
-    className: ot("BadgeTooltipTrigger", h == null ? void 0 : h.className),
+    className: st("BadgeTooltipTrigger", h == null ? void 0 : h.className),
     children: /* @__PURE__ */ _t("span", {
-      className: ot("Badge", b, i != null && i.key ? `Badge_${i == null ? void 0 : i.key}` : null, a ? `Badge_${a}` : null),
+      className: st("Badge", b, i != null && i.key ? `Badge_${i == null ? void 0 : i.key}` : null, a ? `Badge_${a}` : null),
       children: [/* @__PURE__ */ $(Kp, {
         type: (i == null ? void 0 : i.key) ?? a,
-        className: ot("BadgeIcon")
+        className: st("BadgeIcon")
       }), /* @__PURE__ */ $("span", {
         className: "syw-hidden",
         children: _
@@ -7930,7 +7930,7 @@ const SR = [
   } = Bs(), M = (A) => h ? b(A) : _(A);
   return /* @__PURE__ */ _t("button", {
     "aria-pressed": h,
-    className: ot("ProvenanceToggle"),
+    className: st("ProvenanceToggle"),
     onClick: M,
     children: [/* @__PURE__ */ $(
       rE,
@@ -7959,7 +7959,7 @@ const SR = [
     h ? b(R) : _(R), a === "modal" && M(R);
   };
   return /* @__PURE__ */ $("button", {
-    className: ot("ExplainerToggle", i),
+    className: st("ExplainerToggle", i),
     "aria-pressed": h,
     onClick: l,
     children: A("explainer", "toggle")
@@ -7970,9 +7970,9 @@ const SR = [
     types: a
   } = bl();
   return /* @__PURE__ */ $("div", {
-    className: ot("Cutline"),
+    className: st("Cutline"),
     children: /* @__PURE__ */ _t("div", {
-      className: ot("CutlineToggles"),
+      className: st("CutlineToggles"),
       children: [/* @__PURE__ */ $(DR, {}), /* @__PURE__ */ $(nE, {})]
     })
   });
@@ -9913,29 +9913,29 @@ function _E() {
         throw cc('TRUSTED_TYPES_POLICY configuration option must provide a "createHTML" hook.');
       if (typeof ce.TRUSTED_TYPES_POLICY.createScriptURL != "function")
         throw cc('TRUSTED_TYPES_POLICY configuration option must provide a "createScriptURL" hook.');
-      const st = Ae;
+      const ot = Ae;
       Ae = ce.TRUSTED_TYPES_POLICY;
       try {
         Le = Me("");
       } catch (mt) {
-        throw Ae = st, mt;
+        throw Ae = ot, mt;
       }
     } else ce.TRUSTED_TYPES_POLICY === null ? (Ae = void 0, Le = "") : (Ae === void 0 && (Ae = ht()), Ae && typeof Le == "string" && (Le = Me("")));
     Hn && Hn(ce), Ct = ce;
-  }, Zt = Xt({}, [...Dy, ...Py, ...Pk]), $t = Xt({}, [...Ry, ...Rk]), Wt = function(ce, Ce, st) {
-    return Ce.namespaceURI === fn ? ce === "svg" : Ce.namespaceURI === De ? ce === "svg" && (st === "annotation-xml" || Rs[st]) : !!Zt[ce];
-  }, xt = function(ce, Ce, st) {
-    return Ce.namespaceURI === fn ? ce === "math" : Ce.namespaceURI === lo ? ce === "math" && Po[st] : !!$t[ce];
-  }, ti = function(ce, Ce, st) {
-    return Ce.namespaceURI === lo && !Po[st] || Ce.namespaceURI === De && !Rs[st] ? !1 : !$t[ce] && (_a[ce] || !Zt[ce]);
+  }, Zt = Xt({}, [...Dy, ...Py, ...Pk]), $t = Xt({}, [...Ry, ...Rk]), Wt = function(ce, Ce, ot) {
+    return Ce.namespaceURI === fn ? ce === "svg" : Ce.namespaceURI === De ? ce === "svg" && (ot === "annotation-xml" || Rs[ot]) : !!Zt[ce];
+  }, xt = function(ce, Ce, ot) {
+    return Ce.namespaceURI === fn ? ce === "math" : Ce.namespaceURI === lo ? ce === "math" && Po[ot] : !!$t[ce];
+  }, ti = function(ce, Ce, ot) {
+    return Ce.namespaceURI === lo && !Po[ot] || Ce.namespaceURI === De && !Rs[ot] ? !1 : !$t[ce] && (_a[ce] || !Zt[ce]);
   }, Nn = function(ce) {
     let Ce = xe(ce);
     (!Ce || !Ce.tagName) && (Ce = {
       namespaceURI: kt,
       tagName: "template"
     });
-    const st = tp(ce.tagName), mt = tp(Ce.tagName);
-    return fi[ce.namespaceURI] ? ce.namespaceURI === lo ? Wt(st, Ce, mt) : ce.namespaceURI === De ? xt(st, Ce, mt) : ce.namespaceURI === fn ? ti(st, Ce, mt) : !!(K === "application/xhtml+xml" && fi[ce.namespaceURI]) : !1;
+    const ot = tp(ce.tagName), mt = tp(Ce.tagName);
+    return fi[ce.namespaceURI] ? ce.namespaceURI === lo ? Wt(ot, Ce, mt) : ce.namespaceURI === De ? xt(ot, Ce, mt) : ce.namespaceURI === fn ? ti(ot, Ce, mt) : !!(K === "application/xhtml+xml" && fi[ce.namespaceURI]) : !1;
   }, rr = function(ce) {
     Ju(a.removed, {
       element: ce
@@ -9959,10 +9959,10 @@ function _E() {
         }
       });
     }
-    const st = ve(ce);
-    if (st)
-      for (let mt = st.length - 1; mt >= 0; --mt) {
-        const Pt = st[mt], Lt = Pt && Pt.name;
+    const ot = ve(ce);
+    if (ot)
+      for (let mt = ot.length - 1; mt >= 0; --mt) {
+        const Pt = ot[mt], Lt = Pt && Pt.name;
         if (typeof Lt == "string")
           try {
             ce.removeAttribute(Lt);
@@ -9995,8 +9995,8 @@ function _E() {
   }, co = function(ce) {
     const Ce = ve(ce);
     if (Ce)
-      for (let st = Ce.length - 1; st >= 0; --st) {
-        const mt = Ce[st], Pt = mt && mt.name;
+      for (let ot = Ce.length - 1; ot >= 0; --ot) {
+        const mt = Ce[ot], Pt = mt && mt.name;
         if (!(typeof Pt != "string" || ut[dt(Pt)]))
           try {
             ce.removeAttribute(Pt);
@@ -10006,20 +10006,20 @@ function _E() {
   }, ks = function(ce) {
     const Ce = [ce];
     for (; Ce.length > 0; ) {
-      const st = Ce.pop();
-      (be ? be(st) : st.nodeType) === ms.element && co(st);
-      const Pt = ye(st);
+      const ot = Ce.pop();
+      (be ? be(ot) : ot.nodeType) === ms.element && co(ot);
+      const Pt = ye(ot);
       if (Pt)
         for (let Lt = Pt.length - 1; Lt >= 0; --Lt)
           Ce.push(Pt[Lt]);
     }
   }, Gr = function(ce) {
-    let Ce = null, st = null;
+    let Ce = null, ot = null;
     if (Hi)
       ce = "<remove></remove>" + ce;
     else {
       const Lt = kx(ce, /^[\r\n\t ]+/);
-      st = Lt && Lt[0];
+      ot = Lt && Lt[0];
     }
     K === "application/xhtml+xml" && kt === fn && (ce = '<html xmlns="http://www.w3.org/1999/xhtml"><head></head><body>' + ce + "</body></html>");
     const mt = Ae ? Me(ce) : ce;
@@ -10036,7 +10036,7 @@ function _E() {
       }
     }
     const Pt = Ce.body || Ce.documentElement;
-    return ce && st && Pt.insertBefore(h.createTextNode(st), Pt.childNodes[0] || null), kt === fn ? We.call(Ce, Hr ? "html" : "body")[0] : Hr ? Ce.documentElement : Pt;
+    return ce && ot && Pt.insertBefore(h.createTextNode(ot), Pt.childNodes[0] || null), kt === fn ? We.call(Ce, Hr ? "html" : "body")[0] : Hr ? Ce.documentElement : Pt;
   }, jt = function(ce) {
     return Ge.call(
       ce.ownerDocument || ce,
@@ -10050,16 +10050,16 @@ function _E() {
   }, uo = function(ce) {
     var Ce;
     ce.normalize();
-    const st = Ge.call(
+    const ot = Ge.call(
       ce.ownerDocument || ce,
       ce,
       // eslint-disable-next-line no-bitwise
       R.SHOW_TEXT | R.SHOW_COMMENT | R.SHOW_CDATA_SECTION | R.SHOW_PROCESSING_INSTRUCTION,
       null
     );
-    let mt = st.nextNode();
+    let mt = ot.nextNode();
     for (; mt; )
-      mt.data = Ro(mt.data), mt = st.nextNode();
+      mt.data = Ro(mt.data), mt = ot.nextNode();
     const Pt = (Ce = ce.querySelectorAll) === null || Ce === void 0 ? void 0 : Ce.call(ce, "template");
     Pt && Wd(Pt, (Lt) => {
       ri(Lt.content) && uo(Lt.content);
@@ -10108,8 +10108,8 @@ function _E() {
     }
   };
   function Ri(it, ce, Ce) {
-    it.length !== 0 && Wd(it, (st) => {
-      st.call(a, ce, Ce, Ct);
+    it.length !== 0 && Wd(it, (ot) => {
+      ot.call(a, ce, Ce, Ct);
     });
   }
   const ko = function(ce, Ce) {
@@ -10118,12 +10118,12 @@ function _E() {
     if (!pr[Ce] && rs(Ce) && (St.tagNameCheck instanceof RegExp && Wn(St.tagNameCheck, Ce) || St.tagNameCheck instanceof Function && St.tagNameCheck(Ce)))
       return !1;
     if (Di && !fr[Ce]) {
-      const st = xe(ce), mt = ye(ce);
-      if (mt && st) {
+      const ot = xe(ce), mt = ye(ce);
+      if (mt && ot) {
         const Pt = mt.length;
         for (let Lt = Pt - 1; Lt >= 0; --Lt) {
           const gr = Bo ? mt[Lt] : H(mt[Lt], !0);
-          st.insertBefore(gr, de(ce));
+          ot.insertBefore(gr, de(ce));
         }
       }
     }
@@ -10148,18 +10148,18 @@ function _E() {
       }), ce.textContent = mt);
     }
     return Ri(ct.afterSanitizeElements, ce, null), !1;
-  }, Tl = function(ce, Ce, st) {
-    if (Tr[Ce] || di && (Ce === "id" || Ce === "name") && (st in h || st in Qe))
+  }, Tl = function(ce, Ce, ot) {
+    if (Tr[Ce] || di && (Ce === "id" || Ce === "name") && (ot in h || ot in Qe))
       return !1;
     const mt = ut[Ce] || cr.attributeCheck instanceof Function && cr.attributeCheck(Ce, ce);
     if (!(Mo && Wn(Zi, Ce))) {
       if (!(Pn && Wn(Wi, Ce))) {
         if (mt) {
           if (!pi[Ce]) {
-            if (!Wn(ui, Hd(st, Jn, ""))) {
-              if (!((Ce === "src" || Ce === "xlink:href" || Ce === "href") && ce !== "script" && Nx(st, "data:") === 0 && ei[ce])) {
-                if (!(es && !Wn(Nr, Hd(st, Jn, "")))) {
-                  if (st)
+            if (!Wn(ui, Hd(ot, Jn, ""))) {
+              if (!((Ce === "src" || Ce === "xlink:href" || Ce === "href") && ce !== "script" && Nx(ot, "data:") === 0 && ei[ce])) {
+                if (!(es && !Wn(Nr, Hd(ot, Jn, "")))) {
+                  if (ot)
                     return !1;
                 }
               }
@@ -10171,15 +10171,15 @@ function _E() {
           // and c) if the attribute name passes whatever the user has configured for CUSTOM_ELEMENT_HANDLING.attributeNameCheck
           !(rs(ce) && (St.tagNameCheck instanceof RegExp && Wn(St.tagNameCheck, ce) || St.tagNameCheck instanceof Function && St.tagNameCheck(ce)) && (St.attributeNameCheck instanceof RegExp && Wn(St.attributeNameCheck, Ce) || St.attributeNameCheck instanceof Function && St.attributeNameCheck(Ce, ce)) || // Alternative, second condition checks if it's an `is`-attribute, AND
           // the value passes whatever the user has configured for CUSTOM_ELEMENT_HANDLING.tagNameCheck
-          Ce === "is" && St.allowCustomizedBuiltInElements && (St.tagNameCheck instanceof RegExp && Wn(St.tagNameCheck, st) || St.tagNameCheck instanceof Function && St.tagNameCheck(st)))
+          Ce === "is" && St.allowCustomizedBuiltInElements && (St.tagNameCheck instanceof RegExp && Wn(St.tagNameCheck, ot) || St.tagNameCheck instanceof Function && St.tagNameCheck(ot)))
         ) return !1;
       }
     }
     return !0;
   }, zc = Xt({}, ["annotation-xml", "color-profile", "font-face", "font-face-format", "font-face-name", "font-face-src", "font-face-uri", "missing-glyph"]), rs = function(ce) {
     return !zc[tp(ce)] && Wn(Kr, ce);
-  }, Lc = function(ce, Ce, st, mt) {
-    if (Ae && typeof q == "object" && typeof q.getAttributeType == "function" && !st)
+  }, Lc = function(ce, Ce, ot, mt) {
+    if (Ae && typeof q == "object" && typeof q.getAttributeType == "function" && !ot)
       switch (q.getAttributeType(ce, Ce)) {
         case "TrustedHTML":
           return Me(mt);
@@ -10187,9 +10187,9 @@ function _E() {
           return je(mt);
       }
     return mt;
-  }, Oc = function(ce, Ce, st, mt) {
+  }, Oc = function(ce, Ce, ot, mt) {
     try {
-      st ? ce.setAttributeNS(st, Ce, mt) : ce.setAttribute(Ce, mt), ho(ce) ? rr(ce) : Rx(a.removed);
+      ot ? ce.setAttributeNS(ot, Ce, mt) : ce.setAttribute(Ce, mt), ho(ce) ? rr(ce) : Rx(a.removed);
     } catch {
       Fn(Ce, ce);
     }
@@ -10198,7 +10198,7 @@ function _E() {
     const Ce = ce.attributes;
     if (!Ce || ho(ce))
       return;
-    const st = {
+    const ot = {
       attrName: "",
       attrValue: "",
       keepAttr: !0,
@@ -10210,7 +10210,7 @@ function _E() {
     for (; mt--; ) {
       const Lt = Ce[mt], gr = Lt.name, yr = Lt.namespaceURI, en = Lt.value, Qr = dt(gr), po = en;
       let At = gr === "value" ? po : Tk(po);
-      if (st.attrName = Qr, st.attrValue = At, st.keepAttr = !0, st.forceKeepAttr = void 0, Ri(ct.uponSanitizeAttribute, ce, st), At = st.attrValue, $n && (Qr === "id" || Qr === "name") && Nx(At, dn) !== 0 && (Fn(gr, ce), At = dn + At), Si && Wn(/((--!?|])>)|<\/(style|script|title|xmp|textarea|noscript|iframe|noembed|noframes)/i, At)) {
+      if (ot.attrName = Qr, ot.attrValue = At, ot.keepAttr = !0, ot.forceKeepAttr = void 0, Ri(ct.uponSanitizeAttribute, ce, ot), At = ot.attrValue, $n && (Qr === "id" || Qr === "name") && Nx(At, dn) !== 0 && (Fn(gr, ce), At = dn + At), Si && Wn(/((--!?|])>)|<\/(style|script|title|xmp|textarea|noscript|iframe|noembed|noframes)/i, At)) {
         Fn(gr, ce);
         continue;
       }
@@ -10218,8 +10218,8 @@ function _E() {
         Fn(gr, ce);
         continue;
       }
-      if (!st.forceKeepAttr) {
-        if (!st.keepAttr) {
+      if (!ot.forceKeepAttr) {
+        if (!ot.keepAttr) {
           Fn(gr, ce);
           continue;
         }
@@ -10237,8 +10237,8 @@ function _E() {
     Ri(ct.afterSanitizeAttributes, ce, null);
   }, No = function(ce) {
     let Ce = null;
-    const st = jt(ce);
-    for (Ri(ct.beforeSanitizeShadowDOM, ce, null); Ce = st.nextNode(); )
+    const ot = jt(ce);
+    for (Ri(ct.beforeSanitizeShadowDOM, ce, null); Ce = ot.nextNode(); )
       if (Ri(ct.uponSanitizeShadowNode, Ce, null), ur(Ce), Ml(Ce), ri(Ce.content) && No(Ce.content), (be ? be(Ce) : Ce.nodeType) === ms.element) {
         const Pt = le(Ce);
         ri(Pt) && (Ns(Pt), No(Pt));
@@ -10250,12 +10250,12 @@ function _E() {
       shadow: null
     }];
     for (; Ce.length > 0; ) {
-      const st = Ce.pop();
-      if (st.shadow) {
-        No(st.shadow);
+      const ot = Ce.pop();
+      if (ot.shadow) {
+        No(ot.shadow);
         continue;
       }
-      const mt = st.node, Lt = (be ? be(mt) : mt.nodeType) === ms.element, gr = ye(mt);
+      const mt = ot.node, Lt = (be ? be(mt) : mt.nodeType) === ms.element, gr = ye(mt);
       if (gr)
         for (let yr = gr.length - 1; yr >= 0; --yr)
           Ce.push({
@@ -10285,7 +10285,7 @@ function _E() {
     }
   };
   return a.sanitize = function(it) {
-    let ce = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {}, Ce = null, st = null, mt = null, Pt = null;
+    let ce = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {}, Ce = null, ot = null, mt = null, Pt = null;
     if (Vr = !it, Vr && (it = "<!-->"), typeof it != "string" && !gn(it) && (it = Sk(it), typeof it != "string"))
       throw cc("dirty is not a string, aborting");
     if (!a.isSupported)
@@ -10307,7 +10307,7 @@ function _E() {
         throw gi(it), Qr;
       }
     } else if (gn(it))
-      Ce = Gr("<!---->"), st = Ce.ownerDocument.importNode(it, !0), st.nodeType === ms.element && st.nodeName === "BODY" || st.nodeName === "HTML" ? Ce = st : Ce.appendChild(st), Ns(st);
+      Ce = Gr("<!---->"), ot = Ce.ownerDocument.importNode(it, !0), ot.nodeType === ms.element && ot.nodeName === "BODY" || ot.nodeName === "HTML" ? Ce = ot : Ce.appendChild(ot), Ns(ot);
     else {
       if (!kn && !hn && !Hr && // eslint-disable-next-line unicorn/prefer-includes
       it.indexOf("<") === -1)
@@ -10345,8 +10345,8 @@ function _E() {
     Ct = null, Kn = !1, ao = null, Io = null, Ae = ze, Le = "";
   }, a.isValidAttribute = function(it, ce, Ce) {
     Ct || at({});
-    const st = dt(it), mt = dt(ce);
-    return Tl(st, mt, Ce);
+    const ot = dt(it), mt = dt(ce);
+    return Tl(ot, mt, Ce);
   }, a.addHook = function(it, ce) {
     typeof ce == "function" && Cn(ct, it) && Ju(ct[it], ce);
   }, a.removeHook = function(it, ce) {
@@ -10382,7 +10382,7 @@ function vE({
 }) {
   const _ = cn(() => qk(i), [i]);
   return _ ? /* @__PURE__ */ $(a, {
-    className: ot("Markdown", h),
+    className: st("Markdown", h),
     dangerouslySetInnerHTML: {
       __html: _
     }
@@ -10394,13 +10394,13 @@ const Xk = () => {
     byline: a
   } = bl();
   return i || a ? /* @__PURE__ */ $("figcaption", {
-    className: ot("Caption"),
+    className: st("Caption"),
     children: /* @__PURE__ */ _t("div", {
-      className: ot("CaptionInner"),
+      className: st("CaptionInner"),
       children: [/* @__PURE__ */ $(vE, {
         content: i
       }), /* @__PURE__ */ $("div", {
-        className: ot("CaptionByline"),
+        className: st("CaptionByline"),
         children: a
       })]
     })
@@ -10804,7 +10804,7 @@ const $0 = ({
   open: i = !1,
   children: a
 }) => {
-  const h = AE(), _ = cn(() => ot("Collapse", i ? "Collapse_open" : !1), [i]);
+  const h = AE(), _ = cn(() => st("Collapse", i ? "Collapse_open" : !1), [i]);
   return kr(() => {
     h.setOpen(i);
   }, [i]), /* @__PURE__ */ $(Yx.RootProvider, {
@@ -10812,7 +10812,7 @@ const $0 = ({
     "aria-expanded": i,
     className: _,
     children: /* @__PURE__ */ $(Yx.Content, {
-      className: ot("CollapseInner"),
+      className: st("CollapseInner"),
       children: a
     })
   });
@@ -10824,17 +10824,17 @@ const $0 = ({
     closeExplainer: h
   } = Bs(), _ = h;
   return /* @__PURE__ */ $("div", {
-    className: ot("Explainer"),
+    className: st("Explainer"),
     children: /* @__PURE__ */ $($0, {
       open: a,
       children: /* @__PURE__ */ $("div", {
-        className: ot("ExplainerInner"),
+        className: st("ExplainerInner"),
         children: /* @__PURE__ */ _t("div", {
-          className: ot("ExplainerBox"),
+          className: st("ExplainerBox"),
           children: [/* @__PURE__ */ _t("div", {
-            className: ot("ExplainerHeader"),
+            className: st("ExplainerHeader"),
             children: [/* @__PURE__ */ $("button", {
-              className: ot("ExplainerClose"),
+              className: st("ExplainerClose"),
               "aria-pressed": a,
               "aria-label": i("explainer", "toggle", "close") ?? void 0,
               onClick: _,
@@ -10842,19 +10842,19 @@ const $0 = ({
                 type: "close"
               })
             }), /* @__PURE__ */ $("p", {
-              className: ot("ExplainerLede"),
+              className: st("ExplainerLede"),
               children: i("explainer", "lede")
             })]
           }), /* @__PURE__ */ $("dl", {
-            className: ot("ExplainerSections"),
+            className: st("ExplainerSections"),
             children: [1, 2].map((b) => /* @__PURE__ */ _t("div", {
-              className: ot("ExplainerSection"),
+              className: st("ExplainerSection"),
               children: [/* @__PURE__ */ $("dt", {
-                className: ot("ExplainerSectionTitle"),
+                className: st("ExplainerSectionTitle"),
                 children: i("explainer", "section", b, "title")
               }), /* @__PURE__ */ $(vE, {
                 tag: "dd",
-                className: ot("ExplainerSectionBody"),
+                className: st("ExplainerSectionBody"),
                 content: i("explainer", "section", b, "body")
               })]
             }, b))
@@ -11426,16 +11426,16 @@ function OE({
     getText: _
   } = $o(), b = cn(() => T0(a, i), [a, i]);
   return /* @__PURE__ */ $("div", {
-    className: ot("ManifestContentTabsToggle", h),
+    className: st("ManifestContentTabsToggle", h),
     children: /* @__PURE__ */ _t(op.List, {
-      className: ot("ManifestContentTabsToggleList"),
+      className: st("ManifestContentTabsToggleList"),
       children: [a == null ? void 0 : a.map((M) => /* @__PURE__ */ $(op.Trigger, {
         value: M,
         disabled: !(b != null && b.includes(M)),
-        className: ot("ManifestContentTabsToggleTrigger"),
+        className: st("ManifestContentTabsToggleTrigger"),
         children: _("tab", M)
       }, M)), /* @__PURE__ */ $(op.Indicator, {
-        className: ot("ManifestContentTabsToggleListIndicator")
+        className: st("ManifestContentTabsToggleListIndicator")
       })]
     })
   });
@@ -11455,33 +11455,33 @@ function AN({
     H1(q, _);
   };
   return /* @__PURE__ */ _t("div", {
-    className: ot("ManifestPreview"),
+    className: st("ManifestPreview"),
     children: [/* @__PURE__ */ _t("div", {
       ref: b,
       role: "button",
       tabIndex: 0,
       "aria-pressed": i,
-      className: ot("ManifestPreviewToggle"),
+      className: st("ManifestPreviewToggle"),
       onClick: _,
       onKeyDown: R,
       children: [/* @__PURE__ */ $("div", {
-        className: ot("ManifestPreviewBadge"),
+        className: st("ManifestPreviewBadge"),
         children: /* @__PURE__ */ $(rE, {
           type: a.type,
           status: a.status
         })
       }), /* @__PURE__ */ _t("div", {
-        className: ot("ManifestPreviewCells"),
+        className: st("ManifestPreviewCells"),
         children: [/* @__PURE__ */ $("div", {
-          className: ot("ManifestPreviewCell", "ManifestPreviewCell_issuer"),
+          className: st("ManifestPreviewCell", "ManifestPreviewCell_issuer"),
           children: (F = a.type) != null && F.key ? A("type", (O = a.type) == null ? void 0 : O.key) : NC.filter((q) => a[q]).map((q) => a[q]).join(" ")
         }), /* @__PURE__ */ $("div", {
-          className: ot("ManifestPreviewCell", "ManifestPreviewCell_time"),
+          className: st("ManifestPreviewCell", "ManifestPreviewCell_time"),
           children: /* @__PURE__ */ $("span", {
             children: oA(M, (a == null ? void 0 : a.timestamp) ?? void 0)
           })
         }), /* @__PURE__ */ $("div", {
-          className: ot("ManifestPreviewCell", "ManifestPreviewCell_thumb"),
+          className: st("ManifestPreviewCell", "ManifestPreviewCell_thumb"),
           children: l ? /* @__PURE__ */ $("img", {
             src: l,
             alt: ""
@@ -11493,7 +11493,7 @@ function AN({
     }), /* @__PURE__ */ $(OE, {
       keys: h,
       manifest: a,
-      className: ot("ManifestPreviewTabsToggle")
+      className: st("ManifestPreviewTabsToggle")
     })]
   });
 }
@@ -12138,11 +12138,11 @@ function TN() {
         function Ce(n) {
           return n > ur ? n * n * n : Tl * (n - ya);
         }
-        const st = Object.hasOwn || function(n, e) {
+        const ot = Object.hasOwn || function(n, e) {
           return Object.prototype.hasOwnProperty.call(n, e);
         };
         function mt(n, e) {
-          return st(n, e) ? n[e] : void 0;
+          return ot(n, e) ? n[e] : void 0;
         }
         function Pt(n) {
           return parseInt(n.padEnd(2, n), 16) / 255;
@@ -27418,12 +27418,12 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
           const E = u[0] - ur, I = u[1] - ur, B = u[2] - ur, D = u[3] - ur;
           m.emplaceBack(t ? 1 : 0, o ? 1 : 0, p || 0, y || 0, E, I), m.emplaceBack(t ? 1 : 0, o ? 1 : 0, p || 0, y || 0, B, I), m.emplaceBack(t ? 1 : 0, o ? 1 : 0, p || 0, y || 0, B, D), m.emplaceBack(t ? 1 : 0, o ? 1 : 0, p || 0, y || 0, E, D);
         }
-        const ce = Math.pow(2, 25), Ce = Math.pow(2, 24), st = Math.pow(2, 17), mt = Math.pow(2, 16), Pt = Math.pow(2, 9), Lt = Math.pow(2, 8), gr = Math.pow(2, 1);
+        const ce = Math.pow(2, 25), Ce = Math.pow(2, 24), ot = Math.pow(2, 17), mt = Math.pow(2, 16), Pt = Math.pow(2, 9), Lt = Math.pow(2, 8), gr = Math.pow(2, 1);
         function yr(m) {
           if (m.opacity === 0 && !m.placed) return 0;
           if (m.opacity === 1 && m.placed) return 4294967295;
           const t = m.placed ? 1 : 0, o = Math.floor(127 * m.opacity);
-          return o * ce + t * Ce + o * st + t * mt + o * Pt + t * Lt + o * gr + t;
+          return o * ce + t * Ce + o * ot + t * mt + o * Pt + t * Lt + o * gr + t;
         }
         const en = 0;
         class Qr {
@@ -36177,7 +36177,7 @@ const IN = /* @__PURE__ */ gB(MN), CN = "https://tiles.openfreemap.org/styles/br
   return kr(() => {
     try {
       const R = new IN.Map({
-        container: ot(a),
+        container: st(a),
         center: [i.lng, i.lat],
         // interactive: false,
         ...BN,
@@ -36195,10 +36195,10 @@ const IN = /* @__PURE__ */ gB(MN), CN = "https://tiles.openfreemap.org/styles/br
     const R = iA(h);
     RN(b, R);
   }, [b, h, A]), /* @__PURE__ */ $("figure", {
-    className: ot("Map"),
+    className: st("Map"),
     children: /* @__PURE__ */ $("div", {
-      id: ot(a),
-      className: ot("MapContainer")
+      id: st(a),
+      className: st("MapContainer")
     })
   });
 }, UE = ({
@@ -36208,11 +36208,11 @@ const IN = /* @__PURE__ */ gB(MN), CN = "https://tiles.openfreemap.org/styles/br
     getText: a
   } = $o();
   return /* @__PURE__ */ $("div", {
-    className: ot("Actions"),
+    className: st("Actions"),
     children: /* @__PURE__ */ $("ul", {
-      className: ot("ActionsList"),
+      className: st("ActionsList"),
       children: i.map((h, _) => /* @__PURE__ */ $("li", {
-        className: ot("ActionsListItem"),
+        className: st("ActionsListItem"),
         children: a("action", h)
       }, _))
     })
@@ -36233,11 +36233,11 @@ function kN({
       M = !0;
     };
   }, [h, a == null ? void 0 : a.identifier, a == null ? void 0 : a.format]), /* @__PURE__ */ _t("div", {
-    className: ot("Generator"),
+    className: st("Generator"),
     children: [_ ? /* @__PURE__ */ $("img", {
       alt: "",
       src: _,
-      className: ot("GeneratorIcon")
+      className: st("GeneratorIcon")
     }) : null, /* @__PURE__ */ $("span", {
       children: i
     })]
@@ -36245,38 +36245,37 @@ function kN({
 }
 function NN({
   type: i,
-  value: a,
-  manifest: h
+  value: a
 }) {
   const {
-    locale: _,
-    getText: b
-  } = $o(), M = cn(() => {
+    locale: h,
+    getText: _
+  } = $o(), b = cn(() => {
     switch (i) {
       case "producer":
-        return a == null ? void 0 : a.map((A) => A.name).join(", ");
+        return a == null ? void 0 : a.map((M) => M.name).join(", ");
       case "timestamp":
-        return oA(_ ?? "", a ?? void 0);
+        return oA(h ?? "", a ?? void 0);
       default:
         return a;
     }
   }, [i, a]);
-  if (!(M == null || M === ""))
+  if (!(b == null || b === ""))
     return /* @__PURE__ */ _t("li", {
-      className: ot("ManifestTableRow"),
+      className: st("ManifestTableRow"),
       children: [/* @__PURE__ */ $("div", {
-        className: ot("ManifestTableRowLabel"),
-        children: b(i)
+        className: st("ManifestTableRowLabel"),
+        children: _(i)
       }), /* @__PURE__ */ $("div", {
-        className: ot("ManifestTableRowValue"),
+        className: st("ManifestTableRowValue"),
         children: i === "location" ? /* @__PURE__ */ $(QE, {
           location: a
         }) : i === "actions" ? /* @__PURE__ */ $(UE, {
           actions: a
-        }) : i === "generator" ? a.map((A, l) => /* @__PURE__ */ $(kN, {
-          name: A.name,
-          icon: A.icon
-        }, l)) : M
+        }) : i === "generator" ? a.map((M, A) => /* @__PURE__ */ $(kN, {
+          name: M.name,
+          icon: M.icon
+        }, A)) : b
       })]
     });
 }
@@ -36285,11 +36284,10 @@ function FN({
   manifest: a
 }) {
   return /* @__PURE__ */ $("ul", {
-    className: ot("ManifestTable"),
+    className: st("ManifestTable"),
     children: i.map((h) => /* @__PURE__ */ $(NN, {
       type: h,
-      value: a[h],
-      manifest: a
+      value: a[h]
     }, h))
   });
 }
@@ -36299,18 +36297,18 @@ function zN({
 }) {
   const h = cn(() => T0(a, i), [a, i]);
   return /* @__PURE__ */ $("div", {
-    className: ot("ManifestContentTabs"),
+    className: st("ManifestContentTabs"),
     children: h == null ? void 0 : h.map((_) => /* @__PURE__ */ $(op.Content, {
       value: _,
-      className: ot("ManifestContentTabsContent", `ManifestContentTabsContent_${_}`),
+      className: st("ManifestContentTabsContent", `ManifestContentTabsContent_${_}`),
       children: /* @__PURE__ */ $("div", {
-        className: ot("ManifestContentTabsContentInner"),
+        className: st("ManifestContentTabsContentInner"),
         children: _ === "thumbnail" ? /* @__PURE__ */ $("div", {
-          className: ot("ManifestContentTabsThumbnail", i != null && i.thumbnail ? null : "ManifestContentTabsThumbnail_missing"),
+          className: st("ManifestContentTabsThumbnail", i != null && i.thumbnail ? null : "ManifestContentTabsThumbnail_missing"),
           children: i != null && i.thumbnail ? /* @__PURE__ */ $("img", {
             alt: "",
             src: (i == null ? void 0 : i.thumbnail) ?? void 0,
-            className: ot("ManifestContentTabsThumbnailImage")
+            className: st("ManifestContentTabsThumbnailImage")
           }) : /* @__PURE__ */ $(Kp, {
             type: "missing"
           })
@@ -36328,19 +36326,19 @@ function LN({
   manifest: a
 }) {
   return /* @__PURE__ */ _t("div", {
-    className: ot("ManifestContent"),
+    className: st("ManifestContent"),
     children: [/* @__PURE__ */ $("div", {
-      className: ot("ManifestContentPrimary"),
+      className: st("ManifestContentPrimary"),
       children: /* @__PURE__ */ $(FN, {
         keys: kC,
         manifest: a
       })
     }), /* @__PURE__ */ _t("div", {
-      className: ot("ManifestContentSecondary"),
+      className: st("ManifestContentSecondary"),
       children: [/* @__PURE__ */ $(OE, {
         keys: i,
         manifest: a,
-        className: ot("ManifestContentSecondaryTabsToggle")
+        className: st("ManifestContentSecondaryTabsToggle")
       }), /* @__PURE__ */ $(zN, {
         keys: i,
         manifest: a
@@ -36363,7 +36361,7 @@ function ON({
     return ((he = i == null ? void 0 : i.type) != null && he.key ? FC[i.type.key] : void 0) ?? [];
   }, [i]), O = cn(() => T0(F, i), [F, i]), q = FE({
     defaultValue: O == null ? void 0 : O[0]
-  }), J = cn(() => ot("Manifest", h ? "Manifest_open" : null), [h]), H = Bn((he) => {
+  }), J = cn(() => st("Manifest", h ? "Manifest_open" : null), [h]), H = Bn((he) => {
     R(), _(!h), h ? l(he, i) : A(he, i);
   }, [h, i, A, l, M]);
   return kr(() => {
@@ -36371,7 +36369,7 @@ function ON({
   }, [b]), /* @__PURE__ */ $("li", {
     className: J,
     children: /* @__PURE__ */ $("div", {
-      className: ot("ManifestInner"),
+      className: st("ManifestInner"),
       children: /* @__PURE__ */ _t(op.RootProvider, {
         value: q,
         children: [/* @__PURE__ */ $(AN, {
@@ -36405,18 +36403,18 @@ function jE() {
     M && a.current && ((l = a.current) == null || l.focus());
   }, [a, M]), /* @__PURE__ */ _t("div", {
     ref: i,
-    className: ot("Provenance"),
+    className: st("Provenance"),
     children: [b && b.length ? /* @__PURE__ */ $("ul", {
-      className: ot("ProvenanceList"),
+      className: st("ProvenanceList"),
       children: b.map((l, R) => /* @__PURE__ */ $(ON, {
         manifest: l,
         previewRef: R === 0 ? a : null
       }, R))
     }) : null, !b || !b.length ? /* @__PURE__ */ $("div", {
-      className: ot("ProvenanceNone"),
+      className: st("ProvenanceNone"),
       children: "No provenance found"
     }) : null, /* @__PURE__ */ _t("div", {
-      className: ot("ProvenanceVerify"),
+      className: st("ProvenanceVerify"),
       children: [h("verify", "pre"), " ", /* @__PURE__ */ $("a", {
         href: A,
         target: "_blank",
@@ -36431,7 +36429,6 @@ const VN = () => {
   } = Bs();
   return /* @__PURE__ */ $($0, {
     open: i,
-    className: ot("ProvenanceExpand"),
     children: /* @__PURE__ */ $(jE, {})
   });
 };
@@ -37712,15 +37709,15 @@ const RF = ({
     closeOnInteractOutside: !0,
     onOpenChange: A,
     children: [/* @__PURE__ */ $(hc.Backdrop, {
-      className: ot("ModalBackdrop")
+      className: st("ModalBackdrop")
     }), /* @__PURE__ */ $(hc.Positioner, {
-      className: ot("ModalPositioner"),
+      className: st("ModalPositioner"),
       children: /* @__PURE__ */ _t(hc.Content, {
-        className: ot(M, "ModalContent"),
+        className: st(M, "ModalContent"),
         children: [/* @__PURE__ */ _t("div", {
-          className: ot("ModalContentBox"),
+          className: st("ModalContentBox"),
           children: [a ? /* @__PURE__ */ _t("hgroup", {
-            className: ot("ModalContentHeader"),
+            className: st("ModalContentHeader"),
             children: [a ? /* @__PURE__ */ $(hc.Title, {
               children: a
             }) : null, h ? /* @__PURE__ */ $(hc.Description, {
@@ -37729,7 +37726,7 @@ const RF = ({
             }) : null]
           }) : null, b]
         }), /* @__PURE__ */ $(hc.CloseTrigger, {
-          className: ot("ModalClose"),
+          className: st("ModalClose"),
           children: /* @__PURE__ */ $(Kp, {
             type: "close"
           })
@@ -37753,9 +37750,9 @@ const RF = ({
     open: a,
     title: M("provenance", "toggle") ?? void 0,
     onOpenChange: A,
-    className: ot("ProvenanceModal"),
+    className: st("ProvenanceModal"),
     children: [/* @__PURE__ */ $("div", {
-      className: ot("ProvenanceModalToolbar"),
+      className: st("ProvenanceModalToolbar"),
       children: /* @__PURE__ */ $(nE, {})
     }), /* @__PURE__ */ $(IE, {}), /* @__PURE__ */ $(jE, {})]
   });
@@ -37765,11 +37762,11 @@ const RF = ({
     alt: a
   } = bl();
   return /* @__PURE__ */ $("div", {
-    className: ot("Image"),
+    className: st("Image"),
     children: /* @__PURE__ */ $("img", {
       src: i ?? void 0,
       alt: a ?? void 0,
-      className: ot("ImageImg")
+      className: st("ImageImg")
     })
   });
 };
@@ -42889,15 +42886,15 @@ const TO = oz({
     alt: a
   } = bl();
   return /* @__PURE__ */ $("div", {
-    className: ot("Video"),
+    className: st("Video"),
     children: /* @__PURE__ */ $(TO.Provider, {
       children: /* @__PURE__ */ $(EO, {
-        className: ot("VideoSkin"),
+        className: st("VideoSkin"),
         children: /* @__PURE__ */ $(lO, {
           src: i ?? void 0,
           "aria-label": a ?? void 0,
           playsInline: !0,
-          className: ot("Video")
+          className: st("Video")
         })
       })
     })
@@ -42926,7 +42923,7 @@ const TO = oz({
     onKeyDown: R,
     onMouseEnter: F,
     onMouseLeave: O,
-    className: ot("Media"),
+    className: st("Media"),
     children: [A === "image" ? /* @__PURE__ */ $(NF, {}) : null, A === "video" ? /* @__PURE__ */ $(MO, {}) : null]
   });
 };
@@ -42942,7 +42939,7 @@ function CO({
     setElem: l,
     setMapOptions: R,
     eventHandler: F
-  } = Bs(), O = cn(() => ot("App", `App_${_}`, b ? "App_hovered" : !1, M ? "App_active" : !1), [_, b, M]);
+  } = Bs(), O = cn(() => st("App", `App_${_}`, b ? "App_hovered" : !1, M ? "App_active" : !1), [_, b, M]);
   return kr(() => {
     l(h.current);
   }, [l]), kr(() => {

@@ -1,8 +1,9 @@
-<script>
-	import { getContext } from 'svelte';
+<script lang="ts">
 	import { classNames } from 'syw-common/helpers'
     import Markdown from './Markdown.svelte';
-	const { caption, byline } = getContext('dataStoreContext');
+	import { getDataContext } from '../store/data.js'
+
+	const { caption, byline } = getDataContext();
 </script>
 
 {#if $caption || $byline}

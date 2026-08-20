@@ -1,30 +1,30 @@
-<script>
+<script lang="ts">
 	import { classNames } from 'syw-common/helpers'
-	import { getI18nContext } from '$lib/store/i18n.js'
+	import type { BadgeProps } from 'syw-common/types/components'
     import Tooltip from './Tooltip.svelte'
+	import type { TooltipProps } from './Tooltip.svelte'
     import Icon from './Icon.svelte'
+
+	interface Props extends BadgeProps {
+		TooltipProps?: Omit<TooltipProps, 'children'>
+	}
 
 	const {
 		type,
 		status,
-		TooltipProps = {},
+		TooltipProps: tooltipProps = {},
 		children,
 		className
-	} = $props()
-	const { locale, getText } = getI18nContext();
-	const typeLabel = $derived(() => type?.label ?? getText($locale, "type", type?.key))
-	const typeDefinition = $derived(() => type?.definition ?? getText($locale, "type", type?.key, "definition"))
-	const statusLabel = $derived(() => getText($locale, "status", status))
-	const statusDefinition = $derived(() => getText($locale, "status", status, "definition"))
+	}: Props = $props()
 </script>
 
 <Tooltip
-	{...TooltipProps}
+	{...tooltipProps}
 	// content={typeDefinition()}
 	ContentProps={{
-		...TooltipProps?.ContentProps,
+		...tooltipProps?.ContentProps,
 		className: classNames(
-			TooltipProps?.ContentProps?.classNames,
+			tooltipProps?.ContentProps?.className,
 			'BadgeTooltipContent',
 			type?.key ? `BadgeTooltipContent_${type?.key}` : null,
 			status ? `BadgeTooltipContent_${status}` : null,
@@ -32,7 +32,7 @@
 	}}
 	className={classNames(
 		'BadgeTooltipTrigger',
-		TooltipProps?.className,
+		tooltipProps?.className,
 	)}
 >
 	<span

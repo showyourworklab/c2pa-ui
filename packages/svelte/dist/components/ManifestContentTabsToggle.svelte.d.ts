@@ -1,15 +1,7 @@
+import type { ManifestContentTabsToggleProps } from 'syw-common/types/components';
+type $$ComponentProps = ManifestContentTabsToggleProps & {
+    class?: string | null;
+};
+declare const ManifestContentTabsToggle: import("svelte").Component<$$ComponentProps, {}, "">;
+type ManifestContentTabsToggle = ReturnType<typeof ManifestContentTabsToggle>;
 export default ManifestContentTabsToggle;
-type ManifestContentTabsToggle = {
-    $on?(type: string, callback: (e: any) => void): () => void;
-    $set?(props: Partial<$$ComponentProps>): void;
-};
-declare const ManifestContentTabsToggle: import("svelte").Component<{
-    keys?: any[];
-    manifest?: Record<string, any>;
-    class: any;
-}, {}, "">;
-type $$ComponentProps = {
-    keys?: any[];
-    manifest?: Record<string, any>;
-    class: any;
-};

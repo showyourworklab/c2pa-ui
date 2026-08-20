@@ -1,13 +1,15 @@
-<script>
-	import { onMount, setContext } from 'svelte'
+<script lang="ts">
+	import { onMount } from 'svelte'
 	import 'syw-common/css/styles.css'
 	import { classNames } from 'syw-common/helpers'
 	import { VARIANT_DEFAULT } from 'syw-common/constants'
+	import { LOCALE_DEFAULT } from 'syw-common/constants/i18n'
 	import { C2PA_PHASES } from 'syw-common/constants/c2pa'
-	import createC2paStore from '$lib/store/c2pa.js'
-	import createDataStore from '$lib/store/data.js'
+	import type { SywEmbedProps } from 'syw-common/types/embed'
+	import createC2paStore, { setC2paContext } from '$lib/store/c2pa.js'
+	import createDataStore, { setDataContext } from '$lib/store/data.js'
 	import createI18nStore, { setI18nContext } from '$lib/store/i18n.js'
-	import createUiStore from '$lib/store/ui.js'
+	import createUiStore, { setUiContext } from '$lib/store/ui.js'
 	import Figure from './Figure.svelte'
 	import Media from './Media.svelte'
 	import Explainer from './Explainer.svelte'
@@ -22,25 +24,26 @@
 		alt = '',
 		caption = '',
 		byline = '',
-		locale = '',
+		locale = LOCALE_DEFAULT,
+		c2paOptions = {},
 		mapOptions = null,
-		onEvent = null
-	} = $props()
+		onEvent = undefined
+	}: SywEmbedProps = $props()
 
 	let mounted = $state(false)
-	let elemRef = $state(null)
-	let prevSrc = $state(null)
-	let prevLocale = $state(null)
+	let elemRef: HTMLElement | null = $state(null)
+	let prevSrc: string | null = $state(null)
+	let prevLocale: string | null = $state(null)
 
 	const c2paStore = createC2paStore()
 	const dataStore = createDataStore()
 	const i18nStore = createI18nStore()
 	const uiStore = createUiStore()
 
-	setContext('c2paStoreContext', c2paStore)
-	setContext('dataStoreContext', dataStore)
+	setC2paContext(c2paStore)
+	setDataContext(dataStore)
 	setI18nContext(i18nStore)
-	setContext('uiStoreContext', uiStore)
+	setUiContext(uiStore)
 
 	const { c2pa } = c2paStore
 	const { lang } = i18nStore
@@ -67,7 +70,7 @@
 
 	$effect(() => {
 		uiStore.setElem(elemRef)
-		uiStore.setEventHandler(onEvent)
+		uiStore.setEventHandler(onEvent ?? null)
 		uiStore.setVariant(variant)
 		uiStore.setMapOptions(mapOptions)
 	})
@@ -85,7 +88,7 @@
 		;(async () => {
 			dataStore.setPhase(C2PA_PHASES.LOADING)
 			let c2paInstance = $c2pa
-			if (!c2paInstance) c2paInstance = await c2paStore.init()
+			if (!c2paInstance) c2paInstance = await c2paStore.init(c2paOptions)
 			const newData = await c2paStore.read({ src, locale })
 			dataStore.setC2paData(newData)
 		})()

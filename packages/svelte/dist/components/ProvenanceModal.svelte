@@ -1,26 +1,26 @@
-<script>
-	import { getContext } from 'svelte'
+<script lang="ts">
 	import { classNames } from 'syw-common/helpers'
 	import Modal from './Modal.svelte'
 	import Provenance from './Provenance.svelte'
 	import Explainer from './Explainer.svelte'
 	import ExplainerToggle from './ExplainerToggle.svelte'
-	
+	import { getI18nContext } from '../store/i18n.js'
+	import { getUiContext } from '../store/ui.js'
+
 	const {
 		isProvenanceOpen,
 		openProvenance,
 		closeProvenance,
 		closeExplainer
-	} = getContext('uiStoreContext')
-	const { locale, getText } = getContext('i18nStoreContext')
+	} = getUiContext()
+	const { locale, getText } = getI18nContext()
 
-	const handleOpenChange = (newOpen, event) => {
-		const originalEvent = event
+	const handleOpenChange = (newOpen: boolean) => {
 		if(newOpen) {
-			openProvenance(originalEvent)
+			openProvenance()
 		} else {
-			closeProvenance(originalEvent)
-			closeExplainer(originalEvent)
+			closeProvenance()
+			closeExplainer()
 		}
 	}
 

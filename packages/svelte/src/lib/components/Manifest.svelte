@@ -1,22 +1,28 @@
-<script>
-	import { getContext } from 'svelte';
+<script lang="ts">
     import { Tabs, useTabs } from '@ark-ui/svelte/tabs';
 	import { classNames, getAvailableTabs } from 'syw-common/helpers'
 	import { MANIFEST_CONTENT_TAB_KEYS } from 'syw-common/constants'
+	import type { Manifest as ManifestData } from 'syw-common/types/c2pa'
+	import { getUiContext } from '$lib/store/ui.js'
 	import Collapse from './Collapse.svelte'
 	import ManifestPreview from './ManifestPreview.svelte'
     import ManifestContent from './ManifestContent.svelte';
-	
-	const { openManifests } = getContext('uiStoreContext');
+
+	const { openManifests } = getUiContext();
 
 	const {
-		manifest = {},
+		manifest,
 		previewRef,
+	}: {
+		manifest: ManifestData
+		previewRef?: ((el: HTMLElement | null) => void) | null
 	} = $props()
 
-	const open = $derived(manifest.id in $openManifests)
+	const open = $derived(String(manifest.id) in $openManifests)
 
-	const tabKeys = $derived(MANIFEST_CONTENT_TAB_KEYS[manifest?.type?.key] ?? [])
+	const tabKeys = $derived(
+		(manifest?.type?.key ? MANIFEST_CONTENT_TAB_KEYS[manifest.type.key] : undefined) ?? []
+	)
 
 	const availableTabKeys = $derived(
 		getAvailableTabs(tabKeys, manifest)

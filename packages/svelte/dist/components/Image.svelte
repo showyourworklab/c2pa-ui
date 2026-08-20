@@ -1,8 +1,8 @@
-<script>
-	import { getContext } from 'svelte'
+<script lang="ts">
 	import { classNames } from 'syw-common/helpers'
+	import { getDataContext } from '../store/data.js'
 
-	const { src, alt } = getContext('dataStoreContext')
+	const { src, alt } = getDataContext()
 </script>
 
 <div

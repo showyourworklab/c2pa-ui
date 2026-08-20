@@ -1,22 +1,23 @@
-<script>
-	import { getContext } from 'svelte'
+<script lang="ts">
 	import { classNames, handleA11yClick, getMediaType } from 'syw-common/helpers'
     import Image from './Image.svelte';
     import Video from './Video.svelte';
+	import { getDataContext } from '../store/data.js'
+	import { getUiContext } from '../store/ui.js'
 
 	const {
 		src
-	} = getContext('dataStoreContext')
+	} = getDataContext()
 	const {
 		hoverImage, unhoverImage, isProvenanceOpen, openProvenance, closeProvenance
-	} = getContext('uiStoreContext')
+	} = getUiContext()
 
 	const mediaType = $derived(getMediaType($src))
 
-	const isClickableElem = (event) =>
-		["IMG", "VIDEO"].includes(event.target.tagName)
+	const isClickableElem = (event: Event) =>
+		["IMG", "VIDEO"].includes((event.target as HTMLElement)?.tagName)
 
-	const handleClick = (event) => {
+	const handleClick = (event: MouseEvent) => {
 		if(!isClickableElem(event)) return
 		if($isProvenanceOpen) {
 			closeProvenance(event)
@@ -25,15 +26,15 @@
 		}
 	}
 
-	const handleMouseEnter = (event) => {
+	const handleMouseEnter = (event: MouseEvent) => {
 		hoverImage(event)
 	}
 
-	const handleMouseLeave = (event) => {
+	const handleMouseLeave = (event: MouseEvent) => {
 		unhoverImage(event)
 	}
 
-	const handleKeyDown = event => {
+	const handleKeyDown = (event: KeyboardEvent) => {
 		if(!isClickableElem(event)) return
 		if($isProvenanceOpen) {
 			handleA11yClick(event, closeProvenance)

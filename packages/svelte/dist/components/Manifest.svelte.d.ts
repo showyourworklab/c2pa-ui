@@ -1,13 +1,8 @@
-export default Manifest;
-type Manifest = {
-    $on?(type: string, callback: (e: any) => void): () => void;
-    $set?(props: Partial<$$ComponentProps>): void;
-};
-declare const Manifest: import("svelte").Component<{
-    manifest?: Record<string, any>;
-    previewRef: any;
-}, {}, "">;
+import type { Manifest as ManifestData } from 'syw-common/types/c2pa';
 type $$ComponentProps = {
-    manifest?: Record<string, any>;
-    previewRef: any;
+    manifest: ManifestData;
+    previewRef?: ((el: HTMLElement | null) => void) | null;
 };
+declare const Manifest: import("svelte").Component<$$ComponentProps, {}, "">;
+type Manifest = ReturnType<typeof Manifest>;
+export default Manifest;

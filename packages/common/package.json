@@ -24,6 +24,7 @@
     "./types/index": "./types/index.ts",
     "./types/c2pa": "./types/c2pa.ts",
     "./types/components": "./types/components.ts",
+    "./types/embed": "./types/embed.ts",
     "./types/i18n": "./types/i18n.ts",
     "./types/trustlists": "./types/trustlists.ts",
     "./types/ui": "./types/ui.ts",
@@ -48,6 +49,7 @@
     "#types/index": "./types/index.ts",
     "#types/c2pa": "./types/c2pa.ts",
     "#types/components": "./types/components.ts",
+    "#types/embed": "./types/embed.ts",
     "#types/i18n": "./types/i18n.ts",
     "#types/trustlists": "./types/trustlists.ts",
     "#types/ui": "./types/ui.ts"

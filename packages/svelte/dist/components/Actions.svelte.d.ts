@@ -1,11 +1,4 @@
+import type { ActionsProps } from 'syw-common/types/components';
+declare const Actions: import("svelte").Component<ActionsProps, {}, "">;
+type Actions = ReturnType<typeof Actions>;
 export default Actions;
-type Actions = {
-    $on?(type: string, callback: (e: any) => void): () => void;
-    $set?(props: Partial<$$ComponentProps>): void;
-};
-declare const Actions: import("svelte").Component<{
-    actions: any;
-}, {}, "">;
-type $$ComponentProps = {
-    actions: any;
-};

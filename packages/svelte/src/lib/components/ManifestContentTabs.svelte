@@ -1,14 +1,15 @@
-<script>
+<script lang="ts">
 	import { Tabs } from '@ark-ui/svelte/tabs'
 	import { classNames, getAvailableTabs } from 'syw-common/helpers'
+	import type { ManifestContentTabsProps } from 'syw-common/types/components'
 	import Map from './Map.svelte'
 	import Actions from './Actions.svelte'
 	import Icon from './Icon.svelte'
 
 	const {
-		manifest = {},
+		manifest,
 		keys = [],
-	} = $props()
+	}: ManifestContentTabsProps = $props()
 
 	const availableTabs = $derived(() =>
 		getAvailableTabs(keys, manifest)
@@ -52,7 +53,7 @@
 					/>
 				{:else if key === "actions"}
 					<Actions
-						actions={manifest?.actions}
+						actions={manifest?.actions ?? []}
 					/>
 				{/if}
 			</div>

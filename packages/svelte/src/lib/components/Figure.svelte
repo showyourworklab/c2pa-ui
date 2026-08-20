@@ -1,7 +1,8 @@
-<script>
+<script lang="ts">
+	import type { Snippet } from 'svelte'
 	import { classNames } from 'syw-common/helpers'
 
-	const { children } = $props()
+	const { children }: { children: Snippet } = $props()
 </script>
 
 <figure

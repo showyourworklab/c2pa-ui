@@ -1,24 +1,26 @@
-<script>
-	import { getContext } from 'svelte';
+<script lang="ts">
 	import { classNames } from 'syw-common/helpers'
 	import { getDateString } from 'syw-common/helpers/i18n'
+	import type { ManifestGeneratorEntry, ManifestLocation } from 'syw-common/types/c2pa'
+	import type { ManifestTableRowProps } from 'syw-common/types/components'
+	import { getI18nContext } from '../store/i18n.js'
     import Map from './Map.svelte'
 	import Actions from './Actions.svelte'
 	import Generator from './Generator.svelte'
 
-	const { locale, getText } = getContext('i18nStoreContext');
+	const { locale, getText } = getI18nContext();
 
 	const {
 		type,
 		value,
-	} = $props()
+	}: Pick<ManifestTableRowProps, 'type' | 'value'> = $props()
 
 	const formattedValue = $derived(() => {
 		switch(type) {
 			case 'producer':
-				return value?.map(v => v.name).join(', ')
+				return (value as { name?: string | null }[] | undefined)?.map(v => v.name).join(', ')
 			case 'timestamp':
-				return getDateString($locale, value)
+				return getDateString($locale, value as { date?: Date, offset?: string | null } | undefined)
 			default:
 				return value
 		}
@@ -40,14 +42,14 @@
 		>
 			{#if type === 'location'}
 				<Map
-					location={value}
+					location={value as ManifestLocation}
 				/>
 			{:else if type === 'actions'}
 				<Actions
-					actions={value}
+					actions={value as string[]}
 				/>
 			{:else if type === 'generator'}
-				{#each value as v}
+				{#each value as ManifestGeneratorEntry[] as v}
 					<Generator
 						name={v.name}
 						icon={v.icon}

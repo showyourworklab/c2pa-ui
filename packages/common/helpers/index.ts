@@ -1,5 +1,5 @@
-import { Manifest } from '#types/c2pa'
-import { MediaType } from '#types/ui'
+import type { Manifest } from '#types/c2pa'
+import type { MediaType } from '#types/ui'
 import type { Reader } from '@contentauth/c2pa-web'
 
 interface A11yClickEvent {
@@ -66,8 +66,8 @@ export const getMediaType = (src: string | null | undefined): MediaType | null =
  * @param data - Manifest entry
  * @returns Returns array of string keys
  */
-export const getAvailableTabs = (keys: readonly string[] | undefined, data: Manifest) =>
-	keys?.filter(key => {
+export const getAvailableTabs = (keys: readonly string[] | undefined, data: Manifest): string[] =>
+	(keys ?? []).filter(key => {
 		const value = getObjectValue(key, data as any) as any
 		if(key === "actions") {
 			return value?.length

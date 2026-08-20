@@ -1,13 +1,4 @@
+import type { ManifestGeneratorEntry } from 'syw-common/types/c2pa';
+declare const Generator: import("svelte").Component<ManifestGeneratorEntry, {}, "">;
+type Generator = ReturnType<typeof Generator>;
 export default Generator;
-type Generator = {
-    $on?(type: string, callback: (e: any) => void): () => void;
-    $set?(props: Partial<$$ComponentProps>): void;
-};
-declare const Generator: import("svelte").Component<{
-    name: any;
-    icon: any;
-}, {}, "">;
-type $$ComponentProps = {
-    name: any;
-    icon: any;
-};

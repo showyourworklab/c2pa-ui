@@ -1,14 +1,15 @@
-<script>
-	import { getContext } from 'svelte';
+<script lang="ts">
 	import { classNames } from 'syw-common/helpers'
 	import Badge from './Badge.svelte';
+	import { getDataContext } from '$lib/store/data.js'
 	import { getI18nContext } from '$lib/store/i18n.js'
+	import { getUiContext } from '$lib/store/ui.js'
 
 	const { locale, getText } = getI18nContext();
-	const { status, types } = getContext('dataStoreContext');
-	const { isProvenanceOpen, openProvenance, closeProvenance } = getContext('uiStoreContext');
+	const { status, types } = getDataContext();
+	const { isProvenanceOpen, openProvenance, closeProvenance } = getUiContext();
 
-	const handleClick = (event) => {
+	const handleClick = (event: MouseEvent) => {
 		if($isProvenanceOpen) {
 			closeProvenance(event)
 		} else {
@@ -25,7 +26,6 @@
 >
 	<Badge
 		status={$status}
-		// type={$types[0]}
 		TooltipProps={{
 			disabled: true
 		}}

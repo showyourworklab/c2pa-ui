@@ -1,9 +1,11 @@
-<script>
-	import { getContext } from 'svelte';
+<script lang="ts">
 	import { classNames } from 'syw-common/helpers'
 	import { MANIFEST_PREVIEW_TITLE_KEYS } from 'syw-common/constants'
 	import { handleA11yClick } from 'syw-common/helpers'
 	import { getDateString } from 'syw-common/helpers/i18n'
+	import type { ManifestPreviewProps } from 'syw-common/types/components'
+	import { getI18nContext } from '../store/i18n.js'
+	import { getUiContext } from '../store/ui.js'
     import Badge from './Badge.svelte';
     import Icon from './Icon.svelte';
     import ManifestContentTabsToggle from './ManifestContentTabsToggle.svelte';
@@ -13,20 +15,22 @@
 		manifest,
 		tabKeys,
 		previewRef,
+	}: Pick<ManifestPreviewProps, 'open' | 'manifest' | 'tabKeys'> & {
+		previewRef?: ((el: HTMLElement | null) => void) | null
 	} = $props()
 
-	let toggleEl = $state(null)
+	let toggleEl: HTMLElement | null = $state(null)
 
 	$effect(() => {
 		if(previewRef) previewRef(toggleEl)
 	})
 
-	const { locale, getText } = getContext('i18nStoreContext');
+	const { locale, getText } = getI18nContext();
 	const {
 		openManifest, closeManifest, updateThumbnailPosition, openThumbnail, closeThumbnail, addThumbnail, removeThumbnail
-	} = getContext('uiStoreContext');
+	} = getUiContext();
 
-	const handleClick = (event => {
+	const handleClick = ((event: unknown) => {
 		removeThumbnail()
 		if(open) {
 			closeManifest(event, manifest)
@@ -35,7 +39,7 @@
 		}
 	})
 
-	const handleKeyDown = event => {
+	const handleKeyDown = (event: KeyboardEvent) => {
 		handleA11yClick(event, handleClick)
 	}
 
@@ -94,7 +98,7 @@
 					'ManifestPreviewCell_time'
 				)}
 			>
-				<span>{getDateString($locale, manifest?.timestamp) ?? ''}</span>
+				<span>{getDateString($locale, manifest?.timestamp ?? undefined) ?? ''}</span>
 			</div>
 			<div
 				// role='button'

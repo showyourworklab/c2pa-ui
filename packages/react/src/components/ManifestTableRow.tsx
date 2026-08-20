@@ -8,7 +8,7 @@ import Map from './Map'
 import Actions from './Actions'
 import Generator from './Generator'
 
-function ManifestTableRow({ type, value, manifest }: ManifestTableRowProps) {
+function ManifestTableRow({ type, value }: Pick<ManifestTableRowProps, 'type' | 'value'>) {
 	const { locale, getText } = useI18nContext()
 
 	const formattedValue = useMemo(() => {

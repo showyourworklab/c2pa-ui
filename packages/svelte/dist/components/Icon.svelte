@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import BadgeInfo from '@lucide/svelte/icons/badge-info';
 	import Camera from '@lucide/svelte/icons/camera'
 	import Check from '@lucide/svelte/icons/check'
@@ -10,15 +10,17 @@
 	import X from '@lucide/svelte/icons/x'
 	import { ICON_DEFAULT_SIZE, ICON_DEFAULT_STROKE_WIDTH } from 'syw-common/constants'
 	import { classNames } from 'syw-common/helpers'
+	import type { IconProps } from 'syw-common/types/components'
+	import type { IconType } from 'syw-common/types/ui'
 
 	const {
 		type,
 		size = ICON_DEFAULT_SIZE,
 		strokeWidth = ICON_DEFAULT_STROKE_WIDTH,
 		className
-	} = $props()
+	}: IconProps = $props()
 
-	export const ICONS = {
+	export const ICONS: Record<IconType, typeof BadgeInfo> = {
 		origin: BadgeInfo,
 		validating: Ellipsis,
 		trusted: Check,
@@ -32,8 +34,7 @@
 		close: X,
 	}
 
-	const IconComponent = $derived(ICONS[type] ?? ICONS["validating"])
-	// console.log()
+	const IconComponent = $derived((type ? ICONS[type] : undefined) ?? ICONS["validating"])
 </script>
 
 {#if IconComponent}

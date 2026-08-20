@@ -1,7 +1,16 @@
-<script>
+<script lang="ts">
+	import type { ComponentProps, Snippet } from 'svelte'
 	import { Portal as ArkPortal } from '@ark-ui/svelte/portal'
 	import { Tooltip as ArkTooltip } from '@ark-ui/svelte/tooltip'
 	import { classNames } from 'syw-common/helpers'
+
+	export interface TooltipProps {
+		content?: string
+		disabled?: boolean
+		ContentProps?: ComponentProps<typeof ArkTooltip.Content>
+		className?: string
+		children?: Snippet
+	}
 
 	const {
 		content,
@@ -9,7 +18,7 @@
 		ContentProps = {},
 		className,
 		children
-	} = $props()
+	}: TooltipProps = $props()
 
 </script>
 

@@ -1,11 +1,11 @@
-<script>
-	import { getContext } from 'svelte';
+<script lang="ts">
 	import { classNames } from 'syw-common/helpers'
 	import ProvenanceToggle from './ProvenanceToggle.svelte'
 	import ExplainerToggle from './ExplainerToggle.svelte'
     // import Badge from './Badge.svelte';
+	import { getDataContext } from '$lib/store/data.js'
 
-	const { status, types } = getContext('dataStoreContext');
+	const { status, types } = getDataContext();
 </script>
 
 <div
