@@ -406,6 +406,9 @@
 		overflow-y: scroll;
 		overflow-x: hidden;
 	}
+	:global(*) {
+		box-sizing: border-box;
+	}
 	#article-morgenbladet {
 		width: 100%;
 		min-height: 100vh;

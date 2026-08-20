@@ -186,6 +186,9 @@
 		overflow-y: scroll;
 		overflow-x: hidden;
 	}
+	:global(*) {
+		box-sizing: border-box;
+	}
 	main#article-aftonbladet {
 		width: 100%;
 		min-height: 100vh;
@@ -230,10 +233,13 @@
 	}
 	#hero hgroup h1 {
 		max-width: 20ch;
-		font-size: 72px;
+		font-size: 52px;
 		line-height: 1.2em;
 		letter-spacing: -0.05em;
 		color: var(--syw-color-secondary);
+		@media (min-width: 740px) {
+			font-size: 72px;
+		}
 	}
 	#hero hgroup p {
 		font-size: 14px;

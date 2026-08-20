@@ -19,7 +19,7 @@
 :global(body) {
 	margin: 0;
 }
-* {
+:global(*) {
 	box-sizing: border-box;
 }
 main#docs header #logo {
