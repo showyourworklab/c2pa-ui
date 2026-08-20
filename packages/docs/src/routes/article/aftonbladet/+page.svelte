@@ -182,10 +182,14 @@
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 	:global(body) {
+		margin: 0;
 		overflow-y: scroll;
 		overflow-x: hidden;
 	}
-	#article-aftonbladet {
+	:global(*) {
+		box-sizing: border-box;
+	}
+	main#article-aftonbladet {
 		width: 100%;
 		min-height: 100vh;
 		display: flex;
@@ -229,10 +233,13 @@
 	}
 	#hero hgroup h1 {
 		max-width: 20ch;
-		font-size: 72px;
+		font-size: 52px;
 		line-height: 1.2em;
 		letter-spacing: -0.05em;
 		color: var(--syw-color-secondary);
+		@media (min-width: 740px) {
+			font-size: 72px;
+		}
 	}
 	#hero hgroup p {
 		font-size: 14px;

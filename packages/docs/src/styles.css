@@ -16,57 +16,75 @@
 	color: var(--color-primary);
 	background-color: var(--color-secondary);
 }
-header #logo {
+:global(body) {
+	margin: 0;
+}
+:global(*) {
+	box-sizing: border-box;
+}
+main#docs header #logo {
 	width: 10rem;
 	margin: 1rem 0 0 0;
 }
-main {
+main#docs {
 	max-width: 720px;
 	margin: auto;
 	padding: 0 0.5rem;
 	font-size: 14px;
 	font-family: var(--font-body);
 }
-main > hgroup {
+main#docs > hgroup {
 	margin: 2rem 0;
 }
-main > hgroup h1 {
+main#docs > hgroup h1 {
 	display: inline-block;
 	font-size: 32px;
 	font-family: var(--font-display);
 	margin: 0;
 }
-main > hgroup h1::after {
+main#docs > hgroup h1::after {
 	content: "\00A0\00A0";
 }
-main > hgroup h2 {
+main#docs > hgroup h2 {
 	display: inline-block;
 	font-size: 32px;
 	font-family: var(--font-display);
 	margin: 0;
 }
-main > hgroup p {
+main#docs > hgroup p {
 
 }
-main > hgroup p a {
+main#docs > hgroup p a {
 	color: inherit;
 }
-section {
+main#docs section {
 	margin: 4rem auto;
 }
-section > h2 {
+main#docs section > h2 {
 	font-family: var(--font-mono);
 }
-section > header {
+main#docs section > header {
 	display: flex;
 	justify-content: space-between;
 	margin: 0 0 1rem 0;
+	@media (max-width: 678px) {
+		flex-direction: column;
+	}
 }
-section > header label {
+main#docs section > header > div {
+	@media (max-width: 678px) {
+		margin-bottom: 0.5rem;
+	}
+	@media (max-width: 412px) {
+		display: flex;
+		flex-direction: column;
+	}
+}
+main#docs section > header label {
 	font-weight: bold;
 	margin-right: 0.25rem;
 }
-section > header select {
+main#docs section > header select {
 	padding: 4px 8px;
 	color: inherit;
 	border: 1px solid;
@@ -74,7 +92,7 @@ section > header select {
 	text-decoration: none;
 	display: inline-flex;
 }
-var {
+main#docs var {
 	display: inline-block;
 	font-style: normal;
 	/* font-weight: normal; */
@@ -84,7 +102,7 @@ var {
 	background-color: var(--color-tertiary);
 	border-radius: 1rem;
 }
-code {
+main#docs code {
 	white-space: pre;
 	padding: 1rem;
 	display: block;
@@ -95,14 +113,14 @@ code {
 	font-family: var(--font-mono);
 	overflow: auto;
 }
-ul {
+main#docs ul {
 	padding-left: 0;
 	list-style: none;
 }
-ul li {
+main#docs ul li {
 	margin-bottom: 0.5rem;
 }
-a.button {
+main#docs a.button {
 	padding: 4px 8px;
 	color: inherit;
 	border: 1px solid;
@@ -111,15 +129,15 @@ a.button {
 	display: inline-flex;
 	align-items: center;
 }
-a.button:hover {
+main#docs a.button:hover {
 	background-color: var(--color-tertiary);
 }
-a.button[data-icon] {
+main#docs a.button[data-icon] {
 	padding-right: 1.5em;
 	background-position: calc(100% - .25em) center;
 	background-repeat: no-repeat;
 	background-size: 1em;
 }
-a.button[data-icon="github"] {
+main#docs a.button[data-icon="github"] {
 	background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTgiIGhlaWdodD0iOTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik00OC44NTQgMEMyMS44MzkgMCAwIDIyIDAgNDkuMjE3YzAgMjEuNzU2IDEzLjk5MyA0MC4xNzIgMzMuNDA1IDQ2LjY5IDIuNDI3LjQ5IDMuMzE2LTEuMDU5IDMuMzE2LTIuMzYyIDAtMS4xNDEtLjA4LTUuMDUyLS4wOC05LjEyNy0xMy41OSAyLjkzNC0xNi40Mi01Ljg2Ny0xNi40Mi01Ljg2Ny0yLjE4NC01LjcwNC01LjQyLTcuMTctNS40Mi03LjE3LTQuNDQ4LTMuMDE1LjMyNC0zLjAxNS4zMjQtMy4wMTUgNC45MzQuMzI2IDcuNTIzIDUuMDUyIDcuNTIzIDUuMDUyIDQuMzY3IDcuNDk2IDExLjQwNCA1LjM3OCAxNC4yMzUgNC4wNzQuNDA0LTMuMTc4IDEuNjk5LTUuMzc4IDMuMDc0LTYuNi0xMC44MzktMS4xNDEtMjIuMjQzLTUuMzc4LTIyLjI0My0yNC4yODMgMC01LjM3OCAxLjk0LTkuNzc4IDUuMDE0LTEzLjItLjQ4NS0xLjIyMi0yLjE4NC02LjI3NS40ODYtMTMuMDM4IDAgMCA0LjEyNS0xLjMwNCAxMy40MjYgNS4wNTJhNDYuOTcgNDYuOTcgMCAwIDEgMTIuMjE0LTEuNjNjNC4xMjUgMCA4LjMzLjU3MSAxMi4yMTMgMS42MyA5LjMwMi02LjM1NiAxMy40MjctNS4wNTIgMTMuNDI3LTUuMDUyIDIuNjcgNi43NjMuOTcgMTEuODE2LjQ4NSAxMy4wMzggMy4xNTUgMy40MjIgNS4wMTUgNy44MjIgNS4wMTUgMTMuMiAwIDE4LjkwNS0xMS40MDQgMjMuMDYtMjIuMzI0IDI0LjI4MyAxLjc4IDEuNTQ4IDMuMzE2IDQuNDgxIDMuMzE2IDkuMTI2IDAgNi42LS4wOCAxMS44OTctLjA4IDEzLjUyNiAwIDEuMzA0Ljg5IDIuODUzIDMuMzE2IDIuMzY0IDE5LjQxMi02LjUyIDMzLjQwNS0yNC45MzUgMzMuNDA1LTQ2LjY5MUM5Ny43MDcgMjIgNzUuNzg4IDAgNDguODU0IDB6IiBmaWxsPSIjMjQyOTJmIi8+PC9zdmc+);
 }
