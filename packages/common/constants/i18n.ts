@@ -14,6 +14,7 @@ export const DICTIONARY_EN_US = {
 	actions: 'Actions',
 	ingredients: 'Ingredients',
 	provenance_toggle: 'View Image Origin',
+	provenance_missing: 'No provenance found',
 	// Explainer
 	explainer_toggle: 'What is this?',
 	explainer_toggle_close: 'Close',
@@ -114,6 +115,7 @@ export const DICTIONARY_NO_NO = {
 	actions: 'Handlinger',
 	ingredients: 'Ingredienser',
 	provenance_toggle: 'Se bildets opphav',
+	provenance_missing: 'No provenance found',
 	// Explainer
 	explainer_toggle: 'Hva er dette?',
 	explainer_toggle_close: 'Lukk',
@@ -214,6 +216,7 @@ export const DICTIONARY_SV_SE = {
 	actions: 'Åtgärder',
 	ingredients: 'Ingredienser',
 	provenance_toggle: 'Se bildens ursprung',
+	provenance_missing: 'No provenance found',
 	// Explainer
 	explainer_toggle: 'Vad är detta?',
 	explainer_toggle_close: 'Stäng',

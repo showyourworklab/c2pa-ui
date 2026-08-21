@@ -26,7 +26,7 @@
 	class={classNames('Provenance')}
 >
 	{#if $manifests && $manifests.length}
-		<ul
+		<div
 			class={classNames('ProvenanceList')}
 		>
 			{#each $manifests as manifest, index}
@@ -35,12 +35,12 @@
 					previewRef={index === 0 ? (el) => firstPreviewEl = el : null}
 				/>
 			{/each}
-		</ul>
+		</div>
 	{:else}
 		<div
 			class={classNames('ProvenanceNone')}
 		>
-			No provenance found
+			{getText($locale, 'provenance', 'toggle')}
 		</div>
 	{/if}
 	<div class={classNames('ProvenanceVerify')}>

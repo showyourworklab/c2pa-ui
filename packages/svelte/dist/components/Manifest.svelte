@@ -40,7 +40,7 @@
 	)
 </script>
 
-<li
+<div
 	class={classes}
 >
 	<div
@@ -66,4 +66,4 @@
 			</Collapse>
 		</Tabs.RootProvider>
 	</div>
-</li>
+</div>

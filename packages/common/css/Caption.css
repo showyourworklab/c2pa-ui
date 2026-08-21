@@ -1,10 +1,9 @@
 /* Caption */
 .Syw-Caption {
 	margin: 0;
-	padding: var(--syw-space-2) 0 0 0;
+	padding: 0;
 	border: 0;
 	width: calc(100% - var(--syw-size-caption-indent));
-	/* color: var(--syw-color-secondary-dark); */
 	border: 1px solid transparent;
 	position: relative;
 	pointer-events: all;
@@ -34,9 +33,7 @@
 }
 /* Caption > Active > Expand */
 .Syw-App_active.Syw-App_expand .Syw-Caption::before {
-	height: 100%;
 	height: calc(var(--syw-space-1) + 4px + 100% + calc(var(--syw-size-manifest-preview-height) / 2) - calc(var(--syw-size-badge) / 2));
-	/* height: calc(100% + 2px + var(--syw-space-4) + (var(--syw-size-manifest-preview-height) / 2) - (var(--syw-size-badge) / 2)); */
 }
 .Syw-App_active.Syw-App_expand .Syw-Caption::after {
 	opacity: 1;

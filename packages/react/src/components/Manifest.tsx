@@ -60,7 +60,7 @@ function Manifest({
 	}, [isProvenanceOpen])
 
 	return (
-		<li
+		<div
 			className={className}
 		>
 			<div
@@ -88,7 +88,7 @@ function Manifest({
 					</Collapse>
 				</Tabs.RootProvider>
 			</div>
-		</li>
+		</div>
 	)
 }
 

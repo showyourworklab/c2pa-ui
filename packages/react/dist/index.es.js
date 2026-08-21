@@ -29,6 +29,7 @@ const eC = "en", b0 = "en_US", Vy = {
   actions: "Actions",
   ingredients: "Ingredients",
   provenance_toggle: "View Image Origin",
+  provenance_missing: "No provenance found",
   // Explainer
   explainer_toggle: "What is this?",
   explainer_toggle_close: "Close",
@@ -127,6 +128,7 @@ const eC = "en", b0 = "en_US", Vy = {
   actions: "Handlinger",
   ingredients: "Ingredienser",
   provenance_toggle: "Se bildets opphav",
+  provenance_missing: "No provenance found",
   // Explainer
   explainer_toggle: "Hva er dette?",
   explainer_toggle_close: "Lukk",
@@ -225,6 +227,7 @@ const eC = "en", b0 = "en_US", Vy = {
   actions: "Åtgärder",
   ingredients: "Ingredienser",
   provenance_toggle: "Se bildens ursprung",
+  provenance_missing: "No provenance found",
   // Explainer
   explainer_toggle: "Vad är detta?",
   explainer_toggle_close: "Stäng",
@@ -35739,7 +35742,7 @@ function CN({
   }, [h, i, A, l, M]);
   return yr(() => {
     b || _(!1);
-  }, [b]), /* @__PURE__ */ J("li", {
+  }, [b]), /* @__PURE__ */ J("div", {
     className: K,
     children: /* @__PURE__ */ J("div", {
       className: nt("ManifestInner"),
@@ -35777,7 +35780,7 @@ function FE() {
   }, [a, M]), /* @__PURE__ */ dt("div", {
     ref: i,
     className: nt("Provenance"),
-    children: [b && b.length ? /* @__PURE__ */ J("ul", {
+    children: [b && b.length ? /* @__PURE__ */ J("div", {
       className: nt("ProvenanceList"),
       children: b.map((l, R) => /* @__PURE__ */ J(CN, {
         manifest: l,
@@ -35785,7 +35788,7 @@ function FE() {
       }, R))
     }) : null, !b || !b.length ? /* @__PURE__ */ J("div", {
       className: nt("ProvenanceNone"),
-      children: "No provenance found"
+      children: h("provenance", "missing")
     }) : null, /* @__PURE__ */ dt("div", {
       className: nt("ProvenanceVerify"),
       children: [h("verify", "pre"), " ", /* @__PURE__ */ J("a", {
