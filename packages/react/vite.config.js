@@ -26,12 +26,19 @@ export default defineConfig({
 			cssFileName: "style"
 		},
 		rollupOptions: {
-			external: ['react', 'react-dom'],
+			// Match react/react-dom AND their subpaths (react/jsx-runtime,
+			// react-dom/client, etc). A plain ['react', 'react-dom'] array only
+			// matches those exact specifiers — "jsx": "react-jsx" makes every
+			// .tsx file import from 'react/jsx-runtime', a different specifier,
+			// which was silently NOT excluded and got bundled wholesale,
+			// hardcoding React 18's internals property name into our output and
+			// breaking under React 19 (which renamed it).
+			external: (id) => /^react(-dom)?(\/.*)?$/.test(id),
 			output: {
-				globals: {
-					'react': 'React',
-					'react-dom': 'ReactDOM',
-				},
+				globals: (id) =>
+					id === 'react' ? 'React'
+					: id === 'react-dom' ? 'ReactDOM'
+					: id,
 				assetFileNames: 'styles.[ext]',
 			},
 		},
