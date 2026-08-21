@@ -9,7 +9,12 @@
 		class: className,
 	}: Pick<MarkdownProps, 'content'> & { tag?: string, class?: string | null } = $props()
 
-	const html = $derived(convertMarkupToSafeHtml(content))
+	let mounted = $state(false)
+	$effect(() => {
+		mounted = true
+	})
+
+	const html = $derived(mounted ? convertMarkupToSafeHtml(content) : '')
 </script>
 
 {#if html}

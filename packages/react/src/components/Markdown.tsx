@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { classNames } from 'syw-common/helpers'
 import { convertMarkupToSafeHtml } from 'syw-common/helpers/markdown'
 import type { MarkdownProps } from 'syw-common/types/components'
@@ -8,7 +8,13 @@ function Markdown({
 	tag = 'div',
 	className
 }: MarkdownProps) {
-	const html = useMemo(() => convertMarkupToSafeHtml(content), [content])
+	const [mounted, setMounted] = useState(false)
+	useEffect(() => setMounted(true), [])
+
+	const html = useMemo(() =>
+		mounted ? convertMarkupToSafeHtml(content) : ''
+	, [mounted, content])
+
 	if(!html) return null
 	const Tag = tag as keyof JSX.IntrinsicElements
 
