@@ -1,6 +1,6 @@
 {
 	"name": "syw-svelte",
-	"version": "0.0.21",
+	"version": "0.0.29",
 	"description": "",
 	"author": "Show Your Work Lab",
 	"license": "MIT",
@@ -15,8 +15,7 @@
 			"svelte": "./dist/index.js",
 			"import": "./dist/index.js",
 			"default": "./dist/index.js"
-		},
-		"./styles.css": "./dist/styles.css"
+		}
 	},
 	"files": [
 		"dist",
@@ -32,9 +31,9 @@
 		"build": "npm run build:lib && npm run build:demo",
 		"build:lib": "npm run package && publint",
 		"build:demo": "vite build --config vite.demo.config.js",
-		"package": "svelte-kit sync && svelte-package --preserve-output true",
+		"package": "svelte-kit sync && svelte-package",
 		"preview": "vite preview",
-		"publish": "npm publish --access=public",
+		"release": "npm publish --access=public",
 		"lint": "eslint .",
 		"typecheck": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
 	},
@@ -43,7 +42,8 @@
 		"@contentauth/c2pa-web": "^0.6.1",
 		"@lucide/svelte": "^1.3.0",
 		"@videojs/html": "^10.0.0-beta.6",
-		"maplibre-gl": "^5.18.0"
+		"maplibre-gl": "^5.18.0",
+		"syw-common": "^0.0.29"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.28.1",

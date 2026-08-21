@@ -1,7 +1,6 @@
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import dts from 'vite-plugin-dts'
 
 export default defineConfig({
 	publicDir: 'public',
@@ -62,11 +61,6 @@ export default defineConfig({
 			// Disabling this since to stop re-registration custom element error when
 			// hot-reloading web components
 			// fastRefresh: false,
-		}),
-		dts({
-			entryRoot: 'src',
-			include: ['src'],
-			insertTypesEntry: true,
 		}),
 	],
 	server: {

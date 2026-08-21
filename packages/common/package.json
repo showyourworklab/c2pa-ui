@@ -1,9 +1,20 @@
 {
   "name": "syw-common",
-  "version": "0.0.21",
+  "version": "0.0.29",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "type": "module",
+  "files": [
+    "constants/",
+    "helpers/",
+    "types/",
+    "trustlists/",
+    "css/",
+    "images/",
+    "package.json",
+    "README.md",
+    "LICENSE"
+  ],
   "exports": {
     "./constants": "./constants/index.ts",
     "./constants/index": "./constants/index.ts",
@@ -28,7 +39,7 @@
     "./types/i18n": "./types/i18n.ts",
     "./types/trustlists": "./types/trustlists.ts",
     "./types/ui": "./types/ui.ts",
-    "./css": "./css/index.css",
+    "./css": "./css/styles.css",
     "./css/*": "./css/*",
     "./images/*": "./images/*"
   },
@@ -55,7 +66,7 @@
     "#types/ui": "./types/ui.ts"
   },
   "scripts": {
-    "publish": "npm publish",
+    "release": "npm publish",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
