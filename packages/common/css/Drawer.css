@@ -179,24 +179,24 @@ hgroup.Syw-DrawerContentHeader h2 {
 }
 /* Drawer > Close */
 button.Syw-DrawerClose {
-	width: var(--syw-space-10);
-	height: var(--syw-space-10);
+	width: var(--syw-space-6);
+	height: var(--syw-space-6);
 	display: flex;
 	position: absolute;
 	right: var(--syw-space-3);
 	top: var(--syw-space-3);
 	color: var(--syw-color-secondary);
 	border-radius: var(--syw-radius-full);
-	/* border-color: var(--syw-color-tertiary);
+	border-color: var(--syw-color-tertiary);
 	border-style: solid;
-	border-width: 1px; */
+	border-width: 1px;
 	cursor: pointer;
 	transition: all 200ms ease;
 }
 button.Syw-DrawerClose svg {
 	margin: auto;
-	width: var(--syw-space-8);
-	height: var(--syw-space-8);
+	width: var(--syw-space-4);
+	height: var(--syw-space-4);
 }
 button.Syw-DrawerClose:hover,
 button.Syw-DrawerClose:focus {
@@ -235,7 +235,7 @@ button.Syw-DrawerClose:focus {
 	min-height: 0;
 	overflow-y: auto;
 	overscroll-behavior-y: contain;
-	padding: 0.5rem 0;
+	padding: var(--syw-space-8) 0;
 }
 .Syw-DrawerScrollable::-webkit-scrollbar {
 	width: 6px;

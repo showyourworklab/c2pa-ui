@@ -1,6 +1,7 @@
 /* Explainer */
 .Syw-Explainer {
-	
+	position: relative;
+	top: -1px;
 }
 /* Explainer > Inner */
 .Syw-ExplainerInner {

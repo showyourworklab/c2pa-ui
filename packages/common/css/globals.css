@@ -77,7 +77,7 @@
 	--syw-text-xs: 10px;
 	--syw-text-xxs: 8px;
 
-	@media (max-width: 576px) {
+	/* @media (max-width: 576px) {
 		--syw-space-1: 2px;
 		--syw-space-2: 4px;
 		--syw-space-3: 6px;
@@ -88,7 +88,7 @@
 		--syw-space-8: 16px;
 		--syw-space-9: 18px;
 		--syw-space-10: 20px;
-	}
+	} */
 
 	.syw-hidden {
 		position: absolute;

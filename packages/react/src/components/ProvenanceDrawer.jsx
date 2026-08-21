@@ -2,8 +2,6 @@ import { classNames } from 'syw-common/helpers'
 import { useI18nContext, useUiContext, useDataContext } from '$src/context'
 import Drawer from './Drawer'
 import Provenance from './Provenance'
-import Explainer from './Explainer'
-import ExplainerToggle from './ExplainerToggle'
 
 const ProvenanceDrawer = ({
 	direction
@@ -35,12 +33,6 @@ const ProvenanceDrawer = ({
 			onOpenChange={handleOpenChange}
 			className={classNames('ProvenanceDrawer')}
 		>
-			<div
-				className={classNames('ProvenanceDrawerToolbar')}
-			>
-				<ExplainerToggle />
-			</div>
-			<Explainer />
 			<Provenance />
 		</Drawer>
 	)

@@ -53,7 +53,10 @@ const Drawer = ({
 							/>
 						</ArkDrawer.Grabber>
 						<div
-							className={classNames('DrawerContentBox')}
+							className={classNames(
+								'DrawerContentBox',
+								'DrawerScrollable'
+							)}
 						>
 							{title ?
 								<hgroup

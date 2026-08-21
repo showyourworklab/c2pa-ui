@@ -11,6 +11,11 @@
 		grid-template-columns: repeat(2, 1fr);
 	}
 }
+.Syw-DrawerPositioner[data-swipe-direction="left"] .Syw-ManifestContent,
+.Syw-DrawerPositioner[data-swipe-direction="right"] .Syw-ManifestContent {
+	grid-template-rows: auto auto;
+	grid-template-columns: unset;
+}
 .Syw-ManifestContent::before {
 	content: "";
 	width: 100%;
