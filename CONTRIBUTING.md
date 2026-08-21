@@ -46,10 +46,18 @@ npm install
 npm run build
 ```
 
-### 3. Publish, in this order
+### 3. Commit and tag the release
+
+```bash
+git add -A && git commit -m "Release v<newversion>"
+git tag v<newversion>
+git push && git push --tags
+```
+
+### 4. Publish, in this order
 
 > [!IMPORTANT]
-> `common` must go first first; `react` and `svelte` will fail if the updated `common` isn't in the registry yet
+> `common` must go first; `react` and `svelte` will fail if the updated `common` isn't in the registry yet
 
 ```bash
 npm run common:release
