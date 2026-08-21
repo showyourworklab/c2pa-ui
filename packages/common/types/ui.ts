@@ -1,11 +1,13 @@
 import type { VARIANT_KEYS } from '#constants/index'
 import type { C2paStatus, Manifest, ManifestThumbnail, ManifestTypeKey } from './c2pa.js'
 
+export type Variant = typeof VARIANT_KEYS[number]
+
+export type MapOptions = Record<string, unknown> | null
+
 export type MediaType = 'image' | 'video'
 
 export type IconType = C2paStatus | ManifestTypeKey | 'origin' | 'missing' | 'close'
-
-export type Variant = typeof VARIANT_KEYS[number]
 
 export interface ThumbnailPosition {
 	clientX: number
@@ -15,7 +17,7 @@ export interface ThumbnailPosition {
 export interface UiState {
 	variant: Variant | string
 	elem: HTMLElement | null
-	mapOptions: Record<string, unknown> | null
+	mapOptions: MapOptions
 	isHoverImage: boolean
 	isProvenanceOpen: boolean
 	isExplainerOpen: boolean

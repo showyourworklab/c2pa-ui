@@ -42302,29 +42302,31 @@ const fO = HF({
 };
 function _O({
   mapOptions: i,
-  onEvent: a
+  onEvent: a,
+  className: h,
+  ..._
 }) {
-  const h = jt(null), {
-    variant: _,
-    isHoverImage: b,
-    isProvenanceOpen: M,
-    isThumbnailOpen: A,
-    setElem: l,
-    setMapOptions: R,
-    eventHandler: F
-  } = gs(), O = Kr(() => nt("App", `App_${_}`, b ? "App_hovered" : !1, M ? "App_active" : !1), [_, b, M]);
+  const b = jt(null), {
+    variant: M,
+    isHoverImage: A,
+    isProvenanceOpen: l,
+    setElem: R,
+    setMapOptions: F,
+    eventHandler: O
+  } = gs(), q = Kr(() => nt("App", `App_${M}`, A ? "App_hovered" : !1, l ? "App_active" : !1, h), [M, A, l, h]);
   return yr(() => {
-    l(h.current);
-  }, [l]), yr(() => {
-    R(i);
-  }, [i, R]), yr(() => {
-    F.current = a ?? null;
-  }, [F, a]), /* @__PURE__ */ dt("div", {
-    ref: h,
-    className: O,
+    R(b.current);
+  }, [R]), yr(() => {
+    F(i);
+  }, [i, F]), yr(() => {
+    O.current = a ?? null;
+  }, [O, a]), /* @__PURE__ */ dt("div", {
+    ref: b,
+    className: q,
+    ..._,
     children: [/* @__PURE__ */ dt(yB, {
-      children: [/* @__PURE__ */ J(mO, {}), _ === "expand" ? /* @__PURE__ */ J(vE, {}) : null, /* @__PURE__ */ J(bR, {}), /* @__PURE__ */ J(Lk, {})]
-    }), _ === "expand" ? /* @__PURE__ */ J(BN, {}) : null, _ === "modal" ? /* @__PURE__ */ J(AF, {}) : null]
+      children: [/* @__PURE__ */ J(mO, {}), M === "expand" ? /* @__PURE__ */ J(vE, {}) : null, /* @__PURE__ */ J(bR, {}), /* @__PURE__ */ J(Lk, {})]
+    }), M === "expand" ? /* @__PURE__ */ J(BN, {}) : null, M === "modal" ? /* @__PURE__ */ J(AF, {}) : null]
   });
 }
 const EO = ({
@@ -42336,7 +42338,8 @@ const EO = ({
   variant: M,
   c2paOptions: A,
   mapOptions: l = null,
-  ...R
+  onEvent: R,
+  ...F
 }) => /* @__PURE__ */ J(aB, {
   c2paOptions: A,
   children: /* @__PURE__ */ J(mB, {
@@ -42350,7 +42353,8 @@ const EO = ({
         variant: M,
         children: /* @__PURE__ */ J(_O, {
           mapOptions: l,
-          ...R
+          onEvent: R,
+          ...F
         })
       })
     })

@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useRef } from 'react'
+import type { ComponentPropsWithoutRef } from 'react'
 import 'syw-common/css/styles.css'
 import { classNames } from 'syw-common/helpers'
-import type { UiState, UiEventHandler } from 'syw-common/types/ui'
+import type { MapOptions, UiEventHandler } from 'syw-common/types/ui'
 import { useUiContext } from '$src/context/ui'
 import Figure from './Figure'
 import Cutline from './Cutline'
@@ -9,27 +10,38 @@ import Caption from './Caption'
 import Explainer from './Explainer'
 import ProvenanceExpand from './ProvenanceExpand'
 import ProvenanceModal from './ProvenanceModal'
-import Thumbnail from './Thumbnail'
 import Media from './Media'
 
-interface AppProps extends Pick<UiState, 'mapOptions'> {
+interface AppProps extends Omit<ComponentPropsWithoutRef<'div'>, 'children'> {
+	mapOptions: MapOptions
 	onEvent?: UiEventHandler
 }
 
-function App({ mapOptions, onEvent }: AppProps) {
+function App({
+	mapOptions,
+	onEvent,
+	className,
+	...props
+} : AppProps) {
 	const ref = useRef<HTMLDivElement>(null)
 	const {
-		variant, isHoverImage, isProvenanceOpen, isThumbnailOpen, setElem, setMapOptions, eventHandler
+		variant,
+		isHoverImage,
+		isProvenanceOpen,
+		setElem,
+		setMapOptions,
+		eventHandler
 	} = useUiContext()
 
-	const className = useMemo(() =>
+	const classes = useMemo(() =>
 		classNames(
 			'App',
 			`App_${variant}`,
 			isHoverImage ? 'App_hovered' : false,
-			isProvenanceOpen ? 'App_active' : false
+			isProvenanceOpen ? 'App_active' : false,
+			className
 		)
-	, [variant, isHoverImage, isProvenanceOpen])
+	, [variant, isHoverImage, isProvenanceOpen, className])
 
 	useEffect(() => {
 		setElem(ref.current)
@@ -44,7 +56,11 @@ function App({ mapOptions, onEvent }: AppProps) {
 	}, [eventHandler, onEvent])
 
 	return (
-		<div ref={ref} className={className}>
+		<div
+			ref={ref}
+			className={classes}
+			{...props}
+		>
 			<Figure>
 				<Media />
 				{variant === 'expand' ? <Explainer /> : null}

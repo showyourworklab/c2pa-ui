@@ -1,5 +1,5 @@
 import type { Manifest, ManifestThumbnail } from 'syw-common/types/c2pa';
-import type { ThumbnailPosition, UiEventHandler, Variant } from 'syw-common/types/ui';
+import type { MapOptions, ThumbnailPosition, UiEventHandler, Variant } from 'syw-common/types/ui';
 export default function createUiStore(): {
     elem: import("svelte/store").Writable<HTMLElement>;
     variant: import("svelte/store").Writable<string>;
@@ -14,7 +14,7 @@ export default function createUiStore(): {
     eventHandler: import("svelte/store").Writable<UiEventHandler>;
     setElem: (value: HTMLElement | null) => void;
     setVariant: (value: Variant | string) => void;
-    setMapOptions: (value: Record<string, unknown> | null) => void;
+    setMapOptions: (value: MapOptions) => void;
     hoverImage: (event?: unknown) => void;
     unhoverImage: (event?: unknown) => void;
     openProvenance: (event?: unknown) => void;
@@ -45,7 +45,7 @@ export declare const setUiContext: (store: UiStore) => {
     eventHandler: import("svelte/store").Writable<UiEventHandler>;
     setElem: (value: HTMLElement | null) => void;
     setVariant: (value: Variant | string) => void;
-    setMapOptions: (value: Record<string, unknown> | null) => void;
+    setMapOptions: (value: MapOptions) => void;
     hoverImage: (event?: unknown) => void;
     unhoverImage: (event?: unknown) => void;
     openProvenance: (event?: unknown) => void;
@@ -75,7 +75,7 @@ export declare const getUiContext: () => {
     eventHandler: import("svelte/store").Writable<UiEventHandler>;
     setElem: (value: HTMLElement | null) => void;
     setVariant: (value: Variant | string) => void;
-    setMapOptions: (value: Record<string, unknown> | null) => void;
+    setMapOptions: (value: MapOptions) => void;
     hoverImage: (event?: unknown) => void;
     unhoverImage: (event?: unknown) => void;
     openProvenance: (event?: unknown) => void;

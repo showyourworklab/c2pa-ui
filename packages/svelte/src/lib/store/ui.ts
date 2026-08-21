@@ -2,7 +2,7 @@ import { getContext, setContext } from 'svelte'
 import { writable, get } from 'svelte/store'
 import { VARIANT_DEFAULT } from 'syw-common/constants/index'
 import type { Manifest, ManifestThumbnail } from 'syw-common/types/c2pa'
-import type { ThumbnailPosition, UiEventHandler, Variant } from 'syw-common/types/ui'
+import type { MapOptions, ThumbnailPosition, UiEventHandler, Variant } from 'syw-common/types/ui'
 
 const UI_CONTEXT_KEY = Symbol('ui')
 
@@ -10,7 +10,7 @@ export default function createUiStore() {
 
 	const elem = writable<HTMLElement | null>(null)
 	const variant = writable<Variant | string>(VARIANT_DEFAULT)
-	const mapOptions = writable<Record<string, unknown> | null>(null)
+	const mapOptions = writable<MapOptions>(null)
 	const isHoverImage = writable(false)
 	const isProvenanceOpen = writable(false)
 	const isExplainerOpen = writable(false)
@@ -28,7 +28,7 @@ export default function createUiStore() {
 		variant.set(value)
 	}
 
-	const setMapOptions = (value: Record<string, unknown> | null) => {
+	const setMapOptions = (value: MapOptions) => {
 		mapOptions.set(value)
 	}
 

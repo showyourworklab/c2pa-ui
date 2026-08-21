@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte'
+	import type { HTMLAttributes } from 'svelte/elements'
 	import 'syw-common/css/styles.css'
 	import { classNames } from 'syw-common/helpers'
 	import { VARIANT_DEFAULT } from 'syw-common/constants'
@@ -27,8 +28,10 @@
 		locale = LOCALE_DEFAULT,
 		c2paOptions = {},
 		mapOptions = null,
-		onEvent = undefined
-	}: SywEmbedProps = $props()
+		onEvent = undefined,
+		class: className,
+		...props
+	}: SywEmbedProps & Omit<HTMLAttributes<HTMLDivElement>, 'class'> & { class?: string | null } = $props()
 
 	let mounted = $state(false)
 	let elemRef: HTMLElement | null = $state(null)
@@ -57,7 +60,8 @@
 			'App',
 			`App_${variant}`,
 			$isHoverImage ? 'App_hovered' : false,
-			$isProvenanceOpen ? 'App_active' : false
+			$isProvenanceOpen ? 'App_active' : false,
+			className
 		)
 	)
 
@@ -100,6 +104,7 @@
 </script>
 
 <div
+	{...props}
 	lang={$lang}
 	class={classes}
 	bind:this={elemRef}

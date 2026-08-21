@@ -2,7 +2,7 @@ import { useRef, useState } from 'react'
 import type { ReactNode } from 'react'
 import { VARIANT_DEFAULT } from 'syw-common/constants'
 import type { Manifest } from 'syw-common/types/c2pa'
-import type { ThumbnailPosition, UiEventHandler, UiState } from 'syw-common/types/ui'
+import type { MapOptions, ThumbnailPosition, UiEventHandler, UiState } from 'syw-common/types/ui'
 import { UiContext } from '$src/context/ui'
 
 interface UiProviderProps extends Pick<Partial<UiState>, 'variant'> {
@@ -20,7 +20,7 @@ const UiProvider = ({
 	children
 }: UiProviderProps) => {
 	const [elem, setElem] = useState<HTMLElement | null>(null)
-	const [mapOptions, setMapOptions] = useState<Record<string, unknown> | null>(null)
+	const [mapOptions, setMapOptions] = useState<MapOptions>(null)
 	const [isHoverImage, setIsHoverImage] = useState(false)
 	const [isProvenanceOpen, setIsProvenanceOpen] = useState(false)
 	const [isExplainerOpen, setIsExplainerOpen] = useState(false)
