@@ -13,7 +13,6 @@
 	import createUiStore, { setUiContext } from '$lib/store/ui.js'
 	import Figure from './Figure.svelte'
 	import Media from './Media.svelte'
-	import Explainer from './Explainer.svelte'
 	import Cutline from './Cutline.svelte'
 	import Caption from './Caption.svelte'
 	import ProvenanceModal from './ProvenanceModal.svelte'
@@ -111,9 +110,6 @@
 >
 	<Figure>
 		<Media />
-		{#if variant === 'expand'}
-			<Explainer />
-		{/if}
 		<Cutline />
 		<Caption />
 	</Figure>

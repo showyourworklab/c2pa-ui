@@ -19,7 +19,7 @@ function Manifest({
 	previewRef
 }: ManifestProps) {
 	const [open, setOpen] = useState(false)
-	const { isProvenanceOpen, openManifests, openManifest, closeManifest, removeThumbnail } = useUiContext()
+	const { isProvenanceOpen, openManifests, openManifest, closeManifest } = useUiContext()
 
 	const tabKeys = useMemo(() =>
 		(manifest?.type?.key
@@ -45,7 +45,6 @@ function Manifest({
 
 	// Handle click of manifest preview / header
 	const handleToggle = useCallback((event?: unknown) => {
-		removeThumbnail()
 		setOpen(!open)
 		if(open) {
 			closeManifest(event, manifest)

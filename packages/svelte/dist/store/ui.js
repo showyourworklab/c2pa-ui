@@ -9,10 +9,7 @@ export default function createUiStore() {
     const isHoverImage = writable(false);
     const isProvenanceOpen = writable(false);
     const isExplainerOpen = writable(false);
-    const isThumbnailOpen = writable(false);
     const openManifests = writable({});
-    const thumbnail = writable(null);
-    const thumbnailPosition = writable(null);
     const eventHandler = writable(null);
     const setElem = (value) => {
         elem.set(value);
@@ -65,26 +62,6 @@ export default function createUiStore() {
         openManifests.set(newOpenManifests);
         handleEvent("manifest.close", event, manifest);
     };
-    const openThumbnail = (event) => {
-        isThumbnailOpen.set(true);
-        handleEvent("manifest.thumbnail.open", event);
-    };
-    const closeThumbnail = (event) => {
-        isThumbnailOpen.set(false);
-        handleEvent("manifest.thumbnail.close", event);
-    };
-    const addThumbnail = (value, event) => {
-        thumbnail.set(value);
-        handleEvent("manifest.thumbnail.add", event);
-    };
-    const removeThumbnail = (event) => {
-        thumbnail.set(null);
-        handleEvent("manifest.thumbnail.remove", event);
-    };
-    const updateThumbnailPosition = (event) => {
-        const position = event;
-        thumbnailPosition.set(position);
-    };
     const setEventHandler = (val) => {
         eventHandler.set(val);
     };
@@ -95,10 +72,7 @@ export default function createUiStore() {
         isHoverImage,
         isProvenanceOpen,
         isExplainerOpen,
-        isThumbnailOpen,
         openManifests,
-        thumbnail,
-        thumbnailPosition,
         eventHandler,
         setElem,
         setVariant,
@@ -111,11 +85,6 @@ export default function createUiStore() {
         closeExplainer,
         openManifest,
         closeManifest,
-        openThumbnail,
-        closeThumbnail,
-        addThumbnail,
-        removeThumbnail,
-        updateThumbnailPosition,
         setEventHandler,
     };
 }

@@ -2,36 +2,33 @@
 button.Syw-ExplainerToggle {
 	font-size: var(--syw-text-xs);
 	font-weight: var(--syw-font-weight-bold);
-	transition: all 200ms ease;
-}
-/* Cutline > Explainer > Toggle */
-.Syw-Cutline button.Syw-ExplainerToggle {
-	margin-left: var(--syw-space-2);
-}
-/* Cutline > Explainer > Toggle > Hover */
-.Syw-Cutline button.Syw-ExplainerToggle:hover {
-	color: var(--syw-color-quaternary);
-}
-/* Expand > Cutline > Explainer > Toggle */
-.Syw-App_expand button.Syw-ExplainerToggle {
-	color: var(--color-primary);
-}
-/* Expand > Cutline > Explainer > Toggle > Active */
-.Syw-App_expand.Syw-App_active button.Syw-ExplainerToggle {
-	color: var(--color-secondary);
-}
-.Syw-App_expand.Syw-App_active button.Syw-ExplainerToggle:hover {
-	color: var(--syw-color-tertiary);
-}
-/* Modal > Cutline > Explainer > Toggle > Active */
-.Syw-ProvenanceModal .Syw-Cutline button.Syw-ExplainerToggle {
+	padding: var(--syw-space-1) var(--syw-space-2);
 	color: var(--syw-color-secondary);
+	border-width: 1px;
+	border-style: solid;
+	border-color: var(--syw-color-tertiary);
+	border-radius: var(--syw-radius-md);
+	transition: all 200ms ease;
+	display: flex;
+	align-items: center;
 }
-/* Modal > Cutline > Explainer > Toggle > Active > Hover */
-.Syw-ProvenanceModal .Syw-Cutline button.Syw-ExplainerToggle:hover {
+button.Syw-ExplainerToggle:hover {
+	color: var(--syw-color-quaternary);
+	background-color: var(--syw-color-secondary);
+	border-color: var(--syw-color-secondary);
+}
+button.Syw-ExplainerToggle[aria-pressed="true"] {
+	color: var(--syw-color-primary);
+	background-color: var(--syw-color-secondary);
+	border-color: var(--syw-color-secondary);
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+button.Syw-ExplainerToggle[aria-pressed="true"]:hover {
 	color: var(--syw-color-quaternary);
 }
-/* Modal > Cutline > Explainer > Toggle */
-.Syw-ProvenanceModal button.Syw-ExplainerToggle {
-	color: var(--color-secondary);
+button.Syw-ExplainerToggle svg {
+	width: var(--syw-space-4);
+	height: var(--syw-space-4);
+	margin-left: var(--syw-space-2);
 }

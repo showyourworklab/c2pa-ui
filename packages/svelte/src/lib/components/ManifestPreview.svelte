@@ -27,11 +27,10 @@
 
 	const { locale, getText } = getI18nContext();
 	const {
-		openManifest, closeManifest, updateThumbnailPosition, openThumbnail, closeThumbnail, addThumbnail, removeThumbnail
+		openManifest, closeManifest
 	} = getUiContext();
 
 	const handleClick = ((event: unknown) => {
-		removeThumbnail()
 		if(open) {
 			closeManifest(event, manifest)
 		} else {
@@ -42,18 +41,6 @@
 	const handleKeyDown = (event: KeyboardEvent) => {
 		handleA11yClick(event, handleClick)
 	}
-
-	// const handleThumbnailMouseMove = event => {
-	// 	updateThumbnailPosition(event)
-	// }
-	// const handleThumbnailMouseEnter = event => {
-	// 	openThumbnail(event)
-	// 	addThumbnail(manifest?.thumbnail, event)
-	// }
-	// const handleThumbnailMouseLeave = event => {
-	// 	closeThumbnail(event)
-	// 	removeThumbnail(event)
-	// }
 
 </script>
 
@@ -101,15 +88,10 @@
 				<span>{getDateString($locale, manifest?.timestamp ?? undefined) ?? ''}</span>
 			</div>
 			<div
-				// role='button'
-				// tabindex={0}
 				class={classNames(
 					'ManifestPreviewCell',
 					'ManifestPreviewCell_thumb'
 				)}
-				// onmousemove={handleThumbnailMouseMove}
-				// onmouseenter={handleThumbnailMouseEnter}
-				// onmouseleave={handleThumbnailMouseLeave}
 			>
 				{#if manifest?.thumbnail}
 					<img

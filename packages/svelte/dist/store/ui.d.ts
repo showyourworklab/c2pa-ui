@@ -1,5 +1,5 @@
-import type { Manifest, ManifestThumbnail } from 'syw-common/types/c2pa';
-import type { MapOptions, ThumbnailPosition, UiEventHandler, Variant } from 'syw-common/types/ui';
+import type { Manifest } from 'syw-common/types/c2pa';
+import type { MapOptions, UiEventHandler, Variant } from 'syw-common/types/ui';
 export default function createUiStore(): {
     elem: import("svelte/store").Writable<HTMLElement>;
     variant: import("svelte/store").Writable<string>;
@@ -7,10 +7,7 @@ export default function createUiStore(): {
     isHoverImage: import("svelte/store").Writable<boolean>;
     isProvenanceOpen: import("svelte/store").Writable<boolean>;
     isExplainerOpen: import("svelte/store").Writable<boolean>;
-    isThumbnailOpen: import("svelte/store").Writable<boolean>;
     openManifests: import("svelte/store").Writable<Record<string, Manifest>>;
-    thumbnail: import("svelte/store").Writable<string>;
-    thumbnailPosition: import("svelte/store").Writable<ThumbnailPosition>;
     eventHandler: import("svelte/store").Writable<UiEventHandler>;
     setElem: (value: HTMLElement | null) => void;
     setVariant: (value: Variant | string) => void;
@@ -23,11 +20,6 @@ export default function createUiStore(): {
     closeExplainer: (event?: unknown) => void;
     openManifest: (event: unknown, manifest: Manifest) => void;
     closeManifest: (event: unknown, manifest: Manifest) => void;
-    openThumbnail: (event?: unknown) => void;
-    closeThumbnail: (event?: unknown) => void;
-    addThumbnail: (value: ManifestThumbnail, event?: unknown) => void;
-    removeThumbnail: (event?: unknown) => void;
-    updateThumbnailPosition: (event: ThumbnailPosition) => void;
     setEventHandler: (val: UiEventHandler | null) => void;
 };
 export type UiStore = ReturnType<typeof createUiStore>;
@@ -38,10 +30,7 @@ export declare const setUiContext: (store: UiStore) => {
     isHoverImage: import("svelte/store").Writable<boolean>;
     isProvenanceOpen: import("svelte/store").Writable<boolean>;
     isExplainerOpen: import("svelte/store").Writable<boolean>;
-    isThumbnailOpen: import("svelte/store").Writable<boolean>;
     openManifests: import("svelte/store").Writable<Record<string, Manifest>>;
-    thumbnail: import("svelte/store").Writable<string>;
-    thumbnailPosition: import("svelte/store").Writable<ThumbnailPosition>;
     eventHandler: import("svelte/store").Writable<UiEventHandler>;
     setElem: (value: HTMLElement | null) => void;
     setVariant: (value: Variant | string) => void;
@@ -54,11 +43,6 @@ export declare const setUiContext: (store: UiStore) => {
     closeExplainer: (event?: unknown) => void;
     openManifest: (event: unknown, manifest: Manifest) => void;
     closeManifest: (event: unknown, manifest: Manifest) => void;
-    openThumbnail: (event?: unknown) => void;
-    closeThumbnail: (event?: unknown) => void;
-    addThumbnail: (value: ManifestThumbnail, event?: unknown) => void;
-    removeThumbnail: (event?: unknown) => void;
-    updateThumbnailPosition: (event: ThumbnailPosition) => void;
     setEventHandler: (val: UiEventHandler | null) => void;
 };
 export declare const getUiContext: () => {
@@ -68,10 +52,7 @@ export declare const getUiContext: () => {
     isHoverImage: import("svelte/store").Writable<boolean>;
     isProvenanceOpen: import("svelte/store").Writable<boolean>;
     isExplainerOpen: import("svelte/store").Writable<boolean>;
-    isThumbnailOpen: import("svelte/store").Writable<boolean>;
     openManifests: import("svelte/store").Writable<Record<string, Manifest>>;
-    thumbnail: import("svelte/store").Writable<string>;
-    thumbnailPosition: import("svelte/store").Writable<ThumbnailPosition>;
     eventHandler: import("svelte/store").Writable<UiEventHandler>;
     setElem: (value: HTMLElement | null) => void;
     setVariant: (value: Variant | string) => void;
@@ -84,10 +65,5 @@ export declare const getUiContext: () => {
     closeExplainer: (event?: unknown) => void;
     openManifest: (event: unknown, manifest: Manifest) => void;
     closeManifest: (event: unknown, manifest: Manifest) => void;
-    openThumbnail: (event?: unknown) => void;
-    closeThumbnail: (event?: unknown) => void;
-    addThumbnail: (value: ManifestThumbnail, event?: unknown) => void;
-    removeThumbnail: (event?: unknown) => void;
-    updateThumbnailPosition: (event: ThumbnailPosition) => void;
     setEventHandler: (val: UiEventHandler | null) => void;
 };

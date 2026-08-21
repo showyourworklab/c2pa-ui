@@ -80,8 +80,6 @@ export default function Example() {
 - `explainer.close`
 - `manifest.open`
 - `manifest.close`
-- `manifest.thumbnail.open`
-- `manifest.thumbnail.close`
 
 ### `parseSywData(src, options)`
 

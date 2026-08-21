@@ -14,12 +14,16 @@
 	padding-left: var(--syw-space-6);
 	color: var(--syw-color-secondary);
 }
-/* Provenance > Verify */
-.Syw-ProvenanceVerify {
+/* Provenance > Footer */
+.Syw-ProvenanceFooter {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 	margin-top: var(--syw-space-3);
 	color: var(--syw-color-secondary);
 	font-size: var(--syw-text-xs);
 }
+/* Provenance > Verify */
 .Syw-ProvenanceVerify > a {
-	color: var(--syw-color-secondary) !important;
+	color: currentColor;
 }

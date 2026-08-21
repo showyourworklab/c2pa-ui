@@ -2,7 +2,7 @@ import { useRef, useState } from 'react'
 import type { ReactNode } from 'react'
 import { VARIANT_DEFAULT } from 'syw-common/constants'
 import type { Manifest } from 'syw-common/types/c2pa'
-import type { MapOptions, ThumbnailPosition, UiEventHandler, UiState } from 'syw-common/types/ui'
+import type { MapOptions, UiEventHandler, UiState } from 'syw-common/types/ui'
 import { UiContext } from '$src/context/ui'
 
 interface UiProviderProps extends Pick<Partial<UiState>, 'variant'> {
@@ -24,9 +24,6 @@ const UiProvider = ({
 	const [isHoverImage, setIsHoverImage] = useState(false)
 	const [isProvenanceOpen, setIsProvenanceOpen] = useState(false)
 	const [isExplainerOpen, setIsExplainerOpen] = useState(false)
-	const [isThumbnailOpen, setIsThumbnailOpen] = useState(false)
-	const [thumbnail, setThumbnail] = useState<Manifest['thumbnail']>(null)
-	const [thumbnailPosition, setThumbnailPosition] = useState<ThumbnailPosition | null>(null)
 	const openManifests = useRef<Record<string, Manifest>>({})
 	const eventHandler = useRef<UiEventHandler | null>(null)
 
@@ -73,26 +70,6 @@ const UiProvider = ({
 		openManifests.current = newManifestsOpen
 		handleEvent("manifest.close", event, manifest)
 	}
-	const openThumbnail = (event?: unknown) => {
-		setIsThumbnailOpen(true)
-		handleEvent("manifest.thumbnail.open", event)
-	}
-	const closeThumbnail = (event?: unknown) => {
-		setIsThumbnailOpen(false)
-		handleEvent("manifest.thumbnail.close", event)
-	}
-	const addThumbnail = (value: Manifest['thumbnail'], event?: unknown) => {
-		setThumbnail(value)
-		handleEvent("manifest.thumbnail.add", event)
-	}
-	const removeThumbnail = (event?: unknown) => {
-		setThumbnail(null)
-		handleEvent("manifest.thumbnail.remove", event)
-	}
-	const updateThumbnailPosition = (event: ThumbnailPosition) => {
-		const position = event
-		setThumbnailPosition(position)
-	}
 
 	return (
 		<UiContext.Provider
@@ -103,10 +80,7 @@ const UiProvider = ({
 				isHoverImage,
 				isProvenanceOpen,
 				isExplainerOpen,
-				isThumbnailOpen,
 				openManifests: openManifests.current,
-				thumbnail,
-				thumbnailPosition,
 				setElem,
 				setMapOptions,
 				hoverImage,
@@ -117,11 +91,6 @@ const UiProvider = ({
 				closeExplainer,
 				openManifest,
 				closeManifest,
-				openThumbnail,
-				closeThumbnail,
-				addThumbnail,
-				removeThumbnail,
-				updateThumbnailPosition,
 				eventHandler,
 			}}
 		>

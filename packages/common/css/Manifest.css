@@ -13,7 +13,7 @@
 .Syw-Manifest::before {
 	content: '';
 	display: block;
-	width: 1px;
+	width: 3px;
 	height: calc(100% - (var(--syw-size-badge) / 2));
 	position: absolute;
 	z-index: 2;

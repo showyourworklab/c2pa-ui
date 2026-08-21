@@ -7,12 +7,7 @@ export type MapOptions = Record<string, unknown> | null
 
 export type MediaType = 'image' | 'video'
 
-export type IconType = C2paStatus | ManifestTypeKey | 'origin' | 'missing' | 'close'
-
-export interface ThumbnailPosition {
-	clientX: number
-	clientY: number
-}
+export type IconType = C2paStatus | ManifestTypeKey | 'origin' | 'missing' | 'up' | 'down' | 'close'
 
 export interface UiState {
 	variant: Variant | string
@@ -21,10 +16,7 @@ export interface UiState {
 	isHoverImage: boolean
 	isProvenanceOpen: boolean
 	isExplainerOpen: boolean
-	isThumbnailOpen: boolean
 	openManifests: Record<string, Manifest>
-	thumbnail: ManifestThumbnail
-	thumbnailPosition: ThumbnailPosition | null
 }
 
 export type UiEventType =
@@ -36,9 +28,5 @@ export type UiEventType =
 	| 'explainer.close'
 	| 'manifest.open'
 	| 'manifest.close'
-	| 'manifest.thumbnail.open'
-	| 'manifest.thumbnail.close'
-	| 'manifest.thumbnail.add'
-	| 'manifest.thumbnail.remove'
 
 export type UiEventHandler = (type: UiEventType | string, event: unknown, ...args: unknown[]) => void

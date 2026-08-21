@@ -1,16 +1,15 @@
+import 'syw-common/css/styles.css'
 import { useEffect, useMemo, useRef } from 'react'
 import type { ComponentPropsWithoutRef } from 'react'
-import 'syw-common/css/styles.css'
-import { classNames } from 'syw-common/helpers'
 import type { MapOptions, UiEventHandler } from 'syw-common/types/ui'
+import { classNames } from 'syw-common/helpers'
 import { useUiContext } from '$src/context/ui'
 import Figure from './Figure'
 import Cutline from './Cutline'
 import Caption from './Caption'
-import Explainer from './Explainer'
+import Media from './Media'
 import ProvenanceExpand from './ProvenanceExpand'
 import ProvenanceModal from './ProvenanceModal'
-import Media from './Media'
 
 interface AppProps extends Omit<ComponentPropsWithoutRef<'div'>, 'children'> {
 	mapOptions: MapOptions
@@ -63,7 +62,6 @@ function App({
 		>
 			<Figure>
 				<Media />
-				{variant === 'expand' ? <Explainer /> : null}
 				<Cutline />
 				<Caption />
 			</Figure>

@@ -7,6 +7,8 @@
 	import Sparkles from '@lucide/svelte/icons/sparkles'
 	import TriangleAlert from '@lucide/svelte/icons/triangle-alert'
 	import ImageOff from '@lucide/svelte/icons/image-off'
+	import ChevronUp from '@lucide/svelte/icons/chevron-up'
+	import ChevronDown from '@lucide/svelte/icons/chevron-down'
 	import X from '@lucide/svelte/icons/x'
 	import { ICON_DEFAULT_SIZE, ICON_DEFAULT_STROKE_WIDTH } from 'syw-common/constants'
 	import { classNames } from 'syw-common/helpers'
@@ -31,6 +33,8 @@
 		edit: SquarePen,
 		ai: Sparkles,
 		missing: ImageOff,
+		up: ChevronUp,
+		down: ChevronDown,
 		close: X,
 	}
 

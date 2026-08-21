@@ -1,6 +1,7 @@
 import { classNames } from 'syw-common/helpers'
 import type { ExplainerToggleProps } from 'syw-common/types/components'
 import { useUiContext, useI18nContext } from '$src/context'
+import Icon from './Icon'
 
 const ExplainerToggle = ({
 	className
@@ -36,7 +37,12 @@ const ExplainerToggle = ({
 			aria-pressed={isExplainerOpen}
 			onClick={onClick}
 		>
-			{getText('explainer', 'toggle')}
+			<span>
+				{getText('explainer', 'toggle')}
+			</span>
+			<Icon
+				type={isExplainerOpen ? "up" : "down"}
+			/>
 		</button>
 	)
 }

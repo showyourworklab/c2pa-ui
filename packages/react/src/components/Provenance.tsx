@@ -1,20 +1,19 @@
 import { useEffect, useRef } from 'react'
 import { classNames } from 'syw-common/helpers'
-import { getVerifyUrl } from 'syw-common/helpers/c2pa'
-import { VERIFY_BASE_URL } from 'syw-common/constants'
 import { useI18nContext } from '$src/context/i18n'
 import { useDataContext } from '$src/context/data'
 import { useUiContext } from '$src/context/ui'
 import Manifest from './Manifest'
+import Explainer from './Explainer'
+import ExplainerToggle from './ExplainerToggle'
+import ProvenanceVerify from './ProvenanceVerify'
 
 function Provenance() {
 	const ref = useRef<HTMLDivElement>(null)
 	const firstPreviewRef = useRef<HTMLDivElement>(null)
 	const { getText } = useI18nContext()
-	const { src, manifests } = useDataContext()
+	const { manifests } = useDataContext()
 	const { isProvenanceOpen } = useUiContext()
-
-	const verifyUrl = getVerifyUrl(src ?? '')
 
 	useEffect(() => {
 		if(isProvenanceOpen && firstPreviewRef.current) {
@@ -48,17 +47,12 @@ function Provenance() {
 				</div>
 			: null}
 			<div
-				className={classNames('ProvenanceVerify')}
+				className={classNames('ProvenanceFooter')}
 			>
-				{getText('verify', 'pre')}&nbsp;
-				<a
-					href={verifyUrl}
-					target='_blank'
-
-				>
-					{VERIFY_BASE_URL}
-				</a>
+				<ExplainerToggle />
+				<ProvenanceVerify />
 			</div>
+			<Explainer />
 		</div>
 	)
 }

@@ -78,7 +78,7 @@
 	border-radius: var(--syw-radius-lg);
 	border-color: transparent;
 	background-color: var(--syw-color-primary);
-	border-color: var(--syw-color-secondary);
+	border-color: var(--syw-color-tertiary);
 }
 .Syw-ManifestPreview:hover .Syw-ManifestPreviewCell_thumb {
 	/* border-color: var(--syw-color-secondary); */

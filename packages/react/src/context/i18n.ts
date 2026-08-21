@@ -9,7 +9,7 @@ interface I18nContextValue {
 
 const I18nContext = createContext<I18nContextValue>({
 	locale: LOCALE_DEFAULT,
-	getText: (...keys) => null,
+	getText: () => null,
 })
 
 const useI18nContext = () => useContext(I18nContext)

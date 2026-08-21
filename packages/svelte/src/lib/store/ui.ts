@@ -1,8 +1,8 @@
 import { getContext, setContext } from 'svelte'
 import { writable, get } from 'svelte/store'
 import { VARIANT_DEFAULT } from 'syw-common/constants/index'
-import type { Manifest, ManifestThumbnail } from 'syw-common/types/c2pa'
-import type { MapOptions, ThumbnailPosition, UiEventHandler, Variant } from 'syw-common/types/ui'
+import type { Manifest } from 'syw-common/types/c2pa'
+import type { MapOptions, UiEventHandler, Variant } from 'syw-common/types/ui'
 
 const UI_CONTEXT_KEY = Symbol('ui')
 
@@ -14,10 +14,7 @@ export default function createUiStore() {
 	const isHoverImage = writable(false)
 	const isProvenanceOpen = writable(false)
 	const isExplainerOpen = writable(false)
-	const isThumbnailOpen = writable(false)
 	const openManifests = writable<Record<string, Manifest>>({})
-	const thumbnail = writable<ManifestThumbnail>(null)
-	const thumbnailPosition = writable<ThumbnailPosition | null>(null)
 	const eventHandler = writable<UiEventHandler | null>(null)
 
 	const setElem = (value: HTMLElement | null) => {
@@ -78,27 +75,6 @@ export default function createUiStore() {
 		handleEvent("manifest.close", event, manifest)
 	}
 
-	const openThumbnail = (event?: unknown) => {
-		isThumbnailOpen.set(true)
-		handleEvent("manifest.thumbnail.open", event)
-	}
-	const closeThumbnail = (event?: unknown) => {
-		isThumbnailOpen.set(false)
-		handleEvent("manifest.thumbnail.close", event)
-	}
-	const addThumbnail = (value: ManifestThumbnail, event?: unknown) => {
-		thumbnail.set(value)
-		handleEvent("manifest.thumbnail.add", event)
-	}
-	const removeThumbnail = (event?: unknown) => {
-		thumbnail.set(null)
-		handleEvent("manifest.thumbnail.remove", event)
-	}
-	const updateThumbnailPosition = (event: ThumbnailPosition) => {
-		const position = event
-		thumbnailPosition.set(position)
-	}
-
 	const setEventHandler = (val: UiEventHandler | null) => {
 		eventHandler.set(val)
 	}
@@ -110,10 +86,7 @@ export default function createUiStore() {
 		isHoverImage,
 		isProvenanceOpen,
 		isExplainerOpen,
-		isThumbnailOpen,
 		openManifests,
-		thumbnail,
-		thumbnailPosition,
 		eventHandler,
 		setElem,
 		setVariant,
@@ -126,11 +99,6 @@ export default function createUiStore() {
 		closeExplainer,
 		openManifest,
 		closeManifest,
-		openThumbnail,
-		closeThumbnail,
-		addThumbnail,
-		removeThumbnail,
-		updateThumbnailPosition,
 		setEventHandler,
 	}
 }

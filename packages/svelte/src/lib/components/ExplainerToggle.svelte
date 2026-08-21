@@ -2,6 +2,7 @@
 	import { classNames } from 'syw-common/helpers'
 	import { getI18nContext } from '$lib/store/i18n.js'
 	import { getUiContext } from '$lib/store/ui.js'
+    import Icon from './Icon.svelte'
 
 	const { locale, getText } = getI18nContext();
 	const { variant, isExplainerOpen, openExplainer, closeExplainer, openProvenance } = getUiContext();
@@ -27,5 +28,10 @@
 	class={classNames('ExplainerToggle', className)}
 	onclick={handleClick}
 >
-	{getText($locale, 'explainer', 'toggle')}
+	<span>
+		{getText($locale, 'explainer', 'toggle')}
+	</span>
+	<Icon
+		type={$isExplainerOpen ? "up" : "down"}
+	/>
 </button>

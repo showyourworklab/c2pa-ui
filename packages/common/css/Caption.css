@@ -15,7 +15,7 @@
 .Syw-Caption::before {
 	content: "";
 	display: block;
-	width: 1px;
+	width: 3px;
 	z-index: 2;
 	position: absolute;
 	left: calc(var(--syw-space-2) + (var(--syw-size-badge) / 2) - 1.5px);
