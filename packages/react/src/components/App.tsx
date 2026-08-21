@@ -10,6 +10,7 @@ import Caption from './Caption'
 import Media from './Media'
 import ProvenanceExpand from './ProvenanceExpand'
 import ProvenanceModal from './ProvenanceModal'
+import ProvenanceDrawer from './ProvenanceDrawer'
 
 interface AppProps extends Omit<ComponentPropsWithoutRef<'div'>, 'children'> {
 	mapOptions: MapOptions
@@ -67,6 +68,9 @@ function App({
 			</Figure>
 			{variant === 'expand' ? <ProvenanceExpand /> : null}
 			{variant === 'modal' ? <ProvenanceModal /> : null}
+			{variant === 'drawer-left' ? <ProvenanceDrawer direction='left' /> : null}
+			{variant === 'drawer-right' ? <ProvenanceDrawer direction='right' /> : null}
+			{variant === 'drawer-bottom' ? <ProvenanceDrawer direction='bottom' /> : null}
 		</div>
 	)
 }

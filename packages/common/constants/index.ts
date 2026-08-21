@@ -3,9 +3,14 @@ export const VERIFY_BASE_URL = 'verify.contentauthenticity.org'
 //////////////// Variants ///////////////
 export const VARIANT_KEYS = [
 	'expand',
-	'modal'
-] as const
+	'modal',
+	'drawer-left',
+	'drawer-right',
+	'drawer-bottom',
+]
 export const VARIANT_DEFAULT = 'expand'
+// export const VARIANT_DEFAULT = 'drawer-right'
+
 /////////////// Manifests //////////////
 export const MANIFEST_KEYS = [
 	'timestamp',
