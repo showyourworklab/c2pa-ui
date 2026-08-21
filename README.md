@@ -96,7 +96,7 @@ Available as a named export from `syw-react` and `syw-svelte` to read and parse 
 
 ## Shared internal utilities `syw-common`
 
-`syw-common` is a shared private package used across the `react` and `svelte` packages.
+`syw-common` is a shared package used internally across the `react` and `svelte` packages. It's not meant to be imported directly — treat it as an implementation detail of `syw-react`/`syw-svelte`, not a supported API.
 
 - `constants`: defaults and i18n dictionaries
 - `helpers`: C2PA parsing, i18n getters and formatters
@@ -106,22 +106,4 @@ Available as a named export from `syw-react` and `syw-svelte` to read and parse 
 
 ## Contributing
 
-### Get started
-
-#### Install dependencies at the project root
-
-```bash
-npm install
-```
-
-#### Run package locally
-
-```bash
-# Svelte
-npm run svelte:dev
-```
-
-```bash
-# React
-npm run react:dev
-```
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for local dev setup and the release process.
