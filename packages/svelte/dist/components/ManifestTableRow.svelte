@@ -7,6 +7,8 @@
     import Map from './Map.svelte'
 	import Actions from './Actions.svelte'
 	import Generator from './Generator.svelte'
+    import Tooltip from './Tooltip.svelte';
+    import Icon from './Icon.svelte';
 
 	const { locale, getText } = getI18nContext();
 
@@ -35,7 +37,17 @@
 		<div
 			class={classNames('ManifestTableRowLabel')}
 		>
-			{type ? getText($locale, type) : ''}
+			<span>
+				{type ? getText($locale, type) : ''}
+			</span>
+			<Tooltip
+				content={getText($locale, type, "definition")}
+			>
+				<Icon
+					type="info"
+					className={classNames('ManifestTableRowLabelTooltipIcon')}
+				/>
+			</Tooltip>
 		</div>
 		<div
 			class={classNames('ManifestTableRowValue')}

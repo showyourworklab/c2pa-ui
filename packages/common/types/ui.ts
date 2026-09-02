@@ -7,7 +7,7 @@ export type MapOptions = Record<string, unknown> | null
 
 export type MediaType = 'image' | 'video'
 
-export type IconType = C2paStatus | ManifestTypeKey | 'origin' | 'missing' | 'up' | 'down' | 'close'
+export type IconType = C2paStatus | ManifestTypeKey | 'origin' | 'missing' | 'up' | 'down' | 'close' | 'info'
 
 export interface UiState {
 	variant: Variant | string

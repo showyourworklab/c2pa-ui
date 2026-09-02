@@ -1,6 +1,6 @@
-import { Tooltip as ArkTooltip } from '@ark-ui/react/tooltip'
-import { Portal as ArkPortal } from '@ark-ui/react/portal'
 import type { ComponentProps, ReactNode } from 'react'
+import { Portal as ArkPortal } from '@ark-ui/react/portal'
+import { Tooltip as ArkTooltip } from '@ark-ui/react/tooltip'
 import { classNames } from 'syw-common/helpers'
 
 export interface TooltipProps {

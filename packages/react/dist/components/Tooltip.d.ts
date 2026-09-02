@@ -1,5 +1,5 @@
-import { Tooltip as ArkTooltip } from '@ark-ui/react/tooltip';
 import type { ComponentProps, ReactNode } from 'react';
+import { Tooltip as ArkTooltip } from '@ark-ui/react/tooltip';
 export interface TooltipProps {
     content?: ReactNode;
     disabled?: boolean;

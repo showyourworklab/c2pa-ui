@@ -1,14 +1,15 @@
 /* Tooltip > Content */
 .Syw-TooltipContent {
-	--syw-tooltip-text: var(--syw-color-primary);
-	--syw-tooltip-background: var(--syw-color-secondary);
+	--syw-tooltip-text: var(--syw-color-secondary);
+	--syw-tooltip-background: var(--syw-color-primary);
 	--arrow-background: var(--syw-tooltip-text);
 	--arrow-size: 6px;
-	max-width: 400px;
-	padding: var(--syw-space-2);
+	max-width: 300px;
+	padding: var(--syw-space-3);
 	font-family: var(--syw-font-primary);
 	font-weight: var(--syw-font-weight-normal);
 	font-size: var(--syw-text-sm);
+	line-height: 1.3em;
 	border-radius: var(--syw-radius-lg);
 	border-color: currentColor;
 	border-style: solid;

@@ -7,12 +7,19 @@ export const LOCALE_DEFAULTS = {
 } as const
 export const DICTIONARY_EN_US = {
 	producer: 'Produced by',
+	producer_definition: 'The specific camera, app, or software (and version) used to create or modify the file.',
 	timestamp: 'Timestamp',
+	timestamp_definition: '',
 	signator: 'Signed by',
+	signator_definition: '',
 	generator: 'Produced with',
+	generator_definition: '',
 	location: 'Location',
+	location_definition: '',
 	actions: 'Actions',
+	actions_definition: 'A log of the specific edits made to the file.',
 	ingredients: 'Ingredients',
+	ingredients_definition: '',
 	provenance_toggle: 'View Image Origin',
 	provenance_missing: 'No provenance found',
 	// Explainer

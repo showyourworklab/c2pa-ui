@@ -7,6 +7,8 @@ import { useI18nContext } from '$src/context/i18n'
 import Map from './Map'
 import Actions from './Actions'
 import Generator from './Generator'
+import Tooltip from './Tooltip'
+import Icon from './Icon'
 
 function ManifestTableRow({ type, value }: Pick<ManifestTableRowProps, 'type' | 'value'>) {
 	const { locale, getText } = useI18nContext()
@@ -31,20 +33,22 @@ function ManifestTableRow({ type, value }: Pick<ManifestTableRowProps, 'type' | 
 			<div
 				className={classNames('ManifestTableRowLabel')}
 			>
-				{getText(type)}
+				<span>
+					{getText(type)}
+				</span>
+				<Tooltip
+					content={getText(type, "definition")}
+				>
+					<Icon
+						type="info"
+						className={classNames('ManifestTableRowLabelTooltipIcon')}
+					/>
+				</Tooltip>
 			</div>
 			<div
 				className={classNames('ManifestTableRowValue')}
 			>
-				{type === 'location' ?
-					<Map
-						location={value as ManifestLocation}
-					/>
-				: type === 'actions' ?
-					<Actions
-						actions={value as string[]}
-					/>
-				: type === 'generator' ?
+				{type === 'generator' ?
 					(value as ManifestGeneratorEntry[]).map((v, index) =>
 						<Generator
 							key={index}

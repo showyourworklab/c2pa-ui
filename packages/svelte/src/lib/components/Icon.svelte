@@ -9,6 +9,7 @@
 	import ImageOff from '@lucide/svelte/icons/image-off'
 	import ChevronUp from '@lucide/svelte/icons/chevron-up'
 	import ChevronDown from '@lucide/svelte/icons/chevron-down'
+    import Info from '@lucide/svelte/icons/info';
 	import X from '@lucide/svelte/icons/x'
 	import { ICON_DEFAULT_SIZE, ICON_DEFAULT_STROKE_WIDTH } from 'syw-common/constants'
 	import { classNames } from 'syw-common/helpers'
@@ -35,6 +36,7 @@
 		missing: ImageOff,
 		up: ChevronUp,
 		down: ChevronDown,
+		info: Info,
 		close: X,
 	}
 
