@@ -11,6 +11,7 @@ interface ReactBadgeProps extends BadgeProps {
 const Badge = ({
 	type,
 	status,
+	showLabel,
 	TooltipProps: tooltipProps = {},
 	children,
 	className
@@ -24,7 +25,7 @@ const Badge = ({
 					tooltipProps?.ContentProps?.className,
 					'BadgeTooltipContent',
 					type?.key ? `BadgeTooltipContent_${type?.key}` : null,
-					status ? `BadgeTooltipContent_${status}` : null
+					status ? `BadgeTooltipContent_${status}` : null,
 				),
 			}}
 			className={classNames(
@@ -38,14 +39,22 @@ const Badge = ({
 					className,
 					type?.key ? `Badge_${type?.key}` : null,
 					status ? `Badge_${status}` : null,
+					showLabel ? 'Badge_showLabel' : null
 				)}
 			>
-				<Icon
-					type={type?.key ?? status}
-					className={classNames('BadgeIcon')}
-				/>
+				<div
+					className={classNames('BadgeCircle')}
+				>
+					<Icon
+						type={type?.key ?? status}
+						className={classNames('BadgeIcon')}
+					/>
+				</div>
 				<span
-					className='syw-hidden'
+					className={classNames(
+						'BadgeLabel',
+						!showLabel ? 'syw-hidden' : null
+					)}
 				>
 					{children}
 				</span>

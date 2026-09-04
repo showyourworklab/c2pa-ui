@@ -1,0 +1,49 @@
+/* Cutline > Badge */
+.Syw-CutlineBadge {
+	margin: auto 0;
+	display: flex;
+	align-items: center;
+	position: relative;
+	/* background-color: var(--syw-color-secondary); */
+	box-sizing: content-box;
+	/* padding-right: var(--syw-space-2); */
+	/* border-radius: var(--syw-radius-2xl); */
+	/* border-width: 1px 1px 1px 0; */
+	/* border-style: solid; */
+	/* border-color: var(--syw-color-primary); */
+	height: calc(var(--syw-size-badge) + var(--syw-space-1));
+	/* background-color: var(--syw-color-status-invalid-light); */
+}
+.Syw-CutlineBadge .Syw-BadgeCircle {
+	width: calc(var(--syw-size-badge) + var(--syw-space-1));
+	height: calc(var(--syw-size-badge) + var(--syw-space-1));
+	color: var(--syw-color-secondary);
+	border-color: var(--syw-color-primary);
+	background-color: var(--syw-color-primary);
+}
+/* svg.Syw-CutlineBadgeIcon {
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: var(--syw-space-7) !important;
+	height: var(--syw-space-7) !important;
+}
+.Syw-CutlineBadgeInner {
+	display: flex;
+	height: 100%;
+	padding-left: var(--syw-space-8);
+	padding-right: var(--syw-space-4);
+	border-width: 2px;
+	border-style: solid;
+	border-color: var(--syw-color-status-invalid);
+	border-radius: var(--syw-radius-2xl) var(--syw-radius-lg) var(--syw-radius-lg) var(--syw-radius-2xl);
+}
+.Syw-CutlineBadgeInner > svg {
+	width: var(--syw-space-4) !important;
+	height: var(--syw-space-4) !important;
+	display: block;
+}
+.Syw-CutlineBadge svg {
+	
+} */

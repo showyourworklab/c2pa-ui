@@ -5,8 +5,8 @@
 	justify-content: space-between;
 	margin: var(--syw-space-2) auto var(--syw-space-2) auto;
 }
-/* Cutline > Toggles */
-.Syw-CutlineToggles {
+/* Cutline > Tools */
+.Syw-CutlineTools {
 	display: flex;
 	align-content: center;
 }

@@ -2,6 +2,7 @@ import type { MouseEvent } from 'react'
 import { classNames } from 'syw-common/helpers'
 import { useI18nContext, useDataContext, useUiContext } from '$src/context'
 import Badge from './Badge'
+import Icon from './Icon'
 
 const ProvenanceToggle = () => {
 	const { getText } = useI18nContext()
@@ -28,6 +29,9 @@ const ProvenanceToggle = () => {
 			<span>
 				{isProvenanceOpen ? getText('provenance', 'toggle') : getText('provenance', 'toggle')}
 			</span>
+			<Icon
+				type={isProvenanceOpen ? "up" : "down"}
+			/>
 		</button>
 	)
 }

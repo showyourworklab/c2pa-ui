@@ -17,6 +17,12 @@
 .Syw-Cutline button.Syw-ProvenanceToggle .Syw-Badge {
 	margin-right: calc(var(--syw-space-1) * 1.5);
 }
+/* Toggle Provenance > Arrow */
+.Syw-Cutline button.Syw-ProvenanceToggle > .Syw-Icon {
+	width: var(--syw-space-4);
+	height: var(--syw-space-4);
+	margin-left: var(--syw-space-2);
+}
 /* Toggle Provenance > Ornament */
 /* .Syw-Cutline button.Syw-ProvenanceToggle::before {
 	content: '';
@@ -42,11 +48,11 @@
 	background-color: var(--syw-color-quaternary);
 }
 /* Toggle Provenance > Hovered > Badge */
-.Syw-Cutline button.Syw-ProvenanceToggle:hover .Syw-Badge,
+/* .Syw-Cutline button.Syw-ProvenanceToggle:hover .Syw-Badge,
 .Syw-App_hovered .Syw-Cutline button.Syw-ProvenanceToggle .Syw-Badge,
 .Syw-App_hovered .Syw-Cutline button.Syw-ProvenanceToggle .Syw-Badge {
 	color: var(--syw-color-quaternary);
-}
+} */
 /* Toggle Provenance > Hovered > Ornament */
 /* .Syw-Cutline button.Syw-ProvenanceToggle:hover::before,
 .Syw-App_hovered .Syw-Cutline button.Syw-ProvenanceToggle::before {

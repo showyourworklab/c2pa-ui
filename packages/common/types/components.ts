@@ -13,6 +13,7 @@ export interface ActionsProps extends ComponentProps {
 export interface BadgeProps extends ComponentProps {
 	type?: ManifestType | null
 	status?: C2paStatus
+	showLabel?: boolean
 }
 
 export interface CollapseProps extends ComponentProps {
@@ -83,4 +84,6 @@ export interface StatusBadgeProps extends ComponentProps {
 export interface TypeBadgeProps extends ComponentProps {
 	value: ManifestType | null | undefined
 	status?: C2paStatus
+	showLabel?: boolean
+	
 }

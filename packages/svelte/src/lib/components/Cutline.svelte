@@ -6,9 +6,5 @@
 <div
 	class={classNames('Cutline')}
 >
-	<div
-		class={classNames('CutlineToggles')}
-	>
-		<ProvenanceToggle />
-	</div>
+	<ProvenanceToggle />
 </div>
