@@ -331,6 +331,7 @@ export const getSignator = (manifest: C2paManifest | null | undefined) =>
  */
 export const getTimestamp = (manifest: C2paManifest | null | undefined): ManifestTimestamp | null => {
 	// TODO: track where the time came from (EXIF or signature) and if the offset was found (via GPS or not) and pass a source key that can properly label the assumed accuracy of the time
+	// TODO: Prioritize TSA trusted timestamps
 	let date: Date | undefined, offset: string | null | undefined
 	if(getExifValue(manifest, 'DateTimeOriginal')) {
 		const exifDateTime = getExifValue(manifest, 'DateTimeOriginal') as string

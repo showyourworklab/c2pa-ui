@@ -60,7 +60,6 @@ export interface ManifestTableProps extends ComponentProps {
 
 export interface ManifestTableRowProps extends ComponentProps {
 	type: ManifestFieldKey
-	value: unknown
 	manifest: Manifest
 }
 

@@ -11,7 +11,7 @@ function ManifestTable({ keys = [], manifest }: ManifestTableProps) {
 				<ManifestTableRow
 					key={key}
 					type={key}
-					value={manifest[key]}
+					manifest={manifest}
 				/>
 			)}
 		</ul>

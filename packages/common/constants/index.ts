@@ -15,8 +15,8 @@ export const VARIANT_DEFAULT = 'expand'
 export const MANIFEST_KEYS = [
 	'timestamp',
 	'producer',
-	'signator',
 	'generator',
+	'signator',
 	'actions',
 	// 'ingredients',
 	// 'verify',
@@ -25,8 +25,8 @@ export const MANIFEST_KEYS = [
 export const MANIFEST_PRIMARY_KEYS = [
 	'timestamp',
 	'producer',
-	'signator',
 	'generator',
+	'signator',
 ] as const
 export const MANIFEST_SECONDARY_KEYS = [
 	'location',
@@ -34,8 +34,8 @@ export const MANIFEST_SECONDARY_KEYS = [
 	'thumbnail'
 ] as const
 export const MANIFEST_PREVIEW_TITLE_KEYS = [
+	'generator',
 	'signator',
-	'generator'
 ] as const
 export const MANIFEST_CONTENT_TAB_KEYS = {
 	camera: ['thumbnail', 'location'],
